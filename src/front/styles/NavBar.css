@@ -14,7 +14,7 @@
 #professor,
 #search {
   color: rgba(255, 255, 255, 0.69);
-  margin-right: 5rem;
+  margin-right: 1rem;
   margin-top: 1rem;
 }
 
@@ -70,5 +70,10 @@ button:active:after {
 
 #cart {
   margin-left: 22rem;
+  margin-right: 1rem;
+  color: rgba(217, 100, 89, 1);
+}
+#logIn {
+  color: rgba(217, 100, 89, 1);
   margin-right: 1rem;
 }

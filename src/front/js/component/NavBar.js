@@ -3,32 +3,28 @@ import "../../../front/styles/NavBar.css";
 
 export const Navbar = () => {
   return (
-    <div classNameName="Back">
-      <nav id="NavBack" classNameName="nav nav-pills flex-column flex-sm-row">
-        <a
-          id="logo"
-          classNameName="flex-sm-fill text-sm-center nav-link"
-          href="#"
-        >
+    <div className="Back">
+      <nav id="NavBack" className="nav nav-pills flex-column flex-sm-row">
+        <a id="logo" className="flex-sm-fill text-sm-center nav-link" href="#">
           We Cook!
         </a>
         <a
           id="categories"
-          classNameName="flex-sm-fill text-sm-center nav-link"
+          className="flex-sm-fill text-sm-center nav-link"
           href="#"
         >
           Categories
         </a>
         <a
           id="student"
-          classNameName="flex-sm-fill text-sm-center nav-link"
+          className="flex-sm-fill text-sm-center nav-link"
           href="#"
         >
           Student
         </a>
         <a
           id="professor"
-          classNameName="flex-sm-fill text-sm-center nav-link "
+          className="flex-sm-fill text-sm-center nav-link "
           href="#"
         >
           Professor
@@ -36,7 +32,7 @@ export const Navbar = () => {
 
         <a
           id="search"
-          classNameName="flex-sm-fill text-sm-center nav-link "
+          className="flex-sm-fill text-sm-center nav-link "
           href="#"
         >
           Search
