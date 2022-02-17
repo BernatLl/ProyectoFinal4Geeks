@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import logo from "../../img/logo.png"
 import "../../styles/footer.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faInstagramSquare, faFacebookSquare, faLinkedin, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center">
@@ -11,10 +13,11 @@ export const Footer = () => (
 					<img src={logo}/>
 					<h1>Find Us:</h1>
 					<div>
-						<i>Instagram</i>
-						<i>Twitter</i>
-						<i>Facebook</i>
-						<i>LinkedIn</i>
+					<FontAwesomeIcon icon="fa-brands fa-instagram-square" className="icon"/>
+					<FontAwesomeIcon icon="fa-brands fa-twitter-square" className="icon"/>
+					<FontAwesomeIcon icon="fa-brands fa-facebook-square" className="icon"/>
+					<FontAwesomeIcon icon="fa-brands fa-linkedin" className="icon"/>
+						
 					</div>
 					</div>
 					<div className="col">
