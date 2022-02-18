@@ -1,12 +1,12 @@
 import React from "react";
 import "../../../front/styles/NavBar.css";
-
+import logo from "../../img/NavEdit.png";
 export const Navbar = () => {
   return (
     <div className="Back">
       <nav id="NavBack" className="nav nav-pills flex-column flex-sm-row">
         <a id="logo" className="flex-sm-fill text-sm-center nav-link" href="#">
-          We Cook!
+          <img className="logo" src={logo}></img>
         </a>
         <a
           id="categories"
