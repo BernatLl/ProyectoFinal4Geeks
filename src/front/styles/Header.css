@@ -1,0 +1,21 @@
+.Bourdain {
+  z-index: 0;
+  position: relative;
+  vertical-align: top;
+  color: white;
+  left: 5rem;
+  text-align: left;
+  padding: 1%;
+}
+img {
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+}
+.Anthony {
+  color: rgba(217, 100, 89, 1);
+  justify-content: left;
+  margin-top: 2rem;
+  left: 8rem;
+  position: relative;
+}

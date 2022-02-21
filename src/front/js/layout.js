@@ -8,7 +8,7 @@ import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/NavBar";
-import { Footer } from "./component/footer";
+import { Header } from "../js/component/Header";
 
 //create your first component
 const Layout = () => {
@@ -18,26 +18,8 @@ const Layout = () => {
 
   return (
     <div>
-      <BrowserRouter basename={basename}>
-        <ScrollToTop>
-          <Navbar />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/demo">
-              <Demo />
-            </Route>
-            <Route exact path="/single/:theid">
-              <Single />
-            </Route>
-            <Route>
-              <h1>Not found!</h1>
-            </Route>
-          </Switch>
-          <Footer />
-        </ScrollToTop>
-      </BrowserRouter>
+      <Navbar />
+      <Header />
     </div>
   );
 };
