@@ -32,26 +32,80 @@ img {
   height: 20rem;
   width: 40rem;
   margin-top: 20rem;
-}
-
-#TopFive {
-  z-index: 1;
+  padding: 2rem;
 }
 
 .StuPic {
   height: 20rem;
   width: 30rem;
   margin-left: 5rem;
-  margin-top: 4rem;
-  position: absolute;
+  margin-top: 5rem;
+  margin-right: 0.5rem;
+  position: relative;
+  border-radius: 10px;
 }
 .Students {
-  background-color: rgba(134, 96, 76, 0.35);
+  height: 25rem;
+  margin: auto;
+  display: flex;
 }
 .StudentSide {
-  background-color: red;
+  display: flex;
+  align-items: center;
+  background-color: rgba(29, 29, 29);
+  z-index: -1;
+  margin-top: 0%;
 }
 
 .StudentsText {
-  background-color: rgba(134, 96, 76, 0.35);
+  position: relative;
+  margin-top: 5rem;
+  background-color: rgb(92, 64, 48);
+  height: auto;
+  width: 40rem;
+  text-align: center;
+  border-radius: 10px;
+}
+h6 {
+  padding: 4rem;
+}
+
+h5 {
+  text-align: center;
+  color: rgba(217, 100, 89, 1);
+}
+
+.ProfePic {
+  height: 20rem;
+  width: 30rem;
+  margin-left: 0.5rem;
+  margin-top: 5rem;
+  margin-right: 5rem;
+  position: relative;
+  border-radius: 10px;
+}
+
+.Professor {
+  height: 25rem;
+  margin: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 5rem;
+}
+
+.ProfessorSide {
+  display: flex;
+  align-items: center;
+  background-color: rgb(29, 29, 29);
+  z-index: -1;
+}
+
+.ProfeText {
+  position: relative;
+  margin-top: 5rem;
+  background-color: rgb(92, 64, 48);
+  height: auto;
+  width: 40rem;
+  text-align: center;
+  border-radius: 10px;
 }
