@@ -7,10 +7,11 @@
     flex-direction: row;
     justify-content:start;
     overflow-y: hidden;
+    margin-bottom: 5%;
 }
 .card-link {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
    
+     
 }
