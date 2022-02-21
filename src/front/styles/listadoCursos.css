@@ -2,3 +2,15 @@
     color: #D96459;
 
 }
+.container-cursos{
+    display: flex;
+    flex-direction: row;
+    justify-content:start;
+    overflow-y: hidden;
+}
+.card-link {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+   
+}

@@ -11,27 +11,27 @@ export const FormContacto=()=>{
             <form className="row g-3">
 
                     <div className="col-12">
-                        <label for="inputName" className="form-label">Name</label>
+                        <label htmlFor="inputName" className="form-label">Name</label>
                         <input type="text" className="form-control" id="inputName" placeholder="Name"/>
                     </div>
                     <div className="col-md-12">
-                        <label for="inputEmail4" className="form-label">Email</label>
+                        <label htmlFor="inputEmail4" className="form-label">Email</label>
                         <input type="email" className="form-control" id="inputEmail4"/>
                     </div>
                                        
                    
                     <div className="col-md-12">
-                        <label for="inputPhoneNumber" className="form-label">Phone Number</label>
+                        <label htmlFor="inputPhoneNumber" className="form-label">Phone Number</label>
                         <input type="text" className="form-control" id="inputPhoneNumber"/>
                     </div>
                     <div className="col-md-12">
-                        <span class="inputText">Comment</span>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <span className="inputText">Comment</span>
+                        <textarea className="form-control" aria-label="With textarea"></textarea>
                     </div>
                     <div className="col-12">
                         <div className="form-check">
                         <input className="form-check-input" type="checkbox" id="gridCheck"/>
-                        <label className="form-check-label" for="gridCheck">
+                        <label className="form-check-label" htmlFor="gridCheck">
                             Check me out
                         </label>
                         </div>
