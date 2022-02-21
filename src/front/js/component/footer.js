@@ -14,10 +14,10 @@ export const Footer = () => (
 						<h1>Find Us:</h1>
 						<div className="media">
 							
-							<FontAwesomeIcon icon={faInstagramSquare} className="socialmedia"/>
-							<FontAwesomeIcon icon={faFacebookSquare} className="socialmedia"/>
-							<FontAwesomeIcon icon={faLinkedin} className="socialmedia"/>
-							<FontAwesomeIcon icon={faTwitterSquare} className="socialmedia"/>
+							<a href=""><FontAwesomeIcon icon={faInstagramSquare} className="socialmedia"/></a>
+							<a href=""><FontAwesomeIcon icon={faFacebookSquare} className="socialmedia"/></a>
+							<a href=""><FontAwesomeIcon icon={faLinkedin} className="socialmedia"/></a>
+							<a href=""><FontAwesomeIcon icon={faTwitterSquare} className="socialmedia"/></a>
 						
 							
 						</div>
