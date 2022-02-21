@@ -9,7 +9,7 @@ export const Navbar = () => {
           <img className="logo" src={logo}></img>
         </a>
         <a
-          class="nav-link dropdown-toggle"
+          className="nav-link dropdown-toggle"
           href="#"
           id="categories"
           role="button"
@@ -18,19 +18,19 @@ export const Navbar = () => {
         >
           Categories
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+        <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Chef
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Style
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Country
             </a>
           </li>
@@ -71,7 +71,7 @@ export const Navbar = () => {
           Cart
         </button>
         <button id="logIn" type="button" className="btn btn-secondary btn-sm">
-          Log In
+          Login
         </button>
       </nav>
     </div>

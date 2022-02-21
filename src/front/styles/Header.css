@@ -1,13 +1,18 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+}
 .Bourdain {
   z-index: 0;
   position: relative;
-  vertical-align: top;
   color: white;
+  top: 5rem;
   left: 5rem;
   text-align: left;
   padding: 1%;
 }
 img {
+  height: auto;
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -18,4 +23,13 @@ img {
   margin-top: 2rem;
   left: 8rem;
   position: relative;
+  top: 5rem;
+}
+
+#TopFive {
+  z-index: 1;
+  position: relative;
+  height: 20rem;
+  width: 40rem;
+  margin-top: 20rem;
 }

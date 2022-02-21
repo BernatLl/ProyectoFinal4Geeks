@@ -8,7 +8,6 @@ import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/NavBar";
-import { Header } from "../js/component/Header";
 
 //create your first component
 const Layout = () => {
@@ -19,7 +18,7 @@ const Layout = () => {
   return (
     <div>
       <Navbar />
-      <Header />
+      <Home />
     </div>
   );
 };
