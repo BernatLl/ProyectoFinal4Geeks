@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "../../img/logo.png"
 import "../../styles/footer.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faInstagramSquare, faFacebookSquare, faLinkedin, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
+import { faInstagramSquare, faFacebookSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center">
@@ -10,15 +10,17 @@ export const Footer = () => (
 				<div className="row">
 					<div className="col">
 					
-					<img src={logo}/>
-					<h1>Find Us:</h1>
-					<div>
-					<FontAwesomeIcon icon="fa-brands fa-instagram-square" className="icon"/>
-					<FontAwesomeIcon icon="fa-brands fa-twitter-square" className="icon"/>
-					<FontAwesomeIcon icon="fa-brands fa-facebook-square" className="icon"/>
-					<FontAwesomeIcon icon="fa-brands fa-linkedin" className="icon"/>
+						<img src={logo}/>
+						<h1>Find Us:</h1>
+						<div className="media">
+							
+							<FontAwesomeIcon icon={faInstagramSquare} className="socialmedia"/>
+							<FontAwesomeIcon icon={faFacebookSquare} className="socialmedia"/>
+							<FontAwesomeIcon icon={faLinkedin} className="socialmedia"/>
+							<FontAwesomeIcon icon={faTwitterSquare} className="socialmedia"/>
 						
-					</div>
+							
+						</div>
 					</div>
 					<div className="col">
 						<ul>

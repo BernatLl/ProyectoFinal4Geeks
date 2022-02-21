@@ -5,8 +5,10 @@
         background-color: black;
         padding: 5%;
        text-align: left;
+       font-size:xx-large;
 }
-.icon {
+.socialmedia {
     font-size: 50pt;
-    color: white;
+    color: blue;
+    margin-right: 5%;
 }
