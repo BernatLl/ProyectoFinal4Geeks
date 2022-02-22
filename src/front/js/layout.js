@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 import { Home } from "./pages/home";
-
+import { Student } from "./pages/student";
 import injectContext from "./store/appContext";
 
 
@@ -24,7 +24,9 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						
+						<Route exact path="/student">
+							<Student />
+						</Route>
 					</Switch>
 					<Footer />
 			
