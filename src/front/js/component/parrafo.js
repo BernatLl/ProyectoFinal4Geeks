@@ -7,28 +7,28 @@ import { Row, Col } from "react-bootstrap";
 export const Parrafo1 =()=>{
     return(
         <>
-        <h1>Public profile</h1>
-        <Form>
-            <fieldset disabled>
-                <Form.Group className="mb-3">
-                    <Form.Label htmlFor="Nickname"></Form.Label>
-                     <Form.Control id="TextInput" placeholder="Nickname" />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label htmlFor="Favorite courses"></Form.Label>
-                     <Form.Control id="TextInput" placeholder="Favorite courses" />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label htmlFor="InterestedIn"></Form.Label>
-                     <Form.Control id="TextInput" placeholder="Interested in" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Example textarea</Form.Label>
-                    <Form.Control as="textarea" rows={3} />
-                 </Form.Group>
- 
-            </fieldset>
-        </Form>
+            <h1>Public profile</h1>
+            <Form>
+                <fieldset disabled>
+                    <Form.Group className="mb-3">
+                        <Form.Label htmlFor="Nickname"></Form.Label>
+                        <Form.Control id="TextInput" placeholder="Nickname" />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label htmlFor="Favorite courses"></Form.Label>
+                        <Form.Control id="TextInput" placeholder="Favorite courses" />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label htmlFor="InterestedIn"></Form.Label>
+                        <Form.Control id="TextInput" placeholder="Interested in" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Example textarea</Form.Label>
+                        <Form.Control as="textarea" rows={3} />
+                    </Form.Group>
+    
+                </fieldset>
+            </Form>
         </>
     )
 }
