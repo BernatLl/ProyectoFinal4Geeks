@@ -9,15 +9,19 @@ import Tabs from 'react-bootstrap/Tabs'
 import { Row, Col } from "react-bootstrap";
 import { Parrafo1, Parrafo2} from "../component/parrafo.js"
 import "../../styles/student.css"
+import rigo from "../../img/rigo-baby.jpg"
 
 
 export const Student = ()=>{
     return(
         <>
-            <div className="container p-0 my-5">
-            <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
-                <Row>
-                    <Col sm={3}>
+            <h1 className="titulo">This is your profile page</h1>
+            <div className="container-fluid p-1 my-5">
+                
+            <Tab.Container id="left-tabs-example" defaultActiveKey="first" className="container-menu">
+                <Row className="marco">
+                    <Col sm={3} className="contenido-menu">
+                        <img src={rigo}  className="fotoperfil" />
                     <Nav justify variant="pills" className="flex-column menu">
                         <Nav.Item>
                         <Nav.Link eventKey="first">Public Profile</Nav.Link>
@@ -39,8 +43,8 @@ export const Student = ()=>{
                         </Nav.Item>
                     </Nav>
                     </Col>
-                    <Col sm={9} className="contenido">
-                    <Tab.Content>
+                    <Col sm={9} className="contenido" >
+                    <Tab.Content >
                         <Tab.Pane eventKey="first">
                         <Parrafo1/>
                         </Tab.Pane>

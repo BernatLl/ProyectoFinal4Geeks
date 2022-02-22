@@ -1,13 +1,65 @@
 import React from "react";
 import "../../styles/parrafo.css"
+import Form from 'react-bootstrap/Form'
+import Button from "react-bootstrap/Form"
+import { Row, Col } from "react-bootstrap";
 
 export const Parrafo1 =()=>{
     return(
-        <p className="prueba">So shall I live, supposing thou art true, Like a deceived husband; so love's face May still seem love to me, though alter'd new; Thy looks with me, thy heart in other place: For there can live no hatred in thine eye, Therefore in that I cannot know thy change. In many's looks, the false heart's history Is writ in moods, and frowns, and wrinkles strange. But heaven in thy creation did decree That in thy face sweet love should ever dwell;</p>
+        <>
+        <h1>Public profile</h1>
+        <Form>
+            <fieldset disabled>
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="Nickname"></Form.Label>
+                     <Form.Control id="TextInput" placeholder="Nickname" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="Favorite courses"></Form.Label>
+                     <Form.Control id="TextInput" placeholder="Favorite courses" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="InterestedIn"></Form.Label>
+                     <Form.Control id="TextInput" placeholder="Interested in" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Example textarea</Form.Label>
+                    <Form.Control as="textarea" rows={3} />
+                 </Form.Group>
+ 
+            </fieldset>
+        </Form>
+        </>
     )
 }
 export const Parrafo2 = ()=>{
     return(
-        <p className="prueba">But be contented: when that fell arrest Without all bail shall carry me away, My life hath in this line some interest, Which for memorial still with thee shall stay. When thou reviewest this, thou dost review The very part was consecrate to thee: The earth can have but earth, which is his due; My spirit is thine, the better part of me: So then thou hast but lost the dregs of life, The prey of worms, my body being dead;</p>
+        <>
+        <h1>Profile</h1>
+        <Form>
+            <fieldset>
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="AddNickname"></Form.Label>
+                     <Form.Control id="TextInput" placeholder="Add a Nickname" />
+                </Form.Group>
+                <Row>
+                    <Form.Group className="mb-3 col-6">
+                        <Form.Label htmlFor="Name"></Form.Label>
+                        <Form.Control id="TextInput" placeholder="Name" />
+                    </Form.Group>
+                    <Form.Group className="mb-3 col-6">
+                        <Form.Label htmlFor="Surname"></Form.Label>
+                        <Form.Control id="TextInput" placeholder="Surnema" />
+                    </Form.Group>
+                </Row>
+
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Example textarea</Form.Label>
+                    <Form.Control as="textarea" rows={3} />
+                 </Form.Group>
+ 
+            </fieldset>
+        </Form>
+        </>
     )
 }
