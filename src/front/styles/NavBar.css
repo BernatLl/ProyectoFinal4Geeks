@@ -6,9 +6,10 @@
 }
 
 .logo {
-  height: 6rem;
-  width: 6rem;
+  height: 5rem;
+  width: 5rem;
   z-index: 2;
+  margin-bottom: rem;
 }
 #categories {
   margin-left: 8rem !important;

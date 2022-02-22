@@ -4,7 +4,11 @@ import logo from "../../img/NavEdit.png";
 export const Navbar = () => {
   return (
     <nav id="NavBack" className="nav nav-pills flex-column flex-md-row">
-      <a id="logo" className="flex-sm-fill text-sm-center nav-link" href="#">
+      <a
+        id="logo"
+        className="flex-sm-fill text-sm-center nav-link"
+        href="https://3000-bernatll-proyectofinal4g-cqtsmybwg7u.ws-eu33.gitpod.io/"
+      >
         <img className="logo" src={logo}></img>
       </a>
       <a
