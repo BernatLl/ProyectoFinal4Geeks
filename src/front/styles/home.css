@@ -11,12 +11,12 @@
   text-align: left;
   padding: 1%;
 }
-img {
+/* img {
   height: auto;
   width: 100%;
-  z-index: -1;
+  z-index: -2;
   position: absolute;
-}
+} */
 .Anthony {
   color: rgba(217, 100, 89, 1);
   justify-content: left;
@@ -27,8 +27,7 @@ img {
 }
 
 .TopFive {
-  z-index: 1;
-  position: relative;
+  z-index: 2;
   height: 20rem;
   width: 40rem;
   margin-top: 10rem;
@@ -109,3 +108,7 @@ h5 {
   text-align: center;
   border-radius: 10px;
 }
+
+/* #foto {
+  z-index: 2;
+} */

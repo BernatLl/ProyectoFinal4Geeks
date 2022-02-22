@@ -45,6 +45,7 @@ export const Home = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
+              id="foto"
               className="d-block w-100"
               src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcomerjapones.com%2Fjiro-dreams-of-sushi&psig=AOvVaw0h3qY5c8Qn_lsPoS-JLUPo&ust=1645547178610000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCND61JGbkfYCFQAAAAAdAAAAABAE"
               alt="Third slide"
@@ -62,14 +63,15 @@ export const Home = () => {
         <div className="StudentSide">
           <div className="Students">
             <img
+              id="foto"
               className="StuPic"
               src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F37%2F2020%2F03%2FOnline-Cooking-Classes.jpg"
             ></img>
 
             <div className="StudentsText">
-              <h6>
-                {" "}
-                <h5>Students</h5>
+              {" "}
+              <h5>Students</h5>
+              <p>
                 Welcome to "We Cook", with us you will be able to access to a
                 digital library with hundreds of professional cooks around the
                 world, do you want to learn how to cut like a professional Click
@@ -78,21 +80,22 @@ export const Home = () => {
                 professional chefs around the world that want to share for a
                 modest price their recipe or skill with the rest of the
                 world!!!!{" "}
-              </h6>
+              </p>
             </div>
           </div>
         </div>
         <div className="ProfessorSide">
           <div className="Professor">
             <img
+              id="foto"
               className="ProfePic"
               src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F37%2F2020%2F03%2FOnline-Cooking-Classes.jpg"
             ></img>
 
             <div className="ProfeText">
-              <h6>
-                {" "}
-                <h5>Professor</h5>
+              {" "}
+              <h5>Professor</h5>
+              <p>
                 Welcome to "We Cook", with us you will be able to access to a
                 digital library with hundreds of professional cooks around the
                 world, do you want to learn how to cut like a professional Click
@@ -101,7 +104,7 @@ export const Home = () => {
                 professional chefs around the world that want to share for a
                 modest price their recipe or skill with the rest of the
                 world!!!!{" "}
-              </h6>
+              </p>
             </div>
           </div>
         </div>
