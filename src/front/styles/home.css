@@ -1,37 +1,32 @@
-.Home {
-  display: flex;
-  flex-direction: column;
-}
-.Bourdain {
-  z-index: 0;
-  position: relative;
-  color: white;
-  top: 5rem;
-  left: 5rem;
-  text-align: left;
-  padding: 1%;
-}
-/* img {
+#BackHead {
   height: auto;
   width: 100%;
   z-index: -2;
   position: absolute;
-} */
+}
+#Bourdain {
+  z-index: 1;
+  position: relative;
+  color: white;
+  left: 5rem;
+  text-align: left;
+  padding: 2%;
+}
 .Anthony {
   color: rgba(217, 100, 89, 1);
   justify-content: left;
-  margin-top: 2rem;
   left: 8rem;
   position: relative;
-  top: 5rem;
 }
 
 .TopFive {
-  z-index: 2;
-  height: 20rem;
-  width: 40rem;
-  margin-top: 10rem;
+  height: 10rem;
+  width: 20rem;
+  margin-top: 5rem;
   padding: 2rem;
+  position: relative;
+  margin-bottom: 15rem;
+  left: 8rem;
 }
 
 .StuPic {
@@ -57,7 +52,6 @@
 }
 
 .StudentsText {
-  position: relative;
   margin-top: 5rem;
   background-color: rgb(92, 64, 48);
   height: auto;
@@ -108,7 +102,3 @@ h5 {
   text-align: center;
   border-radius: 10px;
 }
-
-/* #foto {
-  z-index: 2;
-} */

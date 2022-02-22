@@ -2,13 +2,15 @@ import React from "react";
 import HeaderImg from "../../img/HeaderImg.jpg";
 import "../../styles/home.css";
 import Carousel from "react-bootstrap/Carousel";
-
+import Antho from "../../img/AnthoDain.jpg";
+import Gordom from "../../img/GordomRamsay.jpg";
+import Jiro from "../../img/JirosDream.png";
 export const Home = () => {
   return (
     <div className="BackHome">
       <div className="Home">
         <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-        <div className="Bourdain mt-m">
+        <div className="mt-m" id="Bourdain">
           <h3>If I'm an advocate for anything,</h3>
           <h3>it's to move. As far as you can, </h3>
           <h3>as much as you can. Across the</h3>
@@ -21,22 +23,14 @@ export const Home = () => {
 
         <Carousel className="TopFive">
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://i.pinimg.com/736x/ad/a8/1f/ada81f8e3365b130d3123c8e8395b53b.jpg"
-              alt="First slide"
-            />
+            <img className="d-block w-100" src={Antho} alt="First slide" />
             <Carousel.Caption>
               <h3>First slide label</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fenlacocina.b-cdn.net%2Fwp-content%2Fuploads%2F2017%2F07%2FRamsay-3-1280x640.jpg&imgrefurl=https%3A%2F%2Fenlacocina.telemesa.es%2Fcocina%2Fgordon-ramsay-cocinero-mas-mediatico%2F&tbnid=4XWLbB3hCO1-FM&vet=12ahUKEwjrkO3HmpH2AhVS_SoKHdR8CB0QMygCegUIARDEAQ..i&docid=X9hZ7GeKq3LLzM&w=1280&h=640&q=gordom%20ramsay&ved=2ahUKEwjrkO3HmpH2AhVS_SoKHdR8CB0QMygCegUIARDEAQ"
-              alt="Second slide"
-            />
+            <img className="d-block w-100" src={Gordom} alt="Second slide" />
 
             <Carousel.Caption>
               <h3>Second slide label</h3>
@@ -47,7 +41,7 @@ export const Home = () => {
             <img
               id="foto"
               className="d-block w-100"
-              src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcomerjapones.com%2Fjiro-dreams-of-sushi&psig=AOvVaw0h3qY5c8Qn_lsPoS-JLUPo&ust=1645547178610000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCND61JGbkfYCFQAAAAAdAAAAABAE"
+              src={Jiro}
               alt="Third slide"
             />
 
