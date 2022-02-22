@@ -1,8 +1,3 @@
-.Back {
-  display: flex;
-  flex-direction: column;
-}
-
 #NavBack {
   background-color: rgb(41, 41, 41);
   height: 4rem;
@@ -14,15 +9,16 @@
   height: 6rem;
   width: 6rem;
   z-index: 2;
-  justify-self: start;
 }
-
+#categories {
+  margin-left: 8rem !important;
+}
 #categories,
 #student,
 #professor {
   color: rgba(255, 255, 255, 0.69);
   margin-top: 1rem;
-  margin-left: rem;
+  margin-left: 1rem;
 }
 
 .dropdown-menu {
