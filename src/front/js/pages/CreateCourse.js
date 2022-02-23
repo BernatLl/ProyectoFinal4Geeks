@@ -31,20 +31,20 @@ export const CreateCourse = () => {
                 about the course like a small description of your course, what
                 will you need for it, a brief description about yourself , etc.
                 This will be the first interaction with the final customer so
-                it’s important to choose wisely your words.
+                it's important to choose wisely your words.
               </li>
               <li>
                 <strong>Start creating your course,</strong> it is made in a way
                 that will make easy and fast to understand, in this section you
-                will write all your content step by step with definitions,
-                recomendations, links to other source of extra info, etc. Take
-                in consideration that your objective is to give the most
-                quantity of high value information, describing it in a way that
-                everyone could understand.
+                will write all your content step by step (divided in
+                sections)with definitions, recomendations, links to other source
+                of extra info, etc. Take in consideration that your objective is
+                to give the most quantity of high value information, describing
+                it in a way that everyone could understand.
               </li>
               <li>
                 <strong>Upload your Media Content,</strong> it will be displayed
-                acording to the step or chapter that yo’re in. the idea is to
+                acording to the step or chapter that you're in. the idea is to
                 explain yourself for what you wrote on the chapter. Include
                 (pdf, jpg, png, mp4, mp3)
               </li>
@@ -81,6 +81,12 @@ export const CreateCourse = () => {
                 />
               </Form.Group>
               <Form.Select aria-label="Default select example">
+                <option>Level of complexity</option>
+                <option value="">easy</option>
+                <option value="">Medium</option>
+                <option value="Holanda">Hard</option>
+              </Form.Select>
+              <Form.Select aria-label="Default select example">
                 <option>Country</option>
                 <option value="">Spain</option>
                 <option value="">Venezuela</option>
@@ -102,19 +108,27 @@ export const CreateCourse = () => {
                 <option value="Venezuela">Vegetables</option>
                 <option value="Holanda">Dairy</option>
               </Form.Select>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>
+                  requirements needed in from student to complete it
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="For example: Chicken Breast 1kg"
+                />{" "}
+                <span>Click here to add more ingredients +</span>
+              </Form.Group>
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="formGridEmail">
+                  <Form.Label>Price</Form.Label>
+                  <Form.Control type="text" placeholder="Type the Price in €" />
+                </Form.Group>
+              </Row>{" "}
+              <h4>Section one</h4>
+              <h5>Mise en Place</h5>
             </Row>
-            <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>
-                requirements needed in drom student to complete it
-              </Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="For example: Chicken Breast 1kg"
-              />
-            </Form.Group>
-            <span>Click here to add more ingredients +</span>
             <Button variant="primary" type="submit">
-              Next
+              Submit
             </Button>
           </Form>
         </div>
