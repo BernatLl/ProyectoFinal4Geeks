@@ -7,6 +7,14 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/NavBar";
 import { CreateCourse } from "./pages/CreateCourse";
 
+
+
+import { Student } from "./pages/student";
+
+
+
+import { Footer } from "./component/footer";
+
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -25,11 +33,17 @@ const Layout = () => {
             <Route exact path="/CreateCourse">
               <CreateCourse />
             </Route>
-          </Switch>
+            <Route exact path="/student">
+							<Student />
+						</Route>
+					</Switch>
+					<Footer />
+         
         </div>
       </BrowserRouter>
     </div>
   );
+	
 };
 
 export default injectContext(Layout);

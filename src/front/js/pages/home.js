@@ -1,12 +1,21 @@
-import React from "react";
+
 import HeaderImg from "../../img/HeaderImg.jpg";
 import "../../styles/home.css";
 import Carousel from "react-bootstrap/Carousel";
 import Antho from "../../img/AnthoDain.jpg";
 import Gordom from "../../img/GordomRamsay.jpg";
 import Jiro from "../../img/JirosDream.png";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+
+
+import { MeetTheCrew } from "../component/meetTheCrew.js"
+import { FormContacto } from "../component/formContacto.js";
+import { ListadoCursos } from "../component/listadoCursos.js";
+
 export const Home = () => {
   return (
+    <>
     <div className="BackHome">
       <div className="Home">
         <img id="BackHead" className="mt-m" src={HeaderImg}></img>
@@ -104,5 +113,12 @@ export const Home = () => {
         </div>
       </div>
     </div>
+    <div className="text-center mt-5">
+    <ListadoCursos/>
+    <MeetTheCrew/>
+    <FormContacto/>
+  </div>
+  </>
   );
+	
 };

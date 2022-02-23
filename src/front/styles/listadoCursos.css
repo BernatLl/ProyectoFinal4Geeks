@@ -1,0 +1,16 @@
+.title {
+    color: #D96459;
+
+}
+.container-cursos{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    overflow-y: hidden;
+    margin-bottom: 5%;
+}
+.card-link {
+    display: flex;
+    flex-direction: row;
+    
+}
