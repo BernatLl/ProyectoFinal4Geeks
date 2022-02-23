@@ -1,14 +1,104 @@
-/*
-    home.css: This website contains selectors only used in home.css
+#BackHead {
+  height: auto;
+  width: 100%;
+  z-index: -2;
+  position: absolute;
+}
+#Bourdain {
+  z-index: 1;
+  position: relative;
+  color: white;
+  left: 5rem;
+  text-align: left;
+  padding: 2%;
+}
+.Anthony {
+  color: rgba(217, 100, 89, 1);
+  justify-content: left;
+  left: 8rem;
+  position: relative;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+.TopFive {
+  height: 10rem;
+  width: 20rem;
+  margin-top: 5rem;
+  padding: 2rem;
+  position: relative;
+  margin-bottom: 15rem;
+  left: 8rem;
+}
 
+.StuPic {
+  height: 20rem;
+  width: 30rem;
+  margin-left: 5rem;
+  margin-top: 5rem;
+  margin-right: 0.5rem;
+  position: relative;
+  border-radius: 10px;
+}
+.Students {
+  height: 25rem;
+  margin: auto;
+  display: flex;
+}
+.StudentSide {
+  display: flex;
+  align-items: center;
+  background-color: rgba(29, 29, 29);
+  z-index: -1;
+  margin-top: 0%;
+}
 
+.StudentsText {
+  margin-top: 5rem;
+  background-color: rgb(92, 64, 48);
+  height: auto;
+  width: 40rem;
+  text-align: center;
+  border-radius: 10px;
+}
+h6 {
+  padding: 4rem;
+}
 
-body{
-    background-color: #262626 ;
-   
+h5 {
+  text-align: center;
+  color: rgba(217, 100, 89, 1);
+}
+
+.ProfePic {
+  height: 20rem;
+  width: 30rem;
+  margin-left: 0.5rem;
+  margin-top: 5rem;
+  margin-right: 5rem;
+  position: relative;
+  border-radius: 10px;
+}
+
+.Professor {
+  height: 25rem;
+  margin: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 5rem;
+}
+
+.ProfessorSide {
+  display: flex;
+  align-items: center;
+  background-color: rgb(29, 29, 29);
+  z-index: -1;
+}
+
+.ProfeText {
+  position: relative;
+  margin-top: 5rem;
+  background-color: rgb(92, 64, 48);
+  height: auto;
+  width: 40rem;
+  text-align: center;
+  border-radius: 10px;
 }
