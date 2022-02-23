@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
-
 import Nav from 'react-bootstrap/Nav'
-
 import Tab from 'react-bootstrap/Tab'
-
 import { Row, Col } from "react-bootstrap";
 import { PublicProfile } from "../component/PublicProfile"
 import {Profile} from "../component/Profile"
