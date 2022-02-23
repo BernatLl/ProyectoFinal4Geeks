@@ -1,0 +1,39 @@
+.contenido{
+    background-color: black;
+    border-radius: 0 1%  1% 0 !important;
+    padding: 5%;
+   margin-bottom: 0;
+    overflow-x: visible;
+}
+.marco {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+}
+.contenido-menu {
+    padding-right: 0%;
+    border-radius: 0%;
+}
+.nav-pills .nav-link {
+    background: 0 0;
+    border: 0;
+    border-radius: .25rem 0 0 .25rem;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: black;
+}
+.fotoperfil{
+    border-radius: 50%;
+    margin-bottom: 2%;
+    width: 90%;
+}
+.titulo {
+    background-color: #86604C;
+    color: #D96459;
+    padding: 2%;
+    border-radius: 2%;
+}
+.form-label {
+    color: #D96459;
+}

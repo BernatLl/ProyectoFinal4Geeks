@@ -1,0 +1,14 @@
+.container-footer {
+   
+        width: 100%;
+        margin-top: 50px;
+        background-color: black;
+        padding: 5%;
+       text-align: left;
+       font-size:xx-large;
+}
+.socialmedia {
+    font-size: 50pt;
+    color: blue;
+    margin-right: 5%;
+}
