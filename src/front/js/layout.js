@@ -1,20 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
 import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
-
 import { Navbar } from "./component/NavBar";
 import { CreateCourse } from "./pages/CreateCourse";
-
-
-
 import { Student } from "./pages/student";
-
-
-
 import { Footer } from "./component/footer";
-
+import { Login } from "./pages/login";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -35,6 +27,9 @@ const Layout = () => {
             </Route>
             <Route exact path="/student">
 							<Student />
+						</Route>
+            <Route exact path="/login">
+							<Login />
 						</Route>
 					</Switch>
 					<Footer />
