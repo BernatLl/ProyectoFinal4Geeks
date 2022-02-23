@@ -10,9 +10,13 @@ import { Row, Col } from "react-bootstrap";
 import { PublicProfile, Profile, PaymentMethods, Privacy, Notifications, CloseAccount} from "../component/formProfile.js"
 import "../../styles/student.css"
 import rigo from "../../img/rigo-baby.jpg"
-
+import { ListadoCursos } from "../component/listadoCursos";
+import { Link } from "react-router-dom";
+import ProgressBar from 'react-bootstrap/ProgressBar'
+import "../../styles/listadoCursos.css"
 
 export const Student = ()=>{
+    
     return(
         <>
             <h1 className="titulo">This is your profile page</h1>
@@ -67,6 +71,53 @@ export const Student = ()=>{
                     </Col>
                 </Row>
             </Tab.Container>
+            </div>
+            <h1 className="titulo">My Courses</h1>
+            <div className="container">
+            	
+				<div className="row">
+                <div className="card col-6 m-0.5" >
+                    <img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
+                    <div className="card-body" >
+                            <h5 className="card-title">Master Cutting Class</h5>
+                            <ProgressBar animated striped variant="danger" now={45} label={'45%'} />                             
+                            
+                    </div>
+                </div>
+                <div className="card col-6 m-0.5" >
+                    <img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
+                    <div className="card-body" >
+                            <h5 className="card-title">Master Class Stock</h5>
+                            <ProgressBar animated striped variant="danger" now={60} label={'60%'} /> 
+                    
+                           
+                    </div>
+                </div>
+                </div>
+                <div className="row">
+                <div className="card col-6 m-0.5" >
+                    <img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
+                    <div className="card-body" >
+                            <h5 className="card-title">Beginner Course Risotto</h5>
+                            <ProgressBar animated striped variant="success" now={100} label={'100%'} />                                
+                            
+                    </div>
+                </div>
+                <div className="card col-6 m-0.5" >
+                    <img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
+                    <div className="card-body" >
+                            <h5 className="card-title">Advanced Cook</h5>
+                            <ProgressBar animated striped variant="danger" now={10} label={'10%'} />                                
+                            
+                    </div>
+                </div>
+                </div>
+        
+    </div>		
+            
+            <h1 className="titulo">Recomended for you</h1>
+            <div className="container-fluid p-1 my-5">
+                <ListadoCursos/>
             </div>
         </>
 
