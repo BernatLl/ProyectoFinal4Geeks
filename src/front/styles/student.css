@@ -26,10 +26,14 @@
 .fotoperfil{
     border-radius: 50%;
     margin-bottom: 2%;
+    width: 90%;
 }
 .titulo {
     background-color: #86604C;
     color: #D96459;
     padding: 2%;
     border-radius: 2%;
+}
+.form-label {
+    color: #D96459;
 }

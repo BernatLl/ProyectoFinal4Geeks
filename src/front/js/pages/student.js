@@ -7,7 +7,7 @@ import TabPane from 'react-bootstrap/TabPane'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 import { Row, Col } from "react-bootstrap";
-import { Parrafo1, Parrafo2} from "../component/parrafo.js"
+import { PublicProfile, Profile, PaymentMethods, Privacy, Notifications, CloseAccount} from "../component/formProfile.js"
 import "../../styles/student.css"
 import rigo from "../../img/rigo-baby.jpg"
 
@@ -46,22 +46,22 @@ export const Student = ()=>{
                     <Col sm={9} className="contenido" >
                     <Tab.Content >
                         <Tab.Pane eventKey="first">
-                        <Parrafo1/>
+                        <PublicProfile/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="2">
-                       <Parrafo2/>
+                       <Profile/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="3">
-                        <Parrafo1/>
+                        <PaymentMethods/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="4">
-                       <Parrafo2/>
+                       <Privacy/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="5">
-                        <Parrafo1/>
+                        <Notifications/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="6">
-                       <Parrafo2/>
+                       <CloseAccount/>
                         </Tab.Pane>
                     </Tab.Content>
                     </Col>
