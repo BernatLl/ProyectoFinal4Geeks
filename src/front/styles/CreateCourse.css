@@ -3,12 +3,13 @@ body {
 }
 
 .BackGround {
-  position: fixed;
+  position: flex;
   color: beige;
   background-color: rgba(94, 69, 54, 0.829);
   height: 90%;
+  margin-left: 9rem;
   width: 80%;
-  left: 10rem;
+
   margin-top: 2rem;
 }
 .Tittle,
