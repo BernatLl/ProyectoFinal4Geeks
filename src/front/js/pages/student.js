@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+
 import Nav from 'react-bootstrap/Nav'
-import TabContainer from 'react-bootstrap/TabContainer'
-import TabContent from 'react-bootstrap/TabContent'
-import TabPane from 'react-bootstrap/TabPane'
+
 import Tab from 'react-bootstrap/Tab'
-import Tabs from 'react-bootstrap/Tabs'
+
 import { Row, Col } from "react-bootstrap";
-import { PublicProfile, Profile, PaymentMethods, Privacy, Notifications, CloseAccount} from "../component/formProfile.js"
+import { PublicProfile } from "../component/PublicProfile"
+import {Profile} from "../component/Profile"
+import {PaymentMethods} from "../component/PaymentMethods"
+import {Privacy} from "../component/Privacy"
+import {Notifications} from "../component/Notifications"
+import {CloseAccount} from "../component/CloseAccount.js"
 import "../../styles/student.css"
 import rigo from "../../img/rigo-baby.jpg"
 import { ListadoCursos } from "../component/listadoCursos";
