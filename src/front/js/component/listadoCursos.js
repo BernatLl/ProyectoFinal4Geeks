@@ -4,17 +4,36 @@ import "../../styles/listadoCursos.css";
 import { Link } from "react-router-dom";
 import CardGroup from 'react-bootstrap/CardGroup'
 import Card from 'react-bootstrap/Card'
-
+import Clase from '../../img/claseRemote.jpg'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 export const ListadoCursos = () => {
 	const { store, actions } = useContext(Context);
 
-	useEffect (()=>{
-			{/*actions.loadPeopleData();
-				actions.loadPlanetData();
-				actions.loadStarshipsData();
-                actions.loadPeopleDetail();*/}
-		}, []);
+	const ArrayCursos = [
+		{
+			id: 1,
+			name: 'Curso Rissotto',
+			level: 'Easy'
+
+		},
+		{
+			id:2,
+			name: 'Curso Pasta',
+			level: 'Medium'
+		},
+		{
+			id:3,
+			name: 'Curso Arroz al Horno',
+			level: 'Advanced'
+		},
+		{
+			id:4,
+			name: 'Curso Postres',
+			level: 'Medium'
+		}
+	];
 
 	return(
 		<>
@@ -22,23 +41,22 @@ export const ListadoCursos = () => {
 				Courses List
 			</h1>
 			<div className="container-cursos" >		
-						{/*<Row xs={1} md={2} className="g-4">
-							{Array.from({ length: 4 }).map((_, idx) => (
-								<Col>
-								<Card>
-									<Card.Img variant="top" src="holder.js/100px160" />
-									<Card.Body>
-									<Card.Title>Card title</Card.Title>
-									<Card.Text>
-										This is a longer card with supporting text below as a natural
-										lead-in to additional content. This content is a little bit longer.
-									</Card.Text>
+						{<Row xs={1} md={2} className="g-4">
+							{ArrayCursos.map((select, i) => (
+								<Col key={i}>
+								<Card >
+									<Card.Img className="card-img-top p-5" variant="top" src={Clase} />
+									<Card.Body >
+									<Card.Title>{select.name}</Card.Title>
+										<Card.Text >
+											{select.level}
+										</Card.Text>
 									</Card.Body>
 								</Card>
 								</Col>
 							))}
-							</Row>*/}
-						<div className="card" >
+						</Row>}
+						{/*<div className="card" >
 							<img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
 							<div className="card-body" >
 									<h5 className="card-title">Curso Postre</h5>
@@ -77,6 +95,7 @@ export const ListadoCursos = () => {
 									</div>
 							</div>
 						</div>
+							*/}
 				
 			</div>		
 					
