@@ -72,7 +72,7 @@ export const CreateCourse = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label>Desccribe your course</Form.Label>
+                <Form.Label>Describe your course</Form.Label>
                 <Form.Control
                   type="text"
                   as="textarea"
@@ -110,13 +110,26 @@ export const CreateCourse = () => {
               </Form.Select>
               <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label>
-                  requirements needed in from student to complete it
+                  requirements needed from student to complete it
                 </Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="For example: Chicken Breast 1kg"
+                  placeholder="Please add one by one from utensils like :pans, pots, tipe of knife,etc."
                 />{" "}
-                <span>Click here to add more ingredients +</span>
+                <span>Click here to add utensils requirements +</span>
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>
+                  knowledge and skills required for the student to complete
+                  succesfully the course..
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="For example: cutting lvl advance, wok, wood oven, etc. "
+                />{" "}
+                <span>
+                  Click here to add another required knowledge or skill +
+                </span>
               </Form.Group>
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
@@ -125,7 +138,77 @@ export const CreateCourse = () => {
                 </Form.Group>
               </Row>{" "}
               <h4>Section one</h4>
-              <h5>Mise en Place</h5>
+              <h5>The course</h5>
+              <span>
+                Here you will be able to explain to the student how to get the
+                ingredients ready , how to cut it, etc. Explain to them how to
+                get the mise en place ready for cooking. So for the moment
+                please type all explanation. Down bellow you will be able to
+                upload your video!{" "}
+              </span>
+              <span>
+                First add a title, after choosing a title add the explanation
+                and Video.
+              </span>
+              <span>
+                <strong>recomendations</strong>
+                Please take in consideration that the more details, knowledge
+                and Tips you give the better for the student, making your course
+                more appealing.
+              </span>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Title</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="For example: Vegetables Stock"
+                />{" "}
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label>Brief context</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="I learned this recipe from one of the best chef i know personally and i want to share this recipe to the world"
+                />
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>List of ingredients</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="For example: Vegetables Stock"
+                />{" "}
+                <span>Click here to add ingredients +</span>
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Step Title</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="For example Cutting the vegetables"
+                />{" "}
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label>Step 1</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="Onions: Cut the onions in mirepoix 5mm x 5mm."
+                />
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Please add Video URL</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="https://www.youtube.com/watch?v=MUxtbsAUfp8"
+                />{" "}
+                <span>Click here to add another step +</span>
+              </Form.Group>
+              <a href="">Review Course</a>
             </Row>
             <Button variant="primary" type="submit">
               Submit
