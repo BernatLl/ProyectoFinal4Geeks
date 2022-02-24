@@ -6,6 +6,7 @@ import { Navbar } from "./component/NavBar";
 import { CreateCourse } from "./pages/CreateCourse";
 import { Student } from "./pages/student";
 import { Footer } from "./component/footer";
+import { CourseView } from "./pages/CourseView";
 
 //create your first component
 const Layout = () => {
@@ -25,17 +26,18 @@ const Layout = () => {
             <Route exact path="/CreateCourse">
               <CreateCourse />
             </Route>
+            <Route exact path="/CourseView">
+              <CourseView />
+            </Route>
             <Route exact path="/student">
-							<Student />
-						</Route>
-					</Switch>
-					<Footer />
-         
+              <Student />
+            </Route>
+          </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     </div>
   );
-	
 };
 
 export default injectContext(Layout);
