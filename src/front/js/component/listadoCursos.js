@@ -20,7 +20,7 @@ export const ListadoCursos = () => {
 				Courses List
 			</h1>
 			<div className="container-cursos" >		
-				
+					
 						<div className="card" >
 							<img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
 							<div className="card-body" >
