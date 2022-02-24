@@ -41,7 +41,7 @@ export const ListadoCursos = () => {
 				Courses List
 			</h1>
 			<div className="container-cursos" >		
-						{<Row xs={1} md={2} className="g-4">
+						<Row xs={1} md={2} className="g-4">
 							{ArrayCursos.map((select, i) => (
 								<Col key={i}>
 								<Card >
@@ -55,8 +55,8 @@ export const ListadoCursos = () => {
 								</Card>
 								</Col>
 							))}
-						</Row>}
-						{/*<div className="card" >
+						</Row>
+						{/* <div className="card" >
 							<img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
 							<div className="card-body" >
 									<h5 className="card-title">Curso Postre</h5>
@@ -95,7 +95,7 @@ export const ListadoCursos = () => {
 									</div>
 							</div>
 						</div>
-							*/}
+							 */}
 				
 			</div>		
 					
