@@ -59,11 +59,8 @@
   text-align: center;
   border-radius: 10px;
 }
-h6 {
-  padding: 4rem;
-}
-
-h5 {
+.ProfTittle,
+.StuTittle {
   text-align: center;
   color: rgba(217, 100, 89, 1);
 }

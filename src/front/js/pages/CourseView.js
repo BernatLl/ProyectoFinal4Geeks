@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/CourseView.css";
+import Nav from "react-bootstrap/Nav";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 export const CourseView = () => {
@@ -7,10 +8,11 @@ export const CourseView = () => {
     <div className=" wrapper">
       <div className="Content">
         <div className="Title">
-          <strong>Master Cutting Class</strong>
+          <h4>Master Cutting Class</h4>
         </div>
-        <div className="VideoPlayer">
+        <div className="VideoWrapper">
           <iframe
+            className="VideoPlayer"
             width="560"
             height="315"
             src="https://www.youtube.com/embed/X_qo3lnRS1k"
@@ -20,39 +22,71 @@ export const CourseView = () => {
             allowfullscreen
           ></iframe>
         </div>
-        <div className="Pills">
-          <Tabs
-            defaultActiveKey="home"
-            transition={false}
-            id="noanim-tab-example"
-            className="mb-3"
-          >
-            <Tab eventKey="home" title="Content">
-              <div className="BackTab">
-                <h6 className="TabTittle">Master cuttin class</h6>
-                <div>
-                  This is a test that we 're doing to check that everything is
-                  in order. Greeting to the world{" "}
+
+        <Tabs
+          fill
+          justify
+          defaultActiveKey="profile"
+          id="uncontrolled-tab-example"
+          className="mb-3"
+        >
+          <Tab tabClassName="TabTab" eventKey="home" title="Content">
+            <h6 className="TabTittle">Master cuttin class</h6>
+            <div className="TabContent">
+              This is a test that we 're doing to check that everything is in
+              order. Greeting to the world{" "}
+            </div>
+          </Tab>
+          <Tab tabClassName="TabTab" eventKey="profile" title="Content List">
+            <h6 className="TabTittle">Master cuttin class</h6>{" "}
+            <ol className="TabContent">
+              <li>
+                <div className="SectionTittle">Mise En Place</div>
+                <div className="SectionText">
+                  In this Section we will be get all the ingredients ready
+                  before we start cooking as it is. Let's start by washing all
+                  the vegetables and peel the onions.
                 </div>
-              </div>
-            </Tab>
-            <Tab eventKey="profile" title="Content List">
-              <div className="BackTab">
-                <ol>
-                  <li>p</li>
-                  <li>r</li>
-                  <li>u</li>
-                  <li>e</li>
-                  <li>b</li>
-                  <li>a</li>
-                </ol>
-              </div>
-            </Tab>
-          </Tabs>
-        </div>
-        <div className="SectionTittle"></div>
-        <div className="SectionSub"></div>
-        <div className="Content"></div>
+              </li>
+              <li>
+                <div className="SectionTittle">Onions</div>
+                <div className="SectionText">
+                  The onions should be peeled wiht a "puntilla" like show on the
+                  video. Tip/trick: if you put the onions on warm water for
+                  about 5 minutes, is gonna be easier to clean after.
+                </div>
+              </li>
+              <li>
+                <div className="SectionTittle"></div>
+                <div className="SectionText">
+                  In this Section we will be get all the ingredients ready
+                  before we start cooking as it is.
+                </div>
+              </li>
+              <li>
+                <div className="SectionTittle"></div>
+                <div className="SectionText">
+                  In this Section we will be get all the ingredients ready
+                  before we start cooking as it is.
+                </div>
+              </li>
+              <li>
+                <div className="SectionTittle"></div>
+                <div className="SectionText">
+                  In this Section we will be get all the ingredients ready
+                  before we start cooking as it is.
+                </div>
+              </li>
+              <li>
+                <div className="SectionTittle"></div>
+                <div className="SectionText">
+                  In this Section we will be get all the ingredients ready
+                  before we start cooking as it is.
+                </div>
+              </li>
+            </ol>{" "}
+          </Tab>
+        </Tabs>
       </div>
     </div>
   );
