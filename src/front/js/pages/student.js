@@ -5,8 +5,6 @@ import { Row, Col } from "react-bootstrap";
 import { PublicProfile } from "../component/PublicProfile"
 import {Profile} from "../component/Profile"
 import {PaymentMethods} from "../component/PaymentMethods"
-
-
 import {CloseAccount} from "../component/CloseAccount.js"
 import "../../styles/student.css"
 import rigo from "../../img/rigo-baby.jpg"
