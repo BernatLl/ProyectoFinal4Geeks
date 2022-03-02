@@ -22,9 +22,9 @@ class User(db.Model):
 
 class CardInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cardInfoNum = db.Column(db.Integer(16), unique=True, nullable=False)
-    cardInfoDate = db.Column(db.Integer(8), unique=True, nullable=False)
-    cardInfoCVC = db.Column(db.Integer(3), unique=True, nullable=False)
+    cardInfoNum = db.Column(db.Integer, unique=True, nullable=False)
+    cardInfoDate = db.Column(db.Integer, unique=True, nullable=False)
+    cardInfoCVC = db.Column(db.Integer, unique=True, nullable=False)
 
     def __repr__(self):
         return f'Student {self.id}'
@@ -40,9 +40,6 @@ class Student(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     fullName = db.Column(db.String(120), unique=False, nullable=False)
     studentDescription = db.Column(db.String(400), unique=False, nullable=False)
-    cardInfoNum = db.Column(db.Integer(16), unique=True, nullable=False)
-    cardInfoDate = db.Column(db.Integer(8), unique=True, nullable=False)
-    cardInfoCVC = db.Column(db.Integer(3), unique=True, nullable=False)
     address = db.Column(db.String(120), unique=False, nullable=False)
     tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('student', lazy=True))
     
@@ -55,9 +52,10 @@ class Chef(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     fullName = db.Column(db.String(120), nullable=False)
     chefDescription = db.Column(db.String(400), unique=False, nullable=False)
-    bankInfo = db.Column(db.Integer(16), unique=True, nullable=False)
+    bankInfo = db.Column(db.Integer, unique=True, nullable=False)
     address = db.Column(db.String(120), unique=False, nullable=False)
-    
+    course = db.relationship("Course", back_populates="chef")
+
     def __repr__(self):
         return f'Chef {self.id}'
 
@@ -65,7 +63,6 @@ class Chef(db.Model):
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     courseName = db.Column(db.String(120), unique=False, nullable=False)
-    chefId = db.Column(db.Integer, primary_key=True)
     dificulty = db.Column(db.String(20), unique=False, nullable=False)
     style = db.Column(db.String(50), unique=False, nullable=False)
     country = db.Column(db.String(50), unique=False, nullable=False)
@@ -77,6 +74,8 @@ class Course(db.Model):
     price = db.Column(db.Float, unique=False, nullable=False)
     title = db.Column(db.String(50), unique=False, nullable=False)
     video = db.Column(db.String(240), unique=False, nullable=False)
+    chef_id = db.Column(db.Integer, ForeignKey('chef.id'))
+    chef = db.relationship("Chef", back_populates="course")
 
     def __repr__(self):
         return f'Course {self.id}'
