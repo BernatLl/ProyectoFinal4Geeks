@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import { PublicProfile } from "../component/PublicProfile"
 import {Profile} from "../component/Profile"
 import {PaymentMethods} from "../component/PaymentMethods"
-import {Privacy} from "../component/Privacy"
+
 import {Notifications} from "../component/Notifications"
 import {CloseAccount} from "../component/CloseAccount.js"
 import "../../styles/student.css"
