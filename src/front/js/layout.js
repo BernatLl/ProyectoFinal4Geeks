@@ -15,28 +15,24 @@ const Layout = () => {
   const basename = process.env.BASENAME || "We Cook!";
 
   return (
-    <div>
-      <BrowserRouter>
-        <div>
-          <NavTop />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/CreateCourse">
-              <CreateCourse />
-            </Route>
-            <Route exact path="/CourseView">
-              <CourseView />
-            </Route>
-            <Route exact path="/student">
-              <Student />
-            </Route>
-          </Switch>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <NavTop />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/CreateCourse">
+          <CreateCourse />
+        </Route>
+        <Route exact path="/CourseView">
+          <CourseView />
+        </Route>
+        <Route exact path="/student">
+          <Student />
+        </Route>
+      </Switch>
+      <Footer />
+    </BrowserRouter>
   );
 };
 

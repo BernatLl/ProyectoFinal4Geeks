@@ -1,6 +1,7 @@
 #BackHead {
   height: auto;
-  width: 100%;
+  padding: 0%;
+  max-width: 100%;
   z-index: -2;
   position: absolute;
 }
@@ -20,8 +21,8 @@
 }
 
 .TopFive {
-  height: 10rem;
-  width: 20rem;
+  height: auto;
+  max-width: 25%;
   margin-top: 5rem;
   padding: 2rem;
   position: relative;
@@ -39,7 +40,7 @@
   border-radius: 10px;
 }
 .Students {
-  height: 25rem;
+  max-height: 25rem;
   margin: auto;
   display: flex;
 }

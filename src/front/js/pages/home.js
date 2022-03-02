@@ -14,57 +14,54 @@ import { ListadoCursos } from "../component/listadoCursos.js";
 export const Home = () => {
   return (
     <>
-      <div className="BackHome">
-        <div className="Home">
-          <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-          <div className="mt-m" id="Bourdain">
-            <h3>If I'm an advocate for anything,</h3>
-            <h3>it's to move. As far as you can, </h3>
-            <h3>as much as you can. Across the</h3>
-            <h3>ocean, or simply across the river.</h3>
-            <h3>Walk in someone else's shoes or</h3>
-            <h3>at least eat their food. It's a plus</h3>
-            <h3>for everybody.</h3>
-          </div>
+      <div className="Home row">
+        <img id="BackHead" className="mt-m col-" src={HeaderImg}></img>
+        <div className="mt-m col" id="Bourdain">
+          <h3>If I'm an advocate for anything,</h3>
+          <h3>it's to move. As far as you can, </h3>
+          <h3>as much as you can. Across the</h3>
+          <h3>ocean, or simply across the river.</h3>
+          <h3>Walk in someone else's shoes or</h3>
+          <h3>at least eat their food. It's a plus</h3>
+          <h3>for everybody.</h3>
+
           <h3 className="Anthony">-Anthony Bourdain.</h3>
+        </div>
 
-          <Carousel className="TopFive">
-            <Carousel.Item>
-              <img className="d-block w-100" src={Antho} alt="First slide" />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={Gordom} alt="Second slide" />
+        <Carousel className="TopFive">
+          <Carousel.Item>
+            <img className="d-block w-100" src={Antho} alt="First slide" />
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src={Gordom} alt="Second slide" />
 
-              <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                id="foto"
-                className="d-block w-100"
-                src={Jiro}
-                alt="Third slide"
-              />
+            <Carousel.Caption>
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              id="foto"
+              className="d-block w-100"
+              src={Jiro}
+              alt="Third slide"
+            />
 
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
 
-          <div className="StudentSide">
+        {/* <div className="StudentSide">
             <div className="Students">
               <img
                 id="foto"
@@ -111,9 +108,9 @@ export const Home = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
+          </div> */}
       </div>
+
       <div className="text-center mt-5">
         <ListadoCursos />
         <MeetTheCrew />
