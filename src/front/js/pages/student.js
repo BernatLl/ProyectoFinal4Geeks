@@ -6,7 +6,7 @@ import { PublicProfile } from "../component/PublicProfile"
 import {Profile} from "../component/Profile"
 import {PaymentMethods} from "../component/PaymentMethods"
 
-import {Notifications} from "../component/Notifications"
+
 import {CloseAccount} from "../component/CloseAccount.js"
 import "../../styles/student.css"
 import rigo from "../../img/rigo-baby.jpg"
@@ -37,10 +37,7 @@ export const Student = ()=>{
                             <Nav.Link eventKey="3">Payment methods</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                            <Nav.Link eventKey="4">Notifications</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                            <Nav.Link eventKey="5">Close account</Nav.Link>
+                            <Nav.Link eventKey="4">Close account</Nav.Link>
                             </Nav.Item>
                         </Nav>
                         </Col>
@@ -56,10 +53,7 @@ export const Student = ()=>{
                             <PaymentMethods/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="4">
-                            <Notifications/>
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="5">
-                        <CloseAccount/>
+                            <CloseAccount/>
                             </Tab.Pane>
                         </Tab.Content>
                         </Col>
