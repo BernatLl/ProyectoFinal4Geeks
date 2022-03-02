@@ -1,25 +1,28 @@
 #NavBack {
   background-color: rgb(41, 41, 41);
-  height: 4rem;
-  width: auto;
+  height: 5rem;
+  width: 100%;
   display: flex;
 }
 
 .logo {
-  height: 5rem;
-  width: 5rem;
-  z-index: 2;
-  margin-bottom: rem;
+display: block;
+height: 5rem;
+width: 5rem;
+justify-content: start;
+margin-right: 15rem;
 }
-#categories {
-  margin-left: 8rem !important;
-}
+
 #categories,
 #student,
 #professor {
   color: rgba(255, 255, 255, 0.69);
   margin-top: 1rem;
-  margin-left: 8rem;
+  margin-left: 2rem;
+  text-align: center;
+  vertical-align: center;
+  justify-content: space-between;
+  
 }
 
 .dropdown-menu {
@@ -90,11 +93,12 @@ button:active:after {
 
 #Search {
   height: 2rem;
-  width: 18rem;
+  overflow: auto;
   background-color: rgba(38, 38, 38, 1);
   color: white;
   position: relative;
   border-radius: 5px;
+  display: flex;
 }
 #SButton {
   height: 2rem;

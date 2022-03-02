@@ -7,10 +7,7 @@ body {
   color: beige;
   background-color: rgba(94, 69, 54, 0.829);
   height: 90%;
-  margin-left: 9rem;
-  width: 80%;
-
-  margin-top: 2rem;
+  width: auto;
 }
 .Tittle,
 .Slogan {
@@ -26,7 +23,7 @@ body {
   height: 50%;
 }
 .Recomend {
-  margin-left: 5rem;
+  margin-left: 1rem;
   margin-right: 5rem;
   text-align: left;
 }
@@ -36,4 +33,13 @@ body {
 
 .List {
   text-align: left;
+}
+
+.SearchBar {
+  display: block;
+  position: fixed;
+}
+
+Container{
+  width: 100%;
 }
