@@ -37,13 +37,10 @@ export const Student = ()=>{
                         <Nav.Link eventKey="3">Payment methods</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                        <Nav.Link eventKey="4">Privacy</Nav.Link>
+                        <Nav.Link eventKey="4">Notifications</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                        <Nav.Link eventKey="5">Notifications</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                        <Nav.Link eventKey="6">Close account</Nav.Link>
+                        <Nav.Link eventKey="5">Close account</Nav.Link>
                         </Nav.Item>
                     </Nav>
                     </Col>
@@ -59,12 +56,9 @@ export const Student = ()=>{
                         <PaymentMethods/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="4">
-                       <Privacy/>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="5">
                         <Notifications/>
                         </Tab.Pane>
-                        <Tab.Pane eventKey="6">
+                        <Tab.Pane eventKey="5">
                        <CloseAccount/>
                         </Tab.Pane>
                     </Tab.Content>

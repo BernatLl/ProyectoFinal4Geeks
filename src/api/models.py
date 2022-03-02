@@ -38,9 +38,15 @@ tags = db.Table('tags',
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    fullName = db.Column(db.String(120), unique=False, nullable=False)
-    studentDescription = db.Column(db.String(400), unique=False, nullable=False)
-    address = db.Column(db.String(120), unique=False, nullable=False)
+    fullName = db.Column(db.String(120), nullable=False)
+    studentDescription = db.Column(db.String(400), nullable=True)
+    nickName = db.Column(db.String(120), unique=True, nullable=False)
+    facebookURL = db.Column(db.String(120), nullable=True)
+    instagramURL = db.Column(db.String(120), nullable=True)
+    linkedinURL = db.Column(db.String(120), nullable=True)
+    twitterURL = db.Column(db.String(120), nullable=True)
+    websiteURL = db.Column(db.String(120), nullable=True)
+
     tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('student', lazy=True))
     
     def __repr__(self):
