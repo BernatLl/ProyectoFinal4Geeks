@@ -4,6 +4,11 @@ from sqlalchemy.orm import relationship, backref
 
 db = SQLAlchemy()
 
+tags = db.Table('tags',
+    db.Column('student_id', db.Integer, db.ForeignKey('student.id'),primary_key=True),
+    db.Column('course_id', db.Integer, db.ForeignKey('course.id'),primary_key=True)
+)
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -30,10 +35,7 @@ class CardInfo(db.Model):
         return f'Student {self.id}'
 
 
-tags = db.Table('tags',
-    db.Column('student_id', db.Integer, db.ForeignKey('student.id'),primary_key=True),
-    db.Column('course_id', db.Integer, db.ForeignKey('course.id'),primary_key=True)
-)
+
 
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
