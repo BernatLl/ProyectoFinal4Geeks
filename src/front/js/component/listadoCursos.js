@@ -40,7 +40,7 @@ export const ListadoCursos = () => {
 			<h1 className="title" >
 				Courses List
 			</h1>
-			<div className="container-cursos" >		
+			<div className="container" >		
 						<Row xs={1} md={2} className="g-4">
 							{ArrayCursos.map((select, i) => (
 								<Col key={i}>

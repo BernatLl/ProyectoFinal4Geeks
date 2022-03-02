@@ -20,51 +20,51 @@ export const Student = ()=>{
     return(
         <>
             <h1 className="titulo">This is your profile page</h1>
-            <div className="container-fluid p-1 my-5">
+            <div className="container p-1 my-5">
                 
-            <Tab.Container id="left-tabs-example" defaultActiveKey="first" className="container-menu">
-                <Row className="marco">
-                    <Col sm={3} className="contenido-menu">
-                        <img src={rigo}  className="fotoperfil" />
-                    <Nav justify variant="pills" className="flex-column menu">
-                        <Nav.Item>
-                        <Nav.Link eventKey="first">Public Profile</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                        <Nav.Link eventKey="2">Profile</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                        <Nav.Link eventKey="3">Payment methods</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                        <Nav.Link eventKey="4">Notifications</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                        <Nav.Link eventKey="5">Close account</Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                    </Col>
-                    <Col sm={9} className="contenido" >
-                    <Tab.Content >
-                        <Tab.Pane eventKey="first">
-                        <PublicProfile/>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="2">
-                       <Profile/>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="3">
-                        <PaymentMethods/>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="4">
-                        <Notifications/>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="5">
-                       <CloseAccount/>
-                        </Tab.Pane>
-                    </Tab.Content>
-                    </Col>
-                </Row>
-            </Tab.Container>
+                <Tab.Container id="left-tabs-example" defaultActiveKey="first" className="container-menu">
+                    <Row className="marco">
+                        <Col sm={3} className="contenido-menu">
+                            <img src={rigo}  className="fotoperfil" />
+                        <Nav justify variant="pills" className="flex-column menu">
+                            <Nav.Item>
+                            <Nav.Link eventKey="first">Public Profile</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                            <Nav.Link eventKey="2">Profile</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                            <Nav.Link eventKey="3">Payment methods</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                            <Nav.Link eventKey="4">Notifications</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                            <Nav.Link eventKey="5">Close account</Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+                        </Col>
+                        <Col sm={9} className="contenido" >
+                        <Tab.Content >
+                            <Tab.Pane eventKey="first">
+                            <PublicProfile/>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="2">
+                        <Profile/>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="3">
+                            <PaymentMethods/>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="4">
+                            <Notifications/>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="5">
+                        <CloseAccount/>
+                            </Tab.Pane>
+                        </Tab.Content>
+                        </Col>
+                    </Row>
+                </Tab.Container>
             </div>
             <h1 className="titulo">My Courses</h1>
             <div className="container">

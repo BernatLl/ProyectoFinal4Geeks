@@ -48,6 +48,8 @@ class Student(db.Model):
     websiteURL = db.Column(db.String(120), nullable=True)
 
     tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('student', lazy=True))
+    notifications = db.relationship("Notifications", back_populates="student")
+
     
     def __repr__(self):
         return f'Student {self.id}'
@@ -85,3 +87,13 @@ class Course(db.Model):
 
     def __repr__(self):
         return f'Course {self.id}'
+
+class Notifications(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    promotions = db.Column(db.Boolean)
+    announcements = db.Column(db.Boolean)
+    promoEmail  = db.Column(db.Boolean)
+    student_id = db.Column(Integer, ForeignKey('student.id'))
+
+    def __repr__(self):
+        return f'Notifications {self.id}'
