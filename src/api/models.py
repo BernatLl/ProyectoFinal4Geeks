@@ -9,7 +9,7 @@ class User(db.Model):
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return f'User {self.username}'
 
     def serialize(self):
         return {
@@ -17,3 +17,48 @@ class User(db.Model):
             "email": self.email,
             # do not serialize the password, its a security breach
         }
+
+class Student(db.Model):
+    studentId = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    fullName = db.Column(db.String(120), unique=False, nullable=False)
+    studentDescription = db.Column(db.String(400), unique=False, nullable=False)
+    cardInfoNum = db.Column(db.Integer(16), unique=True, nullable=False)
+    cardInfoDate = db.Column(db.Integer(8), unique=True, nullable=False)
+    cardInfoCVC = db.Column(db.Integer(3), unique=True, nullable=False)
+    address = db.Column(db.String(120), unique=False, nullable=False)
+
+    def __repr__(self):
+        return f'Student {self.studentID}'
+
+
+class Chef(db.Model):
+    chefId = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    fullName = db.Column(db.String(120), nullable=False)
+    chefDescription = db.Column(db.String(400), unique=False, nullable=False)
+    bankInfo = db.Column(db.Integer(16), unique=True, nullable=False)
+    address = db.Column(db.String(120), unique=False, nullable=False)
+    
+    def __repr__(self):
+        return f'Chef {self.chefID}'
+
+
+class Course(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    courseName = db.Column(db.String(120), unique=False, nullable=False)
+    chefId = db.Column(db.Integer, primary_key=True)
+    dificulty = db.Column(db.String(20), unique=False, nullable=False)
+    style = db.Column(db.String(50), unique=False, nullable=False)
+    country = db.Column(db.String(50), unique=False, nullable=False)
+    description = db.Column(db.String(50), unique=False, nullable=False)
+    ingredient = db.Column(db.String(50), unique=False, nullable=False)
+    listIngredient = db.Column(db.String(200), unique=False, nullable=False)
+    requeriments = db.Column(db.String(50), unique=False, nullable=False)
+    knowledge = db.Column(db.String(50), unique=False, nullable=False)
+    price = db.Column(db.Float, unique=False, nullable=False)
+    title = db.Column(db.String(50), unique=False, nullable=False)
+    video = db.Column(db.String(400), unique=False, nullable=False)
+
+    def __repr__(self):
+        return f'Course {self.courseID}'
