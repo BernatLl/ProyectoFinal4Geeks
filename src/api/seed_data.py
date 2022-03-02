@@ -11,7 +11,7 @@ data = {
             'twitterURL': '',
             'linkedinURL': '',
             'websiteURL' : '',
-            'image' : '../src/front/img/leoPerfil.jpg'
+            'image' : 'https://avatars.githubusercontent.com/u/95694859?s=100&v=4'
             
         },
         {
@@ -25,7 +25,7 @@ data = {
             'twitterURL': '',
             'linkedinURL': '',
             'websiteURL' : '',
-            'image' : '../src/front/img/Bernat.jpg'
+            'image' : 'https://avatars.githubusercontent.com/u/96202379?v=4'
             
         },
         {
@@ -37,9 +37,9 @@ data = {
             'facebookURL': '',
             'instagramURL': '',
             'twitterURL': '',
-            'linkedinURL': '',
+            'linkedinURL': 'www.linkedin.com/in/bernatlloret',
             'websiteURL' : '',
-            'image' : '../src/front/img/rigo-baby.jpg'
+            'image' : 'https://www.inspirulina.com/wp-content/uploads/240pxPepito_Grillo_Recoded1.jpg'
             
         },
     ],
