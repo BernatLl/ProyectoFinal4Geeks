@@ -11,7 +11,7 @@ data = {
             'twitterURL': '',
             'linkedinURL': '',
             'websiteURL' : '',
-            'image' : ''
+            'image' : '../src/front/img/leoPerfil.jpg'
             
         },
         {
@@ -25,7 +25,7 @@ data = {
             'twitterURL': '',
             'linkedinURL': '',
             'websiteURL' : '',
-            'image' : ''
+            'image' : '../src/front/img/Bernat.jpg'
             
         },
         {
@@ -39,7 +39,7 @@ data = {
             'twitterURL': '',
             'linkedinURL': '',
             'websiteURL' : '',
-            'image' : ''
+            'image' : '../src/front/img/rigo-baby.jpg'
             
         },
     ],
@@ -85,7 +85,7 @@ data = {
             'price': 20.50,
             'title': 'CoursePasta',
             'video': 'https://www.youtube.com/watch?v=4o0aqWj_wPI',
-            'image' : ''
+            'img' : 'https://static-sevilla.abc.es/media/gurmesevilla/2013/03/bucatinis-carbonara.jpg'
         },
         {
             id: 2,
@@ -101,39 +101,39 @@ data = {
             'price': 16.78,
             'title': 'CoursePaella',
             'video': 'https://www.youtube.com/watch?v=zrSyyNugKYo',
-            'image' : ''
+            'img' : 'https://imag.bonviveur.com/paella-valenciana-tradicional.webp'
         },
         {
             id: 3,
             'courseName': 'Course Desserts',  
             'dificulty':  'Easy',
             'style': 'Modern',
-            'country':  'Germany',
+            'country':  'Italy',
             'description':  'In this course you con learn to do a perfect Dessert',
             'ingredient': 'Eggs',
-            'listIngredient':  'Eggs, Flour, ',
+            'listIngredient':  'Eggs, Flour, Cheese ',
             'requeriments': '',
             'knowledge': '',
-            'price': '',
-            'title': '',
+            'price': 12.78,
+            'title': 'Tiramisú',
             'video': 'https://www.youtube.com/watch?v=Zu6IOglOu-A',
-            'image' : ''
+            'img' : 'https://www.vidactual.com/rcpmaker/wp-content/uploads/2020/10/Tiramisu.png'
         },
         {
             id: 4,
-            'courseName': 'Course Rissotto',  
+            'courseName': 'Course Risotto',  
             'dificulty':  'Advanced',
             'style': 'Traditional',
             'country':  'Italy',
-            'description':  'In this course you con learn to do a perfect Rissotto',
-            'ingredient': '',
-            'listIngredient':  '',
+            'description':  'In this course you con learn to do a perfect Risotto',
+            'ingredient': 'Rice',
+            'listIngredient':  'Rice, Cheese, Mushrooms, Butter',
             'requeriments': '',
             'knowledge': '',
-            'price': '',
-            'title': '',
+            'price': 15.78,
+            'title': 'Risotto',
             'video': 'https://www.youtube.com/watch?v=Bd47uyuYwwM',
-            'image' : ''
+            'img' : 'https://i0.wp.com/commememucho.com/wp-content/uploads/2019/12/Rissoto-625x530-1.jpg?resize=625%2C500&ssl=1'
         }
     ]
 }

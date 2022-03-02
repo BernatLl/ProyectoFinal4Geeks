@@ -48,6 +48,7 @@ class Student(db.Model):
     linkedinURL = db.Column(db.String(120), nullable=True)
     twitterURL = db.Column(db.String(120), nullable=True)
     websiteURL = db.Column(db.String(120), nullable=True)
+    image = db.Column(db.String(240), unique=True, nullable=False)
     tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('student', lazy=True))
    
 
@@ -71,18 +72,20 @@ class Chef(db.Model):
 
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    courseName = db.Column(db.String(120), unique=False, nullable=False)
-    dificulty = db.Column(db.String(20), unique=False, nullable=False)
-    style = db.Column(db.String(50), unique=False, nullable=False)
-    country = db.Column(db.String(50), unique=False, nullable=False)
-    description = db.Column(db.String(50), unique=False, nullable=False)
-    ingredient = db.Column(db.String(50), unique=False, nullable=False)
-    listIngredient = db.Column(db.String(200), unique=False, nullable=False)
-    requeriments = db.Column(db.String(50), unique=False, nullable=False)
-    knowledge = db.Column(db.String(50), unique=False, nullable=False)
-    price = db.Column(db.Float, unique=False, nullable=False)
-    title = db.Column(db.String(50), unique=False, nullable=False)
-    video = db.Column(db.String(240), unique=False, nullable=False)
+    courseName = db.Column(db.String(120), unique=True, nullable=False)
+    dificulty = db.Column(db.String(20),  nullable=False)
+    style = db.Column(db.String(50),  nullable=False)
+    country = db.Column(db.String(50),  nullable=False)
+    description = db.Column(db.String(50),  nullable=False)
+    ingredient = db.Column(db.String(50),  nullable=False)
+    listIngredient = db.Column(db.String(200),  nullable=False)
+    requeriments = db.Column(db.String(50),  nullable=False)
+    knowledge = db.Column(db.String(50),  nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    title = db.Column(db.String(50),  nullable=False)
+    video = db.Column(db.String(240), unique=True, nullable=False)
+    img = db.Column(db.String(240), unique=True, nullable=False)
+
     chef_id = db.Column(db.Integer, ForeignKey('chef.id'))
     chef = db.relationship("Chef", back_populates="course")
 
