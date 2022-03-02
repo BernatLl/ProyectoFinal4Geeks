@@ -1,4 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import ForeignKey, Date
+from sqlalchemy.orm import relationship, backref
 
 db = SQLAlchemy()
 
@@ -18,8 +20,24 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Student(db.Model):
+class CardInfo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cardInfoNum = db.Column(db.Integer(16), unique=True, nullable=False)
+    cardInfoDate = db.Column(db.Integer(8), unique=True, nullable=False)
+    cardInfoCVC = db.Column(db.Integer(3), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f'Student {self.id}'
+
+class StudentHasCourse(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     studentId = db.Column(db.Integer, primary_key=True)
+    courseId = db.Column(db.Integer, primary_key=True)
+
+
+
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     fullName = db.Column(db.String(120), unique=False, nullable=False)
     studentDescription = db.Column(db.String(400), unique=False, nullable=False)
@@ -29,11 +47,11 @@ class Student(db.Model):
     address = db.Column(db.String(120), unique=False, nullable=False)
 
     def __repr__(self):
-        return f'Student {self.studentID}'
+        return f'Student {self.id}'
 
 
 class Chef(db.Model):
-    chefId = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     fullName = db.Column(db.String(120), nullable=False)
     chefDescription = db.Column(db.String(400), unique=False, nullable=False)
@@ -41,7 +59,7 @@ class Chef(db.Model):
     address = db.Column(db.String(120), unique=False, nullable=False)
     
     def __repr__(self):
-        return f'Chef {self.chefID}'
+        return f'Chef {self.id}'
 
 
 class Course(db.Model):
@@ -58,7 +76,7 @@ class Course(db.Model):
     knowledge = db.Column(db.String(50), unique=False, nullable=False)
     price = db.Column(db.Float, unique=False, nullable=False)
     title = db.Column(db.String(50), unique=False, nullable=False)
-    video = db.Column(db.String(400), unique=False, nullable=False)
+    video = db.Column(db.String(240), unique=False, nullable=False)
 
     def __repr__(self):
-        return f'Course {self.courseID}'
+        return f'Course {self.id}'
