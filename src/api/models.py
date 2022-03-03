@@ -39,14 +39,14 @@ class CardInfo(db.Model):
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    fullName = db.Column(db.String(120), nullable=False)
-    studentDescription = db.Column(db.String(400), nullable=True)
-    nickName = db.Column(db.String(120), unique=True, nullable=False)
-    facebookURL = db.Column(db.String(120), nullable=True)
-    instagramURL = db.Column(db.String(120), nullable=True)
-    linkedinURL = db.Column(db.String(120), nullable=True)
-    twitterURL = db.Column(db.String(120), nullable=True)
-    websiteURL = db.Column(db.String(120), nullable=True)
+    full_name = db.Column(db.String(120), nullable=False)
+    student_description = db.Column(db.String(400), nullable=True)
+    nick_name = db.Column(db.String(120), unique=True, nullable=False)
+    facebook_url = db.Column(db.String(120), nullable=True)
+    instagram_url = db.Column(db.String(120), nullable=True)
+    linkedin_url = db.Column(db.String(120), nullable=True)
+    twitter_url = db.Column(db.String(120), nullable=True)
+    website_url = db.Column(db.String(120), nullable=True)
     image = db.Column(db.String(240), unique=True, nullable=False)
     tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('student', lazy=True))
    
@@ -59,14 +59,14 @@ class Student(db.Model):
         return {
             'id': self.id ,
             'email': self.email ,
-            'fullName': self.fullName ,
-            'studentDescription': self.studentDescription ,
-            'nickName': self.nickName ,
-            'facebookURL': self.facebookURL ,
-            'instagramURL': self.instagramURL ,
-            'linkedinURL': self.linkedinURL ,
-            'twitterURL': self.twitterURL ,
-            'websiteURL': self.websiteURL ,
+            'full_name': self.full_name ,
+            'student_description': self.student_description ,
+            'nick_name': self.nick_name ,
+            'facebook_url': self.facebook_url ,
+            'instagram_url': self.instagram_url ,
+            'linkedin_url': self.linkedin_url ,
+            'twitter_url': self.twitter_url ,
+            'website_url': self.website_url ,
             'image': self.image ,
             'tags': self.tags 
             }
@@ -75,9 +75,9 @@ class Student(db.Model):
 class Chef(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    fullName = db.Column(db.String(120), nullable=False)
-    chefDescription = db.Column(db.String(400), unique=False, nullable=False)
-    bankInfo = db.Column(db.Integer, unique=True, nullable=False)
+    full_name = db.Column(db.String(120), nullable=False)
+    chef_description = db.Column(db.String(400), unique=False, nullable=False)
+    bank_info = db.Column(db.Integer, unique=True, nullable=False)
     address = db.Column(db.String(120), unique=False, nullable=False)
     course = db.relationship("Course", back_populates="chef")
 
@@ -88,9 +88,9 @@ class Chef(db.Model):
         return {
         'id': self.id,
         'email': self.email,
-        'fullName': self.fullName,
-        'chefDescription': self.chefDescription,
-        'bankInfo' : self.bankInfo,
+        'full_name': self.full_name,
+        'chef_description': self.chef_description,
+        'bank_info' : self.bank_info,
         'address': self.address,
         'course' : self.course
         }
