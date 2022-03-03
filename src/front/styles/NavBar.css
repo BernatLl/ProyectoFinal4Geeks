@@ -1,108 +1,67 @@
-#Wrapper {
-  justify-content: center;
+.wraper {
+  background: dimgray;
+  height: auto;
+  width: 100%;
+  grid-template-columns: min-content auto min-content;
+}
+.navcontainer {
+  background-color: rgb(41, 41, 41);
   max-width: 100%;
-  place-items: center;
+  min-height: 100%;
+  display: grid;
+  gap: 0.1rem;
+}
+.topnav {
+  width: 100%;
+  height: auto;
   padding: 0%;
 }
-#NavBack {
-  background-color: rgb(41, 41, 41);
-  max-height: 5%;
-  max-width: 100%;
-  display: flex;
-}
-
-.Brand {
-  max-width: 5rem;
-}
-#logo {
+.logo {
   max-width: 6rem;
-  min-width: 6rem;
-}
-#links {
-  gap: 5rem;
-  max-width: 10rem;
-  min-height: 3rem;
-  margin: auto;
-}
-#categories,
-#student,
-#professor {
-  color: rgba(255, 255, 255, 0.69);
-  max-width: 10rem;
-  min-height: 2rem;
+  min-height: 6rem;
+  display: flex;
+  justify-self: start;
+  padding-top: 2rem;
+  left: 2rem;
 }
 
-.dropdown-menu {
-  background-color: rgba(38, 38, 38, 1);
-}
-.dropdown-item {
-  color: rgba(255, 255, 255, 0.69);
-}
-#student:active,
-#categories:active,
-#professor:active,
-#search:active {
-  color: rgba(217, 100, 89, 1);
+.student,
+.professor,
+.categories {
+  max-width: 4rem;
+  min-height: 10%;
+  text-align: center;
+  gap: 0.1rem;
 }
 
-#student[tabindex]:focus,
-#categories[tabindex]:focus,
-#professor[tabindex]:focus,
-#search[tabindex]:focus {
-  color: rgba(217, 100, 89, 1);
-  outline: none;
+.sbar {
+  max-width: 25%;
+  min-width: auto;
+  background-color: rgb(41, 41, 41);
 }
-#Search {
-  max-width: 20rem;
-  min-height: 4rem;
-}
-#Sbar {
-  width: 25rem;
-  min-height: auto;
-  color: rgba(255, 255, 255, 0.69);
-  border: solid rgba(255, 255, 255, 0.69);
-  border-width: 0.5px;
-  background-color: rgba(38, 38, 38, 1);
-}
-#searchb {
+
+.cart {
   max-width: 5rem;
   min-height: 2rem;
-}
-#cartb,
-#loginb {
-  margin-top: 1rem;
-  height: 2rem;
-  width: 5rem;
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.69);
-  font-size: 28px;
-  color: rgba(217, 100, 89, 1);
-  padding: 20px;
-  text-align: center;
-  transition-duration: 1s;
-  overflow: hidden;
-  cursor: pointer;
-  justify-content: space-between;
-}
-
-#cartb:after,
-#loginb:after {
-  content: "";
   background-color: rgb(41, 41, 41);
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px !important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 1s;
 }
 
-#cartb:active:after,
-#loginb:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s;
+.login {
+  max-width: 5rem;
+  max-height: 2rem;
+  background-color: rgb(41, 41, 41);
+}
+
+.searchbar {
+  max-width: 6rem;
+  min-height: 3rem;
+  justify-content: end;
+  gap: 0.1rem;
+  background-color: rgb(41, 41, 41);
+}
+.sbutton {
+  max-width: 5rem;
+  min-height: 5rem;
+  background-color: rgb(41, 41, 41);
+  color: black;
 }

@@ -7,60 +7,49 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Input from "react-bootstrap/InputGroup";
 
 export const NavTop = () => {
   return (
-    <Navbar id="Wrapper" className="w3-row" bg="light" expand="lg">
-      <Container id="NavBack" fluid>
-        <Navbar.Brand className="Brand w3-col m1" href="#">
-          {" "}
-          <img id="logo" src={logo}></img>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav id="links" className="me-auto my-2 my-lg-0 w3-col " navbarScroll>
-            <Nav.Link className="m2" href="#action1" id="student">
-              Student
-            </Nav.Link>
-            <Nav.Link className="w3-col m4" href="#action2" id="professor">
-              Professor
-            </Nav.Link>
-            <NavDropdown
-              className="w3-col m5"
-              title="Categories"
-              id="categories"
-            >
-              <NavDropdown.Item href="#action3">Chef</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Style</NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Country </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Form id="Search" className="d-flex w3-col m6">
-            <Input
-              id="Sbar"
-              className="Form-Control"
+    <div className=" wraper ">
+      <Navbar className="topnav row grid-container" bg="light" expand="lg">
+        <Container fluid className="navcontainer col-12 ">
+          <Navbar.Brand grid-item href="#">
+            <img className="logo col-11" src={logo}></img>
+          </Navbar.Brand>
+
+          <Nav.Link className="student col" href="#action1 grid-item">
+            Student
+          </Nav.Link>
+          <Nav.Link className="professor col grid-item" href="#action2">
+            Professor
+          </Nav.Link>
+          <NavDropdown title="Categories" className="categories col grid-item">
+            <NavDropdown.Item href="#action3">Country</NavDropdown.Item>
+            <NavDropdown.Item href="#action4">Style</NavDropdown.Item>
+
+            <NavDropdown.Item href="#action5">Chef</NavDropdown.Item>
+          </NavDropdown>
+
+          <Form className="searchbar d-flex col grid-item">
+            <input
+              id="sbar"
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
             />
-            <Button
-              id="searchb"
-              className="SButton w3-col m7"
-              variant="outline-success"
-            >
+            <Button className="sbutton" variant="outline-success">
               Search
             </Button>
           </Form>
-          <Button id="cartb" className="w3-col m8" variant="outline-success">
+          <Button className="cart col grid-item" variant="outline-success">
             Cart
           </Button>
-          <Button id="loginb" className="w3-col m9" variant="outline-success">
+          <Button className="login col grid-item" variant="outline-success">
             Login
           </Button>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        </Container>
+      </Navbar>
+    </div>
   );
 };
