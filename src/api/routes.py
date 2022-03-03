@@ -24,3 +24,19 @@ def get_course():
     for x in course:
         course_serialized.append(x.serialize())
     return jsonify({'results': course_serialized}), 200
+
+@api.route('/chef', methods=['GET'])
+def get_course():
+    chef = Chef.query.all()
+    chef_serialized = []
+    for x in course:
+        chef_serialized.append(x.serialize())
+    return jsonify({'results': chef_serialized}), 200
+
+@api.route('/student', methods=['GET'])
+def get_course():
+    stundent = Student.query.all()
+    stundent_serialized = []
+    for x in course:
+        stundent_serialized.append(x.serialize())
+    return jsonify({'results': stundent_serialized}), 200

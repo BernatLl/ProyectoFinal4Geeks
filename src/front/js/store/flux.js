@@ -12,6 +12,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => setStore({ course: data.results}))
 					.catch(error => console.error(error));
+				fetch("https://3001-bernatll-proyectofinal4g-uson41704j4.ws-eu34xl.gitpod.io/api/chef")
+					.then(response => response.json())
+					.then(data => setStore({ chef: data.results}))
+					.catch(error => console.error(error));
+				fetch("https://3001-bernatll-proyectofinal4g-uson41704j4.ws-eu34xl.gitpod.io/api/student")
+					.then(response => response.json())
+					.then(data => setStore({ student: data.results}))
+					.catch(error => console.error(error));
 
 				
 			},

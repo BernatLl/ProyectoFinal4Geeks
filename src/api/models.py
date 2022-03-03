@@ -4,10 +4,10 @@ from sqlalchemy.orm import relationship, backref
 
 db = SQLAlchemy()
 
-# tags = db.Table('tags',
-#     db.Column('student_id', db.Integer, db.ForeignKey('student.id'),primary_key=True),
-#     db.Column('course_id', db.Integer, db.ForeignKey('course.id'),primary_key=True)
-# )
+tags = db.Table('tags',
+    db.Column('student_id', db.Integer, db.ForeignKey('student.id'),primary_key=True),
+    db.Column('course_id', db.Integer, db.ForeignKey('course.id'),primary_key=True)
+)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -34,8 +34,7 @@ class CardInfo(db.Model):
     def __repr__(self):
         return f'Student {self.id}'
 
-
-
+  
 
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -49,13 +48,29 @@ class Student(db.Model):
     twitterURL = db.Column(db.String(120), nullable=True)
     websiteURL = db.Column(db.String(120), nullable=True)
     image = db.Column(db.String(240), unique=True, nullable=False)
-    # tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('student', lazy=True))
+    tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('student', lazy=True))
    
 
     
     def __repr__(self):
         return f'Student {self.id}'
 
+    def serialize(self):
+        return {
+            'id': self.id ,
+            'email': self.email ,
+            'fullName': self.fullName ,
+            'studentDescription': self.studentDescription ,
+            'nickName': self.nickName ,
+            'facebookURL': self.facebookURL ,
+            'instagramURL': self.instagramURL ,
+            'linkedinURL': self.linkedinURL ,
+            'twitterURL': self.twitterURL ,
+            'websiteURL': self.websiteURL ,
+            'image': self.image ,
+            'tags': self.tags 
+            }
+        
 
 class Chef(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -64,11 +79,21 @@ class Chef(db.Model):
     chefDescription = db.Column(db.String(400), unique=False, nullable=False)
     bankInfo = db.Column(db.Integer, unique=True, nullable=False)
     address = db.Column(db.String(120), unique=False, nullable=False)
-    # course = db.relationship("Course", back_populates="chef")
+    course = db.relationship("Course", back_populates="chef")
 
     def __repr__(self):
         return f'Chef {self.id}'
-
+    
+    def serialize(self):
+        return {
+        'id': self.id,
+        'email': self.email,
+        'fullName': self.fullName,
+        'chefDescription': self.chefDescription,
+        'bankInfo' : self.bankInfo,
+        'address': self.address,
+        'course' : self.course
+        }
 
 class Course(db.Model):
 
@@ -89,8 +114,8 @@ class Course(db.Model):
     video = db.Column(db.String(240), unique=True, nullable=False)
     img = db.Column(db.String(240), unique=True, nullable=False)
 
-    # chef_id = db.Column(db.Integer, ForeignKey('chef.id'))
-    # chef = db.relationship("Chef", back_populates="course")
+    chef_id = db.Column(db.Integer, ForeignKey('chef.id'))
+    chef = db.relationship("Chef", back_populates="course")
 
     def __repr__(self):
         return f'Course {self.id}'
