@@ -28,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			login: (email, password) =>{
-				fetch('postgresql://gitpod@localhost:5432/login', {
+				fetch('postgresql://gitpod@localhost:3001/login', {
 				 method: 'POST',
 				 headers: {
 				 	'Content-type': 'application/json',
@@ -45,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getMessage: function () {
 				// fetching data from the backend
-				fetch('postgresql://gitpod@localhost:5432/me', {
+				fetch('postgresql://gitpod@localhost:3001/me', {
 					method: 'GET',
 					headers: {
 						'Accept': 'application/json',

@@ -34,8 +34,8 @@ export const LoginStudent = ()=>{
                         <Form.Control id="Password" placeholder="Password" />
                     </Form.Group>
                     <Form.Group className="mb-3 col-6">
-                        <Form.Label htmlFor="Password"></Form.Label>
-                        <Form.Control id="Password" placeholder="Repeat Password" />
+                        <Form.Label htmlFor="Password2"></Form.Label>
+                        <Form.Control id="Password2" placeholder="Repeat Password" />
                     </Form.Group>
                 </Row>
                 <Row>
