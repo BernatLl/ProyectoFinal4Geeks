@@ -16,7 +16,7 @@ class User(db.Model):
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
     def __repr__(self):
-        return f'User {self.username}'
+        return f'User {self.id}'
 
     def serialize(self):
         return {
@@ -24,6 +24,10 @@ class User(db.Model):
             "email": self.email,
             # do not serialize the password, its a security breach
         }
+
+    @classmethod
+    def get_by_email(cls, email):
+        return cls.query.filter(email = email)
 
 class CardInfo(db.Model):
     __tablename__ = 'cardinfo'
@@ -72,19 +76,19 @@ class Student(db.Model):
             'twitter_url': self.twitter_url ,
             'website_url': self.website_url ,
             'image': self.image ,
-            'tags': self.tags 
+            
             }
         
 
 class Chef(db.Model):
 
     __tablename__ : 'chef'
-    
+
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     full_name = db.Column(db.String(120), nullable=False)
     chef_description = db.Column(db.String(400), unique=False, nullable=False)
-    bank_info = db.Column(db.Integer, unique=True, nullable=False)
+    bank_info = db.Column(db.String(120), unique=True, nullable=False)
     address = db.Column(db.String(120), unique=False, nullable=False)
     course = db.relationship("Course", back_populates="chef")
 
@@ -99,7 +103,7 @@ class Chef(db.Model):
         'chef_description': self.chef_description,
         'bank_info' : self.bank_info,
         'address': self.address,
-        'course' : self.course
+        
         }
 
 class Course(db.Model):
@@ -130,7 +134,7 @@ class Course(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-           'course_name': self.course_name,  
+            'course_name': self.course_name,  
             'dificulty':  self.dificulty,
             'style': self.style,
             'country':  self.country,

@@ -63,7 +63,7 @@ h6 {
   padding: 4rem;
 }
 
-h5 {
+h5, h4, p {
   text-align: center;
   color: rgba(217, 100, 89, 1);
 }

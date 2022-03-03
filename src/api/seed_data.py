@@ -6,42 +6,15 @@ data = {
             'full_name' : 'Leo Tranquillini',
             'student_description' : 'I am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
             'nick_name' : 'leotranq',
-            'facebook_url': 'xx',
+            'facebook_url': 'xxx',
             'instagram_url': 'xx',
-            'twitter_url': 'xx',
-            'linkedin_url': 'xx',
-            'website_url' : 'xx',
+            'twitter_url': 'xxxx',
+            'linkedin_url': 'xxxxx',
+            'website_url' : 'xxxxxxx',
             'image' : 'https://avatars.githubusercontent.com/u/95694859?s=100&v=4'
             
-        },
-        {
-            'id': 2,
-            'email': 'bernat@4geeks.com',
-            'full_name' : 'Bernat LLoret Mogort',
-            'student_description' : 'I am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
-            'nick_name' : 'BernatLl',
-            'facebook_url': 'xx',
-            'instagram_url': 'xx',
-            'twitter_url': 'xx',
-            'linkedin_url': 'xx',
-            'website_url' : 'xxx',
-            'image' : 'https://avatars.githubusercontent.com/u/96202379?v=4'
-            
-        },
-        {
-            'id': 3,
-            'email': 'Pepe@4geeks.com',
-            'full_name' : 'Pepito Grillo',
-            'student_description' : 'I am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
-            'nick_name' : 'PepGril',
-            'facebook_url': 'xx',
-            'instagram_url': 'xx',
-            'twitter_url': 'xx',
-            'linkedin_url': 'www.linkedin.com/in/bernatlloret',
-            'website_url' : 'xx',
-            'image' : 'https://www.inspirulina.com/wp-content/uploads/240pxPepito_Grillo_Recoded1.jpg'
-            
-        },
+        }
+        
     ],
     'Chef' : [
         {
@@ -56,15 +29,15 @@ data = {
             'id': 2,
             'email': 'Chef2@4geeks.com',
             'full_name' : 'Chef Segundo',
-            'chef_description' : 'I am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
+            'chef_description' : 'xxI am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
             'bank_info' : 'ES49 1254 25987 9874 6578',
             'address': 'Calle Velazquez, 57 Madrid',
         } ,  
         {
-            'id': 1,
+            'id': 3,
             'email': 'Chef3@4geeks.com',
             'full_name' : 'Chef Tercero',
-            'chef_description' : 'I am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
+            'chef_description' : 'xI am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
             'bank_info' : 'ES96 6589 5478 2541 6523',
             'address': 'Calle Colon, 25 Valencia',
         }   

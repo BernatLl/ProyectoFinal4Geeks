@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState} from "react";
 import Nav from 'react-bootstrap/Nav'
 import Tab from 'react-bootstrap/Tab'
 import { Row, Col, Button } from "react-bootstrap";
@@ -8,6 +8,12 @@ import Form from 'react-bootstrap/Form'
 
 
 export const LoginStudent = ()=>{
+    const { store, actions } = useContext(Context);
+
+	
+	useEffect (()=>{
+		actions.login();
+	},[])
     return (
         <>
         <h4>Student Login</h4>
@@ -33,7 +39,10 @@ export const LoginStudent = ()=>{
                     </Form.Group>
                 </Row>
                 <Row>
-                <Button as="input" type="submit" value="Send" />{' '}
+                    <Link >
+                    <Button as="input" type="submit" value="Send" />
+                    </Link>
+                
                 </Row>
                 
  

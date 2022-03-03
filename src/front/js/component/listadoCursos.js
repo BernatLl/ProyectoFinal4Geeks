@@ -13,7 +13,7 @@ export const ListadoCursos = () => {
 
 	
 	useEffect (()=>{
-		actions.loadSomeData();
+		actions.loadCourses();
 	},[])
 
 	return(

@@ -11,7 +11,7 @@ export const PublicProfile =()=>{
 
 	
 	useEffect (()=>{
-		actions.loadSomeData();
+		actions.loadStudents();
 	},[])
 
     return(
@@ -20,11 +20,14 @@ export const PublicProfile =()=>{
             <div className="container" >		
 						
                 {store.student.map((select, i) => (
-                    <Col key={i}>
-                        <h4>{select.nickName}</h4>
+                    <div key={i}>
+                        <h4>{select.nick_name}</h4>
                         
-                        <p>{select.studentDescription}</p>
-                    </Col>
+                        <p>{select.student_description}</p>
+                        <p>{select.full_name}</p>
+                        <p>{select.email}</p>
+                        <img src={select.image}/>
+                    </div>
                 ))}
 					
 						
