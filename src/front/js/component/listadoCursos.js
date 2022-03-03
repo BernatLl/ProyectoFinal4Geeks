@@ -22,18 +22,18 @@ export const ListadoCursos = () => {
 				Courses List
 			</h1>
 			<div className="container" >		
-						<Row xs={1} md={2} className="g-4">
+						<Row className="g-4">
 							{store.course.map((select, i) => (
-								<Col key={i}>
-								<Card >
-									<Card.Img className="card-img-top p-5" variant="top" src={select.img} />
-									<Card.Body >
-									<Card.Title>{select.title}</Card.Title>
-										<Card.Text >
-											{select.description}
-										</Card.Text>
-									</Card.Body>
-								</Card>
+								<Col >
+									<Card key={i}>
+										<Card.Img className="card-img-top p-5" variant="top" src={select.img} />
+										<Card.Body >
+										<Card.Title>{select.title}</Card.Title>
+											<Card.Text >
+												{select.description}
+											</Card.Text>
+										</Card.Body>
+									</Card>
 								</Col>
 							))}
 						</Row>
