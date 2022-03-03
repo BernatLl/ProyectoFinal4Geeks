@@ -16,3 +16,11 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/api/course', methods=['POST', 'GET'])
+def getCourse():
+    course = Course.query.all()
+    course_serialized = []
+    for x in course:
+        course_serialized.append(x.serialize())
+    return jsonify({'results': course_serialized}), 200

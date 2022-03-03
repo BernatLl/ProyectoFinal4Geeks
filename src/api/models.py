@@ -92,3 +92,22 @@ class Course(db.Model):
     def __repr__(self):
         return f'Course {self.id}'
 
+    def serialize(self):
+        return {
+            "id": self.id,
+           'courseName': self.courseName,  
+            'dificulty':  self.dificulty,
+            'style': self.style,
+            'country':  self.country,
+            'description':  self.description,
+            'ingredient': self.ingredient,
+            'listIngredient':  self.listIngredient,
+            'requeriments': self.requeriments,
+            'knowledge': self.knowledge,
+            'price': self.price,
+            'title': self.title,
+            'video': self.video,
+            'img' : self.img
+        }
+    
+
