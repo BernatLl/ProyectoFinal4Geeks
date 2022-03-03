@@ -26,6 +26,7 @@ class User(db.Model):
         }
 
 class CardInfo(db.Model):
+    __tablename__ = 'cardinfo'
     id = db.Column(db.Integer, primary_key=True)
     cardInfoNum = db.Column(db.Integer, unique=True, nullable=False)
     cardInfoDate = db.Column(db.Integer, unique=True, nullable=False)
@@ -37,6 +38,9 @@ class CardInfo(db.Model):
   
 
 class Student(db.Model):
+
+    __tablename__ : 'student'
+
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     full_name = db.Column(db.String(120), nullable=False)
@@ -73,6 +77,9 @@ class Student(db.Model):
         
 
 class Chef(db.Model):
+
+    __tablename__ : 'chef'
+    
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     full_name = db.Column(db.String(120), nullable=False)

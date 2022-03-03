@@ -26,7 +26,7 @@ def get_course():
     return jsonify({'results': course_serialized}), 200
 
 @api.route('/chef', methods=['GET'])
-def get_course():
+def get_chef():
     chef = Chef.query.all()
     chef_serialized = []
     for x in course:
@@ -34,7 +34,7 @@ def get_course():
     return jsonify({'results': chef_serialized}), 200
 
 @api.route('/student', methods=['GET'])
-def get_course():
+def get_student():
     stundent = Student.query.all()
     stundent_serialized = []
     for x in course:
