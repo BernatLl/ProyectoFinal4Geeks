@@ -1,55 +1,43 @@
 import React from "react";
 import "../../../front/styles/NavBar.css";
 import logo from "../../img/NavEdit.png";
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 export const NavTop = () => {
   return (
-    <div className=" wraper ">
-      <Navbar className="topnav row grid-container" bg="light" expand="lg">
-        <Container fluid className="navcontainer col-12 ">
-          <Navbar.Brand grid-item href="#">
-            <img className="logo col-11" src={logo}></img>
-          </Navbar.Brand>
+    <div className="wraper">
+      <div className="navbody row">
+        <img src={logo} className="logo col"></img>
 
-          <Nav.Link className="student col" href="#action1 grid-item">
-            Student
-          </Nav.Link>
-          <Nav.Link className="professor col grid-item" href="#action2">
-            Professor
-          </Nav.Link>
-          <NavDropdown title="Categories" className="categories col grid-item">
-            <NavDropdown.Item href="#action3">Country</NavDropdown.Item>
-            <NavDropdown.Item href="#action4">Style</NavDropdown.Item>
+        <div className="student col" src="/student">
+          Students
+        </div>
 
-            <NavDropdown.Item href="#action5">Chef</NavDropdown.Item>
-          </NavDropdown>
+        <div className="professor col" src="/professor">
+          Professor
+        </div>
 
-          <Form className="searchbar d-flex col grid-item">
-            <input
-              id="sbar"
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button className="sbutton" variant="outline-success">
-              Search
-            </Button>
-          </Form>
-          <Button className="cart col grid-item" variant="outline-success">
-            Cart
-          </Button>
-          <Button className="login col grid-item" variant="outline-success">
-            Login
-          </Button>
-        </Container>
-      </Navbar>
+        <div class="dropdown col">
+          <button class="dropbtn">Categories</button>
+          <div class="dropdown-content">
+            <a href="#">Country</a>
+            <a href="#">Style</a>
+            <a href="#">Chef</a>
+          </div>
+        </div>
+        <div className="search col">
+          <input
+            type="search"
+            className="searchbar "
+            placeholder="Type Here"
+          ></input>
+          <button className="sbutton">
+            <div className="seart">Search</div>
+          </button>
+        </div>
+
+        <button className="bcart col">cart</button>
+        <button className="blogin col">Log in</button>
+      </div>
     </div>
   );
 };
