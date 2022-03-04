@@ -7,9 +7,16 @@ from api.utils import generate_sitemap, APIException
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
-from flask_jwt_extended import create_access_token, jwt_required
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+from flask_jwt_extended import JWTManager
 from werkzeug.security import generate_password_hash, check_password_hash
+
 api = Blueprint('api', __name__)
+
+api.config["JWT_SECRET_KEY"] = ""
+jwt = JWTManager(api)
 
 
 @api.route('/hello', methods=['POST', 'GET'])
