@@ -72,27 +72,39 @@
   display: flex;
   font-size: smaller;
   justify-content: center;
+  gap: 00.5rem;
 }
 .searchbar {
   max-width: 100%;
   text-align: center;
   max-height: 2rem;
-  padding: 1rem;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .sbutton {
-  width: 4rem;
-  height: 1.5rem;
-  max-width: 5rem;
-  min-width: 1rem;
+  max-width: 4rem;
+  max-height: 2rem;
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
+}
+
+.bcart {
+  max-height: 2rem;
+  max-width: 4rem;
   background-color: #5a5858;
   color: #d96459;
   border-radius: 5px;
   padding: 1rem;
   margin: auto;
 }
-.seart {
-  display: flex;
-  position: relative;
+
+.blogin {
+  max-height: 2rem;
+  max-width: 4rem;
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: auto;
 }
