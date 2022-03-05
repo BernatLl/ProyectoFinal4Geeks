@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useParams } from 'react-router-dom'
 import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/NavBar";
@@ -28,7 +29,7 @@ const Layout = () => {
             <Route exact path="/CreateCourse">
               <CreateCourse />
             </Route>
-            <Route exact path="/student">
+            <Route exact path="/student/:id">
 							<Student />
 						</Route>
             <Route exact path="/login">

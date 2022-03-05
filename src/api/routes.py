@@ -38,21 +38,22 @@ def get_chef():
         chef_serialized.append(y.serialize())
     return jsonify({'results': chef_serialized}), 200
 
-@api.route('/student', methods=['GET'])
-def get_student():
-    student = Student.query.all()
-    student_serialized = []
-    for z in student:
-        student_serialized.append(z.serialize())
-    return jsonify({'results': student_serialized}), 200
+@api.route('/student/<int:id>', methods=['GET'])
+def get_student_by_id(id):
+    student = Student.query.get(id)
+    
+    return jsonify({'results': student.serialize()}), 200
+
+
 
 @api.route('/newstudent', methods=['POST'])
 def create_student():
     body = request.get_json()
-    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'])
+    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'])
     db.session.add(student)
     db.session.commit()
     return jsonify({'response':student.serialize()}), 200
+
 
 
 #login

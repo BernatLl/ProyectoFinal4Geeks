@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 
 export const Profile = ()=>{
     const { store, actions } = useContext(Context);
-
+    
     const [newStudent, setNewStudent] = useState({});
 
     return(

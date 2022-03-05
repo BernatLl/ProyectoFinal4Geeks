@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useParams } from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav'
 import Tab from 'react-bootstrap/Tab'
 import { Context } from "../store/appContext";
@@ -15,10 +16,12 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import "../../styles/listadoCursos.css"
 
 export const Student = ()=>{
+   
+    const id = useParams().id;
     const { store, actions } = useContext(Context);
 
     useEffect(()=>{
-        actions.loadStudents();
+        actions.loadStudents(id);
     },[])
 
 
@@ -35,10 +38,10 @@ export const Student = ()=>{
                             <Nav justify variant="pills" className="flex-column menu">
                                 
                                
-                            {store.student.map((index, x)=>(
-                            <img key={x} src={index.image} className="fotoperfil" />
+                            {
+                            <img src={store.student.image} className="fotoperfil" />
                             
-                            ))}
+                            }
 
                                 <Nav.Item>
                                 <Nav.Link eventKey="first">Public Profile</Nav.Link>

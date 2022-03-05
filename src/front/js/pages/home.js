@@ -15,13 +15,13 @@ import { ListadoCursos } from "../component/listadoCursos.js";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  const [islogged, setIsLogged] = useState(false);
+  // const [islogged, setIsLogged] = useState(false);
 
-  useEffect(()=>{
-    if (localStorage.getItem('token')){
-      setIsLogged(True);
-    }
-  })
+  // useEffect(()=>{
+  //   if (localStorage.getItem('token')){
+  //     setIsLogged(True);
+  //   }
+  // })
 
 
   return (

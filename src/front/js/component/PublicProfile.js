@@ -1,6 +1,7 @@
 import "../../styles/formProfile.css"
 import Form from 'react-bootstrap/Form'
-import React,{useEffect, useContext, useState} from "react";
+import React,{useEffect, useContext, useState } from "react";
+import { useParams } from 'react-router-dom'
 import { Context } from "../store/appContext";
 import { Row, Col } from "react-bootstrap"
 import FormCheck from 'react-bootstrap/FormCheck'
@@ -8,10 +9,10 @@ import Button from 'react-bootstrap/Button'
 
 export const PublicProfile =()=>{
     const { store, actions } = useContext(Context);
-
+    const id = useParams().id;
 	
 	useEffect (()=>{
-		actions.loadStudents();
+		actions.loadStudents(id);
 	},[])
 
     return(
@@ -21,17 +22,17 @@ export const PublicProfile =()=>{
                             
             <div className="container" >		
 						
-                {store.student.map((select, i) => (
-                    <div key={i}>
+                {
+                    <div >
 
-                        <h4>{select.nick_name}</h4>
+                        <h4>{store.student.nick_name}</h4>
                         
-                        <p>{select.student_description}</p>
-                        <p>{select.full_name}</p>
-                        <p>{select.email}</p>
+                        <p>{store.student.student_description}</p>
+                        <p>{store.student.full_name}</p>
+                        <p>{store.student.email}</p>
                       
                     </div>
-                ))}
+                }
 					
 						
 				

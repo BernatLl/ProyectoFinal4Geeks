@@ -23,9 +23,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ chef: data.results }))
           .catch((error) => console.error(error));
       },
-      loadStudents: () => {
+      loadStudents: (id) => {
         fetch(
-			getStore().urlapi + "student"
+			getStore().urlapi + "student/".concat(id)
         )
           .then((response) => response.json())
           .then((data) => setStore({ student: data.results }))
