@@ -4,9 +4,6 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Course, Chef, Student
 from api.utils import generate_sitemap, APIException
-from flask_migrate import Migrate
-from flask_swagger import swagger
-from flask_cors import CORS
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
@@ -55,7 +52,7 @@ def get_student():
 
 
 #login
-@app.route('/login', methods=['POST'])
+@api.route('/login', methods=['POST'])
 def login():
     username, password = request.json.get(
         'username', None
@@ -103,7 +100,7 @@ def sign_up():
 
 
 @jwt_required
-@app.route('/user', methods='GET')
+@api.route('/user', methods='GET')
 def get_my_information():
 
     userId = get_jwt_identity()
