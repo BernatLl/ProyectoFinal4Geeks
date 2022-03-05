@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "../store/appContext";
 import "../../../front/styles/NavBar.css";
 import logo from "../../img/NavEdit.png";
+
 export const Navbar = () => {
+
+  const { store, actions } = useContext(Context);
+  const [islogged, setIsLogged] = useState(false);
+
+  useEffect(()=>{
+    if (localStorage.getItem('token')){
+      setIsLogged(True);
+    }
+  })
+
   return (
     <nav id="NavBack" className="nav nav-pills flex-column flex-md-row">
       <a
@@ -65,9 +77,17 @@ export const Navbar = () => {
       <button id="cart" type="button" className="btn btn-secondary btn-sm">
         Cart
       </button>
-      <button id="logIn" type="button" className="btn btn-secondary btn-sm">
+      {
+        islogged ? 
+        <button id="logIn" type="button" className="btn btn-secondary btn-sm">
+        My Account
+        </button>
+        :
+        <button id="logIn" type="button" className="btn btn-secondary btn-sm">
         Login
-      </button>
+        </button>
+      }
+      
     </nav>
   );
 };

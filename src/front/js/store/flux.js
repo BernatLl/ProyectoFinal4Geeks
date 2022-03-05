@@ -27,20 +27,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => console.error(error));
 			},
 
-			login: (email, password) =>{
-				fetch('postgresql://gitpod@localhost:3001/login', {
-				 method: 'POST',
-				 headers: {
-				 	'Content-type': 'application/json',
-					'Accept': 'application/json'
-				},
-				body: JSON.stringify({email: email, password: password})
-				}).then((res)=> res.json())
-				.then((data) => {
-					localStorage.setItem('token', data.token);
-				}).catch((err)=>	console.error(err)) 
+			getUserInformation: async()=>{
+				const response = await fetch(
+					getStore().URl + "user/", {
+						headers: {
+							'Accept':'application/json',
+							'Authorization': `Bearer ${localStorage.getItem('token')}`
+						}
+					}
+				);
+				const data = await response.json();
+				console.log(data); //Informacion del usuario que inicia sesion
 			},
 
+			// login: (email, password) =>{
+			// 	fetch('postgresql://gitpod@localhost:3001/login', {
+			// 	 method: 'POST',
+			// 	 headers: {
+			// 	 	'Content-type': 'application/json',
+			// 		'Accept': 'application/json'
+			// 	},
+			// 	body: JSON.stringify({email: email, password: password})
+			// 	}).then((res)=> res.json())
+			// 	.then((data) => {
+			// 		localStorage.setItem('token', data.token);
+			// 	}).catch((err)=>	console.error(err)) 
+			// },
+			login: async(username, password)=> {
+				const response = await fetch(
+					getStore().URLAPI + "login", {
+						'method': 'POST',
+						'header': {
+							'Content-Type': 'application/json',
+							'Accept': 'application/json'
+						},
+						body: JSON.stringify({
+							username: username,
+							password: password,
+						})
+					}
+				);
+				const data = await response.json();
+				localStorage.setItem('token', data.token);
+			},
 			
 
 			getMessage: function () {

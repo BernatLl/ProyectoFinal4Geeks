@@ -50,12 +50,13 @@ class Student(db.Model):
     full_name = db.Column(db.String(120), nullable=False)
     student_description = db.Column(db.String(400), nullable=True)
     nick_name = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
     facebook_url = db.Column(db.String(120), nullable=True)
     instagram_url = db.Column(db.String(120), nullable=True)
     linkedin_url = db.Column(db.String(120), nullable=True)
     twitter_url = db.Column(db.String(120), nullable=True)
     website_url = db.Column(db.String(120), nullable=True)
-    image = db.Column(db.String(240), unique=True, nullable=False)
+    image = db.Column(db.String(240), unique=True, nullable=True)
     tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('student', lazy=True))
    
 

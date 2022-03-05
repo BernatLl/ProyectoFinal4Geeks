@@ -5,7 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Antho from "../../img/AnthoDain.jpg";
 import Gordom from "../../img/GordomRamsay.jpg";
 import Jiro from "../../img/JirosDream.png";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 
 
@@ -14,6 +14,16 @@ import { FormContacto } from "../component/formContacto.js";
 import { ListadoCursos } from "../component/listadoCursos.js";
 
 export const Home = () => {
+  const { store, actions } = useContext(Context);
+  const [islogged, setIsLogged] = useState(false);
+
+  useEffect(()=>{
+    if (localStorage.getItem('token')){
+      setIsLogged(True);
+    }
+  })
+
+
   return (
     <>
     <div className="BackHome">

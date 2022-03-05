@@ -52,27 +52,59 @@ def get_student():
         student_serialized.append(z.serialize())
     return jsonify({'results': student_serialized}), 200
 
-@app.route('/me', methods='GET')
-@jwt_required
-def get_my_information():
-    token = jsonify(access_token)
-    return token
+
 
 #login
-@app.route('/login', methods=('POST'))
+@app.route('/login', methods=['POST'])
 def login():
-    email, password = request.json.get(
-        'email', None
+    username, password = request.json.get(
+        'username', None
     ), request.json.get(
         'password', None
     )
-    if not (email and password):
-        return jsonify({'message':'No se han dado los datos'}), 400
+    if not (username and password):
+        return jsonify({'message':'Data not provided'}), 400
 
-    user = User.get_by_email(email)
+    #TRAER DE MI BASE DE DATOS UN USUARIO POR EMAIL
 
-    if user and check_password_hash(user.password, password):
-        access_token = create_access_token(identity=user.id)
-        return jsonify({'token': access_token}), 200
-    else:
-        return jsonify({'message':'la contraseña no es correcta'}), 500    
+    user = User.query.filter_by(email = username)
+
+    if not user:
+        return jsonify({'message': 'Username is not valid'}), 404
+
+    #comprobar si la contraseña es correcta    
+
+    if not check_password_hash(user.password, password):
+        return jsonify({'message':'Your password does not match'}), 500
+
+    token = create_access_token(identity=user.id)
+    return jsonify({'token': token}), 200
+    
+@api.route('/signup', methods=['POST'])
+def sign_up():
+
+    email, full_name, nick_name, password = request.json.get('email', None), request.json.get('full_name', None), request.json.get('nick_name', None), request.json.get('password', None)
+
+    if not (email and full_name and nick_name and password):
+        return jsonify({'message':'Data not provided'}), 400
+
+    passe = generate_password_hash(password) 
+    user = User(email=email, full_name=full_name, nick_name=nickname, password = passe)   
+
+    try:
+
+        db.session.add(user)
+        userCreated = db.session.commit()
+        token = create_access_token(identity=userCreated.id)
+        return jsonify({'token': token}), 201
+
+    except Exception as err:
+        return jsonify({'message': str(err)}), 500
+
+
+@jwt_required
+@app.route('/user', methods='GET')
+def get_my_information():
+
+    userId = get_jwt_identity()
+    user = User.query.filter_by(id=user.id)
