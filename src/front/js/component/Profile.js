@@ -1,47 +1,57 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../styles/formProfile.css"
 import Form from 'react-bootstrap/Form'
-
+import { Context } from "../store/appContext";
 import { Row, Col } from "react-bootstrap"
 import FormCheck from 'react-bootstrap/FormCheck'
 import Button from 'react-bootstrap/Button'
 
 
 export const Profile = ()=>{
+    const { store, actions } = useContext(Context);
+
+    const [newStudent, setNewStudent] = useState({});
+
     return(
         <>
         <h1>Profile</h1>
         <Form>
             <fieldset>
                 <Form.Group className="mb-3">
-                    <Form.Label htmlFor="AddNickname"></Form.Label>
-                     <Form.Control id="TextInput" placeholder="Add a Nickname" />
+                    <Form.Label htmlFor="AddUsername"></Form.Label>
+                     <Form.Control id="TextInput" placeholder="Add a Username" onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, username: e.target.value})
+                     }}/>
                 </Form.Group>
                 <Row>
                 
                     <Form.Group className="mb-3 col-6">
                         
-                        <Form.Label htmlFor="Name"></Form.Label>
-                        <Form.Control id="TextInput" placeholder="Name" />
+                        <Form.Label htmlFor="FullName"></Form.Label>
+                        <Form.Control id="TextInput" placeholder="FullName" onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, full_name: e.target.value})
+                     }}/>
                     </Form.Group>
-                    <Form.Group className="mb-3 col-6">
-                        <Form.Label htmlFor="Surname"></Form.Label>
-                        <Form.Control id="TextInput" placeholder="Surname" />
-                    </Form.Group>
+                    
                 </Row>
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="Email"></Form.Label>
-                     <Form.Control id="email" placeholder="Add an email" />
+                     <Form.Control id="email" placeholder="Add an email" onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, email: e.target.value})
+                     }} />
                 </Form.Group>
                 <Row>
                     <Form.Group className="mb-3 col-6">
                         <Form.Label htmlFor="Password"></Form.Label>
-                        <Form.Control id="Password" placeholder="Password" />
+                        <Form.Control id="Password" placeholder="Password" onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, password: e.target.value})
+                     }}/>
                     </Form.Group>
-                    <Form.Group className="mb-3 col-6">
-                        <Form.Label htmlFor="Password"></Form.Label>
-                        <Form.Control id="Password" placeholder="Repeat Password" />
-                    </Form.Group>
+                    
                 </Row>
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="Website"></Form.Label>
@@ -67,9 +77,22 @@ export const Profile = ()=>{
 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Something about you</Form.Label>
-                    <Form.Control as="textarea" rows={3} />
+                    <Form.Control as="textarea" rows={3} onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, student_description: e.target.value})
+                     }}/>
                  </Form.Group>
- 
+
+                <Button onClick={()=>{
+                    if(newStudent.username && newStudent.email && newStudent.password && newStudent.full_name && newStudent.student_description){
+                        actions.createStudent(newStudent);
+                    }
+                }}>
+                    Submit
+                </Button>
+
+
+
             </fieldset>
         </Form>
         </>

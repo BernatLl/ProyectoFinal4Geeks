@@ -46,6 +46,13 @@ def get_student():
         student_serialized.append(z.serialize())
     return jsonify({'results': student_serialized}), 200
 
+@api.route('/newstudent', methods=['POST'])
+def create_student():
+    body = request.get_json()
+    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'])
+    db.session.add(student)
+    db.session.commit()
+    return jsonify({'response':student.serialize()}), 200
 
 
 #login
@@ -61,7 +68,7 @@ def get_student():
 
 #     #TRAER DE MI BASE DE DATOS UN USUARIO POR EMAIL
 
-#     user = User.query.filter_by(email = username)
+#     user = Student.query.filter_by(email = username)
 
 #     if not user:
 #         return jsonify({'message': 'Username is not valid'}), 404
@@ -77,13 +84,13 @@ def get_student():
 # @api.route('/signup', methods=['POST'])
 # def sign_up():
 
-#     email, full_name, nick_name, password = request.json.get('email', None), request.json.get('full_name', None), request.json.get('nick_name', None), request.json.get('password', None)
+#     email, full_name, username, password = request.json.get('email', None), request.json.get('full_name', None), request.json.get('nick_name', None), request.json.get('password', None)
 
-#     if not (email and full_name and nick_name and password):
+#     if not (email and full_name and username and password):
 #         return jsonify({'message':'Data not provided'}), 400
 
 #     passe = generate_password_hash(password) 
-#     user = User(email=email, full_name=full_name, nick_name=nickname, password = passe)   
+#     user = Student(email=email, full_name=full_name, username=username, password = passe)   
 
 #     try:
 
@@ -102,4 +109,4 @@ def get_student():
 # def get_my_information():
 
 #     userId = get_jwt_identity()
-#     user = User.query.filter_by(id=user.id)
+#     user = Student.query.filter_by(id=user.id)

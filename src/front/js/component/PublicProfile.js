@@ -17,16 +17,19 @@ export const PublicProfile =()=>{
     return(
         <>
             <h1>Public profile</h1>
+            
+                            
             <div className="container" >		
 						
                 {store.student.map((select, i) => (
                     <div key={i}>
+
                         <h4>{select.nick_name}</h4>
                         
                         <p>{select.student_description}</p>
                         <p>{select.full_name}</p>
                         <p>{select.email}</p>
-                        <img src={select.image}/>
+                      
                     </div>
                 ))}
 					

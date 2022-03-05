@@ -6,13 +6,13 @@ import logo from "../../img/NavEdit.png";
 export const Navbar = () => {
 
   const { store, actions } = useContext(Context);
-  const [islogged, setIsLogged] = useState(false);
+  // const [islogged, setIsLogged] = useState(false);
 
-  useEffect(()=>{
-    if (localStorage.getItem('token')){
-      setIsLogged(True);
-    }
-  })
+  // useEffect(()=>{
+  //   if (localStorage.getItem('token')){
+  //     setIsLogged(True);
+  //   }
+  // })
 
   return (
     <nav id="NavBack" className="nav nav-pills flex-column flex-md-row">
@@ -77,7 +77,11 @@ export const Navbar = () => {
       <button id="cart" type="button" className="btn btn-secondary btn-sm">
         Cart
       </button>
-      {
+      <button id="logIn" type="button" className="btn btn-secondary btn-sm">
+        Login
+      </button>
+
+      {/* {
         islogged ? 
         <button id="logIn" type="button" className="btn btn-secondary btn-sm">
         My Account
@@ -86,7 +90,7 @@ export const Navbar = () => {
         <button id="logIn" type="button" className="btn btn-secondary btn-sm">
         Login
         </button>
-      }
+      } */}
       
     </nav>
   );

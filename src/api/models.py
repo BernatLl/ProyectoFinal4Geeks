@@ -48,7 +48,7 @@ class Student(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     full_name = db.Column(db.String(120), nullable=False)
     student_description = db.Column(db.String(400), nullable=True)
-    nick_name = db.Column(db.String(120), unique=True, nullable=False)
+    username = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
     facebook_url = db.Column(db.String(120), nullable=True)
     instagram_url = db.Column(db.String(120), nullable=True)
@@ -69,7 +69,7 @@ class Student(db.Model):
             'email': self.email ,
             'full_name': self.full_name ,
             'student_description': self.student_description ,
-            'nick_name': self.nick_name ,
+            'username': self.username ,
             'facebook_url': self.facebook_url ,
             'instagram_url': self.instagram_url ,
             'linkedin_url': self.linkedin_url ,

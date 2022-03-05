@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Nav from 'react-bootstrap/Nav'
 import Tab from 'react-bootstrap/Tab'
+import { Context } from "../store/appContext";
 import { Row, Col } from "react-bootstrap";
 import { PublicProfile } from "../component/PublicProfile"
 import {Profile} from "../component/Profile"
@@ -14,7 +15,13 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import "../../styles/listadoCursos.css"
 
 export const Student = ()=>{
-    
+    const { store, actions } = useContext(Context);
+
+    useEffect(()=>{
+        actions.loadStudents();
+    },[])
+
+
     return(
         <>
             <h1 className="titulo">This is your profile page</h1>
@@ -22,22 +29,30 @@ export const Student = ()=>{
                 
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first" className="container-menu">
                     <Row className="marco">
-                        <Col sm={3} className="contenido-menu">
-                            <img src={rigo}  className="fotoperfil" />
-                        <Nav justify variant="pills" className="flex-column menu">
-                            <Nav.Item>
-                            <Nav.Link eventKey="first">Public Profile</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                            <Nav.Link eventKey="2">Profile</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                            <Nav.Link eventKey="3">Payment methods</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                            <Nav.Link eventKey="4">Close account</Nav.Link>
-                            </Nav.Item>
-                        </Nav>
+                        <Col sm={3} className="contenido-menu" >
+                            
+                            
+                            <Nav justify variant="pills" className="flex-column menu">
+                                
+                               
+                            {store.student.map((index, x)=>(
+                            <img key={x} src={index.image} className="fotoperfil" />
+                            
+                            ))}
+
+                                <Nav.Item>
+                                <Nav.Link eventKey="first">Public Profile</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                <Nav.Link eventKey="2">Profile</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                <Nav.Link eventKey="3">Payment methods</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                <Nav.Link eventKey="4">Close account</Nav.Link>
+                                </Nav.Item>
+                            </Nav>
                         </Col>
                         <Col sm={9} className="contenido" >
                         <Tab.Content >
@@ -45,7 +60,7 @@ export const Student = ()=>{
                             <PublicProfile/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="2">
-                        <Profile/>
+                            <Profile/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="3">
                             <PaymentMethods/>
@@ -103,7 +118,7 @@ export const Student = ()=>{
             
             <h1 className="titulo">Recomended for you</h1>
             <div className="container-fluid p-1 my-5">
-                <ListadoCursos/>
+               
             </div>
         </>
 
