@@ -9,8 +9,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 api = Blueprint('api', __name__)
 
-api.config["JWT_SECRET_KEY"] = "super-secret"
-jwt = JWTManager(api)
+# api.config["JWT_SECRET_KEY"] = ""
+# jwt = JWTManager(api)
 
 
 @api.route('/hello', methods=['POST', 'GET'])
@@ -49,56 +49,57 @@ def get_student():
 
 
 #login
-@api.route('/login', methods=['POST'])
-def login():
-    username, password = request.json.get(
-        'username', None
-    ), request.json.get(
-        'password', None
-    )
-    if not (username and password):
-        return jsonify({'message':'Data not provided'}), 400
+# @api.route('/login', methods=['POST'])
+# def login():
+#     username, password = request.json.get(
+#         'username', None
+#     ), request.json.get(
+#         'password', None
+#     )
+#     if not (username and password):
+#         return jsonify({'message':'Data not provided'}), 400
 
-    #TRAER DE MI BASE DE DATOS UN USUARIO POR EMAIL
+#     #TRAER DE MI BASE DE DATOS UN USUARIO POR EMAIL
 
-    user = User.query.filter_by(email = username)
+#     user = User.query.filter_by(email = username)
 
-    if not user:
-        return jsonify({'message': 'Username is not valid'}), 404
+#     if not user:
+#         return jsonify({'message': 'Username is not valid'}), 404
 
-    #comprobar si la contraseña es correcta    
+#     #comprobar si la contraseña es correcta    
 
-    if not check_password_hash(user.password, password):
-        return jsonify({'message':'Your password does not match'}), 500
+#     if not check_password_hash(user.password, password):
+#         return jsonify({'message':'Your password does not match'}), 500
 
-    token = create_access_token(identity=user.id)
-    return jsonify({'token': token}), 200
+#     token = create_access_token(identity=user.id)
+#     return jsonify({'token': token}), 200
     
-@api.route('/signup', methods=['POST'])
-def sign_up():
+# @api.route('/signup', methods=['POST'])
+# def sign_up():
 
-    email, full_name, nick_name, password = request.json.get('email', None), request.json.get('full_name', None), request.json.get('nick_name', None), request.json.get('password', None)
+#     email, full_name, nick_name, password = request.json.get('email', None), request.json.get('full_name', None), request.json.get('nick_name', None), request.json.get('password', None)
 
-    if not (email and full_name and nick_name and password):
-        return jsonify({'message':'Data not provided'}), 400
+#     if not (email and full_name and nick_name and password):
+#         return jsonify({'message':'Data not provided'}), 400
 
-    passe = generate_password_hash(password) 
-    user = User(email=email, full_name=full_name, nick_name=nickname, password = passe)   
+#     passe = generate_password_hash(password) 
+#     user = User(email=email, full_name=full_name, nick_name=nickname, password = passe)   
 
-    try:
+#     try:
 
-        db.session.add(user)
-        userCreated = db.session.commit()
-        token = create_access_token(identity=userCreated.id)
-        return jsonify({'token': token}), 201
+#         db.session.add(user)
+#         userCreated = db.session.commit()
+#         token = create_access_token(identity=userCreated.id)
+#         return jsonify({'token': token}), 201
 
-    except Exception as err:
-        return jsonify({'message': str(err)}), 500
+#     except Exception as err:
+#         return jsonify({'message': str(err)}), 500
 
 
-@jwt_required
-@api.route('/user', methods='GET')
-def get_my_information():
 
-    userId = get_jwt_identity()
-    user = User.query.filter_by(id=user.id)
+# @api.route('/user', methods='GET')
+# @jwt_required
+# def get_my_information():
+
+#     userId = get_jwt_identity()
+#     user = User.query.filter_by(id=user.id)
