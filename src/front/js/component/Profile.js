@@ -55,23 +55,38 @@ export const Profile = ()=>{
                 </Row>
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="Website"></Form.Label>
-                     <Form.Control id="TextInput" placeholder="Add a website" />
+                     <Form.Control id="TextInput" placeholder="Add a website" onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, password: e.target.value})
+                     }}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="Linkedin"></Form.Label>
-                     <Form.Control id="TextInput" placeholder="Add a Linkedin" />
+                     <Form.Control id="TextInput" placeholder="Add a Linkedin" onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, linkedin_url: e.target.value})
+                     }}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="Twitter"></Form.Label>
-                     <Form.Control id="TextInput" placeholder="Add a Twitter" />
+                     <Form.Control id="TextInput" placeholder="Add a Twitter" onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, twitter_url: e.target.value})
+                     }}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="Facebook"></Form.Label>
-                     <Form.Control id="TextInput" placeholder="Add a Facebook" />
+                     <Form.Control id="TextInput" placeholder="Add a Facebook" onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, facebook_url: e.target.value})
+                     }}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="Instagram"></Form.Label>
-                     <Form.Control id="TextInput" placeholder="Add a Instagram" />
+                     <Form.Control id="TextInput" placeholder="Add a Instagram" onChange={(e)=>{
+                         e.preventDefault();
+                         setNewStudent({...newStudent, instagram_url: e.target.value})
+                     }}/>
                 </Form.Group>
 
 
