@@ -18,9 +18,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ course: data.results }))
           .catch((error) => console.error(error));
       },
-      loadChefs: () => {
+      loadChefs: (id) => {
         fetch(
-			getStore().urlapi + "chef"
+			getStore().urlapi + "chef".concat(id)
         )
           .then((response) => response.json())
           .then((data) => setStore({ chef: data.results }))

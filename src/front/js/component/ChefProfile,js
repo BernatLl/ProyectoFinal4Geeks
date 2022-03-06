@@ -1,0 +1,17 @@
+import React,{useEffect, useContext, useState } from "react";
+import { useParams } from 'react-router-dom';
+import { Context } from "../store/appContext";
+
+
+export const ChefProfile = ()=>{
+    const { store, actions } = useContext(Context);
+    const id = useParams().id;
+	
+	useEffect (()=>{
+		actions.loadChefs(id);
+	},[])
+
+    return(
+        
+    )
+}

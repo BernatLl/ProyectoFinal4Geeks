@@ -38,10 +38,6 @@ def get_my_information():
     return jsonify(dictionary)
 
 
-
-
-
-
 @api.route('/course', methods=['GET'])
 def get_course():
     course = Course.query.all()
@@ -64,6 +60,12 @@ def get_student_by_id(id):
     
     return jsonify({'results': student.serialize()}), 200
 
+@api.route('/chef/<int:id>', methods=['GET'])
+def get_student_by_id(id):
+    chef = Chef.query.get(id)
+    
+    return jsonify({'results': chef.serialize()}), 200
+
 
 
 @api.route('/newstudent', methods=['POST'])
@@ -73,6 +75,14 @@ def create_student():
     db.session.add(student)
     db.session.commit()
     return jsonify({'response':student.serialize()}), 200
+
+@api.route('/newchef', methods=['POST'])
+def create_chef():
+    body = request.get_json()
+    chef = Chef(address=body['address'], email=body['email'], full_name=body['full_name'], chef_description=body['chef_description'], bank_info=body['bank_info'])
+    db.session.add(chef)
+    db.session.commit()
+    return jsonify({'response':chef.serialize()}), 200
 
 
 @api.route('/newcourse', methods=['POST'])

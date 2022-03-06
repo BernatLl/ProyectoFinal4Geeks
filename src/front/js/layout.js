@@ -10,6 +10,7 @@ import { Footer } from "./component/footer";
 import { Login } from "./pages/login";
 import {Search} from "./component/search";
 import Payment from "./pages/payment";
+import { Chef } from "./pages/chef";
 
 //create your first component
 const Layout = () => {
@@ -40,6 +41,9 @@ const Layout = () => {
 						</Route>
             <Route exact path="/payment">
 							<Payment/>
+						</Route>
+            <Route exact path="/chef/:id">
+							<Chef/>
 						</Route>
 
 					</Switch>
