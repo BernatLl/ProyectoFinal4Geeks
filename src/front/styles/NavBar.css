@@ -1,115 +1,110 @@
-/* #NavBack {
-  background-color: rgb(41, 41, 41);
-  height: 4rem;
-  width: auto;
+.navbody {
+  background-color: #262626;
+  width: 100%;
+  height: auto;
   display: flex;
-}
-
-*/.logo {
-  height: 2rem;
-  width: auto;
-  z-index: 2;
-  margin-bottom: rem;
-}
-/*
-#categories {
-  margin-left: 8rem !important;
-}
-#categories,
-#student,
-#professor {
-  color: rgba(255, 255, 255, 0.69);
-  margin-top: 1rem;
-  margin-left: 8rem;
-}
-
-.dropdown-menu {
-  background-color: rgba(38, 38, 38, 1);
-}
-.dropdown-item {
-  color: rgba(255, 255, 255, 0.69);
-}
-#student:active,
-#categories:active,
-#professor:active,
-#search:active {
-  color: rgba(217, 100, 89, 1);
-}
-
-#student[tabindex]:focus,
-#categories[tabindex]:focus,
-#professor[tabindex]:focus,
-#search[tabindex]:focus {
-  color: rgba(217, 100, 89, 1);
-  outline: none;
-}
-*/
-button {
-  margin-top: 1rem;
-  height: 2rem;
-  width: 5rem;
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.69);
-  font-size: 28px;
-  color: rgba(217, 100, 89, 1);
-  padding: 20px;
-  text-align: center;
-  transition-duration: 1s;
-  overflow: hidden;
-  cursor: pointer;
-}
-/*
-/* button:after {
-  
-  background-color: rgb(41, 41, 41);
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px !important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 1s;
-}
-
-button:active:after {
-  padding: 0;
+  gap: 2rem;
   margin: 0;
-  opacity: 1;
-  transition: 0s;
-} */
-
-/* #cart {
-  margin-left: 7rem;
-  margin-right: 1rem;
-  color: rgba(217, 100, 89, 1);
-}
-#logIn {
-  color: rgba(217, 100, 89, 1);
-  margin-right: 1rem;
 }
 
-#Search {
-  height: 2rem;
-  width: 18rem;
-  background-color: rgba(38, 38, 38, 1);
-  color: white;
+.logo {
+  max-width: 7rem;
+  min-width: 2rem;
+}
+
+.student,
+.professor {
+  color: beige;
+  padding: 2rem;
+  display: inline;
+  max-width: 2rem;
+  font-size: smaller;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: beige;
+  font-size: smaller;
+  border: none;
+  display: inline;
+  padding: 1.4rem;
+}
+.student,
+.professor,
+.dropdown {
+  display: inline;
+}
+.dropdown {
   position: relative;
+  padding-top: 0.7rem;
+  max-width: 10rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #262626;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #262626;
+}
+.search {
+  margin: auto;
+  max-width: 100%;
+  max-height: 10%;
+  display: flex;
+  font-size: smaller;
+  justify-content: center;
+  gap: 00.5rem;
+}
+.searchbar {
+  max-width: 100%;
+  text-align: center;
+  max-height: 2rem;
   border-radius: 5px;
 }
-#SButton {
-  height: 2rem;
-  width: 5rem;
-  color: rgba(255, 255, 255, 0.69);
-  font-size: 18px;
-  font-weight: 400;
-  justify-content: center;
-  color: rgba(217, 100, 89, 1);
+
+.sbutton {
+  max-width: 4rem;
+  max-height: 2rem;
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
 }
 
-#Search,
-#SButton {
-  display: flex;
-  left: 6rem;
-  margin-top: 1rem;
-} */ 
+.bcart {
+  max-height: 2rem;
+  max-width: 4rem;
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: auto;
+}
+
+.blogin {
+  max-height: 2rem;
+  max-width: 4rem;
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: auto;
+}

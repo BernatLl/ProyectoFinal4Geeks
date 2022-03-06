@@ -22,7 +22,7 @@ export const Login =()=>{
            
     };
 
-    if ( store.token && store.token!="" && store.token != undefined) history.push("/");
+    if ( store.token && store.token!="" && store.token != undefined) history.push("/student/:id");
 	
 	
     return(

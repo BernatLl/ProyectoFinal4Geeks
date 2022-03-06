@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useParams } from 'react-router-dom'
 import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
-import { Navbar } from "./component/NavBar";
+import { NavTop } from "./component/NavTop";
 import { CreateCourse } from "./pages/CreateCourse";
 import { Student } from "./pages/student";
 import { Footer } from "./component/footer";
@@ -22,7 +22,7 @@ const Layout = () => {
     <div>
       <BrowserRouter>
         <div>
-          <Navbar />
+          <NavTop />
           <Switch>
             <Route exact path="/">
               <Home />
