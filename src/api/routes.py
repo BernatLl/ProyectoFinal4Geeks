@@ -46,13 +46,7 @@ def get_course():
         course_serialized.append(x.serialize())
     return jsonify({'results': course_serialized}), 200
 
-@api.route('/chef', methods=['GET'])
-def get_chef():
-    chef = Chef.query.all()
-    chef_serialized = []
-    for y in chef:
-        chef_serialized.append(y.serialize())
-    return jsonify({'results': chef_serialized}), 200
+# 
 
 @api.route('/student/<int:id>', methods=['GET'])
 def get_student_by_id(id):
@@ -61,7 +55,7 @@ def get_student_by_id(id):
     return jsonify({'results': student.serialize()}), 200
 
 @api.route('/chef/<int:id>', methods=['GET'])
-def get_student_by_id(id):
+def get_chef_by_id(id):
     chef = Chef.query.get(id)
     
     return jsonify({'results': chef.serialize()}), 200
@@ -108,7 +102,13 @@ def create_course():
     db.session.commit()
     return jsonify({'response':newcourse.serialize()}), 200
 
-
+#@api.route('/chef', methods=['GET'])
+# def get_chef():
+#     chef = Chef.query.all()
+#     chef_serialized = []
+#     for y in chef:
+#         chef_serialized.append(y.serialize())
+#     return jsonify({'results': chef_serialized}), 200
 
 #login
 # @api.route('/login', methods=['POST'])

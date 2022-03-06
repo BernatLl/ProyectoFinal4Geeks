@@ -20,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       loadChefs: (id) => {
         fetch(
-			getStore().urlapi + "chef".concat(id)
+			getStore().urlapi + "chef/".concat(id)
         )
           .then((response) => response.json())
           .then((data) => setStore({ chef: data.results }))
