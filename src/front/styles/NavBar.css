@@ -1,16 +1,17 @@
-#NavBack {
+/* #NavBack {
   background-color: rgb(41, 41, 41);
   height: 4rem;
   width: auto;
   display: flex;
 }
 
-.logo {
-  height: 5rem;
-  width: 5rem;
+*/.logo {
+  height: 2rem;
+  width: auto;
   z-index: 2;
   margin-bottom: rem;
 }
+/*
 #categories {
   margin-left: 8rem !important;
 }
@@ -42,7 +43,7 @@
   color: rgba(217, 100, 89, 1);
   outline: none;
 }
-
+*/
 button {
   margin-top: 1rem;
   height: 2rem;
@@ -57,9 +58,9 @@ button {
   overflow: hidden;
   cursor: pointer;
 }
-
-button:after {
-  content: "";
+/*
+/* button:after {
+  
   background-color: rgb(41, 41, 41);
   display: block;
   position: absolute;
@@ -76,9 +77,9 @@ button:active:after {
   margin: 0;
   opacity: 1;
   transition: 0s;
-}
+} */
 
-#cart {
+/* #cart {
   margin-left: 7rem;
   margin-right: 1rem;
   color: rgba(217, 100, 89, 1);
@@ -111,4 +112,4 @@ button:active:after {
   display: flex;
   left: 6rem;
   margin-top: 1rem;
-}
+} */ 

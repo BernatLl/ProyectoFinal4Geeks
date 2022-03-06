@@ -2,6 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../../front/styles/NavBar.css";
 import logo from "../../img/NavEdit.png";
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+
 
 export const Navbar = () => {
 
@@ -15,14 +21,10 @@ export const Navbar = () => {
   // })
 
   return (
-    <nav id="NavBack" className="nav nav-pills flex-column flex-md-row">
-      <a
-        id="logo"
-        className="flex-sm-fill text-sm-center nav-link"
-        href="https://3000-bernatll-proyectofinal4g-cqtsmybwg7u.ws-eu33.gitpod.io/"
-      >
-        <img className="logo" src={logo}></img>
-      </a>
+    <Nav id="NavBack" className="nav nav-pills flex-column flex-md-row">
+      
+      <Link to="/" id="logo"><img className="logo" src={logo}></img></Link>
+      
       <a
         className="nav-link dropdown-toggle"
         href="#"
@@ -61,25 +63,39 @@ export const Navbar = () => {
         Professor
       </a>
 
-      <form id="SearchBar" className="d-flex">
-        <input
-          className="form-control me-2"
+      <Form className="d-flex">
+        <Form.Control
           type="search"
-          id="Search"
-          placeholder="Type Here"
+          placeholder="Search"
+          className="me-1"
           aria-label="Search"
-        ></input>
-        <button id="SButton" type="button" className="btn btn-secondary btn-sm">
-          Search
-        </button>
-      </form>
-
-      <button id="cart" type="button" className="btn btn-secondary btn-sm">
+        />
+        <ButtonGroup size="lg" className="mb-2">
+        <Button variant="outline-success">Search</Button>
+        <Button id="cart" type="button" className="btn btn-secondary btn-sm">
         Cart
-      </button>
-      <button id="logIn" type="button" className="btn btn-secondary btn-sm">
-        Login
-      </button>
+        </Button>
+        {!store.token ?
+          <Link to="/login">
+          <Button id="logIn" type="button" className="btn btn-secondary btn-sm">
+            Login
+          </Button>
+          </Link>
+          :
+          <Button id="logOut" type="button" onClick={() => actions.logout()} className="btn btn-secondary btn-sm">
+            Logout
+          </Button>
+           
+
+          }
+        </ButtonGroup>
+      </Form>
+
+      
+
+      
+      
+      
 
       {/* {
         islogged ? 
@@ -92,6 +108,6 @@ export const Navbar = () => {
         </button>
       } */}
       
-    </nav>
+    </Nav>
   );
 };

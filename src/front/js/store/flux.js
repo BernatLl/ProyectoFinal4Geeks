@@ -56,6 +56,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           const token = sessionStorage.getItem("token");
           if(token && token!="" && token!= undefined)setStore({token: token})
       },
+      logout: ()=>{
+          sessionStorage.removeItem("token");
+          setStore({token: null})
+      },
 
       login: async (email, password)=>{
               const opts = {
@@ -88,6 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         
       },
 
+      
       
       
       // getUserInformation: async()=>{
