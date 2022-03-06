@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      token: null,
       urlapi:
         "https://3001-bernatll-proyectofinal4g-mk371x337gt.ws-eu34xl.gitpod.io/api/",
       course: [],
@@ -50,6 +51,44 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((err) => console.log(err));
           
       },
+
+      syncTokenFromSessionStore: () =>{
+          const token = sessionStorage.getItem("token");
+          if(token && token!="" && token!= undefined)setStore({token: token})
+      },
+
+      login: async (email, password)=>{
+              const opts = {
+                method: 'POST',
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({
+                    "email": email,
+                    "password": password
+                })
+            };
+        try{
+          const resp = await fetch( "https://3001-bernatll-proyectofinal4g-83i6p2xqvp6.ws-eu34xl.gitpod.io/api/token", opts)
+            
+          if(resp.status!==200) { 
+            alert("There has been an error!!!");
+            return false;
+          };
+
+          const data = await resp.json();
+          sessionStorage.getItem("token", data.access_token);
+          setStore({token: data.access_token})
+          return true;
+        }
+        catch(error){
+          console.error("There was been an error login in")
+        }
+            
+        
+      },
+
+      
       
       // getUserInformation: async()=>{
       // 	const response = await fetch(
@@ -82,19 +121,19 @@ const getState = ({ getStore, getActions, setStore }) => {
       // 	localStorage.setItem('token', data.token);
       // },
 
-      // getMessage: function () {
-      // 	// fetching data from the backend
-      // 	fetch('postgresql://gitpod@localhost:3001/me', {
-      // 		method: 'GET',
-      // 		headers: {
-      // 			'Accept': 'application/json',
-      // 			'Authorization': `Bearer ${localStorage.getItem('token')}`
-      // 		},
-      // 	}).then((res) => res.json())
-      // 		.then((data) => {
-      // 			console.log(data);
-      // 	}).catch((err) => console.error(err));
-      // },
+      getMessage: function () {
+      	// fetching data from the backend
+      	fetch('postgresql://gitpod@localhost:3001/me', {
+      		method: 'GET',
+      		headers: {
+      			'Accept': 'application/json',
+      			'Authorization': `Bearer ${localStorage.getItem('token')}`
+      		},
+      	}).then((res) => res.json())
+      		.then((data) => {
+      			console.log(data);
+      	}).catch((err) => console.error(err));
+      },
     },
   };
 };
