@@ -1,13 +1,15 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      message:null,
       token: null,
       urlapi:
-        "https://3001-bernatll-proyectofinal4g-mk371x337gt.ws-eu34xl.gitpod.io/api/",
+        "https://3001-bernatll-proyectofinal4g-83i6p2xqvp6.ws-eu34xl.gitpod.io/api/",
       course: [],
       student: [],
       chef: [],
-      newStudent:[]
+      newStudent:[],
+      newCourse:[]
     },
     actions: {
       loadCourses: () => {
@@ -52,6 +54,25 @@ const getState = ({ getStore, getActions, setStore }) => {
           
       },
 
+      createCourse: (newCourse)=>{
+        fetch(
+          getStore().urlapi + "newcourse", {
+            method: "POST",
+            body: JSON.stringify(newCourse),
+            headers: {
+                "Content-Type": "application/json",
+            },
+          })
+          .then((res) => res.json())
+          .then((responseAsJason) => {
+              setStore({
+                  course: [...getStore().newCourse, responseAsJason],
+              });
+          })
+          .catch((err) => console.log(err));
+          
+      },
+
       syncTokenFromSessionStore: () =>{
           const token = sessionStorage.getItem("token");
           if(token && token!="" && token!= undefined)setStore({token: token})
@@ -73,7 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
             };
         try{
-          const resp = await fetch( "https://3001-bernatll-proyectofinal4g-83i6p2xqvp6.ws-eu34xl.gitpod.io/api/token", opts)
+          const resp = await fetch(  getStore().urlapi + "token", opts)
             
           if(resp.status!==200) { 
             alert("There has been an error!!!");
@@ -92,9 +113,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         
       },
 
-      
-      
-      
+      getMessage: ()=> {
+        const store = getStore();
+        const opts = {
+          headers: {
+      			'Content-Type': 'application/json',
+      			'Authorization': "Bearer " + store.token
+      		},
+        }
+      	// fetching data from the backend
+      	fetch( getStore().urlapi + "hello", opts)
+      	
+        .then((res) => res.json())
+      	.then(data => setStore({message: data.message}))
+      	.catch((error) => console.log("Error loading message from backend", error));
+      },
+           
       // getUserInformation: async()=>{
       // 	const response = await fetch(
       // 		"https://3001-bernatll-proyectofinal4g-uson41704j4.ws-eu34xl.gitpod.io/api/" + "user", {
@@ -126,19 +160,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       // 	localStorage.setItem('token', data.token);
       // },
 
-      getMessage: function () {
-      	// fetching data from the backend
-      	fetch('postgresql://gitpod@localhost:3001/me', {
-      		method: 'GET',
-      		headers: {
-      			'Accept': 'application/json',
-      			'Authorization': `Bearer ${localStorage.getItem('token')}`
-      		},
-      	}).then((res) => res.json())
-      		.then((data) => {
-      			console.log(data);
-      	}).catch((err) => console.error(err));
-      },
+      
     },
   };
 };

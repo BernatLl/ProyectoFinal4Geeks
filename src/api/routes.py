@@ -24,6 +24,20 @@ def create_token():
     return jsonify(access_token=access_token)
 
 
+   
+@api.route('/hello', methods=['GET'])
+@jwt_required()
+def get_my_information():
+    
+    email = get_jwt_identity()
+    
+    dictionary = {
+        "message":"Your are Logged " + email
+    }
+   
+    return jsonify(dictionary)
+
+
 
 
 
@@ -59,6 +73,30 @@ def create_student():
     db.session.add(student)
     db.session.commit()
     return jsonify({'response':student.serialize()}), 200
+
+
+@api.route('/newcourse', methods=['POST'])
+def create_course():
+    body = request.get_json()
+    newcourse = Course(
+        course_name=body['course_name'], 
+        dificulty=body['dificulty'], 
+        style=body['style'], 
+        country=body['country'], 
+        description=body['description'], 
+        ingredient=body['ingredient'], 
+        list_ingredient=body['list_ingredient'], 
+        requeriments=body['requeriments'], 
+        knowledge=body['knowledge'], 
+        price=body['price'], 
+        title=body['title'], 
+        video=body['video'], 
+        img=body['img'] 
+        )
+
+    db.session.add(newcourse)
+    db.session.commit()
+    return jsonify({'response':newcourse.serialize()}), 200
 
 
 
@@ -111,9 +149,3 @@ def create_student():
 
 
 
-# @api.route('/user', methods='GET')
-# @jwt_required
-# def get_my_information():
-
-#     userId = get_jwt_identity()
-#     user = Student.query.filter_by(id=user.id)

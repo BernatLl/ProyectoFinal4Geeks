@@ -15,18 +15,22 @@ import { ListadoCursos } from "../component/listadoCursos.js";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  // const [islogged, setIsLogged] = useState(false);
+  
 
-  // useEffect(()=>{
-  //   if (localStorage.getItem('token')){
-  //     setIsLogged(True);
-  //   }
-  // })
+  useEffect(()=>{
+     if(store.token && store.token!="" && store.token != undefined) actions.getMessage();
+    },[store.token])
+  
 
 
   return (
-    <>
-    <div className="BackHome">
+    <> 
+      <div>
+        {store.token ?
+        <div className="alert alert-info">{store.message}</div>:<div></div> }
+      </div>
+      <div className="BackHome">
+      
       <div className="Home">
         <img id="BackHead" className="mt-m" src={HeaderImg}></img>
         <div className="mt-m" id="Bourdain">

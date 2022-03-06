@@ -24,9 +24,7 @@ export const Login =()=>{
 
     if ( store.token && store.token!="" && store.token != undefined) history.push("/");
 	
-	// useEffect (()=>{
-	// 	actions.login();
-	// },[])
+	
     return(
         <>
             <h1>Login</h1>

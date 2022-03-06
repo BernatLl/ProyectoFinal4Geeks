@@ -90,7 +90,7 @@ class Chef(db.Model):
     chef_description = db.Column(db.String(400), unique=False, nullable=False)
     bank_info = db.Column(db.String(120), unique=True, nullable=False)
     address = db.Column(db.String(120), unique=False, nullable=False)
-    course = db.relationship("Course", back_populates="chef")
+    # course = db.relationship("Course", back_populates="chef")
 
     def __repr__(self):
         return f'Chef {self.id}'
@@ -125,8 +125,8 @@ class Course(db.Model):
     video = db.Column(db.String(240), unique=True, nullable=False)
     img = db.Column(db.String(240), unique=True, nullable=False)
 
-    chef_id = db.Column(db.Integer, ForeignKey('chef.id'))
-    chef = db.relationship("Chef", back_populates="course")
+    # chef_id = db.Column(db.Integer, ForeignKey('chef.id'))
+    # chef = db.relationship("Chef", back_populates="course")
 
     def __repr__(self):
         return f'Course {self.id}'
