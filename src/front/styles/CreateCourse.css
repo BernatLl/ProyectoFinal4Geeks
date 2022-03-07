@@ -1,17 +1,33 @@
 body {
-  background-color: rgba(90, 88, 88, 1);
+  background-color: black;
 }
 
 .BackGround {
   position: flex;
   color: beige;
   background-color: rgba(94, 69, 54, 0.829);
-  height: 90%;
-  width: auto;
+  height: auto;
+  width: 100%;
 }
+
 .Tittle,
 .Slogan {
   text-align: center;
+}
+
+.form-one {
+  display: block;
+}
+
+.theform {
+  max-width: 100%;
+}
+
+.backform {
+  padding: 0%;
+  margin: auto;
+  max-width: 90%;
+  max-height: 100%;
 }
 
 .HeaderCreate {
@@ -22,11 +38,34 @@ body {
   width: 50%;
   height: 50%;
 }
+
+.namebar {
+  max-width: 50%;
+  min-width: auto;
+}
+
+.describe {
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+  text-align: start;
+}
+
+.namebar,
+.describe {
+  padding: 1rem;
+}
+
 .Recomend {
   margin-left: 1rem;
   margin-right: 5rem;
   text-align: left;
 }
+
+.wrapper {
+  padding: 10vw;
+}
+
 .CreateText {
   text-align: center;
 }
@@ -42,4 +81,9 @@ body {
 
 Container {
   width: 100%;
+}
+
+.lvlcomplex {
+  max-width: 20%;
+  max-height: 2rem;
 }

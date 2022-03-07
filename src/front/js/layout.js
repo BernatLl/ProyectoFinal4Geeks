@@ -31,7 +31,6 @@ const Layout = () => {
           <Student />
         </Route>
       </Switch>
-      <Footer />
     </BrowserRouter>
   );
 };

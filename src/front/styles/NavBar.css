@@ -1,6 +1,7 @@
 .navbody {
   background-color: #262626;
   overflow: hidden;
+  margin: 0%;
 }
 .student:hover,
 .professor:hover,
@@ -23,6 +24,7 @@
   margin: auto;
   padding: 1vw;
   text-align: center;
+  position: relative;
 }
 
 .dropbtn {
@@ -65,7 +67,7 @@
   background-color: #262626;
 }
 .search {
-  max-width: 18%;
+  max-width: 20%;
   max-height: 8%;
   font-size: 1vw;
   padding-left: 0%;
@@ -73,6 +75,7 @@
   vertical-align: middle;
   margin: auto;
   margin-right: 0%;
+  position: relative;
 }
 .searchbar {
   max-width: 100%;
@@ -109,4 +112,7 @@
   color: #d96459;
   border-radius: 5px;
   font-size: 1vw;
+}
+.bcart {
+  margin-right: 1rem;
 }

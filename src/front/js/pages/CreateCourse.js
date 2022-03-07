@@ -8,21 +8,22 @@ export const CreateCourse = () => {
   return (
     <div className="BackGround">
       <img src={ClaseRemote} className="HeaderCreate"></img>
-      <div className="wrapper">
-        <div className="Tittle">
+      <div className="wrapper container-fluid">
+        <div className="Tittle col">
           <h3>Educator Center</h3>
         </div>
-        <div className="Slogan">
+        <div className="Slogan col">
           <h4>
             Better than a thousand days of diligent study, is one day with a
             great teacher.
           </h4>
-          <div className="Recomend">
+
+          <div className="Recomend col">
             On this page we will got through the basics that we required in
             order to post your course in our platform. Don’t worry is not
             complicated:
             <ul>
-              <li className="List">
+              <li className="List row">
                 {" "}
                 <strong>
                   Name and basic information about the course,
@@ -58,33 +59,45 @@ export const CreateCourse = () => {
           </div>
         </div>
 
-        <div>
-          <Form>
+        <div className="backform row">
+          <Form className="theform">
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Name The Course</Form.Label>
+              <Form.Group
+                as={Col}
+                className="form-one row"
+                controlId="formGridEmail"
+              >
+                <Form.Label className="namecoursetittle col">
+                  Name The Course
+                </Form.Label>
                 <Form.Control
+                  className="namebar col"
                   type="text"
                   placeholder="For example: Burger's MasterChef Classes"
                 />
               </Form.Group>
               <Form.Group
-                className="mb-3"
+                className="describe-tittle mb-3 row"
                 controlId="exampleForm.ControlTextarea1"
               >
                 <Form.Label>Describe your course</Form.Label>
+
                 <Form.Control
+                  className="describe"
                   type="text"
                   as="textarea"
                   rows={3}
                   placeholder="Give a brief Description about what the Student is going to Learn in this course"
                 />
               </Form.Group>
-              <Form.Select aria-label="Default select example">
+              <Form.Select
+                className=" lvlcomplex row"
+                aria-label="Default select example"
+              >
                 <option>Level of complexity</option>
                 <option value="">easy</option>
                 <option value="">Medium</option>
-                <option value="Holanda">Hard</option>
+                <option value="">Hard</option>
               </Form.Select>
               <Form.Select aria-label="Default select example">
                 <option>Country</option>
@@ -210,6 +223,7 @@ export const CreateCourse = () => {
               </Form.Group>
               <a href="">Review Course</a>
             </Row>
+
             <Button variant="primary" type="submit">
               Submit
             </Button>
