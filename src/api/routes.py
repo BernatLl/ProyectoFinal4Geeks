@@ -15,24 +15,44 @@ api = Blueprint('api', __name__)
 # create_access_token() function is used to actually generate the JWT.
 @api.route("/token", methods=["POST"])
 def create_token():
-    email = request.json.get("email", None)
-    password = request.json.get("password", None)
-    if email != "test" or password != "test":
-        return jsonify({"msg": "Bad email or password"}), 401
-
-    access_token = create_access_token(identity=email)
-    return jsonify(access_token=access_token)
-
-
    
+    email, password = request.json.get(
+        'email', None
+    ), request.json.get(
+        'password', None
+    )
+    if not (email and password):
+        return jsonify({'message':'Data not provided'}), 400
+
+    #TRAER DE MI BASE DE DATOS UN USUARIO POR EMAIL
+    print("email and password", email, password)
+
+    logged_student = Student.query.filter_by(email = email).one_or_none()
+    
+    print("user loogged", logged_student.serialize())
+
+    if not logged_student:
+        return jsonify({'message': 'Email is not valid'}), 404
+
+    #comprobar si la contraseña es correcta    
+
+    # if not check_password_hash(logged_student_serialize.password, password):
+    #     return jsonify({'message':'Your password does not match'}), 500
+
+    access_token = create_access_token(identity=logged_student.serialize())
+    print("aqui esta el token", access_token)
+    return jsonify({'token': access_token}), 200
+
+  
+
 @api.route('/hello', methods=['GET'])
 @jwt_required()
 def get_my_information():
     
-    email = get_jwt_identity()
+    username = get_jwt_identity()
     
     dictionary = {
-        "message":"Your are Logged " + email
+        "message":"Your are Logged " + username
     }
    
     return jsonify(dictionary)
@@ -48,8 +68,10 @@ def get_course():
 
 # 
 
-@api.route('/student/<int:id>', methods=['GET'])
-def get_student_by_id(id):
+@jwt_required
+@api.route('/student/', methods=['GET'])
+def get_student_by_id():
+    id = get_jwt_identity()
     student = Student.query.get(id)
     
     return jsonify({'results': student.serialize()}), 200

@@ -1,16 +1,16 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      message:null,
+      message: null,
       token: null,
       urlapi:
         "https://3001-bernatll-proyectofinal4g-728rt52j6gq.ws-eu34xl.gitpod.io/api/",
       course: [],
       student: [],
       chef: [],
-      newStudent:[],
-      newCourse:[],
-      newChef:[]
+      newStudent: [],
+      newCourse: [],
+      newChef: [],
     },
     actions: {
       loadCourses: () => {
@@ -20,148 +20,142 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => console.error(error));
       },
       loadChefs: (id) => {
-        fetch(
-			getStore().urlapi + "chef/".concat(id)
-        )
+        fetch(getStore().urlapi + "chef/".concat(id))
           .then((response) => response.json())
           .then((data) => setStore({ chef: data.results }))
           .catch((error) => console.error(error));
       },
       loadStudents: (id) => {
-        fetch(
-			getStore().urlapi + "student/".concat(id)
-        )
+        fetch(getStore().urlapi + "student/".concat(id),
+        { method: "GET",
+          headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + getStore().token }
+        },)
           .then((response) => response.json())
           .then((data) => setStore({ student: data.results }))
           .catch((error) => console.error(error));
       },
-      
-      createStudent: (newStudent)=>{
-        fetch(
-          getStore().urlapi + "newstudent", {
-            method: "POST",
-            body: JSON.stringify(newStudent),
-            headers: {
-                "Content-Type": "application/json",
-            },
-          })
+
+      createStudent: (newStudent) => {
+        fetch(getStore().urlapi + "newstudent", {
+          method: "POST",
+          body: JSON.stringify(newStudent),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
           .then((res) => res.json())
           .then((responseAsJason) => {
-              setStore({
-                  student: [...getStore().newStudent, responseAsJason],
-              });
+            setStore({
+              student: [...getStore().newStudent, responseAsJason],
+            });
           })
           .catch((err) => console.log(err));
-          
       },
-      createChef: (newChef)=>{
-        fetch(
-          getStore().urlapi + "newchef", {
-            method: "POST",
-            body: JSON.stringify(newChef),
-            headers: {
-                "Content-Type": "application/json",
-            },
-          })
+      createChef: (newChef) => {
+        fetch(getStore().urlapi + "newchef", {
+          method: "POST",
+          body: JSON.stringify(newChef),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
           .then((res) => res.json())
           .then((responseAsJason) => {
-              setStore({
-                  chef: [...getStore().newChef, responseAsJason],
-              });
+            setStore({
+              chef: [...getStore().newChef, responseAsJason],
+            });
           })
           .catch((err) => console.log(err));
-          
       },
-      editStudent: (id)=>{
-        fetch(
-          getStore().urlapi + "editstudent".concat(id), {
-            method: "PUT",
-            body: JSON.stringify(id),
-            headers: {
-                "Content-Type": "application/json",
-            },
-          })
+      editStudent: (id) => {
+        
+        fetch(getStore().urlapi + "editstudent".concat(id), {
+          method: "PUT",
+          body: JSON.stringify(id),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + getStore().token,
+          },
+        })
           .then((res) => res.json())
           .then((responseAsJason) => responseAsJason)
           .catch((err) => console.log(err));
-          
       },
 
-      createCourse: (newCourse)=>{
-        fetch(
-          getStore().urlapi + "newcourse", {
-            method: "POST",
-            body: JSON.stringify(newCourse),
-            headers: {
-                "Content-Type": "application/json",
-            },
-          })
+      createCourse: (newCourse) => {
+        fetch(getStore().urlapi + "newcourse", {
+          method: "POST",
+          body: JSON.stringify(newCourse),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
           .then((res) => res.json())
           .then((responseAsJason) => {
-              setStore({
-                  course: [...getStore().newCourse, responseAsJason],
-              });
+            setStore({
+              course: [...getStore().newCourse, responseAsJason],
+            });
           })
           .catch((err) => console.log(err));
-          
       },
 
-      syncTokenFromSessionStore: () =>{
-          const token = sessionStorage.getItem("token");
-          if(token && token!="" && token!= undefined)setStore({token: token})
+      syncTokenFromSessionStore: () => {
+        const token = sessionStorage.getItem("token");
+        if (token && token != "" && token != undefined)
+          setStore({ token: token });
       },
-      logout: ()=>{
-          sessionStorage.removeItem("token");
-          setStore({token: null})
+      logout: () => {
+        sessionStorage.removeItem("token");
+        setStore({ token: null });
       },
 
-      login: async (email, password)=>{
-              const opts = {
-                method: 'POST',
-                headers: {
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify({
-                    "email": email,
-                    "password": password
-                })
-            };
-        try{
-          const resp = await fetch(  getStore().urlapi + "token", opts)
-            
-          if(resp.status!==200) { 
+      login: async (email, password) => {
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        };
+        try {
+          const resp = await fetch(getStore().urlapi + "token", opts);
+          if (resp.status !== 200) {
             alert("There has been an error!!!");
             return false;
-          };
+          }
 
           const data = await resp.json();
-          sessionStorage.getItem("token", data.access_token);
-          setStore({token: data.access_token})
+          sessionStorage.getItem("token", data);
+          setStore({ token: data });
+          console.log("token", getStore().token);
           return true;
+        } catch (error) {
+          console.error("There was been an error login in");
         }
-        catch(error){
-          console.error("There was been an error login in")
-        }
-            
-        
       },
 
-      getMessage: ()=> {
+      getMessage: () => {
         const store = getStore();
         const opts = {
           headers: {
-      			'Content-Type': 'application/json',
-      			'Authorization': "Bearer " + store.token
-      		},
-        }
-      	// fetching data from the backend
-      	fetch( getStore().urlapi + "hello", opts)
-      	
-        .then((res) => res.json())
-      	.then(data => setStore({message: data.message}))
-      	.catch((error) => console.log("Error loading message from backend", error));
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + store.token,
+          },
+        };
+        // fetching data from the backend
+        fetch(getStore().urlapi + "hello", opts)
+          .then((res) => res.json())
+          .then((data) => setStore({ message: data.message }))
+          .catch((error) =>
+            console.log("Error loading message from backend", error)
+          );
       },
-           
+
       // getUserInformation: async()=>{
       // 	const response = await fetch(
       // 		"https://3001-bernatll-proyectofinal4g-uson41704j4.ws-eu34xl.gitpod.io/api/" + "user", {
@@ -175,7 +169,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       // 	console.log(data); //Informacion del usuario que inicia sesion
       // },
 
-      // login: async(username, password)=> {
+      // login: async(email, password)=> {
       // 	const response = await fetch(
       // 		"https://3001-bernatll-proyectofinal4g-uson41704j4.ws-eu34xl.gitpod.io/api/" +"login", {
       // 			'method': 'POST',
@@ -192,8 +186,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       // 	const data = await response.json();
       // 	localStorage.setItem('token', data.token);
       // },
-
-      
     },
   };
 };
