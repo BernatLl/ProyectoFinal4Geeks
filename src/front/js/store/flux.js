@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       message:null,
       token: null,
       urlapi:
-        "https://3001-bernatll-proyectofinal4g-83i6p2xqvp6.ws-eu34xl.gitpod.io/api/",
+        "https://3001-bernatll-proyectofinal4g-728rt52j6gq.ws-eu34xl.gitpod.io/api/",
       course: [],
       student: [],
       chef: [],
@@ -50,6 +50,20 @@ const getState = ({ getStore, getActions, setStore }) => {
                   student: [...getStore().newStudent, responseAsJason],
               });
           })
+          .catch((err) => console.log(err));
+          
+      },
+      editStudent: (id)=>{
+        fetch(
+          getStore().urlapi + "editstudent".concat(id), {
+            method: "PUT",
+            body: JSON.stringify(id),
+            headers: {
+                "Content-Type": "application/json",
+            },
+          })
+          .then((res) => res.json())
+          .then((responseAsJason) => responseAsJason)
           .catch((err) => console.log(err));
           
       },

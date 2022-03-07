@@ -70,6 +70,14 @@ def create_student():
     db.session.commit()
     return jsonify({'response':student.serialize()}), 200
 
+@api.route('/editstudent/<int:id>', methods=['PUT'])
+def edit_student(id):
+    body = request.get_json()
+    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'])
+    db.session.add(student)
+    db.session.commit()
+    return jsonify({'response':student.serialize()}), 200
+
 @api.route('/newchef', methods=['POST'])
 def create_chef():
     body = request.get_json()

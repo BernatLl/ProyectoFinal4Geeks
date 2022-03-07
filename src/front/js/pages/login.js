@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState} from "react";
 import { Context } from "../store/appContext";
+import { useParams } from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav'
 import Tab from 'react-bootstrap/Tab'
 import { Row, Col } from "react-bootstrap";
@@ -14,6 +15,7 @@ export const Login =()=>{
     const { store, actions } = useContext(Context);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const id = useParams().id;
     
     const history = useHistory();
 
@@ -22,7 +24,7 @@ export const Login =()=>{
            
     };
 
-    if ( store.token && store.token!="" && store.token != undefined) history.push("/student/:id");
+    if ( store.token && store.token!="" && store.token != undefined) history.push("/student/".concat(id));
 	
 	
     return(

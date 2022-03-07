@@ -97,15 +97,20 @@ export const Profile = ()=>{
                          setNewStudent({...newStudent, student_description: e.target.value})
                      }}/>
                  </Form.Group>
+                
+                
+                {!store.token ?
+                    
+                        <button id="submit" type="button" className="bcart col" onClick={()=>{actions.createStudent(newStudent);
+                        }}>Create</button>
+                    
+                    :
+                        <button id="Save" type="button" onClick={() => actions.editStudent()} className="bcart col">
+                            Save Changes
+                        </button>
+           
 
-                <Button onClick={()=>{
-                    if(newStudent.username && newStudent.email && newStudent.password && newStudent.full_name && newStudent.student_description){
-                        actions.createStudent(newStudent);
-                    }
-                }}>
-                    Submit
-                </Button>
-
+                         }
 
 
             </fieldset>
