@@ -34,9 +34,10 @@ export const NavTop = () => {
             <div className="seart">Search</div>
           </button>
         </div>
-
-        <button className="bcart col">cart</button>
-        <button className="blogin col">Log in</button>
+        <div className="endbuttons col">
+          <button className="bcart">cart</button>
+          <button className="blogin">Log in</button>
+        </div>
       </div>
     </div>
   );

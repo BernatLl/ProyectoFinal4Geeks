@@ -2,9 +2,11 @@
   background-color: #262626;
   width: 100%;
   height: auto;
-  display: flex;
-  gap: 2rem;
+  gap: 1rem;
   margin: 0;
+  max-width: 100%;
+  text-align: center;
+  justify-content: space-between;
 }
 
 .logo {
@@ -43,16 +45,17 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
   min-width: 160px;
   z-index: 1;
+  background-color: #5a5858;
 }
 
 .dropdown-content a {
-  color: black;
+  color: #d96459;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  background-color: #5a5858;
 }
 
 .dropdown-content a:hover {
@@ -66,16 +69,17 @@
   background-color: #262626;
 }
 .search {
-  margin: auto;
-  max-width: 100%;
-  max-height: 10%;
-  display: flex;
+  margin: 0;
+  max-width: 20%;
+  max-height: 8%;
   font-size: smaller;
-  justify-content: center;
-  gap: 00.5rem;
+  padding: 2rem;
+  padding-left: 0%;
+  padding-right: 0%;
 }
 .searchbar {
   max-width: 100%;
+  min-width: 8rem;
   text-align: center;
   max-height: 2rem;
   border-radius: 5px;
@@ -89,22 +93,22 @@
   border-radius: 5px;
 }
 
-.bcart {
-  max-height: 2rem;
-  max-width: 4rem;
-  background-color: #5a5858;
-  color: #d96459;
-  border-radius: 5px;
-  padding: 1rem;
-  margin: auto;
+.endbuttons {
+  max-width: 14%;
+  padding: 2rem;
+  margin: 0%;
 }
 
+.bcart,
 .blogin {
-  max-height: 2rem;
   max-width: 4rem;
+  min-width: 3rem;
+  max-height: 2rem;
   background-color: #5a5858;
   color: #d96459;
   border-radius: 5px;
-  padding: 1rem;
-  margin: auto;
+  font-size: smaller;
+  padding-left: 0%;
+  padding-right: 0%;
+  margin-right: 1rem;
 }
