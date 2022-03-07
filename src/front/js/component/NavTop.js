@@ -24,9 +24,9 @@ export const NavTop = () => {
             Professor
           </div>
         </Link>
-        <div class="dropdown col">
-          <button class="dropbtn">Categories</button>
-          <div class="dropdown-content">
+        <div className="dropdown col">
+          <button className="dropbtn">Categories</button>
+          <div className="dropdown-content">
             <a href="#">Country</a>
             <a href="#">Style</a>
             <a href="#">Chef</a>

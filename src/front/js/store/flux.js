@@ -9,7 +9,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       student: [],
       chef: [],
       newStudent:[],
-      newCourse:[]
+      newCourse:[],
+      newChef:[]
     },
     actions: {
       loadCourses: () => {
@@ -48,6 +49,24 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((responseAsJason) => {
               setStore({
                   student: [...getStore().newStudent, responseAsJason],
+              });
+          })
+          .catch((err) => console.log(err));
+          
+      },
+      createChef: (newChef)=>{
+        fetch(
+          getStore().urlapi + "newchef", {
+            method: "POST",
+            body: JSON.stringify(newChef),
+            headers: {
+                "Content-Type": "application/json",
+            },
+          })
+          .then((res) => res.json())
+          .then((responseAsJason) => {
+              setStore({
+                  chef: [...getStore().newChef, responseAsJason],
               });
           })
           .catch((err) => console.log(err));
