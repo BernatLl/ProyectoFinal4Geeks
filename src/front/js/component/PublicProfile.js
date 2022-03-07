@@ -9,10 +9,10 @@ import Button from 'react-bootstrap/Button'
 
 export const PublicProfile =()=>{
     const { store, actions } = useContext(Context);
-    const id = useParams().id;
+  
 	
 	useEffect (()=>{
-		actions.loadStudents(id);
+		actions.loadStudents();
 	},[])
 
     return(

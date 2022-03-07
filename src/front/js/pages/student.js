@@ -17,11 +17,11 @@ import "../../styles/listadoCursos.css"
 
 export const Student = ()=>{
    
-    const id = useParams().id;
+    
     const { store, actions } = useContext(Context);
 
     useEffect(()=>{
-        actions.loadStudents(id);
+        actions.loadStudents();
     },[])
 
 
@@ -76,7 +76,7 @@ export const Student = ()=>{
                     </Row>
                 </Tab.Container>
             </div>
-            <h1 className="titulo">My Courses</h1>
+            {/* <h1 className="titulo">My Courses</h1>
             <div className="container">
             	
 				<div className="row">
@@ -122,7 +122,7 @@ export const Student = ()=>{
             <h1 className="titulo">Recomended for you</h1>
             <div className="container-fluid p-1 my-5">
                
-            </div>
+            </div> */}
         </>
 
     )

@@ -17,9 +17,9 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
   
 
-  useEffect(()=>{
-     if(store.token && store.token!="" && store.token != undefined) actions.getMessage();
-    },[store.token])
+  // useEffect(()=>{
+  //    if(store.token && store.token!="" && store.token != undefined) actions.getMessage();
+  //   },[store.token])
   
 
 
@@ -128,7 +128,7 @@ export const Home = () => {
       </div>
     </div>
     <div className="text-center mt-5">
-    <ListadoCursos/>
+    {/* <ListadoCursos/> */}
     <MeetTheCrew/>
     <FormContacto/>
   </div>

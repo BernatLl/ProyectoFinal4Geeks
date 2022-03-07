@@ -40,22 +40,19 @@ def create_token():
     #     return jsonify({'message':'Your password does not match'}), 500
 
     access_token = create_access_token(identity=logged_student.serialize())
-    print("aqui esta el token", access_token)
+    
     return jsonify({'token': access_token}), 200
 
+@api.route('/student', methods=['GET'])
+@jwt_required()
+def get_student_by_id():
+    id = get_jwt_identity()
+    student = Student.query.filter(id)
+    
+    return jsonify({'results': student.serialize()}), 200
   
 
-@api.route('/hello', methods=['GET'])
-@jwt_required()
-def get_my_information():
-    
-    username = get_jwt_identity()
-    
-    dictionary = {
-        "message":"Your are Logged " + username
-    }
-   
-    return jsonify(dictionary)
+
 
 
 @api.route('/course', methods=['GET'])
@@ -66,19 +63,14 @@ def get_course():
         course_serialized.append(x.serialize())
     return jsonify({'results': course_serialized}), 200
 
-# 
 
-@jwt_required
-@api.route('/student/', methods=['GET'])
-def get_student_by_id():
-    id = get_jwt_identity()
-    student = Student.query.get(id)
-    
-    return jsonify({'results': student.serialize()}), 200
 
-@api.route('/chef/<int:id>', methods=['GET'])
-def get_chef_by_id(id):
-    chef = Chef.query.get(id)
+
+
+
+@api.route('/chef', methods=['GET'])
+def get_chef_by_id():
+    chef = Chef.query.get()
     
     return jsonify({'results': chef.serialize()}), 200
 
@@ -87,15 +79,15 @@ def get_chef_by_id(id):
 @api.route('/newstudent', methods=['POST'])
 def create_student():
     body = request.get_json()
-    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'])
+    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
     db.session.add(student)
     db.session.commit()
     return jsonify({'response':student.serialize()}), 200
 
-@api.route('/editstudent/<int:id>', methods=['PUT'])
-def edit_student(id):
+@api.route('/editstudent/', methods=['PUT'])
+def edit_student():
     body = request.get_json()
-    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'])
+    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
     db.session.add(student)
     db.session.commit()
     return jsonify({'response':student.serialize()}), 200
@@ -131,6 +123,18 @@ def create_course():
     db.session.add(newcourse)
     db.session.commit()
     return jsonify({'response':newcourse.serialize()}), 200
+
+# @api.route('/hello', methods=['GET'])
+# @jwt_required()
+# def get_my_information():
+    
+#     username = get_jwt_identity()
+    
+#     dictionary = {
+#         "message":"Your are Logged " + username
+#     }
+   
+#     return jsonify(dictionary)
 
 #@api.route('/chef', methods=['GET'])
 # def get_chef():

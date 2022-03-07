@@ -19,21 +19,45 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ course: data.results }))
           .catch((error) => console.error(error));
       },
-      loadChefs: (id) => {
-        fetch(getStore().urlapi + "chef/".concat(id))
+      loadChefs: () => {
+        fetch(getStore().urlapi + "chef")
           .then((response) => response.json())
           .then((data) => setStore({ chef: data.results }))
           .catch((error) => console.error(error));
       },
-      loadStudents: (id) => {
-        fetch(getStore().urlapi + "student/".concat(id),
+      login: async(email, password)=> {
+      	const response = await fetch(
+      		getStore().urlapi +"token", {
+      			method: 'POST',
+      			headers: {
+      				'Content-Type': 'application/json',
+      				
+      			},
+      			body: JSON.stringify({
+      				email: email,
+      				password: password,
+      			})
+      		}
+      	);
+      	const data = await response.json();
+      	localStorage.setItem('token', data.token);
+        setStore({token: data.token})
+        // setStore({ token: data });
+      },
+      loadStudents: () => {
+        
+        fetch(getStore().urlapi + "student",
         { method: "GET",
           headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + getStore().token }
+          "Accept":"application/json",
+          "Authorization": "Bearer" + getStore().store.token}
         },)
           .then((response) => response.json())
-          .then((data) => setStore({ student: data.results }))
+          .then((data) => {
+            console.log(data)
+            setStore({ student: data.results})
+            console.log(data.results)
+          })
           .catch((error) => console.error(error));
       },
 
@@ -69,14 +93,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((err) => console.log(err));
       },
-      editStudent: (id) => {
-        
-        fetch(getStore().urlapi + "editstudent".concat(id), {
+      editStudent: (student) => {
+        const token = localStorage.getItem("token");
+        fetch(getStore().urlapi + "editstudent", {
           method: "PUT",
-          body: JSON.stringify(id),
+          body: JSON.stringify(student),
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + getStore().token,
+            "Authorization": "Bearer " + token,
           },
         })
           .then((res) => res.json())
@@ -101,50 +125,50 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((err) => console.log(err));
       },
 
-      syncTokenFromSessionStore: () => {
-        const token = sessionStorage.getItem("token");
-        if (token && token != "" && token != undefined)
-          setStore({ token: token });
-      },
+      // syncTokenFromSessionStore: () => {
+      //   const token = localStorage.getItem("token");
+      //   if (token && token != "" && token != undefined)
+      //     setStore({ token: token });
+      // },
       logout: () => {
-        sessionStorage.removeItem("token");
+        localStorage.removeItem("token");
         setStore({ token: null });
       },
+      
+      // login: async (email, password) => {
+      //   const opts = {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       email: email,
+      //       password: password,
+      //     }),
+      //   };
+      //   try {
+      //     const resp = await fetch(getStore().urlapi + "token", opts);
+      //     if (resp.status !== 200) {
+      //       alert("There has been an error!!!");
+      //       return false;
+      //     }
 
-      login: async (email, password) => {
-        const opts = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-        };
-        try {
-          const resp = await fetch(getStore().urlapi + "token", opts);
-          if (resp.status !== 200) {
-            alert("There has been an error!!!");
-            return false;
-          }
-
-          const data = await resp.json();
-          sessionStorage.getItem("token", data);
-          setStore({ token: data });
-          console.log("token", getStore().token);
-          return true;
-        } catch (error) {
-          console.error("There was been an error login in");
-        }
-      },
+      //     const data = await resp.json();
+      //     sessionStorage.getItem("token", data);
+      //     setStore({ token: data });
+      //     console.log("token", getStore().token);
+      //     return true;
+      //   } catch (error) {
+      //     console.error("There was been an error login in");
+      //   }
+      // },
 
       getMessage: () => {
         const store = getStore();
         const opts = {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + store.token,
+            Authorization: "Bearer " + getStore().store.token,
           },
         };
         // fetching data from the backend
@@ -169,23 +193,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       // 	console.log(data); //Informacion del usuario que inicia sesion
       // },
 
-      // login: async(email, password)=> {
-      // 	const response = await fetch(
-      // 		"https://3001-bernatll-proyectofinal4g-uson41704j4.ws-eu34xl.gitpod.io/api/" +"login", {
-      // 			'method': 'POST',
-      // 			'header': {
-      // 				'Content-Type': 'application/json',
-      // 				'Accept': 'application/json'
-      // 			},
-      // 			body: JSON.stringify({
-      // 				username: username,
-      // 				password: password,
-      // 			})
-      // 		}
-      // 	);
-      // 	const data = await response.json();
-      // 	localStorage.setItem('token', data.token);
-      // },
+      
     },
   };
 };

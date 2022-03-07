@@ -9,22 +9,22 @@ import "../../styles/formProfile.css"
 import { LoginStudent } from "../component/loginStudent";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { useHistory } from "react-router-dom";
+
 
 export const Login =()=>{
     const { store, actions } = useContext(Context);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const id = useParams().id;
     
-    const history = useHistory();
+    
+    
 
     const handleClick = ()=>{
         actions.login(email, password);
            
     };
 
-    if ( store.token && store.token!="" && store.token != undefined) history.push("/student/".concat(id));
+    
 	
 	
     return(
@@ -55,9 +55,9 @@ export const Login =()=>{
                             must not contain spaces, special characters, or emoji.
                         </Form.Text>
                     </Form.Group>
-                    
+                    <Link to="/student">
                      <Button variant="dark" onClick={handleClick}  >Login</Button>
-
+                     </Link>
 
                 </Form>}
                 
