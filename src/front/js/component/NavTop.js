@@ -4,40 +4,39 @@ import logo from "../../img/NavEdit.png";
 
 export const NavTop = () => {
   return (
-    <div className="wraper">
-      <div className="navbody row">
-        <img src={logo} className="logo col"></img>
-
-        <div className="student col" src="/student">
+    <div className="navbody row container-fluid">
+      <img src={logo} className="logo col "></img>
+      <div className="stu-prof-cat col">
+        <div className="student " src="/student">
           Students
         </div>
 
-        <div className="professor col" src="/professor">
+        <div className="professor " src="/professor">
           Professor
         </div>
 
-        <div class="dropdown col">
-          <button class="dropbtn">Categories</button>
-          <div class="dropdown-content">
-            <a href="#">Country</a>
-            <a href="#">Style</a>
-            <a href="#">Chef</a>
-          </div>
+        <button type="dropdown" class="dropbtn ">
+          Categories
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Country</a>
+          <a href="#">Style</a>
+          <a href="#">Chef</a>
         </div>
-        <div className="search col">
-          <input
-            type="search"
-            className="searchbar "
-            placeholder="Type Here"
-          ></input>
-          <button className="sbutton">
-            <div className="seart">Search</div>
-          </button>
-        </div>
-        <div className="endbuttons col">
-          <button className="bcart">cart</button>
-          <button className="blogin">Log in</button>
-        </div>
+      </div>
+      <div className="search col ">
+        <input
+          type="search"
+          className="searchbar "
+          placeholder="Type Here"
+        ></input>
+        <button className="sbutton ">
+          <div className="seart ">Search</div>
+        </button>
+      </div>
+      <div className="endbuttons col ">
+        <button className="bcart ">cart</button>
+        <button className="blogin ">Login</button>
       </div>
     </div>
   );

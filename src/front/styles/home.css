@@ -1,64 +1,63 @@
+.Home {
+  z-index: -2;
+  margin: 0%;
+}
 #BackHead {
-  height: auto;
+  position: fixed;
   padding: 0%;
   max-width: 100%;
-  z-index: -2;
-  position: absolute;
+  min-height: auto;
+  z-index: -1;
 }
 #Bourdain {
   z-index: 1;
   position: relative;
-  color: white;
-  left: 5rem;
+  color: beige;
   text-align: left;
-  padding: 2%;
+  padding: 5%;
+  max-width: 40vw;
+  font-size: 2vw;
+  gap: 1rem;
 }
 .Anthony {
   color: rgba(217, 100, 89, 1);
   justify-content: left;
-  left: 8rem;
   position: relative;
+  text-align: left;
+  font: 8vw;
 }
-
+.carousel {
+  padding: 5rem;
+  padding-top: 0.5rem;
+}
 .TopFive {
   height: auto;
-  max-width: 25%;
-  margin-top: 5rem;
-  padding: 2rem;
+  max-width: 20%;
   position: relative;
-  margin-bottom: 15rem;
-  left: 8rem;
+  z-index: 2;
+  margin: 0%;
+  padding: 0%;
 }
 
-.StuPic {
-  height: 20rem;
-  width: 30rem;
-  margin-left: 5rem;
-  margin-top: 5rem;
-  margin-right: 0.5rem;
-  position: relative;
-  border-radius: 10px;
-}
 .Students {
-  max-height: 25rem;
-  margin: auto;
   display: flex;
-}
-.StudentSide {
-  display: flex;
+  max-width: 100%;
   align-items: center;
-  background-color: rgba(29, 29, 29);
-  z-index: -1;
-  margin-top: 0%;
+  gap: 1rem;
+  padding: 2%;
+  padding-left: 15%;
+}
+.StuPic {
+  max-width: 30rem;
+  border-radius: 10px;
 }
 
 .StudentsText {
-  margin-top: 5rem;
   background-color: rgb(92, 64, 48);
-  height: auto;
-  width: 40rem;
+  max-width: 50%;
   text-align: center;
   border-radius: 10px;
+  padding: 3rem;
 }
 .ProfTittle,
 .StuTittle {
@@ -67,36 +66,26 @@
 }
 
 .ProfePic {
-  height: 20rem;
-  width: 30rem;
-  margin-left: 0.5rem;
-  margin-top: 5rem;
-  margin-right: 5rem;
-  position: relative;
+  max-width: 30rem;
   border-radius: 10px;
-}
-
-.Professor {
-  height: 25rem;
-  margin: auto;
-  display: flex;
-  flex-direction: row-reverse;
-  margin-right: 5rem;
 }
 
 .ProfessorSide {
   display: flex;
+  max-width: 100%;
   align-items: center;
-  background-color: rgb(29, 29, 29);
-  z-index: -1;
+  gap: 1rem;
+  padding: 2%;
+  padding-right: 15%;
+  flex-direction: row-reverse;
 }
-
 .ProfeText {
-  position: relative;
-  margin-top: 5rem;
   background-color: rgb(92, 64, 48);
-  height: auto;
-  width: 40rem;
+  max-width: 50%;
   text-align: center;
   border-radius: 10px;
+  padding: 3rem;
+}
+.stuprof {
+  justify-content: center;
 }
