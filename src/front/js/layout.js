@@ -5,7 +5,7 @@ import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 import { NavTop } from "./component/NavTop";
 import { CreateCourse } from "./pages/CreateCourse";
-import { Student } from "./pages/student";
+import { User } from "./pages/user";
 import { Footer } from "./component/footer";
 import { Login } from "./pages/login";
 import {Search} from "./component/search";
@@ -31,7 +31,7 @@ const Layout = () => {
               <CreateCourse />
             </Route>
             <Route exact path="/user">
-							<Student />
+							<User />
 						</Route>
             <Route exact path="/login">
 							<Login />

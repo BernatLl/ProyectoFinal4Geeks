@@ -15,7 +15,7 @@ import "../../styles/student.css";
 // import ProgressBar from "react-bootstrap/ProgressBar";
 import "../../styles/listadoCursos.css";
 
-export const Student = () => {
+export const User = () => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
