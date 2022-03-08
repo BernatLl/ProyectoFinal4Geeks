@@ -11,6 +11,9 @@ import { Login } from "./pages/login";
 import {Search} from "./component/search";
 import Payment from "./pages/payment";
 import { Chef } from "./pages/chef";
+import { CreateUser } from "./pages/createUser";
+import { CourseView } from "./pages/CourseView";
+
 
 //create your first component
 const Layout = () => {
@@ -33,6 +36,9 @@ const Layout = () => {
             <Route exact path="/user">
 							<User />
 						</Route>
+            <Route exact path="/createuser">
+							<CreateUser />
+						</Route>
             <Route exact path="/login">
 							<Login />
 						</Route>
@@ -44,6 +50,9 @@ const Layout = () => {
 						</Route>
             <Route exact path="/chef">
 							<Chef/>
+						</Route>
+            <Route exact path="/courseview/:id">
+							<CourseView/>
 						</Route>
 
 					</Switch>

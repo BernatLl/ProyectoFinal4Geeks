@@ -36,15 +36,14 @@ def login():
 @api.route('/signup', methods=["POST"])
 def signUp():
 
-    full_name, email, password = request.json.get('name', None),
-    request.json.get('full_name', None), request.json.get('email', None), 
-    request.json.get('password', None)
+    username, full_name, email, password, student_description, facebook_url, instagram_url, linkedin_url, twitter_url, website_url, image  = request.json.get('username', None), request.json.get('full_name', None), request.json.get('email', None), request.json.get('password', None), request.json.get('student_description', None), request.json.get('facebook_url', None), request.json.get('twitter_url', None), request.json.get('instagram_url', None), request.json.get('website_url', None), request.json.get('linkedin_url', None), request.json.get('image', None)
 
-    if not (full_name and email and password ):
+    if not (username and full_name and email and password):
         return jsonify({'message': 'Data not provided'}), 400
 
     # passe = generate_password_hash(password)
-    user = User(full_name=full_name, email=email, password=passe)
+    #user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
+    user = User(username = username, full_name=full_name, email=email, password=password, student_description=student_description, facebook_url=facebook_url, instagram_url=instagram_url, linkedin_url=linkedin_url, twitter_url=twitter_url, website_url= website_url, image=image)
     try:
 
         db.session.add(user)
@@ -62,7 +61,19 @@ def getUserInfo():
 
     userId = get_jwt_identity()
     user = User.query.filter_by(id=userId)
-    # return jsonify({"User": user.id})
+    return jsonify({"User": user.id}), 200
+
+@api.route('/userinfo', methods=['GET'])
+@jwt_required()
+def getUser():
+
+    userId = get_jwt_identity()
+    user = User.query.filter_by(id=userId)
+   
+    userInfo_serialized = []
+    for x in user:
+        userInfo_serialized.append(x.serialize())
+    return jsonify({"user": userInfo_serialized}), 200
 
 
 
@@ -77,7 +88,11 @@ def get_course():
 
 
 
-
+@api.route('/coursebyid/<int:id>', methods=['GET'])
+def get_course_by_id(id):
+    course = Course.query.get(id)
+    
+    return jsonify({'results': course.serialize()}), 200
 
 
 @api.route('/chef', methods=['GET'])
@@ -88,13 +103,13 @@ def get_chef_by_id():
 
 
 
-@api.route('/newuser', methods=['POST'])
-def create_user():
-    body = request.get_json()
-    user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'])
-    db.session.add(user)
-    db.session.commit()
-    return jsonify({'response':user.serialize()}), 200
+# @api.route('/newuser', methods=['POST'])
+# def create_user():
+#     body = request.get_json()
+#     user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
+#     db.session.add(user)
+#     db.session.commit()
+#     return jsonify({'response':user.serialize()}), 200
 
 @api.route('/edituser/', methods=['PUT'])
 def user():

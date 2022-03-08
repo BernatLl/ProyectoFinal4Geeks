@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card'
 import Clase from '../../img/claseRemote.jpg'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button'
 
 export const ListadoCursos = () => {
 	const { store, actions } = useContext(Context);
@@ -33,6 +34,9 @@ export const ListadoCursos = () => {
 												{select.description}
 											</Card.Text>
 										</Card.Body>
+										<Link to={"/courseview/"+ store.course.id}>
+										<Button variant="outline-primary">Read More</Button>{' '}
+										</Link>
 									</Card>
 								</Col>
 							))}

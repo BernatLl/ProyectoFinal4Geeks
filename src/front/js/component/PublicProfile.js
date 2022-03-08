@@ -20,15 +20,16 @@ export const PublicProfile = () => {
       <h1>Public profile</h1>
 
       <div className="container">
-        {
-          <div>
-            <h4>{store.user.nick_name}</h4>
+        {store.user.map((select, i)=>(
+          <div className="container" key={i}>
+            
+            <h4>{select.full_name}</h4>
 
-            <p>{store.user.student_description}</p>
-            <p>{store.user.full_name}</p>
-            <p>{store.user.email}</p>
+            <p>{select.student_description}</p>
+            <p>{select.username}</p>
+            <p>{select.email}</p>
           </div>
-        }
+        ))}
       </div>
     </>
   );

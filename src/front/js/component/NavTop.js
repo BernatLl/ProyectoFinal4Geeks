@@ -45,16 +45,31 @@ export const NavTop = () => {
 
         <button className="bcart col">cart</button>
         {!store.token ?
+          <Link to="/createuser">
+          <button id="SignIn" type="button" className="bcart col">
+            SignIn
+          </button>
+          </Link>
+          :
+          <Link to="/createuser">
+          <button id="logOut" type="button" onClick={() => actions.editUser()} className="bcart col">
+            Edit Profile
+          </button>
+          </Link> 
+
+          }
+        {!store.token ?
           <Link to="/login">
           <button id="logIn" type="button" className="bcart col">
             Login
           </button>
           </Link>
           :
+          <Link to="/">
           <button id="logOut" type="button" onClick={() => actions.logout()} className="bcart col">
             Logout
           </button>
-           
+          </Link>
 
           }
       </div>

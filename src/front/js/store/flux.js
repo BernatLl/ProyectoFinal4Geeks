@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       token: null,
       urlapi:
-        "https://3001-bernatll-proyectofinal4g-wxsarh5iw2d.ws-eu34xl.gitpod.io/api/",
+        "https://3001-bernatll-proyectofinal4g-ovzbdadjboh.ws-eu34xl.gitpod.io/api/",
       course: [],
       
       chef: [],
@@ -12,6 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       newCourse: [],
       newChef: [],
       user: [],
+      courseDetail:{}
     },
     actions: {
       loadCourses: () => {
@@ -20,6 +21,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ course: data.results }))
           .catch((error) => console.error(error));
       },
+      loadCoursesId: (id) => {
+        fetch(getStore().urlapi + "coursebyid/".concat(id))
+          .then((response) => response.json())
+          .then((data) => setStore({ courseDetail: data.results }))
+          .catch((error) => console.error(error));
+      },
+
+
       loadChefs: () => {
         fetch(getStore().urlapi + "chef")
           .then((response) => response.json())
@@ -77,7 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       // },
       loadUser: () => {
         const store = getStore();
-        fetch(getStore().urlapi + "user", {
+        fetch(getStore().urlapi + "userinfo", {
           method: "GET",
           headers: {
             Authorization: "Bearer " + store.token,
@@ -92,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       createUser: (newStudent) => {
-        fetch(getStore().urlapi + "newuser", {
+        fetch(getStore().urlapi + "signup", {
           method: "POST",
           body: JSON.stringify(newStudent),
           headers: {

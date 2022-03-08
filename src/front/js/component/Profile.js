@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 import { Row, Col } from "react-bootstrap";
 import FormCheck from "react-bootstrap/FormCheck";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 export const Profile = () => {
   const { store, actions } = useContext(Context);
@@ -13,7 +14,7 @@ export const Profile = () => {
 
   return (
     <>
-      <h1>Profile</h1>
+      <h1>User Profile</h1>
       <Form>
         <fieldset>
           <Form.Group className="mb-3">
@@ -28,7 +29,7 @@ export const Profile = () => {
             />
           </Form.Group>
           <Row>
-            <Form.Group className="mb-3 col-6">
+            <Form.Group className="mb-3 ">
               <Form.Label htmlFor="FullName"></Form.Label>
               <Form.Control
                 id="TextInput"
@@ -40,7 +41,8 @@ export const Profile = () => {
               />
             </Form.Group>
           </Row>
-          <Form.Group className="mb-3">
+          <Row>
+          <Form.Group className="mb-3 col-6">
             <Form.Label htmlFor="Email"></Form.Label>
             <Form.Control
               id="email"
@@ -51,7 +53,7 @@ export const Profile = () => {
               }}
             />
           </Form.Group>
-          <Row>
+          
             <Form.Group className="mb-3 col-6">
               <Form.Label htmlFor="Password"></Form.Label>
               <Form.Control
@@ -64,17 +66,7 @@ export const Profile = () => {
               />
             </Form.Group>
           </Row>
-          <Form.Group className="mb-3">
-            <Form.Label htmlFor="Website"></Form.Label>
-            <Form.Control
-              id="TextInput"
-              placeholder="Add a website"
-              onChange={(e) => {
-                e.preventDefault();
-                setNewStudent({ ...newStudent, password: e.target.value });
-              }}
-            />
-          </Form.Group>
+          
           <Form.Group className="mb-3">
             <Form.Label htmlFor="Linkedin"></Form.Label>
             <Form.Control
@@ -119,7 +111,17 @@ export const Profile = () => {
               }}
             />
           </Form.Group>
-
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="Image"></Form.Label>
+            <Form.Control
+              id="TextInput"
+              placeholder="Add a image url"
+              onChange={(e) => {
+                e.preventDefault();
+                setNewStudent({ ...newStudent, image: e.target.value });
+              }}
+            />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Something about you</Form.Label>
             <Form.Control
@@ -136,16 +138,19 @@ export const Profile = () => {
           </Form.Group>
 
           {!store.token ? (
-            <button
-              id="submit"
-              type="button"
-              className="bcart col"
-              onClick={() => {
-                actions.createUser(newStudent);
-              }}
-            >
-              Create
-            </button>
+            <Link to="/login">
+              <button
+                id="submit"
+                type="button"
+                className="bcart col"
+                onClick={() => {
+                  actions.createUser(newStudent);
+                }}
+              >
+                Create
+              </button>
+            </Link>
+
           ) : (
             <button
               id="Save"

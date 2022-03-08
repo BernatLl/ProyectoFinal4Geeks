@@ -128,7 +128,7 @@ export const Home = () => {
       </div>
     </div>
     <div className="text-center mt-5">
-    {/* <ListadoCursos/> */}
+    <ListadoCursos/>
     <MeetTheCrew/>
     <FormContacto/>
   </div>
