@@ -1,12 +1,12 @@
 .Content {
   height: auto;
   width: auto;
-  background-color: rgba(134, 96, 76, 0.35);
+  background-color: rgba(73, 71, 69, 0.35);
 }
 
-.VideoPlayer {
-  height: 30rem;
-  width: 100%;
+.videoplayer {
+  max-height: 30rem;
+  max-width: 100%;
 }
 
 .PillsWrapper {
