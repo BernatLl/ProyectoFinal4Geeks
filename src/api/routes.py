@@ -8,8 +8,12 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_jwt_extended import JWTManager
 
 api = Blueprint('api', __name__)
+
+api.config["JWT_SECRET_KEY"] = os.environ.get('JWT_SECRET')
+jwt = JWTManager(api)
 
 
 # Create a route to authenticate your users and return JWTs. The
@@ -26,9 +30,9 @@ def login():
     if not user:
         return jsonify({'message': 'Username is not valid'}), 404
 
-    # comprobar si la contraseña es correcta
-    # if not check_password_hash(password, user.password):
-    #     return jsonify({'message': 'Your pass doesn"t match'}), 500
+    #comprobar si la contraseña es correcta
+    if not check_password_hash(password, user.password):
+        return jsonify({'message': 'Your pass doesn"t match'}), 500
 
     token = create_access_token(identity=user.id)
     return jsonify({'token': token}), 200
@@ -41,7 +45,7 @@ def signUp():
     if not (username and full_name and email and password):
         return jsonify({'message': 'Data not provided'}), 400
 
-    # passe = generate_password_hash(password)
+    passe = generate_password_hash(password)
     #user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
     user = User(username = username, full_name=full_name, email=email, password=password, student_description=student_description, facebook_url=facebook_url, instagram_url=instagram_url, linkedin_url=linkedin_url, twitter_url=twitter_url, website_url= website_url, image=image)
     try:
@@ -88,9 +92,9 @@ def get_course():
 
 
 
-@api.route('/coursebyid/<int:id>', methods=['GET'])
-def get_course_by_id(id):
-    course = Course.query.get(id)
+@api.route('/coursebyid/<int:course_id>')
+def get_course_by_id(course_id):
+    course = Course.query.get(course_id)
     
     return jsonify({'results': course.serialize()}), 200
 

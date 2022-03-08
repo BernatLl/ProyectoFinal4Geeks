@@ -12,7 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       newCourse: [],
       newChef: [],
       user: [],
-      courseDetail:{}
+      
     },
     actions: {
       loadCourses: () => {
@@ -21,13 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ course: data.results }))
           .catch((error) => console.error(error));
       },
-      loadCoursesId: (id) => {
-        fetch(getStore().urlapi + "coursebyid/".concat(id))
-          .then((response) => response.json())
-          .then((data) => setStore({ courseDetail: data.results }))
-          .catch((error) => console.error(error));
-      },
-
+      
 
       loadChefs: () => {
         fetch(getStore().urlapi + "chef")

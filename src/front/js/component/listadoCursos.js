@@ -8,10 +8,11 @@ import Clase from '../../img/claseRemote.jpg'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
+import { useParams } from "react-router-dom";
 
 export const ListadoCursos = () => {
 	const { store, actions } = useContext(Context);
-
+	const id = useParams().id;
 	
 	useEffect (()=>{
 		actions.loadCourses();
@@ -34,8 +35,8 @@ export const ListadoCursos = () => {
 												{select.description}
 											</Card.Text>
 										</Card.Body>
-										<Link to={"/courseview/"+ store.course.id}>
-										<Button variant="outline-primary">Read More</Button>{' '}
+										<Link to={"/courseview/"+ select.id}>
+										<Button variant="outline-primary">Read More</Button>
 										</Link>
 									</Card>
 								</Col>
