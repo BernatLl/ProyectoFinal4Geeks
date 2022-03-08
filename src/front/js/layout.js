@@ -7,6 +7,7 @@ import { CreateCourse } from "./pages/CreateCourse";
 import { Student } from "./pages/student";
 import { Footer } from "./component/footer";
 import { CourseView } from "./pages/CourseView";
+import { ChefProfile } from "../js/pages/ChefProfile";
 
 //create your first component
 const Layout = () => {
@@ -30,7 +31,11 @@ const Layout = () => {
         <Route exact path="/student">
           <Student />
         </Route>
+        <Route exact path="/chef">
+          <ChefProfile />
+        </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 };

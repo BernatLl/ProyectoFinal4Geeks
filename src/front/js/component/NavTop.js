@@ -15,11 +15,11 @@ export const NavTop = () => {
           Professor
         </div>
 
-        <button type="dropdown" class="dropbtn ">
+        <button type="dropdown" className="dropbtn ">
           Categories
         </button>
 
-        <div class="dropdown-content">
+        <div className="dropdown-content">
           <a href="#">Country</a>
           <a href="#">Style</a>
           <a href="#">Chef</a>
