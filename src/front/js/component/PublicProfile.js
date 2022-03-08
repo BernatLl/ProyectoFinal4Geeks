@@ -12,7 +12,7 @@ export const PublicProfile = () => {
 
   useEffect(() => {
     if (store.token && store.token != "" && store.token != undefined)
-      actions.loadStudents();
+      actions.loadUser();
   }, [store.token]);
 
   return (
@@ -22,11 +22,11 @@ export const PublicProfile = () => {
       <div className="container">
         {
           <div>
-            <h4>{store.student.nick_name}</h4>
+            <h4>{store.user.nick_name}</h4>
 
-            <p>{store.student.student_description}</p>
-            <p>{store.student.full_name}</p>
-            <p>{store.student.email}</p>
+            <p>{store.user.student_description}</p>
+            <p>{store.user.full_name}</p>
+            <p>{store.user.email}</p>
           </div>
         }
       </div>

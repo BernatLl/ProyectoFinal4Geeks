@@ -88,7 +88,7 @@ def get_chef_by_id():
 
 
 
-@api.route('/newstudent', methods=['POST'])
+@api.route('/newuser', methods=['POST'])
 def create_user():
     body = request.get_json()
     user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'])
@@ -96,7 +96,7 @@ def create_user():
     db.session.commit()
     return jsonify({'response':user.serialize()}), 200
 
-@api.route('/editstudent/', methods=['PUT'])
+@api.route('/edituser/', methods=['PUT'])
 def user():
     body = request.get_json()
     user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])

@@ -4,14 +4,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       token: null,
       urlapi:
-        "https://3001-bernatll-proyectofinal4g-n130j7qtmd8.ws-eu34xl.gitpod.io/api/",
+        "https://3001-bernatll-proyectofinal4g-17ey5oxkr6h.ws-eu34xl.gitpod.io/api/",
       course: [],
-      student: [],
+      
       chef: [],
-      newStudent: [],
+      newUser: [],
       newCourse: [],
       newChef: [],
-      user:[]
+      user: [],
     },
     actions: {
       loadCourses: () => {
@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Accept":"application/json"
+              Accept: "application/json",
             },
             body: JSON.stringify({
               username: username,
@@ -60,27 +60,27 @@ const getState = ({ getStore, getActions, setStore }) => {
       // setStore({ token: data.token });
       // setStore({ token: data });
 
-      loadStudents: () => {
-        const store = getStore();
-        fetch(getStore().urlapi + "user", {
-          method: "GET",
-          headers: {
-           "Authorization": "Bearer " + store.token,
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            setStore({ student: data.results });
-            console.log(data.results);
-          })
-          .catch((error) => console.error(error));
-      },
+      // loadStudents: () => {
+      //   const store = getStore();
+      //   fetch(getStore().urlapi + "user", {
+      //     method: "GET",
+      //     headers: {
+      //       Authorization: "Bearer " + store.token,
+      //     },
+      //   })
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       setStore({ student: data.results });
+      //       console.log(data.results);
+      //     })
+      //     .catch((error) => console.error(error));
+      // },
       loadUser: () => {
         const store = getStore();
         fetch(getStore().urlapi + "user", {
           method: "GET",
           headers: {
-           "Authorization": "Bearer " + store.token,
+            Authorization: "Bearer " + store.token,
           },
         })
           .then((response) => response.json())
@@ -91,8 +91,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => console.error(error));
       },
 
-      createStudent: (newStudent) => {
-        fetch(getStore().urlapi + "newstudent", {
+      createUser: (newStudent) => {
+        fetch(getStore().urlapi + "newuser", {
           method: "POST",
           body: JSON.stringify(newStudent),
           headers: {
@@ -102,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((res) => res.json())
           .then((responseAsJason) => {
             setStore({
-              student: [...getStore().newStudent, responseAsJason],
+              user: [...getStore().newUser, responseAsJason],
             });
           })
           .catch((err) => console.log(err));
@@ -123,11 +123,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((err) => console.log(err));
       },
-      editStudent: (student) => {
+      editUser: (user) => {
         const token = localStorage.getItem("token");
         fetch(getStore().urlapi + "editstudent", {
           method: "PUT",
-          body: JSON.stringify(student),
+          body: JSON.stringify(user),
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + token,

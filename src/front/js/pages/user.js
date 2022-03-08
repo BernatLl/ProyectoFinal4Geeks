@@ -20,7 +20,7 @@ export const User = () => {
 
   useEffect(() => {
     if (store.token && store.token != "" && store.token != undefined)
-      actions.loadStudents();
+      actions.loadUser();
   }, [store.token]);
 
   return (
@@ -35,7 +35,7 @@ export const User = () => {
           <Row className="marco">
             <Col sm={3} className="contenido-menu">
               <Nav justify variant="pills" className="flex-column menu">
-                {<img src={store.student.image} className="fotoperfil" />}
+                {<img src={store.user.image} className="fotoperfil" />}
 
                 <Nav.Item>
                   <Nav.Link eventKey="first">Public Profile</Nav.Link>
