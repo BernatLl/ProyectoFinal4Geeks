@@ -13,7 +13,7 @@ export const NavTop = () => {
         <Link to="/">
         <img src={logo} className="logo col"></img>
         </Link>
-        <Link to="/student/:id">
+        <Link to="/student">
           <div className="student col" >
           Students
           </div>

@@ -4,13 +4,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       token: null,
       urlapi:
-        "https://3001-bernatll-proyectofinal4g-728rt52j6gq.ws-eu34xl.gitpod.io/api/",
+        "https://3001-bernatll-proyectofinal4g-n130j7qtmd8.ws-eu34xl.gitpod.io/api/",
       course: [],
       student: [],
       chef: [],
       newStudent: [],
       newCourse: [],
       newChef: [],
+      user:[]
     },
     actions: {
       loadCourses: () => {
@@ -25,15 +26,16 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ chef: data.results }))
           .catch((error) => console.error(error));
       },
-      login: async (email, password) => {
+      login: async (username, password) => {
         try {
-          const resp = await fetch(getStore().urlapi + "token", {
+          const resp = await fetch(getStore().urlapi + "login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              "Accept":"application/json"
             },
             body: JSON.stringify({
-              email: email,
+              username: username,
               password: password,
             }),
           });
@@ -60,7 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       loadStudents: () => {
         const store = getStore();
-        fetch(getStore().urlapi + "student", {
+        fetch(getStore().urlapi + "user", {
           method: "GET",
           headers: {
            "Authorization": "Bearer " + store.token,
@@ -70,6 +72,21 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => {
             setStore({ student: data.results });
             console.log(data.results);
+          })
+          .catch((error) => console.error(error));
+      },
+      loadUser: () => {
+        const store = getStore();
+        fetch(getStore().urlapi + "user", {
+          method: "GET",
+          headers: {
+           "Authorization": "Bearer " + store.token,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setStore({ user: data.user });
+            console.log(data.user);
           })
           .catch((error) => console.error(error));
       },

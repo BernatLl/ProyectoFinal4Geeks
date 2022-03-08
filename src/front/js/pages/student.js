@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import { Context } from "../store/appContext";
@@ -9,10 +9,10 @@ import { Profile } from "../component/Profile";
 import { PaymentMethods } from "../component/PaymentMethods";
 import { CloseAccount } from "../component/CloseAccount.js";
 import "../../styles/student.css";
-import rigo from "../../img/rigo-baby.jpg";
-import { ListadoCursos } from "../component/listadoCursos";
-import { Link } from "react-router-dom";
-import ProgressBar from "react-bootstrap/ProgressBar";
+// import rigo from "../../img/rigo-baby.jpg";
+// import { ListadoCursos } from "../component/listadoCursos";
+// import { Link } from "react-router-dom";
+// import ProgressBar from "react-bootstrap/ProgressBar";
 import "../../styles/listadoCursos.css";
 
 export const Student = () => {

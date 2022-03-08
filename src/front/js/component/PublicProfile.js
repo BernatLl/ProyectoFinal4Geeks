@@ -1,11 +1,11 @@
 import "../../styles/formProfile.css";
-import Form from "react-bootstrap/Form";
+// import Form from "react-bootstrap/Form";
 import React, { useEffect, useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { Row, Col } from "react-bootstrap";
-import FormCheck from "react-bootstrap/FormCheck";
-import Button from "react-bootstrap/Button";
+// import { Row, Col } from "react-bootstrap";
+// import FormCheck from "react-bootstrap/FormCheck";
+// import Button from "react-bootstrap/Button";
 
 export const PublicProfile = () => {
   const { store, actions } = useContext(Context);

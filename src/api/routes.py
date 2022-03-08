@@ -14,44 +14,55 @@ api = Blueprint('api', __name__)
 
 # Create a route to authenticate your users and return JWTs. The
 # create_access_token() function is used to actually generate the JWT.
-@api.route("/token", methods=["POST"])
-def create_token():
-   
-    email, password = request.json.get(
-        'email', None
-    ), request.json.get(
-        'password', None
-    )
-    if not (email and password):
-        return jsonify({'message':'Data not provided'}), 400
-
-    #TRAER DE MI BASE DE DATOS UN USUARIO POR EMAIL
-    print("email and password", email, password)
-
-    logged_student = Student.query.filter_by(email = email).one_or_none()
+@api.route('/login', methods=['POST'])
+def login():
     
+    username, password = request.json.get('username', None), request.json.get('password', None)
+    if not (username and password):
+        return jsonify({'message': 'Data not provided'}), 400
     
-    if not logged_student:
-        return jsonify({'message': 'Email is not valid'}), 404
+    # traer de mi base de datos un usuario por su email
+    user = User.query.filter_by(email=username).one_or_none()
+    if not user:
+        return jsonify({'message': 'Username is not valid'}), 404
 
-    #comprobar si la contraseña es correcta    
+    # comprobar si la contraseña es correcta
+    # if not check_password_hash(password, user.password):
+    #     return jsonify({'message': 'Your pass doesn"t match'}), 500
 
-    # if not check_password_hash(logged_student_serialize.password, password):
-    #     return jsonify({'message':'Your password does not match'}), 500
+    token = create_access_token(identity=user.id)
+    return jsonify({'token': token}), 200
 
-    access_token = create_access_token(identity=logged_student.id)
-    
-    return jsonify({'token': access_token}), 200
+@api.route('/signup', methods=["POST"])
+def signUp():
 
-@api.route('/student', methods=['GET'])
+    full_name, email, password = request.json.get('name', None),
+    request.json.get('full_name', None), request.json.get('email', None), 
+    request.json.get('password', None)
+
+    if not (full_name and email and password ):
+        return jsonify({'message': 'Data not provided'}), 400
+
+    # passe = generate_password_hash(password)
+    user = User(full_name=full_name, email=email, password=passe)
+    try:
+
+        db.session.add(user)
+        userCreated = db.session.commit()
+        token = create_access_token(identity=userCreated.id)
+        return jsonify({'token': token}), 201
+
+    except Exception as err:
+        return jsonify({'message': str(err)}), 500
+
+ # Authorization: Bearer <token> => si no viene 401
+@api.route('/user', methods=['GET'])
 @jwt_required()
-def get_student_by_id():
-    id = get_jwt_identity()
-    student = Student.getById(id)
-    print(student)
-    
-    return jsonify({'results': student.serialize()}), 200
-  
+def getUserInfo():
+
+    userId = get_jwt_identity()
+    user = User.query.filter_by(id=userId)
+    # return jsonify({"User": user.id})
 
 
 
@@ -78,20 +89,20 @@ def get_chef_by_id():
 
 
 @api.route('/newstudent', methods=['POST'])
-def create_student():
+def create_user():
     body = request.get_json()
-    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
-    db.session.add(student)
+    user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'])
+    db.session.add(user)
     db.session.commit()
-    return jsonify({'response':student.serialize()}), 200
+    return jsonify({'response':user.serialize()}), 200
 
 @api.route('/editstudent/', methods=['PUT'])
-def edit_student():
+def user():
     body = request.get_json()
-    student = Student(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
-    db.session.add(student)
+    user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
+    db.session.add(user)
     db.session.commit()
-    return jsonify({'response':student.serialize()}), 200
+    return jsonify({'response':user.serialize()}), 200
 
 @api.route('/newchef', methods=['POST'])
 def create_chef():
@@ -125,17 +136,17 @@ def create_course():
     db.session.commit()
     return jsonify({'response':newcourse.serialize()}), 200
 
-# @api.route('/hello', methods=['GET'])
-# @jwt_required()
-# def get_my_information():
+@api.route('/hello', methods=['GET'])
+@jwt_required()
+def get_my_information():
     
-#     username = get_jwt_identity()
-    
-#     dictionary = {
-#         "message":"Your are Logged " + username
-#     }
+    username = get_jwt_identity()
+        
+    dictionary = {
+        "message":"Your are Logged " 
+    }
    
-#     return jsonify(dictionary)
+    return jsonify(dictionary)
 
 #@api.route('/chef', methods=['GET'])
 # def get_chef():

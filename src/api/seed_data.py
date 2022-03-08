@@ -1,5 +1,5 @@
 data = {
-    'Student' : [
+    'User' : [
         {
             'id': 1,
             'email': 'leotq@4geeks.com',
