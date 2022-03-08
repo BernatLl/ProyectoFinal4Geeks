@@ -25,38 +25,51 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ chef: data.results }))
           .catch((error) => console.error(error));
       },
-      login: async(email, password)=> {
-      	const response = await fetch(
-      		getStore().urlapi +"token", {
-      			method: 'POST',
-      			headers: {
-      				'Content-Type': 'application/json',
-      				
-      			},
-      			body: JSON.stringify({
-      				email: email,
-      				password: password,
-      			})
-      		}
-      	);
-      	const data = await response.json();
-      	localStorage.setItem('token', data.token);
-        setStore({token: data.token})
-        // setStore({ token: data });
+      login: async (email, password) => {
+        try {
+          const resp = await fetch(getStore().urlapi + "token", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+            }),
+          });
+          if (resp.status !== 200) {
+            alert("Error!!!");
+            return false;
+          }
+          const data = await resp.json();
+          console.log("this came from the backend", data);
+          localStorage.setItem("token", data.token);
+          setStore({ token: data.token });
+          return true;
+        } catch (error) {
+          console.error("Error!!!!!", error);
+        }
       },
+      // .catch(error =>{
+      //   console.error("Error!!!!!", error);
+      // })
+      // const data = await response.json();
+      // localStorage.setItem("token", data.token);
+      // setStore({ token: data.token });
+      // setStore({ token: data });
+
       loadStudents: () => {
-        
-        fetch(getStore().urlapi + "student",
-        { method: "GET",
+        const store = getStore();
+        fetch(getStore().urlapi + "student", {
+          method: "GET",
           headers: {
-          "Accept":"application/json",
-          "Authorization": "Bearer" + getStore().store.token}
-        },)
+           "Authorization": "Bearer " + store.token,
+          },
+        })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data)
-            setStore({ student: data.results})
-            console.log(data.results)
+            setStore({ student: data.results });
+            console.log(data.results);
           })
           .catch((error) => console.error(error));
       },
@@ -100,7 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify(student),
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + token,
+            Authorization: "Bearer " + token,
           },
         })
           .then((res) => res.json())
@@ -125,16 +138,16 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((err) => console.log(err));
       },
 
-      // syncTokenFromSessionStore: () => {
-      //   const token = localStorage.getItem("token");
-      //   if (token && token != "" && token != undefined)
-      //     setStore({ token: token });
-      // },
+      syncTokenFromSessionStore: () => {
+        const token = localStorage.getItem("token");
+        if (token && token != "" && token != undefined)
+          setStore({ token: token });
+      },
       logout: () => {
         localStorage.removeItem("token");
         setStore({ token: null });
       },
-      
+
       // login: async (email, password) => {
       //   const opts = {
       //     method: "POST",
@@ -168,7 +181,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const opts = {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + getStore().store.token,
+            Authorization: "Bearer " + store.token,
           },
         };
         // fetching data from the backend
@@ -192,8 +205,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       // 	const data = await response.json();
       // 	console.log(data); //Informacion del usuario que inicia sesion
       // },
-
-      
     },
   };
 };

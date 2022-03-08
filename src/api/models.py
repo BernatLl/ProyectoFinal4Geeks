@@ -42,7 +42,7 @@ class CardInfo(db.Model):
 
 class Student(db.Model):
 
-    __tablename__ : 'student'
+    __tablename__ = 'student'
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -78,6 +78,10 @@ class Student(db.Model):
             'image': self.image ,
             
             }
+
+    @classmethod
+    def getById(cls, id):
+        return cls.query.filter_by(id=id)
         
 
 class Chef(db.Model):

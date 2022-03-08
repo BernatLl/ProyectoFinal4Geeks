@@ -1,4 +1,5 @@
 import os
+
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Course, Chef, Student
 from api.utils import generate_sitemap, APIException
@@ -29,8 +30,7 @@ def create_token():
 
     logged_student = Student.query.filter_by(email = email).one_or_none()
     
-    print("user loogged", logged_student.serialize())
-
+    
     if not logged_student:
         return jsonify({'message': 'Email is not valid'}), 404
 
@@ -39,7 +39,7 @@ def create_token():
     # if not check_password_hash(logged_student_serialize.password, password):
     #     return jsonify({'message':'Your password does not match'}), 500
 
-    access_token = create_access_token(identity=logged_student.serialize())
+    access_token = create_access_token(identity=logged_student.id)
     
     return jsonify({'token': access_token}), 200
 
@@ -47,7 +47,8 @@ def create_token():
 @jwt_required()
 def get_student_by_id():
     id = get_jwt_identity()
-    student = Student.query.filter(id)
+    student = Student.getById(id)
+    print(student)
     
     return jsonify({'results': student.serialize()}), 200
   
