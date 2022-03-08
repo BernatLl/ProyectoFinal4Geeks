@@ -2,8 +2,6 @@ import React from "react";
 import "../../styles/formProfile.css";
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "react-bootstrap";
-import FormCheck from "react-bootstrap/FormCheck";
-import Button from "react-bootstrap/Button";
 
 export const MyBankAccount = () => {
   return (
