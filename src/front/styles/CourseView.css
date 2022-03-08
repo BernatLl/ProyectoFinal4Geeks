@@ -3,9 +3,7 @@
   width: auto;
   background-color: rgba(73, 71, 69, 0.35);
 }
-
-.videoplayer {
-  max-height: 30rem;
+.videowrapper {
   max-width: 100%;
 }
 
