@@ -1,37 +1,36 @@
-.Home {
-  z-index: -2;
+.BackHome {
+  background-color: #262626;
   margin: 0%;
 }
 
 #BackHead {
   position: fixed;
   padding: 0%;
-  max-width: 100%;
+  width: 100%;
   min-height: auto;
-  z-index: -1;
+  margin: none;
 }
 
 #Bourdain {
-  z-index: 1;
   position: relative;
   color: beige;
   text-align: left;
-  padding: 5%;
+  padding: 10%;
   max-width: 50vw;
+}
+#anto {
+  margin-top: 10;
+}
+#Bourdain h3 {
   font-size: 2vw;
-  gap: 1rem;
 }
 
 .Anthony {
   color: rgba(217, 100, 89, 1);
-  justify-content: left;
-  position: relative;
-  text-align: left;
-  font: 8vw;
 }
 
 .carousel {
-  padding: 5rem;
+  padding: 10rem;
   padding-top: 0.5rem;
 }
 
@@ -39,9 +38,15 @@
   height: auto;
   max-width: 20%;
   position: relative;
-  z-index: 2;
   margin: 0%;
   padding: 0%;
+}
+.carutittle {
+  color: rgba(217, 100, 89, 1);
+  margin-top: 10rem;
+}
+.carutext {
+  color: beige;
 }
 
 .Students {
@@ -73,7 +78,9 @@
   color: rgba(217, 100, 89, 1);
 }
 
-h5, h4, p {
+h5,
+h4,
+p {
   text-align: center;
   color: rgba(217, 100, 89, 1);
 }
@@ -101,4 +108,5 @@ h5, h4, p {
 }
 .stuprof {
   justify-content: center;
+  position: relative;
 }
