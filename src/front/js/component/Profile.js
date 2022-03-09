@@ -14,11 +14,12 @@ export const Profile = () => {
 
   return (
     <>
+      <div className="container">
       <h1>User Profile</h1>
       <Form>
         <fieldset>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="AddUsername"></Form.Label>
+            
             <Form.Control
               id="TextInput"
               placeholder="Add a Username"
@@ -28,9 +29,9 @@ export const Profile = () => {
               }}
             />
           </Form.Group>
-          <Row>
+          
             <Form.Group className="mb-3 ">
-              <Form.Label htmlFor="FullName"></Form.Label>
+              
               <Form.Control
                 id="TextInput"
                 placeholder="FullName"
@@ -40,79 +41,39 @@ export const Profile = () => {
                 }}
               />
             </Form.Group>
-          </Row>
+          
           <Row>
-          <Form.Group className="mb-3 col-6">
-            <Form.Label htmlFor="Email"></Form.Label>
-            <Form.Control
-              id="email"
-              placeholder="Add an email"
-              onChange={(e) => {
-                e.preventDefault();
-                setNewStudent({ ...newStudent, email: e.target.value });
-              }}
-            />
-          </Form.Group>
-          
-            <Form.Group className="mb-3 col-6">
-              <Form.Label htmlFor="Password"></Form.Label>
-              <Form.Control
-                id="Password"
-                placeholder="Password"
-                onChange={(e) => {
-                  e.preventDefault();
-                  setNewStudent({ ...newStudent, password: e.target.value });
-                }}
-              />
-            </Form.Group>
+              <Col className="col-6">
+                <Form.Group className="mb-3 col-6">
+                  
+                  <Form.Control
+                    id="email"
+                    placeholder="Add an email"
+                    onChange={(e) => {
+                      e.preventDefault();
+                      setNewStudent({ ...newStudent, email: e.target.value });
+                    }}
+                  />
+                </Form.Group>
+              </Col>
+              <Col className="col-6">
+                <Form.Group className="mb-3 col-6">
+                  
+                  <Form.Control
+                    id="Password"
+                    placeholder="Password"
+                    onChange={(e) => {
+                      e.preventDefault();
+                      setNewStudent({ ...newStudent, password: e.target.value });
+                    }}
+                  />
+                </Form.Group>
+                </Col>
           </Row>
           
+         
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="Linkedin"></Form.Label>
-            <Form.Control
-              id="TextInput"
-              placeholder="Add a Linkedin"
-              onChange={(e) => {
-                e.preventDefault();
-                setNewStudent({ ...newStudent, linkedin_url: e.target.value });
-              }}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label htmlFor="Twitter"></Form.Label>
-            <Form.Control
-              id="TextInput"
-              placeholder="Add a Twitter"
-              onChange={(e) => {
-                e.preventDefault();
-                setNewStudent({ ...newStudent, twitter_url: e.target.value });
-              }}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label htmlFor="Facebook"></Form.Label>
-            <Form.Control
-              id="TextInput"
-              placeholder="Add a Facebook"
-              onChange={(e) => {
-                e.preventDefault();
-                setNewStudent({ ...newStudent, facebook_url: e.target.value });
-              }}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label htmlFor="Instagram"></Form.Label>
-            <Form.Control
-              id="TextInput"
-              placeholder="Add a Instagram"
-              onChange={(e) => {
-                e.preventDefault();
-                setNewStudent({ ...newStudent, instagram_url: e.target.value });
-              }}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label htmlFor="Image"></Form.Label>
+            
             <Form.Control
               id="TextInput"
               placeholder="Add a image url"
@@ -163,6 +124,7 @@ export const Profile = () => {
           )}
         </fieldset>
       </Form>
+      </div>
     </>
   );
 };

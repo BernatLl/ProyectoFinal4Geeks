@@ -36,14 +36,14 @@ def login():
 @api.route('/signup', methods=["POST"])
 def signUp():
 
-    username, full_name, email, password, student_description, facebook_url, instagram_url, linkedin_url, twitter_url, website_url, image  = request.json.get('username', None), request.json.get('full_name', None), request.json.get('email', None), request.json.get('password', None), request.json.get('student_description', None), request.json.get('facebook_url', None), request.json.get('twitter_url', None), request.json.get('instagram_url', None), request.json.get('website_url', None), request.json.get('linkedin_url', None), request.json.get('image', None)
+    username, full_name, email, password, student_description, image  = request.json.get('username', None), request.json.get('full_name', None), request.json.get('email', None), request.json.get('password', None), request.json.get('student_description', None), request.json.get('image', None)
 
     if not (username and full_name and email and password):
         return jsonify({'message': 'Data not provided'}), 400
 
     passe = generate_password_hash(password)
     
-    user = User(username = username, full_name=full_name, email=email, password=passe, student_description=student_description, facebook_url=facebook_url, instagram_url=instagram_url, linkedin_url=linkedin_url, twitter_url=twitter_url, website_url= website_url, image=image)
+    user = User(username = username, full_name=full_name, email=email, password=passe, student_description=student_description, image=image)
     try:
 
         db.session.add(user)

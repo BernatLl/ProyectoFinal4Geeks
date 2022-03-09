@@ -19,11 +19,7 @@ class User(db.Model):
     
     student_description = db.Column(db.String(400), nullable=True)
     username = db.Column(db.String(120), unique=True, nullable=False)
-    facebook_url = db.Column(db.String(120), nullable=True)
-    instagram_url = db.Column(db.String(120), nullable=True)
-    linkedin_url = db.Column(db.String(120), nullable=True)
-    twitter_url = db.Column(db.String(120), nullable=True)
-    website_url = db.Column(db.String(120), nullable=True)
+    
     image = db.Column(db.String(240), unique=True, nullable=True)
     
     
@@ -37,11 +33,7 @@ class User(db.Model):
             'full_name': self.full_name ,
             'student_description': self.student_description ,
             'username': self.username ,
-            'facebook_url': self.facebook_url ,
-            'instagram_url': self.instagram_url ,
-            'linkedin_url': self.linkedin_url ,
-            'twitter_url': self.twitter_url ,
-            'website_url': self.website_url ,
+            
             'image': self.image ,
             
             # do not serialize the password, its a security breach

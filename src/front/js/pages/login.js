@@ -31,7 +31,7 @@ export const Login =()=>{
     return(
         <>
             <h1>Login</h1>
-            <div className="container-fluid p-1 my-5">
+            <div className="container p-1 my-5">
                     {( store.token && store.token!="" && store.token != undefined) ? "You are Logged " : 
                     <Form>
                     
