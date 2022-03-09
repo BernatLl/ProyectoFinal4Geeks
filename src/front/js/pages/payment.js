@@ -9,6 +9,8 @@ import {
   import Card from 'react-bootstrap/Card'
   import Button from 'react-bootstrap/Button'
   import "../../styles/payment.css"
+  import HeaderImg from "../../img/HeaderImg.jpg";
+import "../../styles/home.css";
   
   const stripePromise = loadStripe("pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG");
   
@@ -50,6 +52,7 @@ import {
 
     return (
       <>
+      <img id="BackHead" className="mt-m" src={HeaderImg}></img>
         <h1>Payment Page</h1>
         <Card className='paymentCard'>
             

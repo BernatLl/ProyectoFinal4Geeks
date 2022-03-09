@@ -11,6 +11,8 @@ import "../../styles/student.css";
 import { ListadoCursos } from "../component/listadoCursos.js";
 import { ProgressBar } from "react-bootstrap";
 import { CreateCourse } from "./CreateCourse";
+import "../../styles/home.css";
+import HeaderImg from "../../img/HeaderImg.jpg";
 
 
 export const User = () => {
@@ -23,6 +25,7 @@ export const User = () => {
 
   return (
     <>
+      <img id="BackHead" className="mt-m" src={HeaderImg}></img>
       <h1 className="titulo">This is your profile page</h1>
       <div className="container p-1 my-5">
         <Tab.Container

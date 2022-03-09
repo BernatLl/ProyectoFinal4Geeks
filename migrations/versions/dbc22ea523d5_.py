@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 5e4961b09d63
+Revision ID: dbc22ea523d5
 Revises: 
-Create Date: 2022-03-09 14:15:43.623319
+Create Date: 2022-03-09 15:14:36.759145
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '5e4961b09d63'
+revision = 'dbc22ea523d5'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -61,16 +61,11 @@ def upgrade():
     )
     op.create_table('user',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('full_name', sa.String(length=120), nullable=False),
-    sa.Column('email', sa.String(length=120), nullable=False),
-    sa.Column('password', sa.String(length=80), nullable=False),
+    sa.Column('full_name', sa.String(length=240), nullable=False),
+    sa.Column('email', sa.String(length=240), nullable=False),
+    sa.Column('password', sa.String(length=240), nullable=False),
     sa.Column('student_description', sa.String(length=400), nullable=True),
     sa.Column('username', sa.String(length=120), nullable=False),
-    sa.Column('facebook_url', sa.String(length=120), nullable=True),
-    sa.Column('instagram_url', sa.String(length=120), nullable=True),
-    sa.Column('linkedin_url', sa.String(length=120), nullable=True),
-    sa.Column('twitter_url', sa.String(length=120), nullable=True),
-    sa.Column('website_url', sa.String(length=120), nullable=True),
     sa.Column('image', sa.String(length=240), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),

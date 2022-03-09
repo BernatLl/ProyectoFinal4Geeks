@@ -7,6 +7,8 @@ import { Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import HeaderImg from "../../img/HeaderImg.jpg";
+import "../../styles/home.css";
 
 
 
@@ -15,6 +17,8 @@ export const CreateCourse = () => {
   const [newCourse, setNewCourse] = useState({});
   
   return (
+    <>
+    <img id="BackHead" className="mt-m" src={HeaderImg}></img>
     <div className="container">
       <div className="container">
       <img src={ClaseRemote} className="HeaderCreate createCourseImage"></img>
@@ -272,5 +276,6 @@ export const CreateCourse = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };

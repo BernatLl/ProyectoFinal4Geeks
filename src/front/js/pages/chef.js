@@ -5,6 +5,8 @@ import "../../styles/student.css"
 import { Link } from "react-router-dom";
 import "../../styles/listadoCursos.css"
 import { ChefProfile } from "../component/chefProfile.js";
+import HeaderImg from "../../img/HeaderImg.jpg";
+import "../../styles/home.css";
 
 export const  Chef = ()=>{
     const { store, actions } = useContext(Context);
@@ -15,7 +17,10 @@ export const  Chef = ()=>{
 	// },[])
 
     return (
+        <>
+        <img id="BackHead" className="mt-m" src={HeaderImg}></img>
         <ChefProfile/>
+        </>
         )
 
     }

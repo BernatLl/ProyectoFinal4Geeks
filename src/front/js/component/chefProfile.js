@@ -18,32 +18,32 @@ export const ChefProfile = ()=>{
             { (!store.token) ?
                 
                     <div className="container">
-                        <h1>Create Profile</h1>
+                        <h1>Create Chef Profile</h1>
                         <Form>
                             <fieldset>
                                 <Form.Group className="mb-3">
-                                    <Form.Label htmlFor="AddUsername"></Form.Label>
+                                    
                                     <Form.Control id="TextInput" placeholder="Add a Username" onChange={(e)=>{
                                         e.preventDefault();
                                         setNewChef({...newChef, full_name: e.target.value})
                                     }}/>
                                 </Form.Group>
                                 <Form.Group className="mb-3">
-                                    <Form.Label htmlFor="Email"></Form.Label>
+                                    
                                     <Form.Control id="Email" placeholder="Add an email" onChange={(e)=>{
                                         e.preventDefault();
                                         setNewChef({...newChef, email: e.target.value})
                                     }} />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
-                                    <Form.Label htmlFor="Adress"></Form.Label>
+                                    
                                     <Form.Control id="TextInput" placeholder="Add an address" onChange={(e)=>{
                                         e.preventDefault();
                                         setNewChef({...newChef, address: e.target.value})
                                     }} />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
-                                    <Form.Label htmlFor="Bank_Info"></Form.Label>
+                                   
                                     <Form.Control id="TextInput" placeholder="Add a Bank Account" onChange={(e)=>{
                                         e.preventDefault();
                                         setNewChef({...newChef, bank_info: e.target.value})

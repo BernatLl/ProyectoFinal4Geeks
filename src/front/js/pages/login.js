@@ -9,6 +9,8 @@ import "../../styles/formProfile.css"
 import { LoginStudent } from "../component/loginStudent";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import HeaderImg from "../../img/HeaderImg.jpg";
+import "../../styles/home.css";
 
 
 export const Login =()=>{
@@ -30,6 +32,7 @@ export const Login =()=>{
 	
     return(
         <>
+        <img id="BackHead" className="mt-m" src={HeaderImg}></img>
             <h1>Login</h1>
             <div className="container p-1 my-5">
                     {( store.token && store.token!="" && store.token != undefined) ? "You are Logged " : 

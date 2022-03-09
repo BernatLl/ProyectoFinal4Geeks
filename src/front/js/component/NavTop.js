@@ -17,7 +17,7 @@ export const NavTop = () => {
             <div className="student col">Student</div>
           </Link>
 
-          <Link to="/chef/:id">
+          <Link to="/chef/">
             <div className="professor col" src="/professor">
               Professor
             </div>
