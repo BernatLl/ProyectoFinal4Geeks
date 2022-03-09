@@ -10,7 +10,7 @@ import { User } from "./pages/user";
 import { Footer } from "./component/footer";
 import { Login } from "./pages/login";
 import {Search} from "./component/search";
-import Payment from "./pages/payment";
+import {Payment} from "./pages/payment";
 import { Chef } from "./pages/chef";
 import { CreateUser } from "./pages/createUser";
 import { CourseView } from "./pages/CourseView";

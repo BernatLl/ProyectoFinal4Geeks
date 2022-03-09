@@ -66,9 +66,8 @@ import {
     );
   }
   
-  const Payment  = () => (
+ export const Payment  = () => (
     <Elements stripe={stripePromise}>
       <PaymentForm />
     </Elements>
   );
-export default Payment;

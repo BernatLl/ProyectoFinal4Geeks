@@ -16,7 +16,7 @@ export const CourseView = () => {
 	},[])
 
     const loadCoursesId= async () => {
-        const response = await fetch("https://3001-bernatll-proyectofinal4g-ovzbdadjboh.ws-eu34xl.gitpod.io/api/coursebyid/"+id)
+        const response = await fetch("https://3001-bernatll-proyectofinal4g-u1c3ngfiykm.ws-eu34.gitpod.io/api/coursebyid/"+id)
         const data = await response.json();
         setCourseDetail(data.results);
     }
