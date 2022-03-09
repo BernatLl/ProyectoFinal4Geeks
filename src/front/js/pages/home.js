@@ -4,7 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Antho from "../../img/AnthoDain.jpg";
 import Gordom from "../../img/GordomRamsay.jpg";
 import Jiro from "../../img/JirosDream.png";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 
 import { MeetTheCrew } from "../component/meetTheCrew.js";
@@ -12,21 +12,33 @@ import { FormContacto } from "../component/formContacto.js";
 import { ListadoCursos } from "../component/listadoCursos.js";
 
 export const Home = () => {
-  return (
-    <>
-      <div className="Home row">
-        <img id="BackHead" className="mt-m col-" src={HeaderImg}></img>
-        <div className="mt-m col" id="Bourdain">
-          <span>If I'm an advocate for anything,</span>
-          <span>it's to move. As far as you can, </span>
-          <span>as much as you can. Across the</span>
-          <span>ocean, or simply across the river.</span>
-          <span>Walk in someone else's shoes or</span>
-          <span>at least eat their food. It's a plus</span>
-          <span>for everybody.</span>
-          <div></div>
+  const { store, actions } = useContext(Context);
+  
 
-          <span className="Anthony">-Anthony Bourdain.</span>
+  useEffect(()=>{
+     if(store.token && store.token!="" && store.token != undefined) actions.getMessage();
+    },[store.token])
+  
+
+
+  return (
+    <> 
+      <div>
+        {store.token ?
+        <div className="alert alert-info">{store.message}</div>:<div></div> }
+      </div>
+      <div className="BackHome">
+      
+      <div className="Home">
+        <img id="BackHead" className="mt-m" src={HeaderImg}></img>
+        <div className="mt-m" id="Bourdain">
+          <h3>If I'm an advocate for anything,</h3>
+          <h3>it's to move. As far as you can, </h3>
+          <h3>as much as you can. Across the</h3>
+          <h3>ocean, or simply across the river.</h3>
+          <h3>Walk in someone else's shoes or</h3>
+          <h3>at least eat their food. It's a plus</h3>
+          <h3>for everybody.</h3>
         </div>
         <div className="carousel row">
           <Carousel className="TopFive">

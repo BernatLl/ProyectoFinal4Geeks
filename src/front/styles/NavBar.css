@@ -113,6 +113,25 @@
   border-radius: 5px;
   font-size: 1vw;
 }
+
+
 .bcart {
   margin-right: 1rem;
+  max-height: 2rem;
+  max-width: 4rem;
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: auto;
+}
+
+.blogin {
+  max-height: 2rem;
+  max-width: 4rem;
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: auto;
 }

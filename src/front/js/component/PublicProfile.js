@@ -1,36 +1,36 @@
-import React from "react";
-import "../../styles/formProfile.css"
-import Form from 'react-bootstrap/Form'
+import "../../styles/formProfile.css";
+// import Form from "react-bootstrap/Form";
+import React, { useEffect, useContext, useState } from "react";
+// import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
+// import { Row, Col } from "react-bootstrap";
+// import FormCheck from "react-bootstrap/FormCheck";
+// import Button from "react-bootstrap/Button";
 
-import { Row, Col } from "react-bootstrap"
-import FormCheck from 'react-bootstrap/FormCheck'
-import Button from 'react-bootstrap/Button'
+export const PublicProfile = () => {
+  const { store, actions } = useContext(Context);
 
-export const PublicProfile =()=>{
-    return(
-        <>
-            <h1>Public profile</h1>
-            <Form>
-                <fieldset disabled>
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="Nickname"></Form.Label>
-                        <Form.Control id="TextInput" placeholder="Nickname" />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="Favorite courses"></Form.Label>
-                        <Form.Control id="TextInput" placeholder="Favorite courses" />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="InterestedIn"></Form.Label>
-                        <Form.Control id="TextInput" placeholder="Interested in" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Something about me</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
-                    </Form.Group>
-    
-                </fieldset>
-            </Form>
-        </>
-    )
-}
+  useEffect(() => {
+    if (store.token && store.token != "" && store.token != undefined)
+      actions.loadUser();
+  }, [store.token]);
+
+  return (
+    <>
+      <h1>Public profile</h1>
+
+      <div className="container">
+        {store.user.map((select, i)=>(
+          <div className="container" key={i}>
+            
+            <h4>{select.full_name}</h4>
+
+            <p>{select.student_description}</p>
+            <p>{select.username}</p>
+            <p>{select.email}</p>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};

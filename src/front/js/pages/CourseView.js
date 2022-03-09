@@ -1,10 +1,41 @@
-import React from "react";
+
 import "../../styles/CourseView.css";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
+import { useParams } from "react-router-dom";
+import React,{useEffect, useContext, useState} from "react";
+import { Context } from "../store/appContext";
+
+
 export const CourseView = () => {
+    const { store, actions } = useContext(Context);
+    const id = useParams().id;
+    const [courseDetail, setCourseDetail] = useState({})
+    useEffect (()=>{
+		loadCoursesId();
+	},[])
+
+    const loadCoursesId= async () => {
+        const response = await fetch("https://3001-bernatll-proyectofinal4g-ovzbdadjboh.ws-eu34xl.gitpod.io/api/coursebyid/"+id)
+        const data = await response.json();
+        setCourseDetail(data.results);
+    }
+
   return (
-    <div className=" wrapper">
+      <>
+      <div className="container">
+        
+            <div>
+                <h1>{courseDetail.course_name}</h1>
+                <h4>{courseDetail.description}</h4>
+                <h4>{courseDetail.ingredient}</h4>
+                <h4>{courseDetail.list_ingredients}</h4>
+                <h4>{courseDetail.price}</h4>
+                <img src={courseDetail.img}/>
+            </div>
+        
+      </div>
+    {/* <div className=" wrapper">
       <div className="Content">
         <div className="Title">
           <h4>Mahonnaise easy and Delicius</h4>
@@ -208,6 +239,7 @@ export const CourseView = () => {
           </Tab>
         </Tabs>
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
