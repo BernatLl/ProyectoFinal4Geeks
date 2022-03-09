@@ -1,40 +1,40 @@
 .Content {
-    height: auto;
-    width: auto;
-    background-color: rgba(73, 71, 69, 0.35);
-  }
-  .videowrapper {
-    max-width: 100%;
-  }
-  
-  .PillsWrapper {
-    background-color: rgba(134, 96, 76, 0.35);
-    width: 100rem;
-  }
-  .TabTab {
-    padding: 2rem;
-    color: #d96459;
-    border-width: 1px;
-  }
-  .TabTittle {
-    color: #d96459;
-    font-size: large;
-  }
-  
-  .Tab_Class {
-    height: auto;
-    width: auto;
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-  
-  .mb-3 {
-    width: auto;
-    justify-content: center;
-    background-color: rgba(13, 13, 13, 1);
-  }
-  
-  .TabContent {
-    font-size: large;
-    font: #d96459;
-  }
+  height: auto;
+  width: auto;
+  background-color: rgba(73, 71, 69, 0.35);
+}
+.videowrapper {
+  max-width: 100%;
+}
+
+.PillsWrapper {
+  background-color: rgba(134, 96, 76, 0.35);
+  width: 100rem;
+}
+.TabTab {
+  padding: 2rem;
+  color: #d96459;
+  border-width: 1px;
+}
+.TabTittle {
+  color: #d96459;
+  font-size: large;
+}
+
+.Tab_Class {
+  height: auto;
+  width: auto;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.mb-3 {
+  width: auto;
+  justify-content: center;
+  background-color: rgba(13, 13, 13, 1);
+}
+
+.TabContent {
+  font-size: large;
+  font: #d96459;
+}

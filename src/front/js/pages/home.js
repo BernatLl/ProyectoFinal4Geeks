@@ -1,4 +1,3 @@
-
 import HeaderImg from "../../img/HeaderImg.jpg";
 import "../../styles/home.css";
 import Carousel from "react-bootstrap/Carousel";
@@ -8,8 +7,7 @@ import Jiro from "../../img/JirosDream.png";
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 
-
-import { MeetTheCrew } from "../component/meetTheCrew.js"
+import { MeetTheCrew } from "../component/meetTheCrew.js";
 import { FormContacto } from "../component/formContacto.js";
 import { ListadoCursos } from "../component/listadoCursos.js";
 
@@ -42,43 +40,45 @@ export const Home = () => {
           <h3>at least eat their food. It's a plus</h3>
           <h3>for everybody.</h3>
         </div>
-        <h3 className="Anthony">-Anthony Bourdain.</h3>
+        <div className="carousel row">
+          <Carousel className="TopFive">
+            <Carousel.Item>
+              <img className="d-block w-100" src={Antho} alt="First slide" />
+              <Carousel.Caption>
+                <span>First slide label</span>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={Gordom} alt="Second slide" />
 
-        <Carousel className="TopFive">
-          <Carousel.Item>
-            <img className="d-block w-100" src={Antho} alt="First slide" />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img className="d-block w-100" src={Gordom} alt="Second slide" />
+              <Carousel.Caption>
+                <span>Second slide label</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                id="foto"
+                className="d-block w-100"
+                src={Jiro}
+                alt="Third slide"
+              />
 
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              id="foto"
-              className="d-block w-100"
-              src={Jiro}
-              alt="Third slide"
-            />
-
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-
-        <div className="StudentSide">
-          <div className="Students">
+              <Carousel.Caption>
+                <span>Third slide label</span>
+                <p>
+                  Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+        </div>{" "}
+        <div className="stuprof ">
+          <div className="Students row">
             <img
               id="foto"
               className="StuPic"
@@ -87,7 +87,7 @@ export const Home = () => {
 
             <div className="StudentsText">
               {" "}
-              <h5>Students</h5>
+              <h5 className="StuTittle">Students</h5>
               <p>
                 Welcome to "We Cook", with us you will be able to access to a
                 digital library with hundreds of professional cooks around the
@@ -100,9 +100,8 @@ export const Home = () => {
               </p>
             </div>
           </div>
-        </div>
-        <div className="ProfessorSide">
-          <div className="Professor">
+
+          <div className="ProfessorSide row">
             <img
               id="foto"
               className="ProfePic"
@@ -111,7 +110,7 @@ export const Home = () => {
 
             <div className="ProfeText">
               {" "}
-              <h5>Professor</h5>
+              <h5 className="ProfTittle">Professor</h5>
               <p>
                 Welcome to "We Cook", with us you will be able to access to a
                 digital library with hundreds of professional cooks around the
@@ -126,13 +125,12 @@ export const Home = () => {
           </div>
         </div>
       </div>
-    </div>
-    <div className="text-center mt-5">
-    <ListadoCursos/>
-    <MeetTheCrew/>
-    <FormContacto/>
-  </div>
-  </>
+
+      <div className="text-center mt-5">
+        <ListadoCursos />
+        <MeetTheCrew />
+        <FormContacto />
+      </div>
+    </>
   );
-	
 };

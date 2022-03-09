@@ -5,6 +5,10 @@ import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 import { NavTop } from "./component/NavTop";
 import { CreateCourse } from "./pages/CreateCourse";
+
+import { Footer } from "./component/footer";
+
+import { ChefProfile } from "../js/pages/ChefProfile";
 import { User } from "./pages/user";
 import { Footer } from "./component/footer";
 import { Login } from "./pages/login";
@@ -62,7 +66,6 @@ const Layout = () => {
       </BrowserRouter>
     </div>
   );
-	
 };
 
 export default injectContext(Layout);

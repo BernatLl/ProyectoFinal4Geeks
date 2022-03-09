@@ -1,39 +1,39 @@
 .navbody {
   background-color: #262626;
-  width: 100%;
-  height: auto;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
+  overflow: hidden;
+  margin: 0%;
+}
+.student:hover,
+.professor:hover,
+.dropbtn:hover {
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
 }
 
 .logo {
-  max-width: 7rem;
-  min-width: 2rem;
+  max-width: 8rem;
+  padding: 1vw;
 }
-
-.student,
-.professor {
+.stu-prof-cat {
+  display: flex;
   color: beige;
-  padding: 2rem;
-  display: inline;
-  max-width: 2rem;
-  font-size: smaller;
+  max-width: 1rem;
+  font-size: 1vw;
+  gap: 5vw;
+  margin: auto;
+  padding: 1vw;
+  text-align: center;
+  position: relative;
 }
 
 .dropbtn {
   background-color: transparent;
   color: beige;
-  font-size: smaller;
+  font-size: 1vw;
   border: none;
-  display: inline;
-  padding: 1.4rem;
 }
-.student,
-.professor,
-.dropdown {
-  display: inline;
-}
+
 .dropdown {
   position: relative;
   padding-top: 0.7rem;
@@ -43,16 +43,17 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
   min-width: 160px;
   z-index: 1;
+  background-color: #5a5858;
 }
 
 .dropdown-content a {
-  color: black;
+  color: #d96459;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  background-color: #5a5858;
 }
 
 .dropdown-content a:hover {
@@ -66,16 +67,19 @@
   background-color: #262626;
 }
 .search {
+  max-width: 20%;
+  max-height: 8%;
+  font-size: 1vw;
+  padding-left: 0%;
+  padding-right: 0%;
+  vertical-align: middle;
   margin: auto;
-  max-width: 100%;
-  max-height: 10%;
-  display: flex;
-  font-size: smaller;
-  justify-content: center;
-  gap: 00.5rem;
+  margin-right: 0%;
+  position: relative;
 }
 .searchbar {
   max-width: 100%;
+  min-width: 25%;
   text-align: center;
   max-height: 2rem;
   border-radius: 5px;
@@ -89,7 +93,30 @@
   border-radius: 5px;
 }
 
+.endbuttons {
+  max-width: 10%;
+  margin: auto;
+  margin-right: 0%;
+  margin-left: 0%;
+  float: inline-end;
+  gap: 5rem;
+  padding-right: 0%;
+}
+
+.bcart,
+.blogin {
+  max-width: 4rem;
+  min-width: 3rem;
+  max-height: 2rem;
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
+  font-size: 1vw;
+}
+
+
 .bcart {
+  margin-right: 1rem;
   max-height: 2rem;
   max-width: 4rem;
   background-color: #5a5858;
