@@ -5,7 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Antho from "../../img/AnthoDain.jpg";
 import Gordom from "../../img/GordomRamsay.jpg";
 import Jiro from "../../img/JirosDream.png";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 
 
@@ -14,9 +14,23 @@ import { FormContacto } from "../component/formContacto.js";
 import { ListadoCursos } from "../component/listadoCursos.js";
 
 export const Home = () => {
+  const { store, actions } = useContext(Context);
+  
+
+  useEffect(()=>{
+     if(store.token && store.token!="" && store.token != undefined) actions.getMessage();
+    },[store.token])
+  
+
+
   return (
-    <>
-    <div className="BackHome">
+    <> 
+      <div>
+        {store.token ?
+        <div className="alert alert-info">{store.message}</div>:<div></div> }
+      </div>
+      <div className="BackHome">
+      
       <div className="Home">
         <img id="BackHead" className="mt-m" src={HeaderImg}></img>
         <div className="mt-m" id="Bourdain">

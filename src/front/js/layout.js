@@ -1,19 +1,19 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import { useParams } from 'react-router-dom'
 import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
-
-import { Navbar } from "./component/NavBar";
+import { NavTop } from "./component/NavTop";
 import { CreateCourse } from "./pages/CreateCourse";
-
-
-
-import { Student } from "./pages/student";
-
-
-
+import { User } from "./pages/user";
 import { Footer } from "./component/footer";
+import { Login } from "./pages/login";
+import {Search} from "./component/search";
+import Payment from "./pages/payment";
+import { Chef } from "./pages/chef";
+import { CreateUser } from "./pages/createUser";
+import { CourseView } from "./pages/CourseView";
+
 
 //create your first component
 const Layout = () => {
@@ -25,17 +25,36 @@ const Layout = () => {
     <div>
       <BrowserRouter>
         <div>
-          <Navbar />
+          <NavTop />
           <Switch>
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/CreateCourse">
+            <Route exact path="/createcourse">
               <CreateCourse />
             </Route>
-            <Route exact path="/student">
-							<Student />
+            <Route exact path="/user">
+							<User />
 						</Route>
+            <Route exact path="/createuser">
+							<CreateUser />
+						</Route>
+            <Route exact path="/login">
+							<Login />
+						</Route>
+            <Route exact path="/search">
+							<Search/>
+						</Route>
+            <Route exact path="/payment">
+							<Payment/>
+						</Route>
+            <Route exact path="/chef">
+							<Chef/>
+						</Route>
+            <Route exact path="/courseview/:id">
+							<CourseView/>
+						</Route>
+
 					</Switch>
 					<Footer />
          
