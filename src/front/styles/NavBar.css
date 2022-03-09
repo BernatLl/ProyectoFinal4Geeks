@@ -1,42 +1,43 @@
 .navbody {
   background-color: #262626;
   overflow: hidden;
-  margin: 0%;
+  max-width: 100%;
+  min-height: 3vw;
+  max-height: 5vw;
+  display: flex;
 }
+
 .student:hover,
 .professor:hover,
-.dropbtn:hover {
+.categories:hover {
   background-color: #5a5858;
   color: #d96459;
   border-radius: 5px;
 }
 
 .logo {
+  padding: 0.55rem;
   max-width: 8rem;
-  padding: 1vw;
-}
-.stu-prof-cat {
-  display: flex;
-  color: beige;
-  max-width: 1rem;
-  font-size: 1vw;
-  gap: 5vw;
-  margin: auto;
-  padding: 1vw;
-  text-align: center;
-  position: relative;
 }
 
-.dropbtn {
-  background-color: transparent;
-  color: beige;
+.stu-prof-cat {
+  display: flex;
+  gap: 5rem;
   font-size: 1vw;
+}
+.student,
+.professor,
+.categories {
+  color: beige;
+}
+.categories {
+  background-color: transparent;
   border: none;
 }
 
 .dropdown {
   position: relative;
-  padding-top: 0.7rem;
+  padding-top: 0.1rem;
   max-width: 10rem;
 }
 
@@ -44,8 +45,9 @@
   display: none;
   position: absolute;
   min-width: 160px;
-  z-index: 1;
+  z-index: 2;
   background-color: #5a5858;
+  border-radius: 5px;
 }
 
 .dropdown-content a {
@@ -56,82 +58,44 @@
   background-color: #5a5858;
 }
 
-.dropdown-content a:hover {
-  background-color: #262626;
-}
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown:hover .dropbtn {
+.dropdown:hover .categories {
   background-color: #262626;
 }
+
 .search {
-  max-width: 20%;
-  max-height: 8%;
-  font-size: 1vw;
-  padding-left: 0%;
-  padding-right: 0%;
-  vertical-align: middle;
-  margin: auto;
-  margin-right: 0%;
-  position: relative;
-}
-.searchbar {
   max-width: 100%;
-  min-width: 25%;
-  text-align: center;
-  max-height: 2rem;
+  display: flex;
+}
+
+.searchbar {
   border-radius: 5px;
 }
 
-.sbutton {
-  max-width: 4rem;
-  max-height: 2rem;
-  background-color: #5a5858;
-  color: #d96459;
-  border-radius: 5px;
-}
-
-.endbuttons {
-  max-width: 10%;
+.search-button {
   margin: auto;
-  margin-right: 0%;
-  margin-left: 0%;
-  float: inline-end;
-  gap: 5rem;
-  padding-right: 0%;
+  display: flex;
+  max-width: 50%;
+  gap: 1rem;
 }
 
 .bcart,
-.blogin {
-  max-width: 4rem;
-  min-width: 3rem;
-  max-height: 2rem;
-  background-color: #5a5858;
-  color: #d96459;
-  border-radius: 5px;
-  font-size: 1vw;
-}
-
-
-.bcart {
-  margin-right: 1rem;
-  max-height: 2rem;
-  max-width: 4rem;
-  background-color: #5a5858;
-  color: #d96459;
-  border-radius: 5px;
-  padding: 1rem;
+.blogin,
+.sbutton {
   margin: auto;
-}
-
-.blogin {
-  max-height: 2rem;
   max-width: 4rem;
+  min-width: 2rem;
   background-color: #5a5858;
   color: #d96459;
   border-radius: 5px;
-  padding: 1rem;
+  gap: 1rem;
+}
+
+.search-button,
+.stu-prof-cat,
+.logo {
   margin: auto;
 }
