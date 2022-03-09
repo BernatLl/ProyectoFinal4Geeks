@@ -10,6 +10,8 @@ import { CloseAccount } from "../component/CloseAccount.js";
 import "../../styles/student.css";
 import { ListadoCursos } from "../component/listadoCursos.js";
 import { ProgressBar } from "react-bootstrap";
+import { CreateCourse } from "./CreateCourse";
+
 
 export const User = () => {
   const { store, actions } = useContext(Context);
@@ -31,8 +33,6 @@ export const User = () => {
           <Row className="marco">
             <Col sm={3} className="contenido-menu">
               <Nav justify variant="pills" className="flex-column menu">
-                
-
                 <Nav.Item>
                   <Nav.Link eventKey="first">Public Profile</Nav.Link>
                 </Nav.Item>
@@ -42,6 +42,11 @@ export const User = () => {
                 <Nav.Item>
                   <Nav.Link eventKey="4">Close account</Nav.Link>
                 </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="5">Create Course</Nav.Link>
+                </Nav.Item>
+
+
               </Nav>
             </Col>
             <Col sm={9} className="contenido">
@@ -54,6 +59,9 @@ export const User = () => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="4">
                   <CloseAccount />
+                </Tab.Pane>
+                <Tab.Pane eventKey="5">
+                  <CreateCourse />
                 </Tab.Pane>
               </Tab.Content>
             </Col>

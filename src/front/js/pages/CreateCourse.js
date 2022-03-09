@@ -5,6 +5,10 @@ import { Context } from "../store/appContext";
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+
 
 export const CreateCourse = () => {
   const { store, actions } = useContext(Context);
@@ -12,7 +16,9 @@ export const CreateCourse = () => {
   
   return (
     <div className="container">
-      <img src={ClaseRemote} className="HeaderCreate"></img>
+      <div className="container">
+      <img src={ClaseRemote} className="HeaderCreate createCourseImage"></img>
+      </div>
       <div className="wrapper">
         <div className="Tittle">
           <h3>Educator Center</h3>
@@ -66,7 +72,7 @@ export const CreateCourse = () => {
         <div>
           <Form>
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} >
                 <Form.Label>Name The Course</Form.Label>
                 <Form.Control
                   id="TextInput"
@@ -126,7 +132,7 @@ export const CreateCourse = () => {
                 <option value="Vegetables">Vegetables</option>
                 <option value="Dairy">Dairy</option>
               </Form.Select>
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} >
                 <Form.Label>
                   requirements needed from student to complete it
                 </Form.Label>
@@ -139,7 +145,7 @@ export const CreateCourse = () => {
                 />
                 <span>Click here to add utensils requirements +</span>
               </Form.Group>
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} >
                 <Form.Label>
                   knowledge and skills required for the student to complete
                   succesfully the course..
@@ -156,7 +162,7 @@ export const CreateCourse = () => {
                 </span>
               </Form.Group>
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col} >
                   <Form.Label>Price</Form.Label>
                   <Form.Control id="TextInput" placeholder="Type the Price in €" onChange={(e)=>{
                     e.preventDefault();
@@ -182,7 +188,7 @@ export const CreateCourse = () => {
                 and Tips you give the better for the student, making your course
                 more appealing.
               </span>
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} >
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                   id="TextInput"
@@ -204,7 +210,7 @@ export const CreateCourse = () => {
                   
                 />
               </Form.Group>
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} >
                 <Form.Label>List of ingredients</Form.Label>
                 <Form.Control
                   id="TextInput"
@@ -215,7 +221,7 @@ export const CreateCourse = () => {
                 />
                 <span>Click here to add ingredients +</span>
               </Form.Group>
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} >
                 <Form.Label>Step Title</Form.Label>
                 <Form.Control
                   id="TextInput"
@@ -233,7 +239,7 @@ export const CreateCourse = () => {
                   placeholder="Onions: Cut the onions in mirepoix 5mm x 5mm."
                 />
               </Form.Group>
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} >
                 <Form.Label>Please add Video URL</Form.Label>
                 <Form.Control
                   id="TextInput"
@@ -244,7 +250,7 @@ export const CreateCourse = () => {
                 />
                 <span>Click here to add another step +</span>
               </Form.Group>
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col}>
                 <Form.Label>Please add Image URL</Form.Label>
                 <Form.Control
                   id="TextInput"
@@ -257,9 +263,11 @@ export const CreateCourse = () => {
               </Form.Group>
               <a href="">Review Course</a>
             </Row>
-            <Button variant="primary" type="submit"  onClick={()=>{actions.createCourse(newCourse)}}>
-              Submit
-            </Button>
+                <Link to={"/courseview/"+ store.course.id}>     
+                  <Button variant="primary" type="submit"  onClick={()=>{actions.createCourse(newCourse)}}>
+                    Submit
+                  </Button>
+                </Link> 
           </Form>
         </div>
       </div>
