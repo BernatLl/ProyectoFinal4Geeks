@@ -21,6 +21,7 @@ export const Login =()=>{
 
     const handleClick = ()=>{
         actions.login(email, password);
+        actions.loadUser();
                    
     };
 
@@ -31,7 +32,7 @@ export const Login =()=>{
         <>
             <h1>Login</h1>
             <div className="container-fluid p-1 my-5">
-                    {( store.token && store.token!="" && store.token != undefined) ? "You are Logged in with this token" + store.user.full_name : 
+                    {( store.token && store.token!="" && store.token != undefined) ? "You are Logged " : 
                     <Form>
                     
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
@@ -55,9 +56,9 @@ export const Login =()=>{
                             must not contain spaces, special characters, or emoji.
                         </Form.Text>
                     </Form.Group>
-                    <Link to="/">
-                     <Button variant="dark" onClick={handleClick}  >Login</Button>
-                     </Link>
+                    {/* <Link to="/"> */}
+                     <Button variant="dark" onClick={handleClick}>Login</Button>
+                     {/* </Link> */}
 
                 </Form>}
                 

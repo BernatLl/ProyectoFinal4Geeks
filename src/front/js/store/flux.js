@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       token: null,
       urlapi:
-        "https://3001-bernatll-proyectofinal4g-u1c3ngfiykm.ws-eu34.gitpod.io/api/",
+        "https://3001-bernatll-proyectofinal4g-rmcbtwh630y.ws-eu34.gitpod.io/api/",
       course: [],
       
       chef: [],
@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              Accept: "application/json",
+              "Accept": "application/json",
             },
             body: JSON.stringify({
               username: username,
@@ -201,7 +201,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const opts = {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + store.token,
+            "Authorization": "Bearer " + store.token,
           },
         };
         // fetching data from the backend

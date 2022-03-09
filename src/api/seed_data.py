@@ -1,21 +1,5 @@
 data = {
-    'User' : [
-        {
-            'id': 1,
-            'email': 'leotq@4geeks.com',
-            'full_name' : 'Leo Tranquillini',
-            'student_description' : 'I am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
-            'username' : 'leotranq',
-            'facebook_url': 'xxx',
-            'instagram_url': 'xx',
-            'twitter_url': 'xxxx',
-            'linkedin_url': 'xxxxx',
-            'website_url' : 'xxxxxxx',
-            'image' : 'https://avatars.githubusercontent.com/u/95694859?s=100&v=4'
-            ,'password' : 'password'
-        }
-        
-    ],
+    
     'Chef' : [
         {
             'id': 1,
