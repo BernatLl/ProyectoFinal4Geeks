@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       token: null,
       urlapi:
-        "https://3001-bernatll-proyectofinal4g-lxsxokhv7qn.ws-eu34.gitpod.io/api/",
+      "process.env.VARIABLE_NAME" +"/api/",
       course: [],
       
       chef: [],
