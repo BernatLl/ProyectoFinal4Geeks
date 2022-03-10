@@ -17,8 +17,9 @@ export const NavTop = () => {
             <a className="student">Student</a>
           </Link>
 
-          <Link to="/chef/:id">
-            <div className="professor " src="/professor">
+
+          <Link to="/chef/">
+            <div className="professor col" src="/professor">
               Professor
             </div>
           </Link>

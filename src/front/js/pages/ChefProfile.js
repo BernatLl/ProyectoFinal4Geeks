@@ -11,12 +11,15 @@ import "../../styles/ChefProfile.css";
 import rigo from "../../img/rigo-baby.jpg";
 import { ListadoCursos } from "../component/listadoCursos";
 import { Link } from "react-router-dom";
+import HeaderImg from "../../img/HeaderImg.jpg";
+import "../../styles/home.css";
 
 import "../../styles/listadoCursos.css";
 
 export const ChefProfile = () => {
   return (
     <>
+    <img id="BackHead" className="mt-m" src={HeaderImg}></img>
       <h1 className="titulo">This is your profile page</h1>
       <div className="container-fluid p-1 my-5">
         <Tab.Container

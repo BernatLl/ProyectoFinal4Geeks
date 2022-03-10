@@ -5,7 +5,8 @@ import Tab from "react-bootstrap/Tab";
 import { useParams } from "react-router-dom";
 import React,{useEffect, useContext, useState} from "react";
 import { Context } from "../store/appContext";
-
+import HeaderImg from "../../img/HeaderImg.jpg";
+import "../../styles/home.css";
 
 export const CourseView = () => {
     const { store, actions } = useContext(Context);
@@ -16,13 +17,14 @@ export const CourseView = () => {
 	},[])
 
     const loadCoursesId= async () => {
-        const response = await fetch("https://3001-bernatll-proyectofinal4g-ovzbdadjboh.ws-eu34xl.gitpod.io/api/coursebyid/"+id)
+        const response = await fetch(store.urlapi + "coursebyid/"+id)
         const data = await response.json();
         setCourseDetail(data.results);
     }
 
   return (
       <>
+      <img id="BackHead" className="mt-m" src={HeaderImg}></img>
       <div className="container">
         
             <div>

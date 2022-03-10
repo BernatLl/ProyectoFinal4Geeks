@@ -1,11 +1,7 @@
 import "../../styles/formProfile.css";
-// import Form from "react-bootstrap/Form";
 import React, { useEffect, useContext, useState } from "react";
-// import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-// import { Row, Col } from "react-bootstrap";
-// import FormCheck from "react-bootstrap/FormCheck";
-// import Button from "react-bootstrap/Button";
+import { Row, Col } from "react-bootstrap";
 
 export const PublicProfile = () => {
   const { store, actions } = useContext(Context);
@@ -17,17 +13,31 @@ export const PublicProfile = () => {
 
   return (
     <>
-      <h1>Public profile</h1>
+      <div className="titulo-profile">
+        <h1>Public profile</h1>
+      </div>
+      
 
       <div className="container">
+      
         {store.user.map((select, i)=>(
-          <div className="container" key={i}>
+          <div className="container-fluid" key={i}>
+            <Row>
+              <Col className="col-6">
+                  <div   >
+                  <img src={select.image} className="fotoperfil"  />
+                  </div>
+              </Col> 
+              <Col className="col-6">   
+                  <div>
+                    <h4>{select.full_name}</h4>
+                    <p>{select.student_description}</p>
+                    <p>{select.username}</p>
+                    <p>{select.email}</p>
+                  </div>
+              </Col>    
+            </Row>
             
-            <h4>{select.full_name}</h4>
-
-            <p>{select.student_description}</p>
-            <p>{select.username}</p>
-            <p>{select.email}</p>
           </div>
         ))}
       </div>

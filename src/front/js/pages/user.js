@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import { Context } from "../store/appContext";
@@ -9,11 +8,12 @@ import { Profile } from "../component/Profile";
 import { PaymentMethods } from "../component/PaymentMethods";
 import { CloseAccount } from "../component/CloseAccount.js";
 import "../../styles/student.css";
-// import rigo from "../../img/rigo-baby.jpg";
-// import { ListadoCursos } from "../component/listadoCursos";
-// import { Link } from "react-router-dom";
-// import ProgressBar from "react-bootstrap/ProgressBar";
-import "../../styles/listadoCursos.css";
+import { ListadoCursos } from "../component/listadoCursos.js";
+import { ProgressBar } from "react-bootstrap";
+import { CreateCourse } from "./CreateCourse";
+import "../../styles/home.css";
+import HeaderImg from "../../img/HeaderImg.jpg";
+
 
 export const User = () => {
   const { store, actions } = useContext(Context);
@@ -25,6 +25,7 @@ export const User = () => {
 
   return (
     <>
+      <img id="BackHead" className="mt-m" src={HeaderImg}></img>
       <h1 className="titulo">This is your profile page</h1>
       <div className="container p-1 my-5">
         <Tab.Container
@@ -35,8 +36,6 @@ export const User = () => {
           <Row className="marco">
             <Col sm={3} className="contenido-menu">
               <Nav justify variant="pills" className="flex-column menu">
-                {<img src={store.user.image} className="fotoperfil" />}
-
                 <Nav.Item>
                   <Nav.Link eventKey="first">Public Profile</Nav.Link>
                 </Nav.Item>
@@ -46,6 +45,11 @@ export const User = () => {
                 <Nav.Item>
                   <Nav.Link eventKey="4">Close account</Nav.Link>
                 </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="5">Create Course</Nav.Link>
+                </Nav.Item>
+
+
               </Nav>
             </Col>
             <Col sm={9} className="contenido">
@@ -59,12 +63,15 @@ export const User = () => {
                 <Tab.Pane eventKey="4">
                   <CloseAccount />
                 </Tab.Pane>
+                <Tab.Pane eventKey="5">
+                  <CreateCourse />
+                </Tab.Pane>
               </Tab.Content>
             </Col>
           </Row>
         </Tab.Container>
       </div>
-      {/* <h1 className="titulo">My Courses</h1>
+      <h1 className="titulo">My Courses</h1>
             <div className="container">
             	
 				<div className="row">
@@ -109,8 +116,8 @@ export const User = () => {
             
             <h1 className="titulo">Recomended for you</h1>
             <div className="container-fluid p-1 my-5">
-               
-            </div> */}
+               <ListadoCursos/>
+            </div>
     </>
   );
 };
