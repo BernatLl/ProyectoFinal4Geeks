@@ -26,6 +26,7 @@ const Layout = () => {
     <div>
       <BrowserRouter>
         <div>
+          <NavTop />
           <Switch>
             <Route exact path="/">
               <Home />
@@ -53,9 +54,6 @@ const Layout = () => {
             </Route>
             <Route exact path="/courseview/:id">
               <CourseView />
-            </Route>
-            <Route exact path="/ModalPayment">
-              <ModalPayment />
             </Route>
           </Switch>
           <Footer />

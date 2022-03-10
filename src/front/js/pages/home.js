@@ -27,6 +27,7 @@ export const Home = () => {
           <div></div>
         )}
       </div>
+
       <div className="BackHome">
         <div className="Home">
           <img id="BackHead" className="mt-m" src={HeaderImg}></img>
@@ -44,12 +45,14 @@ export const Home = () => {
             <Carousel className="TopFive">
               <Carousel.Item>
                 <img className="d-block w-100" src={Antho} alt="First slide" />
-                <Carousel.Caption>
-                  <span className="carutittle">First slide label</span>
-                  <p className="carutext">
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
-                  </p>
-                </Carousel.Caption>
+                <div className="carutext">
+                  <Carousel.Caption>
+                    <span className="carutittle">First slide label</span>
+                    <p className="textcolor">
+                      Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    </p>
+                  </Carousel.Caption>
+                </div>
               </Carousel.Item>
               <Carousel.Item>
                 <img
@@ -59,7 +62,7 @@ export const Home = () => {
                 />
                 <Carousel.Caption>
                   <span className="carutittle">Second slide label</span>
-                  <p>
+                  <p className="textcolor">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                 </Carousel.Caption>
@@ -74,7 +77,7 @@ export const Home = () => {
 
                 <Carousel.Caption>
                   <span className="carutittle">Third slide label</span>
-                  <p>
+                  <p className="textcolor">
                     Praesent commodo cursus magna, vel scelerisque nisl
                     consectetur.
                   </p>

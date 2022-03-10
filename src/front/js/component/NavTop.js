@@ -8,32 +8,24 @@ export const NavTop = () => {
   const { store, actions } = useContext(Context);
   return (
     <div className="wraper">
-      <div className="navbody row">
+      <div className="navbody row grid">
         <Link className="homebutton" to="/">
-          <img src={logo} className="logo col"></img>
+          <img src={logo} className="logo col-md"></img>
         </Link>
-        <div className="stu-prof-cat col">
+        <div className="stu-prof-cat col-md">
           <Link to="/user">
             <a className="student">Student</a>
           </Link>
 
           <Link to="/chef/">
-            <div className="professor col" src="/professor">
+            <div className="professor" src="/professor">
               Professor
             </div>
           </Link>
-          <div className="dropdown ">
-            <button className="categories">Categories</button>
-            <div className="dropdown-content">
-              <a href="#">Country</a>
-              <a href="#">Style</a>
-              <a href="#">Chef</a>
-            </div>
-          </div>
         </div>
 
-        <div className="search-button col">
-          <div className="search col">
+        <div className="search-button col-md">
+          <div className="search ">
             <input
               type="search"
               className="searchbar "
@@ -43,11 +35,13 @@ export const NavTop = () => {
               <div className="seart">Search</div>
             </button>
           </div>
+        </div>
 
-          <button className="bcart col">Cart</button>
+        <div className="endbuttons col-md">
+          <button className="bcart ">Cart</button>
           {!store.token ? (
             <Link to="/createuser">
-              <button id="cartb" type="button" className="bcart col">
+              <button id="cartb" type="button" className="bcart ">
                 SignIn
               </button>
             </Link>
@@ -57,7 +51,7 @@ export const NavTop = () => {
                 id="logOut"
                 type="button"
                 onClick={() => actions.editUser()}
-                className="blogout col"
+                className="blogout "
               >
                 Edit Profile
               </button>
@@ -66,7 +60,7 @@ export const NavTop = () => {
 
           {!store.token ? (
             <Link to="/login">
-              <button id="logIn" type="button" className="blogin col">
+              <button id="logIn" type="button" className="blogin ">
                 Login
               </button>
             </Link>
@@ -76,7 +70,7 @@ export const NavTop = () => {
                 id="login"
                 type="button"
                 onClick={() => actions.logout()}
-                className="blogin col"
+                className="blogin "
               >
                 Logout
               </button>
