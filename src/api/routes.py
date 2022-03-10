@@ -133,14 +133,12 @@ def create_course():
     body = request.get_json()
     newcourse = Course(
         course_name=body['course_name'], 
-        dificulty=body['dificulty'], 
-        style=body['style'], 
-        country=body['country'], 
+        history=body['history'], 
+        recipe=body['recipe'], 
+        curiosity=body['curiosity'], 
         description=body['description'], 
         ingredient=body['ingredient'], 
         list_ingredient=body['list_ingredient'], 
-        requeriments=body['requeriments'], 
-        knowledge=body['knowledge'], 
         price=body['price'], 
         title=body['title'], 
         video=body['video'], 
@@ -150,6 +148,7 @@ def create_course():
     db.session.add(newcourse)
     db.session.commit()
     return jsonify({'response':newcourse.serialize()}), 200
+
 
 @api.route('/hello', methods=['GET'])
 @jwt_required()

@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: dbc22ea523d5
+Revision ID: d9a0256d9f57
 Revises: 
-Create Date: 2022-03-09 15:14:36.759145
+Create Date: 2022-03-10 16:51:51.888439
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'dbc22ea523d5'
+revision = 'd9a0256d9f57'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -42,21 +42,21 @@ def upgrade():
     op.create_table('course',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('course_name', sa.String(length=120), nullable=False),
-    sa.Column('dificulty', sa.String(length=20), nullable=False),
-    sa.Column('style', sa.String(length=200), nullable=False),
-    sa.Column('country', sa.String(length=200), nullable=False),
-    sa.Column('description', sa.String(length=200), nullable=False),
+    sa.Column('description', sa.String(length=500), nullable=False),
     sa.Column('ingredient', sa.String(length=200), nullable=False),
-    sa.Column('list_ingredient', sa.String(length=200), nullable=False),
-    sa.Column('requeriments', sa.String(length=200), nullable=False),
-    sa.Column('knowledge', sa.String(length=200), nullable=False),
+    sa.Column('list_ingredient', sa.String(length=500), nullable=False),
+    sa.Column('recipe', sa.String(length=1000), nullable=False),
+    sa.Column('history', sa.String(length=1000), nullable=False),
+    sa.Column('curiosity', sa.String(length=1000), nullable=False),
     sa.Column('price', sa.Float(), nullable=False),
     sa.Column('title', sa.String(length=200), nullable=False),
     sa.Column('video', sa.String(length=240), nullable=False),
     sa.Column('img', sa.String(length=240), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('course_name'),
+    sa.UniqueConstraint('history'),
     sa.UniqueConstraint('img'),
+    sa.UniqueConstraint('recipe'),
     sa.UniqueConstraint('video')
     )
     op.create_table('user',
