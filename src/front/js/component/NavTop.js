@@ -8,21 +8,22 @@ export const NavTop = () => {
   const { store, actions } = useContext(Context);
   return (
     <div className="wraper">
-      <div className="navbody col">
-        <Link to="/">
+      <div className="navbody row">
+        <Link className="homebutton" to="/">
           <img src={logo} className="logo col"></img>
         </Link>
-        <div className="stu-prof-cat">
+        <div className="stu-prof-cat col">
           <Link to="/user">
-            <div className="student col">Student</div>
+            <a className="student">Student</a>
           </Link>
+
 
           <Link to="/chef/">
             <div className="professor col" src="/professor">
               Professor
             </div>
           </Link>
-          <div className="dropdown col">
+          <div className="dropdown ">
             <button className="categories">Categories</button>
             <div className="dropdown-content">
               <a href="#">Country</a>
@@ -32,7 +33,7 @@ export const NavTop = () => {
           </div>
         </div>
 
-        <div className="search-button">
+        <div className="search-button col">
           <div className="search col">
             <input
               type="search"

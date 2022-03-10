@@ -1,10 +1,17 @@
 .navbody {
   background-color: #262626;
   overflow: hidden;
-  max-width: 100%;
-  min-height: 3vw;
-  max-height: 5vw;
+  position: fixed;
+  margin: 0%;
+  width: 100%;
+  height: auto;
   display: flex;
+  z-index: 1;
+  gap: 5rem;
+}
+
+.homebutton {
+  width: 12vw;
 }
 
 .student:hover,
@@ -17,22 +24,31 @@
 
 .logo {
   padding: 0.55rem;
-  max-width: 8rem;
+  width: 70%;
+  height: auto;
 }
 
 .stu-prof-cat {
   display: flex;
-  gap: 5rem;
+  gap: 1rem;
   font-size: 1vw;
 }
+
 .student,
 .professor,
 .categories {
   color: beige;
+  gap: 5rem;
 }
+
+a {
+  text-decoration: none;
+}
+
 .categories {
   background-color: transparent;
   border: none;
+  margin-bottom: 2px;
 }
 
 .dropdown {
@@ -68,7 +84,6 @@
 
 .search {
   max-width: 100%;
-  display: flex;
 }
 
 .searchbar {
@@ -79,7 +94,6 @@
   margin: auto;
   display: flex;
   max-width: 50%;
-  gap: 1rem;
 }
 
 .bcart,
@@ -89,6 +103,7 @@
   max-width: 4rem;
   min-width: 2rem;
   background-color: #5a5858;
+  font-size: smaller;
   color: #d96459;
   border-radius: 5px;
   gap: 1rem;
@@ -98,4 +113,5 @@
 .stu-prof-cat,
 .logo {
   margin: auto;
+  gap: 1rem;
 }
