@@ -17,7 +17,6 @@ export const NavTop = () => {
             <a className="student">Student</a>
           </Link>
 
-
           <Link to="/chef/">
             <div className="professor col" src="/professor">
               Professor
@@ -48,7 +47,7 @@ export const NavTop = () => {
           <button className="bcart col">Cart</button>
           {!store.token ? (
             <Link to="/createuser">
-              <button id="SignIn" type="button" className="bcart col">
+              <button id="cartb" type="button" className="bcart col">
                 SignIn
               </button>
             </Link>
@@ -58,7 +57,7 @@ export const NavTop = () => {
                 id="logOut"
                 type="button"
                 onClick={() => actions.editUser()}
-                className="bcart col"
+                className="blogout col"
               >
                 Edit Profile
               </button>
@@ -67,17 +66,17 @@ export const NavTop = () => {
 
           {!store.token ? (
             <Link to="/login">
-              <button id="logIn" type="button" className="bcart col">
+              <button id="logIn" type="button" className="blogin col">
                 Login
               </button>
             </Link>
           ) : (
             <Link to="/">
               <button
-                id="logOut"
+                id="login"
                 type="button"
                 onClick={() => actions.logout()}
-                className="bcart col"
+                className="blogin col"
               >
                 Logout
               </button>

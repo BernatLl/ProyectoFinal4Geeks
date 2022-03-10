@@ -7,7 +7,8 @@
   height: auto;
   display: flex;
   z-index: 1;
-  gap: 5rem;
+  gap: rem;
+  justify-content: space-around;
 }
 
 .homebutton {
@@ -30,15 +31,16 @@
 
 .stu-prof-cat {
   display: flex;
-  gap: 1rem;
   font-size: 1vw;
+  justify-content: space-around;
 }
 
 .student,
 .professor,
 .categories {
   color: beige;
-  gap: 5rem;
+  gap: 4rem;
+  display: inline;
 }
 
 a {
@@ -48,20 +50,18 @@ a {
 .categories {
   background-color: transparent;
   border: none;
-  margin-bottom: 2px;
+  padding: 0%;
 }
 
 .dropdown {
-  position: relative;
+  position: inherit;
   padding-top: 0.1rem;
   max-width: 10rem;
 }
 
 .dropdown-content {
   display: none;
-  position: absolute;
   min-width: 160px;
-  z-index: 2;
   background-color: #5a5858;
   border-radius: 5px;
 }
@@ -94,24 +94,25 @@ a {
   margin: auto;
   display: flex;
   max-width: 50%;
+  gap: 0.8rem;
+}
+.blogin {
+  margin-right: 0.5rem;
 }
 
 .bcart,
 .blogin,
 .sbutton {
-  margin: auto;
   max-width: 4rem;
-  min-width: 2rem;
+  min-width: 3rem;
   background-color: #5a5858;
   font-size: smaller;
   color: #d96459;
   border-radius: 5px;
-  gap: 1rem;
 }
 
 .search-button,
 .stu-prof-cat,
 .logo {
   margin: auto;
-  gap: 1rem;
 }

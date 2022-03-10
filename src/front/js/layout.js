@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom";
 import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 import { NavTop } from "./component/NavTop";
@@ -9,12 +9,12 @@ import { ChefProfile } from "../js/pages/ChefProfile";
 import { User } from "./pages/user";
 import { Footer } from "./component/footer";
 import { Login } from "./pages/login";
-import {Search} from "./component/search";
-import {Payment} from "./pages/payment";
+import { Search } from "./component/search";
+import { Payment } from "./pages/payment";
 import { Chef } from "./pages/chef";
 import { CreateUser } from "./pages/createUser";
 import { CourseView } from "./pages/CourseView";
-
+import { ModalPayment } from "../js/component/ModalPayment";
 
 //create your first component
 const Layout = () => {
@@ -26,7 +26,6 @@ const Layout = () => {
     <div>
       <BrowserRouter>
         <div>
-          <NavTop />
           <Switch>
             <Route exact path="/">
               <Home />
@@ -35,30 +34,31 @@ const Layout = () => {
               <CreateCourse />
             </Route>
             <Route exact path="/user">
-							<User />
-						</Route>
+              <User />
+            </Route>
             <Route exact path="/createuser">
-							<CreateUser />
-						</Route>
+              <CreateUser />
+            </Route>
             <Route exact path="/login">
-							<Login />
-						</Route>
+              <Login />
+            </Route>
             <Route exact path="/search">
-							<Search/>
-						</Route>
+              <Search />
+            </Route>
             <Route exact path="/payment">
-							<Payment/>
-						</Route>
+              <Payment />
+            </Route>
             <Route exact path="/chef">
-							<Chef/>
-						</Route>
+              <Chef />
+            </Route>
             <Route exact path="/courseview/:id">
-							<CourseView/>
-						</Route>
-
-					</Switch>
-					<Footer />
-         
+              <CourseView />
+            </Route>
+            <Route exact path="/ModalPayment">
+              <ModalPayment />
+            </Route>
+          </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     </div>
