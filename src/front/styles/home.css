@@ -14,7 +14,7 @@
   width: 100%;
   height: auto;
   margin: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 #Bourdain {
@@ -65,21 +65,18 @@
   display: flex;
   max-width: 100%;
   align-items: center;
-  gap: 1rem;
-  padding: 2%;
   padding-left: 15%;
 }
 
 .StuPic {
-  max-width: 40%;
+  max-width: 35%;
 }
 
 .StudentsText {
   background-color: rgb(92, 64, 48);
-  max-width: 45%;
+  max-width: 40%;
   text-align: center;
   border-radius: 10px;
-  justify-content: center;
   font-size: 1.2vw;
 }
 
@@ -97,7 +94,7 @@ p {
 }
 
 .ProfePic {
-  max-width: 50%;
+  max-width: 35%;
 }
 
 .ProfessorSide {
@@ -105,18 +102,17 @@ p {
   max-width: 100%;
   height: auto;
   align-items: center;
-  gap: 1rem;
-  padding: 2%;
   padding-right: 15%;
   flex-direction: row-reverse;
 }
 
 .ProfeText {
   background-color: rgb(92, 64, 48);
-  max-width: 50%;
+  max-width: 40%;
   text-align: center;
-  font-size: 1.2vw;
   border-radius: 10px;
+  justify-content: center;
+  font-size: 1.2vw;
 }
 
 .stuprof {
