@@ -26,7 +26,6 @@ const Layout = () => {
     <div>
       <BrowserRouter>
         <div>
-          <NavTop />
           <Switch>
             <Route exact path="/">
               <Home />
