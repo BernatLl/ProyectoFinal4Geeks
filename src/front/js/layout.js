@@ -5,13 +5,13 @@ import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 import { NavTop } from "./component/NavTop";
 import { CreateCourse } from "./pages/CreateCourse";
-import { ChefProfile } from "../js/pages/ChefProfile";
+
 import { User } from "./pages/user";
 import { Footer } from "./component/footer";
 import { Login } from "./pages/login";
 import { Search } from "./component/search";
 import { Payment } from "./pages/payment";
-import { Chef } from "./pages/chef";
+import { ChefProfile } from "./component/chefProfile";
 import { CreateUser } from "./pages/createUser";
 import { CourseView } from "./pages/CourseView";
 import { ModalPayment } from "../js/component/ModalPayment";
@@ -26,7 +26,11 @@ const Layout = () => {
     <div>
       <BrowserRouter>
         <div>
+<<<<<<< HEAD
           <NavTop />
+=======
+          <NavTop/>
+>>>>>>> 2ec86afab7043948293a3b6f6595829136e8fa26
           <Switch>
             <Route exact path="/">
               <Home />
@@ -48,9 +52,6 @@ const Layout = () => {
             </Route>
             <Route exact path="/payment">
               <Payment />
-            </Route>
-            <Route exact path="/chef">
-              <Chef />
             </Route>
             <Route exact path="/courseview/:id">
               <CourseView />
