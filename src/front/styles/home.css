@@ -34,7 +34,7 @@
 }
 
 .carousel {
-  max-width: fit-content;
+  max-width: 20vw;
   padding: 10rem;
   margin: 0%;
   padding-top: 0.1%;

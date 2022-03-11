@@ -42,77 +42,68 @@ export const CourseView = () => {
             <div className="Title">
               <h4>{courseDetail.course_name}</h4>
             </div>
-            <div className="VideoWrapper">
-              <iframe
-                className="videoplayer"
-                width="100%"
-                height="600"
-                title="video player"
-                src={courseDetail.video}
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+            <div>
+              <img className="videowrapper" src={courseDetail.img} />
             </div>
-
-            <Tabs
-              fill
-              justify
-              defaultActiveKey="profile"
-              id="uncontrolled-tab-example"
-              className="mb-3"
-            >
-              <Tab
-                tabClassName="TabTab"
-                eventKey="home"
-                title="History and Recipe"
-              >
-                <h6 className="TabTittle">{courseDetail.title}</h6>
-                <div className="TabContent1">
-                  {courseDetail.description}
-                  <ul>
-                    <div className="recipetittle">
-                      <strong>{courseDetail.title}</strong>
-                    </div>
-                    {courseDetail.list_ingredient}
-                  </ul>
-                  <div className="process">
-                    <strong className="processtitle">Directions</strong>
-                    <ul>
-                      <li>{courseDetail.recipe}</li>
-                    </ul>
-                  </div>
-                </div>
-              </Tab>
-
-              <div className="TabContent2"></div>
-              <Tab
-                tabClassName="TabTab"
-                eventKey="profile"
-                title="Ingredients and Curiousitys"
-              >
-                <h6 className="TabTittle">Curiosity and Tips</h6>{" "}
-                <ol className="TabContent">
-                  <div className="tabcontenttittle"></div>
-                  <div className="tabcontent">
-                    In this Section we will be get all the ingredients ready
-                    before we start cooking as it is.
-                  </div>
-
-                  <li>
-                    <div className="SectionTittle">List of ingredients</div>
-                    <div className="SectionText">
-                    {courseDetail.list_ingredient}
-                    </div>
-                  </li>
-                  <li>
-                    <div className="SectionTittle">Curiosity and Tips</div>
-                    <div className="SectionText">{courseDetail.curiosity}</div>
-                  </li>
-                </ol>{" "}
-              </Tab>
-            </Tabs>
           </div>
+
+          <Tabs
+            fill
+            justify
+            defaultActiveKey="profile"
+            id="uncontrolled-tab-example"
+            className="mb-3"
+          >
+            <Tab
+              tabClassName="TabTab"
+              eventKey="home"
+              title="History and Recipe"
+            >
+              <h6 className="TabTittle">{courseDetail.title}</h6>
+              <div className="TabContent1">
+                {courseDetail.description}
+                <ul>
+                  <div className="recipetittle">
+                    <strong>{courseDetail.title}</strong>
+                  </div>
+                  {courseDetail.list_ingredient}
+                </ul>
+                <div className="process">
+                  <strong className="processtitle">Directions</strong>
+                  <ul>
+                    <li>{courseDetail.recipe}</li>
+                  </ul>
+                </div>
+              </div>
+            </Tab>
+
+            <div className="TabContent2"></div>
+            <Tab
+              tabClassName="TabTab"
+              eventKey="profile"
+              title="Ingredients and Curiousitys"
+            >
+              <h6 className="TabTittle">Curiosity and Tips</h6>{" "}
+              <ol className="TabContent">
+                <div className="tabcontenttittle"></div>
+                <div className="tabcontent">
+                  In this Section we will be get all the ingredients ready
+                  before we start cooking as it is.
+                </div>
+
+                <li>
+                  <div className="SectionTittle">List of ingredients</div>
+                  <div className="SectionText">
+                    {courseDetail.list_ingredient}
+                  </div>
+                </li>
+                <li>
+                  <div className="SectionTittle">Curiosity and Tips</div>
+                  <div className="SectionText">{courseDetail.curiosity}</div>
+                </li>
+              </ol>{" "}
+            </Tab>
+          </Tabs>
         </div>
       </div>
     </>

@@ -4,8 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       token: null,
       urlapi:
-
-      "https://3001-bernatll-proyectofinal4g-mpte6hjlgmq.ws-eu34.gitpod.io/api/",
+        "https://3001-bernatll-proyectofinal4g-8z9mqlys5hu.ws-eu34.gitpod.io/api/",
 
       course: [],
 

@@ -1,10 +1,10 @@
 .navbody {
-  background-color: #262626;
+  background-color: black;
   overflow: hidden;
   position: fixed;
   margin: 0%;
   width: 100%;
-  max-height: fit-content;
+  height: auto;
   z-index: 2;
   justify-content: center;
 }
@@ -36,7 +36,7 @@
   padding: 5px;
 }
 
-.student,
+.search .student,
 .professor {
   color: beige;
 }
@@ -45,10 +45,15 @@ a {
   text-decoration: none;
 }
 
+.search {
+  margin-right: 1rem;
+  max-width: 100%;
+}
+
 .searchbar {
   border-radius: 5px;
-  max-width: 80%;
-  height: fit-content;
+  max-width: 100%;
+  height: 2rem;
 }
 
 .search-button {
@@ -60,10 +65,10 @@ a {
 }
 .endbuttons {
   position: relative;
-  max-width: 15%;
+  max-width: 30%;
   margin: auto;
-  gap: 0.5rem;
   padding: 0%;
+  align-items: flex-end;
 }
 .blogin {
   margin-right: 0.5rem;
@@ -72,12 +77,16 @@ a {
 .bcart,
 .blogin,
 .sbutton {
-  max-width: 4rem;
-  min-width: 3rem;
+  max-width: 6rem;
+  min-width: 4rem;
+  max-height: 2rem;
+  min-height: 2rem;
   background-color: #5a5858;
-  font-size: smaller;
-  color: #d96459;
+  font-size: small;
+  display: inline-flex;
+  color: BEIGE;
   border-radius: 5px;
+  margin-right: 1rem;
 }
 
 .search-button,
@@ -85,4 +94,13 @@ a {
 .logo,
 .endbuttons {
   margin: auto;
+}
+
+.blogout {
+  max-width: 4rem;
+  min-width: 3rem;
+  background-color: #5a5858;
+  font-size: smaller;
+  color: #d96459;
+  border-radius: 5px;
 }

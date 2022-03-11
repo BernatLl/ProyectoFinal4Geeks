@@ -5,6 +5,7 @@ export const FormContacto = () => {
   return (
     <div className="container-form text-xl-start">
       <form className="row g-3">
+        <h2 className="formtit">Contac Us</h2>
         <div className="col-12">
           <label htmlFor="inputName" className="form-label">
             Name
