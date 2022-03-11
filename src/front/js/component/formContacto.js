@@ -9,6 +9,7 @@ export const FormContacto = () => {
           <label htmlFor="inputName" className="form-label">
             Name
           </label>
+
           <input
             type="text"
             className="form-control"

@@ -1,6 +1,7 @@
 .container {
   display: block;
   margin: auto;
+  padding-top: 10%;
   margin-bottom: 5rem;
 }
 .fotoperfil {
@@ -9,8 +10,9 @@
   width: 100%;
 }
 .titulo-profile {
-  margin-bottom: 10%;
+  margin-bottom: auto;
 }
-.colorbar {
-  background-color: #3e3227;
+
+.mb-3 {
+  margin-top: 2rem;
 }

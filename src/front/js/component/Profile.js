@@ -15,23 +15,21 @@ export const Profile = () => {
   return (
     <>
       <div className="container">
-      <h1>User Profile</h1>
-      <Form>
-        <fieldset>
-          <Form.Group className="mb-3">
-            
-            <Form.Control
-              id="TextInput"
-              placeholder="Add a Username"
-              onChange={(e) => {
-                e.preventDefault();
-                setNewStudent({ ...newStudent, username: e.target.value });
-              }}
-            />
-          </Form.Group>
-          
+        <h1>User Profile</h1>
+        <Form>
+          <fieldset>
+            <Form.Group className="mb-3">
+              <Form.Control
+                id="TextInput"
+                placeholder="Add a Username"
+                onChange={(e) => {
+                  e.preventDefault();
+                  setNewStudent({ ...newStudent, username: e.target.value });
+                }}
+              />
+            </Form.Group>
+
             <Form.Group className="mb-3 ">
-              
               <Form.Control
                 id="TextInput"
                 placeholder="FullName"
@@ -41,13 +39,12 @@ export const Profile = () => {
                 }}
               />
             </Form.Group>
-          
-          <Row>
+
+            <Row>
               <Col className="col-6">
                 <Form.Group className="mb-3 col-6">
-                  
                   <Form.Control
-                    id="email"
+                    id="TextInput"
                     placeholder="Add an email"
                     onChange={(e) => {
                       e.preventDefault();
@@ -56,74 +53,78 @@ export const Profile = () => {
                   />
                 </Form.Group>
               </Col>
+
               <Col className="col-6">
                 <Form.Group className="mb-3 col-6">
-                  
                   <Form.Control
-                    id="Password"
+                    id="TextImput"
                     placeholder="Password"
                     onChange={(e) => {
                       e.preventDefault();
-                      setNewStudent({ ...newStudent, password: e.target.value });
+                      setNewStudent({
+                        ...newStudent,
+                        password: e.target.value,
+                      });
                     }}
                   />
                 </Form.Group>
-                </Col>
-          </Row>
-          
-         
-          <Form.Group className="mb-3">
-            
-            <Form.Control
-              id="TextInput"
-              placeholder="Add a image url"
-              onChange={(e) => {
-                e.preventDefault();
-                setNewStudent({ ...newStudent, image: e.target.value });
-              }}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Something about you</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              onChange={(e) => {
-                e.preventDefault();
-                setNewStudent({
-                  ...newStudent,
-                  student_description: e.target.value,
-                });
-              }}
-            />
-          </Form.Group>
+              </Col>
+            </Row>
 
-          {!store.token ? (
-            <Link to="/login">
-              <button
-                id="submit"
-                type="button"
-                className="bcart col"
-                onClick={() => {
-                  actions.createUser(newStudent);
+            <Form.Group className="mb-3">
+              <Form.Control
+                id="TextInput"
+                placeholder="Add a image url"
+                onChange={(e) => {
+                  e.preventDefault();
+                  setNewStudent({ ...newStudent, image: e.target.value });
                 }}
-              >
-                Create
-              </button>
-            </Link>
+              />
+            </Form.Group>
 
-          ) : (
-            <button
-              id="Save"
-              type="button"
-              onClick={() => actions.editUser()}
-              className="bcart col"
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
             >
-              Save Changes
-            </button>
-          )}
-        </fieldset>
-      </Form>
+              <Form.Label>Something about you</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                onChange={(e) => {
+                  e.preventDefault();
+                  setNewStudent({
+                    ...newStudent,
+                    student_description: e.target.value,
+                  });
+                }}
+              />
+            </Form.Group>
+
+            {!store.token ? (
+              <Link to="/login">
+                <button
+                  id="TextInput"
+                  type="button"
+                  className="bcart col"
+                  onClick={() => {
+                    actions.createUser(newStudent);
+                  }}
+                >
+                  Create
+                </button>
+              </Link>
+            ) : (
+              <button
+                id="Save"
+                type="button"
+                onClick={() => actions.editUser()}
+                className="bcart col"
+              >
+                Save Changes
+              </button>
+            )}
+          </fieldset>
+        </Form>
       </div>
     </>
   );
