@@ -1,17 +1,15 @@
 .paymentCard {
-    width: 50%;
-    height: 200px;
-    margin:auto;
-    color: rgba(217, 100, 89, 1);
-    margin-top: 10%;
-
+  width: 50%;
+  height: 200px;
+  margin: auto;
+  color: beige;
+  margin-top: 10%;
 }
 .card-title.h5 {
-    text-align: center;
-    color: rgba(217, 100, 89, 1);
-    margin-bottom: 5%;
+  text-align: center;
+  color: rgba(217, 100, 89, 1);
+  margin-bottom: 5%;
 }
 .paymentInput {
-    color: rgba(217, 100, 89, 1);
+  color: beige;
 }
-

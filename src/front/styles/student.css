@@ -21,12 +21,12 @@
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
+  color: beige;
   background-color: black;
 }
 
 .titulo {
-  background-color: #86604c;
+  background-color: #3e3227;
   color: #d96459;
   padding: 2%;
   border-radius: 2%;
