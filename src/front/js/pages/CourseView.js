@@ -40,7 +40,7 @@ export const CourseView = () => {
         <div className=" wrapper">
           <div className="Content">
             <div className="Title">
-              <h4>Mahonnaise easy and Delicius</h4>
+              <h4>{courseDetail.course_name}</h4>
             </div>
             <div className="VideoWrapper">
               <iframe
