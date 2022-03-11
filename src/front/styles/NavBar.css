@@ -1,0 +1,89 @@
+.navbody {
+  background-color: #262626;
+  overflow: hidden;
+  position: fixed;
+  margin: 0%;
+  width: 100%;
+  max-height: fit-content;
+  z-index: 2;
+  justify-content: center;
+}
+
+.homebutton {
+  padding: 1rem;
+  width: 14vw;
+  height: auto;
+}
+
+.student:hover,
+.professor:hover {
+  background-color: #5a5858;
+  color: #d96459;
+  border-radius: 5px;
+}
+
+.logo {
+  width: 70%;
+  height: auto;
+}
+
+.stu-prof-cat {
+  max-width: 20%;
+  min-width: 20%;
+  display: flex;
+  font-size: 1vw;
+  justify-content: space-evenly;
+  padding: 5px;
+}
+
+.student,
+.professor {
+  color: beige;
+}
+
+a {
+  text-decoration: none;
+}
+
+.searchbar {
+  border-radius: 5px;
+  max-width: 80%;
+  height: fit-content;
+}
+
+.search-button {
+  margin: auto;
+  display: flex;
+  max-width: 30%;
+  justify-content: flex-end;
+  padding: 0%;
+}
+.endbuttons {
+  position: relative;
+  max-width: 15%;
+  margin: auto;
+  align-items: ;
+  gap: 0.5rem;
+  padding: 0%;
+}
+.blogin {
+  margin-right: 0.5rem;
+}
+
+.bcart,
+.blogin,
+.sbutton {
+  max-width: 4rem;
+  min-width: 3rem;
+  background-color: #5a5858;
+  font-size: smaller;
+  color: #d96459;
+  border-radius: 5px;
+}
+
+.search-button,
+.stu-prof-cat,
+.logo,
+.endbuttons {
+  margin: auto;
+}

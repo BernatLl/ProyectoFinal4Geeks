@@ -1,0 +1,12 @@
+.container-form {
+  justify-content: center;
+  position: relative;
+  width: 60%;
+  margin: auto;
+  margin-top: 70px;
+  background-color: black;
+  padding: 6%;
+  border-radius: 2%;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}

@@ -1,7 +1,129 @@
-/*
-    home.css: This website contains selectors only used in home.css
+.BackHome {
+  margin: 0%;
+  padding: 0%;
+  z-index: -2;
+  max-width: 100%;
+  min-width: 100%;
+  height: auto;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+#BackHead {
+  position: fixed;
+  padding: 0%;
+  width: 100%;
+  height: auto;
+  margin: none;
+  z-index: -1;
+}
+
+#Bourdain {
+  position: relative;
+  color: beige;
+  text-align: left;
+  padding: 10%;
+  max-width: 50vw;
+}
+
+#Bourdain h3 {
+  font-size: 2vw;
+  margin-top: 1rem;
+}
+
+.Anthony {
+  color: rgba(217, 100, 89, 1);
+}
+
+.carousel {
+  max-width: fit-content;
+  padding: 10rem;
+  margin: 0%;
+  padding-top: 0.1%;
+  padding-right: 3rem;
+}
+
+.TopFive {
+  height: auto;
+  max-width: 20%;
+  position: relative;
+  margin: 0%;
+  padding: 0%;
+  font-size: 1vw;
+}
+.carutittle {
+  color: rgb(236, 46, 29);
+  font-weight: bolder;
+}
+
+.textcolor {
+  color: beige;
+  font-weight: bold;
+}
+
+.carutext {
+  color: beige;
+}
+
+.Students {
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  padding-left: 18%;
+}
+
+.StuPic {
+  max-width: 37%;
+}
+
+.StudentsText {
+  background-color: #3e3227;
+  color: beige;
+  max-width: 40%;
+  height: auto;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1.1vw;
+  padding: 0.5 rem;
+}
+
+.ProfTittle,
+.StuTittle {
+  text-align: center;
+  color: rgba(217, 100, 89, 1);
+}
+
+h5,
+h4,
+p {
+  text-align: center;
+  color: rgba(217, 100, 89, 1);
+}
+
+.ProfePic {
+  max-width: 37%;
+}
+
+.ProfessorSide {
+  display: flex;
+  max-width: 100%;
+  margin-top: 1rem;
+  height: auto;
+  align-items: center;
+  padding-right: 18%;
+  flex-direction: row-reverse;
+}
+
+.ProfeText {
+  background-color: #3e3227;
+  max-width: 40%;
+  height: auto;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1.1vw;
+  padding: 0.5 rem;
+}
+
+.stuprof {
+  justify-content: center;
+  position: relative;
+  max-width: 100%;
+}
