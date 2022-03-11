@@ -1,4 +1,5 @@
 .container-form {
+  justify-content: center;
   position: relative;
   width: 60%;
   margin: auto;

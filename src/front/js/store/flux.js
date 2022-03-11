@@ -4,15 +4,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       token: null,
       urlapi:
+
       "https://3001-bernatll-proyectofinal4g-pmta99x41an.ws-eu34.gitpod.io/api/",
+
       course: [],
-      
+
       chef: [],
       newUser: [],
       newCourse: [],
       newChef: [],
       user: [],
-      
     },
     actions: {
       loadCourses: () => {
@@ -21,7 +22,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ course: data.results }))
           .catch((error) => console.error(error));
       },
-      
 
       loadChefs: () => {
         fetch(getStore().urlapi + "chef")
@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Accept": "application/json",
+              Accept: "application/json",
             },
             body: JSON.stringify({
               username: username,
@@ -201,7 +201,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const opts = {
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + store.token,
+            Authorization: "Bearer " + store.token,
           },
         };
         // fetching data from the backend
