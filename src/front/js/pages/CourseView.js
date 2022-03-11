@@ -74,7 +74,7 @@ export const CourseView = () => {
                     <div className="recipetittle">
                       <strong>{courseDetail.title}</strong>
                     </div>
-                    {courseDetail.list_ingredients}
+                    {courseDetail.list_ingredient}
                   </ul>
                   <div className="process">
                     <strong className="processtitle">Directions</strong>
@@ -102,7 +102,7 @@ export const CourseView = () => {
                   <li>
                     <div className="SectionTittle">List of ingredients</div>
                     <div className="SectionText">
-                      {courseDetail.list_ingredients}
+                    {courseDetail.list_ingredient}
                     </div>
                   </li>
                   <li>
