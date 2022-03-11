@@ -72,7 +72,7 @@
 }
 
 .StudentsText {
-  background-color: rgb(92, 64, 48);
+  background-color: #3e3227;
   color: beige;
   max-width: 40%;
   height: auto;
@@ -110,7 +110,7 @@ p {
 }
 
 .ProfeText {
-  background-color: rgb(92, 64, 48);
+  background-color: #3e3227;
   max-width: 40%;
   height: auto;
   text-align: center;
