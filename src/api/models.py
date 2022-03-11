@@ -87,14 +87,12 @@ class Course(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     course_name = db.Column(db.String(120), unique=True, nullable=False)
-    dificulty = db.Column(db.String(20),  nullable=False)
-    style = db.Column(db.String(200),  nullable=False)
-    country = db.Column(db.String(200),  nullable=False)
-    description = db.Column(db.String(200),  nullable=False)
+    description = db.Column(db.String(500),  nullable=False)
     ingredient = db.Column(db.String(200),  nullable=False)
-    list_ingredient = db.Column(db.String(200),  nullable=False)
-    requeriments = db.Column(db.String(200),  nullable=False)
-    knowledge = db.Column(db.String(200),  nullable=False)
+    list_ingredient = db.Column(db.String(500),  nullable=False)
+    recipe = db.Column(db.String(1000), unique=True, nullable=False)
+    history = db.Column(db.String(1000), unique=True, nullable=False)
+    curiosity = db.Column(db.String(1000),  nullable=False)
     price = db.Column(db.Float, nullable=False)
     title = db.Column(db.String(200),  nullable=False)
     video = db.Column(db.String(240), unique=True, nullable=False)
@@ -109,14 +107,12 @@ class Course(db.Model):
         return {
             "id": self.id,
             'course_name': self.course_name,  
-            'dificulty':  self.dificulty,
-            'style': self.style,
-            'country':  self.country,
+            'history':  self.history,
+            'recipe': self.recipe,
+            'curiosity':  self.curiosity,
             'description':  self.description,
             'ingredient': self.ingredient,
             'list_ingredient':  self.list_ingredient,
-            'requeriments': self.requeriments,
-            'knowledge': self.knowledge,
             'price': self.price,
             'title': self.title,
             'video': self.video,
