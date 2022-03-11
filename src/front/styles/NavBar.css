@@ -4,10 +4,9 @@
   position: fixed;
   margin: 0%;
   width: 100%;
-  max-height: 12rem;
-  gap: 5%;
+  max-height: fit-content;
   z-index: 2;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .homebutton {
@@ -25,7 +24,6 @@
 }
 
 .logo {
-  padding: 0.55rem;
   width: 70%;
   height: auto;
 }
@@ -97,12 +95,16 @@ a {
   margin: auto;
   display: flex;
   max-width: 30%;
-  gap: 0.8rem;
+  justify-content: flex-end;
+  padding: 0%;
 }
 .endbuttons {
-  max-width: fit-content;
+  position: relative;
+  max-width: 15%;
   margin: auto;
-  justify-content: center;
+  align-items: ;
+  gap: 0.5rem;
+  padding: 0%;
 }
 .blogin {
   margin-right: 0.5rem;

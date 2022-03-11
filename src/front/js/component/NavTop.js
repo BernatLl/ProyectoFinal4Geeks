@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import logo from "../../img/NavEdit.png";
+import logo from "../../img/WeCook.png";
 import { Link } from "react-router-dom";
 import "../../../front/styles/NavBar.css";
 
