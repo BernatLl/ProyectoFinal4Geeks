@@ -100,32 +100,7 @@ export const CreateCourse = () => {
                     setNewCourse({...newCourse, description: e.target.value})}}
                 />
               </Form.Group>
-              <Form.Select aria-label="Default select example" onChange={(e)=>{
-                    e.preventDefault();
-                    setNewCourse({...newCourse, dificulty: e.target.value})}}>
-                <option>Level of complexity</option>
-                <option value="Easy">easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-              </Form.Select>
-              <Form.Select aria-label="Default select example" onChange={(e)=>{
-                    e.preventDefault();
-                    setNewCourse({...newCourse, country: e.target.value})}}>
-                <option>Country</option>
-                <option value="Spain">Spain</option>
-                <option value="Venezuela">Venezuela</option>
-                <option value="Holanda">Holanda</option>
-              </Form.Select>
-              <Form.Select aria-label="Default select example" onChange={(e)=>{
-                    e.preventDefault();
-                    setNewCourse({...newCourse, style: e.target.value})}}>
-                <option>Style</option>
-                <option value="Vegan Cuisine">Vegan Cuisine</option>
-                <option value="Haute Cuisine">Haute Cuisine</option>
-                <option value="Nouvelle Cuisine">Nouvelle Cuisine</option>
-                <option value="Fusion Cuisine">Fusion Cuisine</option>
-                <option value="Vegetarian Cuisine">Vegetarian Cuisine</option>
-              </Form.Select>
+              
               <Form.Select aria-label="Default select example" onChange={(e)=>{
                     e.preventDefault();
                     setNewCourse({...newCourse, ingredient: e.target.value})}}>
@@ -136,19 +111,7 @@ export const CreateCourse = () => {
                 <option value="Vegetables">Vegetables</option>
                 <option value="Dairy">Dairy</option>
               </Form.Select>
-              <Form.Group as={Col} >
-                <Form.Label>
-                  requirements needed from student to complete it
-                </Form.Label>
-                <Form.Control
-                  id="TextInput"
-                  placeholder="Please add one by one from utensils like :pans, pots, tipe of knife,etc."
-                  onChange={(e)=>{
-                    e.preventDefault();
-                    setNewCourse({...newCourse, requeriments: e.target.value})}}
-                />
-                <span>Click here to add utensils requirements +</span>
-              </Form.Group>
+              
               <Form.Group as={Col} >
                 <Form.Label>
                   knowledge and skills required for the student to complete
@@ -211,7 +174,9 @@ export const CreateCourse = () => {
                   as="textarea"
                   rows={3}
                   placeholder="I learned this recipe from one of the best chef I know personally and i want to share this recipe to the world"
-                  
+                  onChange={(e)=>{
+                    e.preventDefault();
+                    setNewCourse({...newCourse, history: e.target.value})}}
                 />
               </Form.Group>
               <Form.Group as={Col} >
@@ -226,21 +191,27 @@ export const CreateCourse = () => {
                 <span>Click here to add ingredients +</span>
               </Form.Group>
               <Form.Group as={Col} >
-                <Form.Label>Step Title</Form.Label>
+                <Form.Label>Curiosity</Form.Label>
                 <Form.Control
                   id="TextInput"
                   placeholder="For example Cutting the vegetables"
+                  onChange={(e)=>{
+                    e.preventDefault();
+                    setNewCourse({...newCourse, curiosity: e.target.value})}}
                 />
               </Form.Group>
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label>Step 1</Form.Label>
+                <Form.Label>Recipe</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
                   placeholder="Onions: Cut the onions in mirepoix 5mm x 5mm."
+                  onChange={(e)=>{
+                    e.preventDefault();
+                    setNewCourse({...newCourse, recipe: e.target.value})}}
                 />
               </Form.Group>
               <Form.Group as={Col} >
@@ -265,7 +236,7 @@ export const CreateCourse = () => {
                 />
                 <span>Click here to add another step +</span>
               </Form.Group>
-              <a href="">Review Course</a>
+              
             </Row>
                 <Link to={"/courseview/"+ store.course.id}>     
                   <Button variant="primary" type="submit"  onClick={()=>{actions.createCourse(newCourse)}}>

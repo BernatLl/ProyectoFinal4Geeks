@@ -1,7 +1,7 @@
 .Content {
   height: auto;
   width: auto;
-  background-color: rgba(73, 71, 69, 0.35);
+  background-color: rgba(73, 71, 69, 0.9);
 }
 .videowrapper {
   max-width: 100%;
@@ -36,5 +36,15 @@
 
 .TabContent {
   font-size: large;
-  font: #d96459;
+  color: #d96459;
+  padding: 5%;
+}
+.TabContent1 {
+  font-size: large;
+  color: #d96459;
+  padding: 5%;
+}
+.TabTittle {
+  padding: 1%;
+  margin-left: 2%;
 }
