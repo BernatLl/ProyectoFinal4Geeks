@@ -13,7 +13,7 @@ import { ProgressBar } from "react-bootstrap";
 import { CreateCourse } from "./CreateCourse";
 import "../../styles/home.css";
 import HeaderImg from "../../img/HeaderImg.jpg";
-
+import { ChefProfile } from "../component/chefProfile";
 
 export const User = () => {
   const { store, actions } = useContext(Context);
@@ -40,16 +40,17 @@ export const User = () => {
                   <Nav.Link eventKey="first">Public Profile</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="3">Payment methods</Nav.Link>
+                  <Nav.Link eventKey="2">Create Chef Profile</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="4">Close account</Nav.Link>
+                  <Nav.Link eventKey="3">Create Course</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="5">Create Course</Nav.Link>
+                  <Nav.Link eventKey="4">Payment methods</Nav.Link>
                 </Nav.Item>
-
-
+                <Nav.Item>
+                  <Nav.Link eventKey="5">Close account</Nav.Link>
+                </Nav.Item>
               </Nav>
             </Col>
             <Col sm={9} className="contenido">
@@ -57,14 +58,17 @@ export const User = () => {
                 <Tab.Pane eventKey="first">
                   <PublicProfile />
                 </Tab.Pane>
+                <Tab.Pane eventKey="2">
+                  <ChefProfile />
+                </Tab.Pane>
                 <Tab.Pane eventKey="3">
-                  <PaymentMethods />
+                  <CreateCourse />
                 </Tab.Pane>
                 <Tab.Pane eventKey="4">
-                  <CloseAccount />
+                  <PaymentMethods />
                 </Tab.Pane>
                 <Tab.Pane eventKey="5">
-                  <CreateCourse />
+                  <CloseAccount />
                 </Tab.Pane>
               </Tab.Content>
             </Col>
@@ -72,52 +76,85 @@ export const User = () => {
         </Tab.Container>
       </div>
       <h1 className="titulo">My Courses</h1>
-            <div className="container">
-            	
-				<div className="row">
-                <div className="card col-6 m-0.5" >
-                    <img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
-                    <div className="card-body" >
-                            <h5 className="card-title">Master Cutting Class</h5>
-                            <ProgressBar animated striped variant="danger" now={45} label={'45%'} />                             
-                            
-                    </div>
-                </div>
-                <div className="card col-6 m-0.5" >
-                    <img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
-                    <div className="card-body" >
-                            <h5 className="card-title">Master Class Stock</h5>
-                            <ProgressBar animated striped variant="danger" now={60} label={'60%'} /> 
-                    
-                           
-                    </div>
-                </div>
-                </div>
-                <div className="row">
-                <div className="card col-6 m-0.5" >
-                    <img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
-                    <div className="card-body" >
-                            <h5 className="card-title">Beginner Course Risotto</h5>
-                            <ProgressBar animated striped variant="success" now={100} label={'100%'} />                                
-                            
-                    </div>
-                </div>
-                <div className="card col-6 m-0.5" >
-                    <img src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d" className="card-img-top p-5" alt="..."></img>
-                    <div className="card-body" >
-                            <h5 className="card-title">Advanced Cook</h5>
-                            <ProgressBar animated striped variant="danger" now={10} label={'10%'} />                                
-                            
-                    </div>
-                </div>
-                </div>
-        
-    </div>		
-            
-            <h1 className="titulo">Recomended for you</h1>
-            <div className="container-fluid p-1 my-5">
-               <ListadoCursos/>
+      <div className="container">
+        <div className="row">
+          <div className="card col-6 m-0.5">
+            <img
+              src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d"
+              className="card-img-top p-5"
+              alt="..."
+            ></img>
+            <div className="card-body">
+              <h5 className="card-title">Master Cutting Class</h5>
+              <ProgressBar
+                animated
+                striped
+                variant="danger"
+                now={45}
+                label={"45%"}
+              />
             </div>
+          </div>
+          <div className="card col-6 m-0.5">
+            <img
+              src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d"
+              className="card-img-top p-5"
+              alt="..."
+            ></img>
+            <div className="card-body">
+              <h5 className="card-title">Master Class Stock</h5>
+              <ProgressBar
+                animated
+                striped
+                variant="danger"
+                now={60}
+                label={"60%"}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="card col-6 m-0.5">
+            <img
+              src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d"
+              className="card-img-top p-5"
+              alt="..."
+            ></img>
+            <div className="card-body">
+              <h5 className="card-title">Beginner Course Risotto</h5>
+              <ProgressBar
+                animated
+                striped
+                variant="success"
+                now={100}
+                label={"100%"}
+              />
+            </div>
+          </div>
+          <div className="card col-6 m-0.5">
+            <img
+              src="https://c.pxhere.com/photos/31/c5/bowl_cabbage_cuisine_delicious_dish_food_healthy_lunch-1498621.jpg!d"
+              className="card-img-top p-5"
+              alt="..."
+            ></img>
+            <div className="card-body">
+              <h5 className="card-title">Advanced Cook</h5>
+              <ProgressBar
+                animated
+                striped
+                variant="danger"
+                now={10}
+                label={"10%"}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 className="titulo">Recomended for you</h1>
+      <div className="container-fluid p-1 my-5">
+        <ListadoCursos />
+      </div>
     </>
   );
 };
