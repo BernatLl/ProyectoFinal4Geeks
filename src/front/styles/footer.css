@@ -5,7 +5,7 @@
   color: rgba(217, 100, 89, 1);
   padding: 0.4%;
   text-align: left;
-  font-size: xx-large;
+  font-size: x-large;
   position: relative;
 }
 .socialmedia {
@@ -13,8 +13,13 @@
   color: blue;
   margin-right: 5%;
 }
-footer {
+.footer {
   background-color: #262626;
   opacity: 0.8;
-  max-height: 35vw;
+  max-height: 30vw;
+  justify-content: space-evenly;
+}
+
+.lili {
+  margin-top: 2rem;
 }

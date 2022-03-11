@@ -15,7 +15,7 @@ export const Footer = () => (
       <div className="row">
         <div className="col">
           <img src={logo} />
-          <h1>Find Us:</h1>
+          <h2>Find Us:</h2>
           <div className="media">
             <a href="">
               <FontAwesomeIcon
@@ -39,15 +39,15 @@ export const Footer = () => (
         </div>
         <div className="col">
           <ul>
-            <li>Contact Us</li>
-            <li>About Us</li>
-            <li>Career</li>
+            <li className="lili">Contact Us</li>
+            <li className="lili">About Us</li>
+            <li className="lili">Career</li>
           </ul>
         </div>
         <div className="col">
           <ul>
-            <li>Terms</li>
-            <li>Privacy Policy</li>
+            <li className="lili">Terms</li>
+            <li className="lili">Privacy Policy</li>
           </ul>
         </div>
       </div>
