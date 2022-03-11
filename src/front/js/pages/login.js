@@ -33,7 +33,7 @@ export const Login =()=>{
     return(
         <>
         <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-            <h1>Login</h1>
+            <h1 className="mt-5">Login</h1>
             <div className="container p-1 my-5">
                     {( store.token && store.token!="" && store.token != undefined) ? "You are Logged " : 
                     <Form>
