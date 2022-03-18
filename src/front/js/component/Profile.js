@@ -57,6 +57,7 @@ export const Profile = () => {
               <Col className="col-6">
                 <Form.Group className="mb-3 col-6">
                   <Form.Control
+                    type="password"
                     id="TextImput"
                     placeholder="Password"
                     onChange={(e) => {
