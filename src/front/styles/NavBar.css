@@ -46,20 +46,20 @@ a {
 }
 
 .search {
-  margin-right: 1rem;
-  max-width: 100%;
+  /* margin-right: 1rem; */
+  width: 100%;
 }
 
 .searchbar {
   border-radius: 5px;
-  max-width: 100%;
+  width: 80%;
   height: 2rem;
 }
 
 .search-button {
   margin: auto;
   display: flex;
-  max-width: 40%;
+  width: 30%;
   justify-content:space-between;
   padding: 0%;
 }
