@@ -31,7 +31,7 @@ export const NavTop = () => {
             placeholder="Type Here"
           ></input>
           <button className="sbutton">
-            <div className="seart">Search</div>
+            <div className="search">Search</div>
           </button>
         </div>
       </div>

@@ -2,7 +2,7 @@
   background-color: black;
   overflow: hidden;
   position: fixed;
-  margin: 0%;
+  margin: 0;
   width: 100%;
   height: auto;
   z-index: 2;
@@ -59,8 +59,8 @@ a {
 .search-button {
   margin: auto;
   display: flex;
-  max-width: 30%;
-  justify-content: flex-end;
+  max-width: 40%;
+  justify-content:space-between;
   padding: 0%;
 }
 .endbuttons {
@@ -87,6 +87,7 @@ a {
   color: BEIGE;
   border-radius: 5px;
   margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .search-button,
