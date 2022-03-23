@@ -1,6 +1,3 @@
-.Background {
-  background-color: orange;
-}
 .createCourseImage {
   width: 100%;
   margin-bottom: 10%;
@@ -8,4 +5,41 @@
 .Tittle {
   text-align: center;
   margin-bottom: 5%;
+}
+
+.wrapper {
+  color: beige;
+}
+
+.important {
+  color: #d96459;
+}
+
+.describe {
+  display: none;
+  min-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.coursetittle {
+  display: none;
+  max-width: 50%;
+}
+
+.styleclass {
+  width: 99%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#textinput {
+  min-width: 100%;
+}
+
+.context {
+  width: 100%;
+  justify-content: center;
+  margin: auto;
 }

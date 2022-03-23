@@ -41,7 +41,7 @@ export const CreateCourse = () => {
               <ul>
                 <li className="List">
                   {" "}
-                  <strong>
+                  <strong className="important">
                     Name and basic information about the course,
                   </strong>{" "}
                   you will create a Title and fill the form for basic
@@ -51,26 +51,32 @@ export const CreateCourse = () => {
                   final customer so it's important to choose wisely your words.
                 </li>
                 <li>
-                  <strong>Start creating your course,</strong> it is made in a
-                  way that will make easy and fast to understand, in this
-                  section you will write all your content step by step (divided
-                  in sections)with definitions, recomendations, links to other
-                  source of extra info, etc. Take in consideration that your
-                  objective is to give the most quantity of high value
-                  information, describing it in a way that everyone could
-                  understand.
+                  <strong className="important">
+                    Start creating your course,
+                  </strong>{" "}
+                  it is made in a way that will make easy and fast to
+                  understand, in this section you will write all your content
+                  step by step (divided in sections)with definitions,
+                  recomendations, links to other source of extra info, etc. Take
+                  in consideration that your objective is to give the most
+                  quantity of high value information, describing it in a way
+                  that everyone could understand.
                 </li>
                 <li>
-                  <strong>Upload your Media Content,</strong> it will be
-                  displayed acording to the step or chapter that you're in. the
-                  idea is to explain yourself for what you wrote on the chapter.
-                  Include (pdf, jpg, png, mp4, mp3)
+                  <strong className="important">
+                    Upload your Media Content,
+                  </strong>{" "}
+                  it will be displayed acording to the step or chapter that
+                  you're in. the idea is to explain yourself for what you wrote
+                  on the chapter. Include (pdf, jpg, png, mp4, mp3)
                 </li>
                 <li>
-                  <strong>Review and edit your course,</strong> reorganize,
-                  delete, add, upload, format, colors, basic design, and other
-                  tools that will help you to make the course appealing to the
-                  user.
+                  <strong className="important">
+                    Review and edit your course,
+                  </strong>{" "}
+                  reorganize, delete, add, upload, format, colors, basic design,
+                  and other tools that will help you to make the course
+                  appealing to the user.
                 </li>
               </ul>
             </div>
@@ -80,9 +86,11 @@ export const CreateCourse = () => {
             <Form>
               <Row className="mb-3">
                 <Form.Group as={Col}>
-                  <Form.Label>Name The Course</Form.Label>
+                  <Form.Label className="coursetittle">
+                    Name The Course
+                  </Form.Label>
                   <Form.Control
-                    id="TextInput"
+                    id="textinput"
                     placeholder="For example: Burger's MasterChef Classes"
                     onChange={(e) => {
                       e.preventDefault();
@@ -93,39 +101,46 @@ export const CreateCourse = () => {
                     }}
                   />
                 </Form.Group>
-                <Form.Group
-                  className="mb-3"
-                  controlId="exampleForm.ControlTextarea1"
-                >
-                  <Form.Label>Describe your course</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={3}
-                    placeholder="Give a brief Description about what the Student is going to Learn in this course"
+
+                <div className="describe row">
+                  <Form.Group
+                    className="context mb-3"
+                    controlId="exampleForm.ControlTextarea1"
+                  >
+                    <Form.Label>Describe your course</Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      rows={3}
+                      placeholder="Give a brief Description about what the Student is going to Learn in this course"
+                      onChange={(e) => {
+                        e.preventDefault();
+                        setNewCourse({
+                          ...newCourse,
+                          description: e.target.value,
+                        });
+                      }}
+                    />
+                  </Form.Group>
+                </div>
+                <div className="styleclass row">
+                  <Form.Select
+                    aria-label="Default select example"
                     onChange={(e) => {
                       e.preventDefault();
                       setNewCourse({
                         ...newCourse,
-                        description: e.target.value,
+                        ingredient: e.target.value,
                       });
                     }}
-                  />
-                </Form.Group>
-
-                <Form.Select
-                  aria-label="Default select example"
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setNewCourse({ ...newCourse, ingredient: e.target.value });
-                  }}
-                >
-                  <option>Main Ingredient</option>
-                  <option value="Fish and Seafood">Fish and Seafood</option>
-                  <option value="Pulse">Pulse</option>
-                  <option value="Meat and Poultry">Meat and Poultry</option>
-                  <option value="Vegetables">Vegetables</option>
-                  <option value="Dairy">Dairy</option>
-                </Form.Select>
+                  >
+                    <option>Main Ingredient</option>
+                    <option value="Fish and Seafood">Fish and Seafood</option>
+                    <option value="Pulse">Pulse</option>
+                    <option value="Meat and Poultry">Meat and Poultry</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Dairy">Dairy</option>
+                  </Form.Select>
+                </div>
               </Row>
               <Row className="mb-3">
                 <Form.Group as={Col}>
@@ -188,6 +203,14 @@ export const CreateCourse = () => {
                     }}
                   />
                 </Form.Group>
+                const { TextArea } = Input;
+
+                const onChange = e => {
+                  console.log('Change:', e.target.value);
+                ReactDOM.render(
+                  <TextArea showCount maxLength={100} style={{ height: 120 }} onChange={onChange} />,
+                  mountNode,
+                );
               </Row>
               <Row>
                 <Form.Group as={Col}>
