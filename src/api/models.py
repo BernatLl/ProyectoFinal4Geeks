@@ -4,10 +4,10 @@ from sqlalchemy.orm import relationship, backref
 
 db = SQLAlchemy()
 
-tags = db.Table('tags',
-    db.Column('course_id', db.Integer, db.ForeignKey('course.id'),primary_key=True),
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id'),primary_key=True)
-)
+# tags = db.Table('tags',
+#     db.Column('course_id', db.Integer, db.ForeignKey('course.id'),primary_key=True),
+#     db.Column('user_id', db.Integer, db.ForeignKey('user.id'),primary_key=True)
+# )
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -97,7 +97,7 @@ class Course(db.Model):
     title = db.Column(db.String(200),  nullable=False)
     video = db.Column(db.String(240), unique=True, nullable=False)
     img = db.Column(db.String(240), unique=True, nullable=False)
-    tags = db.relationship('User', secondary=tags, lazy='subquery', backref=db.backref('user', lazy=True))
+    # tags = db.relationship('User', secondary=tags, lazy='subquery', backref=db.backref('user', lazy=True))
    
 
     def __repr__(self):

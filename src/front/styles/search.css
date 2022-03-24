@@ -1,27 +1,75 @@
-.filter{
-    width: 90%;
-    height: auto;
-    background-color: rgba(29, 29, 29);
-    margin-top: 5%;
-    padding: 5%;
-    border-radius: 2%;
+.search2 {
+    width: 100%;
 }
-.selection{
+
+
+.searchInputs2 {
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: center;
-    width: 90%;
-    
-    margin-top: 5%;
-    margin-left: .5%;
-    padding: 5%;
-}
-.selection > div.col {
-    width: 40%;
-    color: rgba(217, 100, 89, 1);
-    background-color: rgba(29, 29, 29);
-    padding: 10%;
-    margin-right: 2%;
-    border-radius: 5%;
-}
+  }
+
+
+.search2 input {
+    background-color: white;
+    border: 0;
+    border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 18px;
+    padding: 15px;
+    height: 100%;
+    width: 100%;
+   
+  }
+  
+  .searchIcon2 {
+   max-height: 100%;
+    width: 50px;
+    background-color: white;
+    display: grid;
+    place-items: center;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  .searchIcon2 svg {
+    font-size: 35px;
+  }
+  
+  .dataResult {
+    margin-top: 5px;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: auto;
+    overflow-y: visible;
+  }
+  
+  .dataResult::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .dataResult .dataItem {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+  
+  .dataItem p {
+    margin-left: 10px;
+  }
+  a {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    background-color: lightgrey;
+  }
+  
+  #clearBtn {
+    cursor: pointer;
+  }

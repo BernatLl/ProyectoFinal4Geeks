@@ -60,13 +60,13 @@ export const FormContacto = () => {
               required
             />
             <label className="form-check-label" htmlFor="gridCheck">
-              Check me out
+              <a>Accept terms and conditions</a>
             </label>
           </div>
         </div>
         <div className="col-12">
           <button type="submit" className="btn btn-primary">
-            Sign in
+            Send
           </button>
         </div>
       </form>

@@ -9,6 +9,7 @@ import { Context } from "../store/appContext";
 import { MeetTheCrew } from "../component/meetTheCrew.js";
 import { FormContacto } from "../component/formContacto.js";
 import { ListadoCursos } from "../component/listadoCursos.js";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -106,6 +107,43 @@ export const Home = () => {
                   want to share for a modest price their recipe or skill with
                   the rest of the world!!!!{" "}
                 </p>
+                {!store.token ? (
+          <Link to="/createuser">
+            <button id="cartb" type="button" className="bcart ">
+              SignIn
+            </button>
+          </Link>
+        ) : (
+          <Link to="/user">
+            <button
+              id="logOut"
+              type="button"
+              onClick={() => actions.editUser()}
+              className="blogout "
+            >
+              Profile
+            </button>
+          </Link>
+        )}
+
+        {!store.token ? (
+          <Link to="/login">
+            <button id="logIn" type="button" className="blogin ">
+              Login
+            </button>
+          </Link>
+        ) : (
+          <Link to="/">
+            <button
+              id="login"
+              type="button"
+              onClick={() => actions.logout()}
+              className="blogin "
+            >
+              Logout
+            </button>
+          </Link>
+        )}
               </div>
             </div>
 
@@ -129,6 +167,43 @@ export const Home = () => {
                   want to share for a modest price their recipe or skill with
                   the rest of the world!!!!{" "}
                 </p>
+                {!store.token ? (
+          <Link to="/createuser">
+            <button id="cartb" type="button" className="bcart ">
+              SignIn
+            </button>
+          </Link>
+        ) : (
+          <Link to="/user">
+            <button
+              id="logOut"
+              type="button"
+              onClick={() => actions.editUser()}
+              className="blogout "
+            >
+              Profile
+            </button>
+          </Link>
+        )}
+
+        {!store.token ? (
+          <Link to="/login">
+            <button id="logIn" type="button" className="blogin ">
+              Login
+            </button>
+          </Link>
+        ) : (
+          <Link to="/">
+            <button
+              id="login"
+              type="button"
+              onClick={() => actions.logout()}
+              className="blogin "
+            >
+              Logout
+            </button>
+          </Link>
+        )}
               </div>
             </div>
           </div>

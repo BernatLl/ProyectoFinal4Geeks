@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import logo from "../../img/WeCook.png";
 import { Link } from "react-router-dom";
 import "../../../front/styles/NavBar.css";
+import {Search} from "../component/search";
 
 export const NavTop = () => {
   const { store, actions } = useContext(Context);
@@ -24,16 +25,7 @@ export const NavTop = () => {
       </div>
 
       <div className="search-button col-md">
-        <div className="search ">
-          <input
-            type="search"
-            className="searchbar "
-            placeholder="Type Here"
-          ></input>
-          <button className="sbutton">
-            Search
-          </button>
-        </div>
+        <Search/>
       </div>
 
       <div className="endbuttons col-md">
