@@ -61,12 +61,12 @@ const PaymentForm = () => {
       <img id="BackHead" className="mt-m" src={HeaderImg}></img>
       <div className="container">
         <h1>Payment Page</h1>
-        <div className="container-fluid">
+        <div className="paytext">
           <h3>This are your selected courses to buy</h3>
         </div>
       </div>
-      <div className="container">
-        <div className="container">
+      <div className="container mt-0 pt-0">
+        
           <Row className="g-4 mb-5">
             {coursesItems.map((select, i) => {
               return (
@@ -108,13 +108,13 @@ const PaymentForm = () => {
               );
             })}
           </Row>
-        </div>
+        
       </div>
       <Card className="paymentCard">
         <Card.Body>
           <Card.Title>Payment</Card.Title>
           <CardElement options={{ style: { base: inputStyle } }} />
-          <Button variant="dark" onClick={handleSubmit(stripe, elements)}>
+          <Button className="buybutton" variant="dark" onClick={handleSubmit(stripe, elements)}>
             Buy
           </Button>{" "}
         </Card.Body>

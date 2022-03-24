@@ -1,5 +1,5 @@
 .paymentCard {
-  width: 50%;
+  width: 60%;
   height: 200px;
   margin: auto;
   color: beige;
@@ -12,4 +12,12 @@
 }
 .paymentInput {
   color: beige;
+}
+.paytext {
+  background-color: black;
+  color: rgba(217, 100, 89, 1);
+  padding: 5% 5% 10% 5%
+}
+.buybutton {
+  margin-top: 5% !important;
 }
