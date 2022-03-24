@@ -87,7 +87,7 @@ export const Home = () => {
             </Carousel>
           </div>{" "}
           <div className="stuprof">
-            <div className="Students row">
+            <a name="student"/><div className="Students row">
               <img
                 id="foto"
                 className="StuPic"
@@ -147,7 +147,7 @@ export const Home = () => {
               </div>
             </div>
 
-            <div className="ProfessorSide row">
+            <a name="profe"/><div className="ProfessorSide row">
               <img
                 id="foto"
                 className="ProfePic"

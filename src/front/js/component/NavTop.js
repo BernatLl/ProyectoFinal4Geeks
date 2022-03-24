@@ -13,15 +13,14 @@ export const NavTop = () => {
         <img src={logo} className="logo col-md"></img>
       </Link>
       <div className="stu-prof-cat col-md">
-        <Link to="/user">
-          <a className="student">Student</a>
-        </Link>
+       
+          <a className="student" href="#student" >Student</a>
+       
 
-        <Link to="/chef/">
-          <div className="professor" src="/professor">
+        <a  className="professor" href="#profe">
             Professor
-          </div>
-        </Link>
+          
+        </a>
       </div>
 
       <div className="search-button col-md">

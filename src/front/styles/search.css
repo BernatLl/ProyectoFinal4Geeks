@@ -62,11 +62,11 @@
   .dataItem p {
     margin-left: 10px;
   }
-  a {
+  #results {
     text-decoration: none;
   }
   
-  a:hover {
+  #results:hover {
     background-color: lightgrey;
   }
   
