@@ -1,20 +1,20 @@
 import React, {useEffect, useContext, useState} from "react";
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import "../../styles/search.css"
-import FormCheck from 'react-bootstrap/FormCheck'
-import Form from 'react-bootstrap/Form'
 import { Context } from "../store/appContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
 import { faXmarkSquare } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export const Search = ()=>{
     const { store, actions } = useContext(Context);
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
-  
+    
+    useEffect (()=>{
+		actions.loadCourses();
+	},[])
+
     const handleFilter = (event) => {
       const searchWord = event.target.value;
       setWordEntered(searchWord);
@@ -56,8 +56,10 @@ export const Search = ()=>{
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value, i) => {
               return (
-                <a key={i} className="dataItem" target="_blank">
+                <a onClick={clearInput} key={i} href={"/courseview/"+ value.id} target="_blank" >
+                <h4 className="dataItem">
                   <p>{value.course_name} </p>
+                </h4>
                 </a>
               );
             })}
