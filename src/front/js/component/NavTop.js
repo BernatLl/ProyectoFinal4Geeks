@@ -17,12 +17,20 @@ export const NavTop = () => {
         </Col>
         <Col>
           <div className="stu-prof-cat col-xl">
-            <div>
-              <a className="student m-4" href="#student" >Student</a>
-            </div>
-            <div>
-                <a  className="professor" href="#profe">Professor</a>
-            </div>
+            {!store.token ? (
+              <div>
+                <a className="student m-4" href="#student" >Student</a>
+              </div>) : (
+                <Link to="/user">
+                  <div>
+                    <a className="student m-4">Student</a>
+                  </div>
+                </Link>
+              )}
+
+              <div>
+                  <a  className="professor" href="#profe">Professor</a>
+              </div>
           </div>
         </Col>
       <Col>
@@ -32,7 +40,9 @@ export const NavTop = () => {
       </Col>
       <Col className="buttons">
       <div className="endbuttons col-xl">
+        <Link to="/payment">
         <button className="bcart ">Cart</button>
+        </Link>
         {!store.token ? (
           <Link to="/createuser">
             <button id="cartb" type="button" className="bcart ">
