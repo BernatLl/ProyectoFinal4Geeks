@@ -22,11 +22,9 @@ export const Home = () => {
   return (
     <>
       <div>
-        {store.token ? (
+        {store.token && (
           <div className="alert alert-info">{store.message}</div>
-        ) : (
-          <div></div>
-        )}
+        ) }
       </div>
 
       <div className="BackHome">

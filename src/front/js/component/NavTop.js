@@ -4,30 +4,34 @@ import logo from "../../img/WeCook.png";
 import { Link } from "react-router-dom";
 import "../../../front/styles/NavBar.css";
 import {Search} from "../component/search";
-
+import { Row, Col } from "react-bootstrap";
 export const NavTop = () => {
   const { store, actions } = useContext(Context);
   return (
     <div className="navbody row grid">
-      <Link className="homebutton" to="/">
-        <img src={logo} className="logo col-md"></img>
-      </Link>
-      <div className="stu-prof-cat col-md">
-       
-          <a className="student" href="#student" >Student</a>
-       
-
-        <a  className="professor" href="#profe">
-            Professor
-          
-        </a>
-      </div>
-
-      <div className="search-button col-md">
+      <Row className="align-items-center">
+        <Col>
+          <Link className="homebutton" to="/">
+            <img src={logo} className="logo col-xl"></img>
+          </Link>
+        </Col>
+        <Col>
+          <div className="stu-prof-cat col-xl">
+            <div>
+              <a className="student m-4" href="#student" >Student</a>
+            </div>
+            <div>
+                <a  className="professor" href="#profe">Professor</a>
+            </div>
+          </div>
+        </Col>
+      <Col>
+      <div className="search-button col-xl">
         <Search/>
       </div>
-
-      <div className="endbuttons col-md">
+      </Col>
+      <Col className="buttons">
+      <div className="endbuttons col-xl">
         <button className="bcart ">Cart</button>
         {!store.token ? (
           <Link to="/createuser">
@@ -47,7 +51,7 @@ export const NavTop = () => {
             </button>
           </Link>
         )}
-
+        
         {!store.token ? (
           <Link to="/login">
             <button id="logIn" type="button" className="blogin ">
@@ -67,6 +71,8 @@ export const NavTop = () => {
           </Link>
         )}
       </div>
+      </Col>
+      </Row>
     </div>
   );
 };

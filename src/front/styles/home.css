@@ -5,6 +5,7 @@
   max-width: 100%;
   min-width: 100%;
   height: auto;
+  display: block;
 }
 
 #BackHead {
@@ -43,7 +44,7 @@
 
 .TopFive {
   height: auto;
-  max-width: 20%;
+  width: 100%;
   position: relative;
   margin: 0%;
   padding: 0%;

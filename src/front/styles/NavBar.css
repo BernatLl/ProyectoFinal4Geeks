@@ -1,11 +1,13 @@
 .navbody {
+  display: block;
   background-color: black;
-  overflow: hidden;
+  overflow:visible;
   position: fixed;
+  top:0;
   margin: 0;
   width: 100%;
   height: auto;
-  z-index: 2;
+  z-index: 9999;
   justify-content: center;
 }
 
@@ -23,16 +25,15 @@
 }
 
 .logo {
-  width: 70%;
+  width: 50%;
   height: auto;
 }
 
 .stu-prof-cat {
-  max-width: 20%;
-  min-width: 20%;
+  
   display: flex;
   font-size: 1vw;
-  justify-content: space-evenly;
+  justify-content:flex-start;
   padding: 5px;
 }
 
@@ -50,25 +51,16 @@ a {
   width: 100%;
 }
 
-.searchbar {
-  border-radius: 5px;
-  width: 80%;
-  height: 2rem;
-}
 
-.search-button {
-  margin: auto;
-  display: flex;
-  width: 30%;
-  justify-content:space-between;
-  padding: 0%;
-}
 .endbuttons {
   position: relative;
   max-width: 30%;
   margin: auto;
   padding: 0%;
   align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .blogin {
   margin-right: 0.5rem;
@@ -104,4 +96,8 @@ a {
   font-size: smaller;
   color: #d96459;
   border-radius: 5px;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
 }
