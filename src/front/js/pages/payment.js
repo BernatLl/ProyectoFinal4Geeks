@@ -78,7 +78,7 @@ const PaymentForm = () => {
                       src={select.img}
                     />
                     <Card.Body>
-                      <Card.Title>{select.title}</Card.Title>
+                      <Card.Title>{select.course_name}</Card.Title>
                       <Card.Text>{select.description}</Card.Text>
                     </Card.Body>
                     <Button
