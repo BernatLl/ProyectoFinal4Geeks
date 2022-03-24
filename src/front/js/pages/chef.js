@@ -25,7 +25,7 @@ export const  Chef = ()=>{
     return (
         <>
         <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-      <h1 className="titulo">This is your profile page</h1>
+      <h1 className="titulo">This is your chef profile page</h1>
       <div className="container p-1 my-5">
         <Tab.Container
           id="left-tabs-example"
@@ -63,7 +63,7 @@ export const  Chef = ()=>{
           </Row>
         </Tab.Container>
       </div>
-      <h1 className="titulo">My Courses</h1>
+      {/* <h1 className="titulo">My Courses</h1>
       <div className="container">
         <div className="row">
           <div className="card col-6 m-0.5">
@@ -137,7 +137,7 @@ export const  Chef = ()=>{
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <h1 className="titulo">Recomended for you</h1>
       <div className="container-fluid p-1 my-5">
