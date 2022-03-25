@@ -1,9 +1,9 @@
 .navbody {
   display: block;
   background-color: black;
-  overflow:visible;
+  overflow: visible;
   position: fixed;
-  top:0;
+  top: 0;
   margin: 0;
   width: 100%;
   height: auto;
@@ -30,11 +30,11 @@
 }
 
 .stu-prof-cat {
-  
   display: flex;
-  font-size: 1vw;
-  justify-content:flex-start;
+  font-size: 1.2vw;
+  justify-content: flex-start;
   padding: 5px;
+  gap: 2rem;
 }
 
 .search .student,
@@ -50,7 +50,6 @@ a {
   /* margin-right: 1rem; */
   width: 100%;
 }
-
 
 .endbuttons {
   position: relative;
