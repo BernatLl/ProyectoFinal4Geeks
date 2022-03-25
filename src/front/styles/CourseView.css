@@ -48,3 +48,11 @@
   padding: 1%;
   margin-left: 2%;
 }
+.imageCourse img{
+  width: 70%;
+  height: auto;
+}
+.imageCourse{
+  text-align: center;
+  padding-bottom: 2%;
+}

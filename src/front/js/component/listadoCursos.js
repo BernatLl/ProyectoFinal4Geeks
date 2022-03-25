@@ -35,28 +35,32 @@ export const ListadoCursos = () => {
                   <Card.Title>{select.title}</Card.Title>
                   <Card.Text>{select.description}</Card.Text>
                 </Card.Body>
-                <Link to={"/courseview/" + select.id}>
-                  <Button variant="outline-primary">Read More</Button>
-                </Link>
+                <div className="buttoncourselist">
+                  <Link to={"/courseview/" + select.id}>
+                    <Button variant="outline-primary">Read More</Button>
+                  </Link>
 
-                <Button
-                  variant="outline-primary"
-                  onClick={() => {
-                    let itemInCart = JSON.parse(localStorage.getItem("cart"));
-                    console.log(itemInCart);
-                    if (itemInCart == null) {
-                      localStorage.setItem("cart", JSON.stringify([select]));
-                    }else{
-						if(!itemInCart.map(x => x.id).includes(select.id)){
-							itemInCart.push(select)
-						localStorage.setItem("cart", JSON.stringify(itemInCart))
-						}
-						
-					}
-                  }}
-                >
-                  Add to cart
-                </Button>
+                  <Button
+                    variant="outline-primary"
+                    onClick={() => {
+                      let itemInCart = JSON.parse(localStorage.getItem("cart"));
+                      console.log(itemInCart);
+                      if (itemInCart == null) {
+                        localStorage.setItem("cart", JSON.stringify([select]));
+                      } else {
+                        if (!itemInCart.map((x) => x.id).includes(select.id)) {
+                          itemInCart.push(select);
+                          localStorage.setItem(
+                            "cart",
+                            JSON.stringify(itemInCart)
+                          );
+                        }
+                      }
+                    }}
+                  >
+                    Add to cart
+                  </Button>
+                </div>
               </Card>
             </Col>
           ))}
