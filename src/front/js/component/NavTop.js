@@ -40,9 +40,16 @@ export const NavTop = () => {
       </Col>
       <Col className="buttons">
       <div className="endbuttons col-xl">
-        <Link to="/payment">
+      {!store.token ? (
+        <Link to="/login">
+        <button id="logIn" type="button" className="blogin ">
+          Cart
+        </button>
+      </Link>):(<Link to="/payment">
         <button className="bcart ">Cart</button>
-        </Link>
+        </Link>)}
+        
+
         {!store.token ? (
           <Link to="/createuser">
             <button id="cartb" type="button" className="bcart ">
