@@ -30,11 +30,12 @@ export const User = () => {
       <img id="BackHead" className="mt-m" src={HeaderImg}></img>
       {!store.token ? (
         <>
-          
+         
           <div className="container p-1 my-5">
-            <h1 className="titulo">Student Information</h1>
-            <div className="StudentsText">
-              {" "}
+             <Row>
+            <h1 className="titulo mt-5">Student Information</h1>
+            <div className="Container-fluid studentInfo ">
+              
               <h5 className="StuTittle">Students</h5>
               <p>
                 Welcome to "We Cook", with us you will be able to access to a
@@ -44,8 +45,12 @@ export const User = () => {
                 Canada, Scotland, etc? We give the chance to professional or no
                 professional chefs around the world that want to share for a
                 modest price their recipe or skill with the rest of the
-                world!!!!{" "}
+                world!!!!
               </p>
+              <p>If you are a user yet, you can login, if not you can create your profile at signIn button</p>
+
+              <div className="buttonsLog">
+             
               {!store.token ? (
                 <Link to="/createuser">
                   <button id="cartb" type="button" className="bcart ">
@@ -82,8 +87,11 @@ export const User = () => {
                   </button>
                 </Link>
               )}
+              </div>
             </div>
+            </Row>
           </div>
+          
         </>
       ) : (
         <>
