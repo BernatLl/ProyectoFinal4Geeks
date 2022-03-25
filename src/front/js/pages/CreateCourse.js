@@ -203,13 +203,13 @@ export const CreateCourse = () => {
                     }}
                   />
                 </Form.Group>
-                const { TextArea } = Input;
+                {/* const { TextArea } = Input;
 
                 const onChange = e => {
                   console.log('Change:', e.target.value);
                 ReactDOM.render(
                   <TextArea showCount maxLength={100} style={{ height: 120 }} onChange={onChange} />,
-                  mountNode,
+                  mountNode, */}
                 );
               </Row>
               <Row>

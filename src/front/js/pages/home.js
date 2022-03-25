@@ -22,9 +22,7 @@ export const Home = () => {
   return (
     <>
       <div>
-        {store.token && (
-          <div className="alert alert-info">{store.message}</div>
-        ) }
+        {store.token && <div className="alert alert-info">{store.message}</div>}
       </div>
 
       <div className="BackHome">
@@ -85,7 +83,7 @@ export const Home = () => {
             </Carousel>
           </div>{" "}
           <div className="stuprof">
-            <a name="student"/><div className="Students row">
+            <div className="Students row">
               <img
                 id="foto"
                 className="StuPic"
@@ -105,47 +103,9 @@ export const Home = () => {
                   want to share for a modest price their recipe or skill with
                   the rest of the world!!!!{" "}
                 </p>
-                {!store.token ? (
-          <Link to="/createuser">
-            <button id="cartb" type="button" className="bcart ">
-              SignIn
-            </button>
-          </Link>
-        ) : (
-          <Link to="/user">
-            <button
-              id="logOut"
-              type="button"
-              onClick={() => actions.editUser()}
-              className="blogout "
-            >
-              Profile
-            </button>
-          </Link>
-        )}
-
-        {!store.token ? (
-          <Link to="/login">
-            <button id="logIn" type="button" className="blogin ">
-              Login
-            </button>
-          </Link>
-        ) : (
-          <Link to="/">
-            <button
-              id="login"
-              type="button"
-              onClick={() => actions.logout()}
-              className="blogin "
-            >
-              Logout
-            </button>
-          </Link>
-        )}
               </div>
             </div>
-
-            <a name="profe"/><div className="ProfessorSide row">
+            <div className="ProfessorSide row">
               <img
                 id="foto"
                 className="ProfePic"
@@ -165,52 +125,15 @@ export const Home = () => {
                   want to share for a modest price their recipe or skill with
                   the rest of the world!!!!{" "}
                 </p>
-                {!store.token ? (
-          <Link to="/createuser">
-            <button id="cartb" type="button" className="bcart ">
-              SignIn
-            </button>
-          </Link>
-        ) : (
-          <Link to="/user">
-            <button
-              id="logOut"
-              type="button"
-              onClick={() => actions.editUser()}
-              className="blogout "
-            >
-              Profile
-            </button>
-          </Link>
-        )}
-
-        {!store.token ? (
-          <Link to="/login">
-            <button id="logIn" type="button" className="blogin ">
-              Login
-            </button>
-          </Link>
-        ) : (
-          <Link to="/">
-            <button
-              id="login"
-              type="button"
-              onClick={() => actions.logout()}
-              className="blogin "
-            >
-              Logout
-            </button>
-          </Link>
-        )}
               </div>
             </div>
           </div>
+          <div className="text-center mt-5">
+            <ListadoCursos />
+            <MeetTheCrew />
+            <FormContacto />
+          </div>
         </div>
-      </div>
-      <div className="text-center mt-5">
-        <ListadoCursos />
-        <MeetTheCrew />
-        <FormContacto />
       </div>
     </>
   );

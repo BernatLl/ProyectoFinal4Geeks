@@ -14,6 +14,8 @@ import { CreateCourse } from "./CreateCourse";
 import "../../styles/home.css";
 import HeaderImg from "../../img/HeaderImg.jpg";
 import { ChefProfile } from "../component/chefProfile";
+import { Link } from "react-router-dom";
+
 
 export const User = () => {
   const { store, actions } = useContext(Context);
@@ -26,44 +28,111 @@ export const User = () => {
   return (
     <>
       <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-      <h1 className="titulo">This is your profile page</h1>
-      <div className="container p-1 my-5">
-        <Tab.Container
-          id="left-tabs-example"
-          defaultActiveKey="first"
-          className="container-menu"
-        >
-          <Row className="marco">
-            <Col sm={3} className="contenido-menu">
-              <Nav justify variant="pills" className="flex-column menu">
-                <Nav.Item>
-                  <Nav.Link eventKey="first">Public Profile</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="4">Payment methods</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="5">Close account</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Col>
-            <Col sm={9} className="contenido">
-              <Tab.Content>
-                <Tab.Pane eventKey="first">
-                  <PublicProfile />
-                </Tab.Pane>
-                <Tab.Pane eventKey="4">
-                  <PaymentMethods />
-                </Tab.Pane>
-                <Tab.Pane eventKey="5">
-                  <CloseAccount />
-                </Tab.Pane>
-              </Tab.Content>
-            </Col>
-          </Row>
-        </Tab.Container>
-      </div>
-      <h1 className="titulo">My Courses</h1>
+      {!store.token ? (
+        <>
+         
+          <div className="container p-1 my-5">
+             <Row>
+            <h1 className="titulo mt-5">Student Information</h1>
+            <div className="Container-fluid studentInfo ">
+              
+              <h5 className="StuTittle">Students</h5>
+              <p>
+                Welcome to "We Cook", with us you will be able to access to a
+                digital library with hundreds of professional cooks around the
+                world, do you want to learn how to cut like a professional Click
+                here, Do you want to learn about Venezuelan food, New Zeleand,
+                Canada, Scotland, etc? We give the chance to professional or no
+                professional chefs around the world that want to share for a
+                modest price their recipe or skill with the rest of the
+                world!!!!
+              </p>
+              <p>If you are a user yet, you can login, if not you can create your profile at signIn button</p>
+
+              <div className="buttonsLog">
+             
+              {!store.token ? (
+                <Link to="/createuser">
+                  <button id="cartb" type="button" className="bcart ">
+                    SignIn
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/user">
+                  <button
+                    id="logOut"
+                    type="button"
+                    onClick={() => actions.editUser()}
+                    className="blogout "
+                  >
+                    Profile
+                  </button>
+                </Link>
+              )}
+              {!store.token ? (
+                <Link to="/login">
+                  <button id="logIn" type="button" className="blogin ">
+                    Login
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/">
+                  <button
+                    id="login"
+                    type="button"
+                    onClick={() => actions.logout()}
+                    className="blogin "
+                  >
+                    Logout
+                  </button>
+                </Link>
+              )}
+              </div>
+            </div>
+            </Row>
+          </div>
+          
+        </>
+      ) : (
+        <>
+          <h1 className="titulo">This is your profile page</h1>
+          <div className="container p-1 my-5">
+            <Tab.Container
+              id="left-tabs-example"
+              defaultActiveKey="first"
+              className="container-menu"
+            >
+              <Row className="marco">
+                <Col sm={3} className="contenido-menu">
+                  <Nav justify variant="pills" className="flex-column menu">
+                    <Nav.Item>
+                      <Nav.Link eventKey="first">Public Profile</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="4">Payment methods</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="5">Close account</Nav.Link>
+                    </Nav.Item>
+                  </Nav>
+                </Col>
+                <Col sm={9} className="contenido">
+                  <Tab.Content>
+                    <Tab.Pane eventKey="first">
+                      <PublicProfile />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="4">
+                      <PaymentMethods />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="5">
+                      <CloseAccount />
+                    </Tab.Pane>
+                  </Tab.Content>
+                </Col>
+              </Row>
+            </Tab.Container>
+          </div>
+          <h1 className="titulo">My Courses</h1>
       <div className="container">
         <div className="row">
           <div className="card col-6 m-0.5">
@@ -139,6 +208,10 @@ export const User = () => {
         </div>
       </div>
 
+        </>
+      )}
+
+      
       <h1 className="titulo">Recomended for you</h1>
       <div className="container-fluid p-1 my-5">
         <ListadoCursos />
