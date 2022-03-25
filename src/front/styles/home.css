@@ -35,7 +35,7 @@
 }
 
 .carousel {
-  max-width: 20%;
+  max-width: 100%;
   padding: 10rem;
   margin: 0%;
   padding-top: 0.1%;
@@ -44,7 +44,7 @@
 
 .TopFive {
   height: auto;
-  width: 100%;
+  width: 30%;
   position: relative;
   margin: 0%;
   padding: 0%;
@@ -52,8 +52,9 @@
   box-sizing: none;
 }
 .carutittle {
-  color: rgb(236, 46, 29);
+  color: rgba(217, 100, 89, 1);
   font-weight: bolder;
+  font-size: medium;
 }
 
 .textcolor {
@@ -62,7 +63,7 @@
 }
 
 .carutext {
-  color: orange;
+  margin-top: 8rem;
 }
 
 .Students {

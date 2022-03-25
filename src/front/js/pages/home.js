@@ -57,12 +57,14 @@ export const Home = () => {
                   src={Gordom}
                   alt="Second slide"
                 />
-                <Carousel.Caption>
-                  <span className="carutittle">Second slide label</span>
-                  <p className="textcolor">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </Carousel.Caption>
+                <div className="carutext">
+                  <Carousel.Caption>
+                    <span className="carutittle">Second slide label</span>
+                    <p className="textcolor">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </Carousel.Caption>
+                </div>
               </Carousel.Item>
               <Carousel.Item>
                 <img
@@ -71,14 +73,15 @@ export const Home = () => {
                   src={Jiro}
                   alt="Third slide"
                 />
-
-                <Carousel.Caption>
-                  <span className="carutittle">Third slide label</span>
-                  <p className="textcolor">
-                    Praesent commodo cursus magna, vel scelerisque nisl
-                    consectetur.
-                  </p>
-                </Carousel.Caption>
+                <div className="carutext">
+                  <Carousel.Caption>
+                    <span className="carutittle">Third slide label</span>
+                    <p className="textcolor">
+                      Praesent commodo cursus magna, vel scelerisque nisl
+                      consectetur.
+                    </p>
+                  </Carousel.Caption>
+                </div>
               </Carousel.Item>
             </Carousel>
           </div>{" "}
