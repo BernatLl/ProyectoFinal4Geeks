@@ -13,6 +13,7 @@ import { Row, Col } from "react-bootstrap";
 import { ListadoCursos } from "../component/listadoCursos.js";
 import { ProgressBar } from "react-bootstrap";
 import { CreateCourse } from "./CreateCourse";
+import { CloseAccount } from "../component/CloseAccount";
 
 export const Chef = () => {
   const { store, actions } = useContext(Context);
@@ -28,9 +29,9 @@ export const Chef = () => {
         <>
           <div className="container p-1 my-5">
             <Row>
-              <h1 className="titulo mt-5">Student Information</h1>
+              <h1 className="titulo mt-5">Chef Information</h1>
               <div className="Container-fluid studentInfo ">
-                <h5 className="StuTittle">Students</h5>
+                <h5 className="StuTittle">Chefs</h5>
                 <p>
                   Welcome to "We Cook", with us you will be able to access to a
                   digital library with hundreds of professional cooks around the
@@ -48,13 +49,13 @@ export const Chef = () => {
 
                 <div className="buttonsLog">
                   {!store.token ? (
-                    <Link to="/createuser">
+                    <Link to="/chefprofile">
                       <button id="cartb" type="button" className="bcart ">
-                        SignIn
+                        Create a chef profile
                       </button>
                     </Link>
                   ) : (
-                    <Link to="/user">
+                    <Link to="/chef">
                       <button
                         id="logOut"
                         type="button"
