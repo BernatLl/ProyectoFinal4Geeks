@@ -37,9 +37,10 @@
   gap: 2rem;
 }
 
-.search .student,
+.student,
 .professor {
   color: beige;
+  text-decoration: none !important;
 }
 
 a {
@@ -47,8 +48,8 @@ a {
 }
 
 .search {
-  /* margin-right: 1rem; */
   width: 100%;
+  height: auto;
 }
 
 .endbuttons {
@@ -56,11 +57,10 @@ a {
   max-width: 30%;
   margin: auto;
   padding: 0%;
-  align-items: flex-end;
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
+
 .blogin {
   margin-right: 0.5rem;
 }
@@ -74,11 +74,12 @@ a {
   min-height: 2rem;
   background-color: #5a5858;
   font-size: small;
-  display: inline-flex;
+  justify-content: center;
+  text-align: center;
   color: BEIGE;
   border-radius: 5px;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .search-button,

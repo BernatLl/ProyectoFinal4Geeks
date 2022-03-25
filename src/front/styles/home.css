@@ -35,7 +35,7 @@
 }
 
 .carousel {
-  max-width: 20vw;
+  max-width: 20%;
   padding: 10rem;
   margin: 0%;
   padding-top: 0.1%;
@@ -49,6 +49,7 @@
   margin: 0%;
   padding: 0%;
   font-size: 1vw;
+  box-sizing: none;
 }
 .carutittle {
   color: rgb(236, 46, 29);
@@ -61,7 +62,7 @@
 }
 
 .carutext {
-  color: beige;
+  color: orange;
 }
 
 .Students {
@@ -84,7 +85,6 @@
   border-radius: 10px;
   font-size: 1.1vw;
   padding: 0.5rem;
-  
 }
 
 .ProfTittle,
@@ -92,7 +92,6 @@
   text-align: center;
   color: rgba(217, 100, 89, 1);
   padding: 2rem;
-  
 }
 
 h5,
@@ -100,7 +99,6 @@ h4,
 p {
   text-align: center;
   color: rgba(217, 100, 89, 1);
-  
 }
 
 .ProfePic {
