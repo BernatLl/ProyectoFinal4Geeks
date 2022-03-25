@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import "../../../front/styles/NavBar.css";
 import {Search} from "../component/search";
 import { Row, Col } from "react-bootstrap";
+
+
+
 export const NavTop = () => {
   const { store, actions } = useContext(Context);
   return (
@@ -17,16 +20,13 @@ export const NavTop = () => {
         </Col>
         <Col>
           <div className="stu-prof-cat col-xl">
-            {!store.token ? (
-              <div>
-                <a className="student m-4" href="#student" >Student</a>
-              </div>) : (
+            
                 <Link to="/user">
                   <div>
                     <a className="student m-4">Student</a>
                   </div>
                 </Link>
-              )}
+             
 
               <div>
                   <a  className="professor" href="#profe">Professor</a>
