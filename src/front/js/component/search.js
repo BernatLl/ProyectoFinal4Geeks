@@ -56,7 +56,7 @@ export const Search = ()=>{
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value, i) => {
               return (
-                <a id="results" onClick={clearInput} key={i} href={"/courseview/"+ value.id} target="_blank" >
+                <a id="results" onClick={clearInput} key={i} href={"/courseview/"+ value.id}  >
                 <h4 className="dataItem">
                   <p>{value.course_name} </p>
                 </h4>

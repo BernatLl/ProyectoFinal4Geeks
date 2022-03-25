@@ -5,7 +5,7 @@ import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 import { NavTop } from "./component/NavTop";
 import { CreateCourse } from "./pages/CreateCourse";
-
+import ScrollToTop from "./component/scrollToTop";
 import { User } from "./pages/user";
 import { Footer } from "./component/footer";
 import { Login } from "./pages/login";
@@ -26,39 +26,39 @@ const Layout = () => {
   return (
     <div>
       <BrowserRouter>
-        <div>
-          <NavTop />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/createcourse">
-              <CreateCourse />
-            </Route>
-            <Route exact path="/user">
-              <User />
-            </Route>
-            <Route exact path="/chef">
-              <Chef />
-            </Route>
-            <Route exact path="/createuser">
-              <CreateUser />
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/search">
-              <Search />
-            </Route>
-            <Route exact path="/payment">
-              <Payment />
-            </Route>
-            <Route exact path="/courseview/:id">
-              <CourseView />
-            </Route>
-          </Switch>
-          <Footer />
-        </div>
+        <ScrollToTop>
+            <NavTop />
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route exact path="/createcourse">
+                  <CreateCourse />
+                </Route>
+                <Route exact path="/user">
+                  <User />
+                </Route>
+                <Route exact path="/chef">
+                  <Chef />
+                </Route>
+                <Route exact path="/createuser">
+                  <CreateUser />
+                </Route>
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                <Route exact path="/search">
+                  <Search />
+                </Route>
+                <Route exact path="/payment">
+                  <Payment />
+                </Route>
+                <Route exact path="/courseview/:id">
+                  <CourseView />
+                </Route>
+              </Switch>
+              <Footer />
+         </ScrollToTop>
       </BrowserRouter>
     </div>
   );
