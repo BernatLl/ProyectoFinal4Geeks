@@ -40,12 +40,6 @@ export const User = () => {
                   <Nav.Link eventKey="first">Public Profile</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="2">Create Chef Profile</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="3">Create Course</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
                   <Nav.Link eventKey="4">Payment methods</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
@@ -57,12 +51,6 @@ export const User = () => {
               <Tab.Content>
                 <Tab.Pane eventKey="first">
                   <PublicProfile />
-                </Tab.Pane>
-                <Tab.Pane eventKey="2">
-                  <ChefProfile />
-                </Tab.Pane>
-                <Tab.Pane eventKey="3">
-                  <CreateCourse />
                 </Tab.Pane>
                 <Tab.Pane eventKey="4">
                   <PaymentMethods />
