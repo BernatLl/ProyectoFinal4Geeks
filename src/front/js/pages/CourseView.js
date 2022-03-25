@@ -40,24 +40,8 @@ export const CourseView = () => {
 
             <h1>To enjoy the recipe login and buy the course</h1>
             <div className="buybutton">
-            <Link to={"/login"}>
-              <Button
-                variant="outline-primary"
-                onClick={() => {
-                  let itemInCart = JSON.parse(localStorage.getItem("cart"));
-                  console.log(itemInCart);
-                  if (itemInCart == null) {
-                    localStorage.setItem("cart", JSON.stringify([select]));
-                  } else {
-                    if (!itemInCart.map((x) => x.id).includes(select.id)) {
-                      itemInCart.push(select);
-                      localStorage.setItem("cart", JSON.stringify(itemInCart));
-                    }
-                  }
-                }}
-              >
-                Add to cart
-              </Button>
+              <Link to={"/login"}>
+                <Button>Login</Button>
               </Link>
             </div>
           </div>
@@ -131,6 +115,25 @@ export const CourseView = () => {
                 </ol>{" "}
               </Tab>
             </Tabs>
+            <Link to="/payment">
+              <Button
+                variant="outline-primary"
+                onClick={() => {
+                  let itemInCart = JSON.parse(localStorage.getItem("cart"));
+                  console.log(itemInCart);
+                  if (itemInCart == null) {
+                    localStorage.setItem("cart", JSON.stringify([select]));
+                  } else {
+                    if (!itemInCart.map((x) => x.id).includes(select.id)) {
+                      itemInCart.push(select);
+                      localStorage.setItem("cart", JSON.stringify(itemInCart));
+                    }
+                  }
+                }}
+              >
+                Buy Course
+              </Button>
+            </Link>
           </div>
         </div>
       )}
