@@ -73,15 +73,16 @@
   padding-left: 18%;
 }
 
-.StuPic {
-  max-width: 37%;
+.StuPic,
+.ProfePic {
+  max-width: 40%;
+  max-height: 30%;
 }
 
 .StudentsText {
   background-color: #3e3227;
-  color: beige;
   max-width: 40%;
-  height: auto;
+  max-height: 18rem;
   text-align: center;
   border-radius: 10px;
   font-size: 1.1vw;
@@ -92,34 +93,28 @@
 .StuTittle {
   text-align: center;
   color: rgba(217, 100, 89, 1);
-  padding: 2rem;
+  padding: 1px;
 }
 
-h5,
-h4,
-p {
+h5 {
   text-align: center;
   color: rgba(217, 100, 89, 1);
-}
-
-.ProfePic {
-  max-width: 37%;
 }
 
 .ProfessorSide {
   display: flex;
   max-width: 100%;
-  margin-top: 1rem;
-  height: auto;
   align-items: center;
-  padding-right: 18%;
+  padding-right: 16%;
   flex-direction: row-reverse;
+  margin-top: 1rem;
 }
 
 .ProfeText {
   background-color: #3e3227;
+  color: beige;
   max-width: 40%;
-  height: auto;
+  max-height: 18rem;
   text-align: center;
   border-radius: 10px;
   font-size: 1.1vw;
@@ -130,4 +125,8 @@ p {
   justify-content: center;
   position: relative;
   max-width: 100%;
+}
+
+.textsp {
+  color: beige;
 }

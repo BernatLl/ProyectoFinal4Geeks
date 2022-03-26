@@ -9,7 +9,6 @@ import { Context } from "../store/appContext";
 import { MeetTheCrew } from "../component/meetTheCrew.js";
 import { FormContacto } from "../component/formContacto.js";
 import { ListadoCursos } from "../component/listadoCursos.js";
-import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -96,7 +95,7 @@ export const Home = () => {
               <div className="StudentsText">
                 {" "}
                 <h5 className="StuTittle">Students</h5>
-                <p>
+                <p className="textsp">
                   Welcome to "We Cook", with us you will be able to access to a
                   digital library with hundreds of professional cooks around the
                   world, do you want to learn how to cut like a professional
@@ -118,7 +117,7 @@ export const Home = () => {
               <div className="ProfeText">
                 {" "}
                 <h5 className="ProfTittle">Professor</h5>
-                <p>
+                <p className="textsp">
                   Welcome to "We Cook", with us you will be able to access to a
                   digital library with hundreds of professional cooks around the
                   world, do you want to learn how to cut like a professional
