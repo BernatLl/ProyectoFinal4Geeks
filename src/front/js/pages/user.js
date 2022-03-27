@@ -15,7 +15,7 @@ import "../../styles/home.css";
 import HeaderImg from "../../img/HeaderImg.jpg";
 import { ChefProfile } from "../component/chefProfile";
 import { Link } from "react-router-dom";
-
+import Button from 'react-bootstrap/Button'
 
 export const User = () => {
   const { store, actions } = useContext(Context);
@@ -31,10 +31,10 @@ export const User = () => {
       {!store.token ? (
         <>
          
-          <div className="container p-1 my-5">
+          <div className="container">
              <Row>
-            <h1 className="titulo mt-5">Student Information</h1>
-            <div className="Container-fluid studentInfo ">
+            <h1>Student Information</h1>
+            <div className="pb-5">
               
               <h5 className="StuTittle">Students</h5>
               <p>
@@ -53,38 +53,38 @@ export const User = () => {
              
               {!store.token ? (
                 <Link to="/createuser">
-                  <button id="cartb" type="button" className="bcart ">
+                  <Button variant="outline-primary" type="button">
                     SignIn
-                  </button>
+                  </Button>
                 </Link>
               ) : (
                 <Link to="/user">
-                  <button
-                    id="logOut"
+                  <Button
+                    variant="outline-primary"
                     type="button"
                     onClick={() => actions.editUser()}
                     className="blogout "
                   >
                     Profile
-                  </button>
+                  </Button>
                 </Link>
               )}
               {!store.token ? (
                 <Link to="/login">
-                  <button id="logIn" type="button" className="blogin ">
+                  <Button variant="outline-primary" type="button" >
                     Login
-                  </button>
+                  </Button>
                 </Link>
               ) : (
                 <Link to="/">
-                  <button
-                    id="login"
+                  <Button
+                    variant="outline-primary"
                     type="button"
                     onClick={() => actions.logout()}
-                    className="blogin "
+                    
                   >
                     Logout
-                  </button>
+                  </Button>
                 </Link>
               )}
               </div>
