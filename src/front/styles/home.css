@@ -35,7 +35,7 @@
 }
 
 .carousel {
-  max-width: 20vw;
+  max-width: 100%;
   padding: 10rem;
   margin: 0%;
   padding-top: 0.1%;
@@ -44,15 +44,17 @@
 
 .TopFive {
   height: auto;
-  width: 100%;
+  width: 30%;
   position: relative;
   margin: 0%;
   padding: 0%;
   font-size: 1vw;
+  box-sizing: none;
 }
 .carutittle {
-  color: rgb(236, 46, 29);
+  color: rgba(217, 100, 89, 1);
   font-weight: bolder;
+  font-size: medium;
 }
 
 .textcolor {
@@ -61,7 +63,7 @@
 }
 
 .carutext {
-  color: beige;
+  margin-top: 8rem;
 }
 
 .Students {
@@ -73,58 +75,56 @@
   padding: 2%;
 }
 
+
 .StuPic {
   max-width: 40%;
+
 }
 
 .StudentsText {
   background-color: #3e3227;
+
   color: beige;
   max-width: 100%;
   height: auto;
+
   text-align: center;
   border-radius: 10px;
   font-size: 1.1vw;
   padding: 0.5rem;
+
   display: flex;
   flex-direction: row;
   
+
 }
 
 .ProfTittle,
 .StuTittle {
   text-align: center;
   color: rgba(217, 100, 89, 1);
-  padding: 2rem;
-  
+  padding: 1px;
 }
 
-h5,
-h4,
-p {
+h5 {
   text-align: center;
   color: rgba(217, 100, 89, 1);
-  
-}
-
-.ProfePic {
-  max-width: 37%;
 }
 
 .ProfessorSide {
   display: flex;
   max-width: 100%;
-  margin-top: 1rem;
-  height: auto;
   align-items: center;
-  padding-right: 18%;
+  padding-right: 16%;
   flex-direction: row-reverse;
+  margin-top: 1rem;
 }
 
 .ProfeText {
   background-color: #3e3227;
+  color: beige;
   max-width: 40%;
-  height: auto;
+  max-height: 18rem;
   text-align: center;
   border-radius: 10px;
   font-size: 1.1vw;
@@ -137,4 +137,8 @@ p {
   justify-content: space-between;
   padding-bottom: 5%;
  
+}
+
+.textsp {
+  color: beige;
 }

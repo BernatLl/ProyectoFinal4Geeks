@@ -9,8 +9,10 @@ import { Context } from "../store/appContext";
 import { MeetTheCrew } from "../component/meetTheCrew.js";
 import { FormContacto } from "../component/formContacto.js";
 import { ListadoCursos } from "../component/listadoCursos.js";
+
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
+
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -58,12 +60,14 @@ export const Home = () => {
                   src={Gordom}
                   alt="Second slide"
                 />
-                <Carousel.Caption>
-                  <span className="carutittle">Second slide label</span>
-                  <p className="textcolor">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </Carousel.Caption>
+                <div className="carutext">
+                  <Carousel.Caption>
+                    <span className="carutittle">Second slide label</span>
+                    <p className="textcolor">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </Carousel.Caption>
+                </div>
               </Carousel.Item>
               <Carousel.Item>
                 <img
@@ -72,14 +76,15 @@ export const Home = () => {
                   src={Jiro}
                   alt="Third slide"
                 />
-
-                <Carousel.Caption>
-                  <span className="carutittle">Third slide label</span>
-                  <p className="textcolor">
-                    Praesent commodo cursus magna, vel scelerisque nisl
-                    consectetur.
-                  </p>
-                </Carousel.Caption>
+                <div className="carutext">
+                  <Carousel.Caption>
+                    <span className="carutittle">Third slide label</span>
+                    <p className="textcolor">
+                      Praesent commodo cursus magna, vel scelerisque nisl
+                      consectetur.
+                    </p>
+                  </Carousel.Caption>
+                </div>
               </Carousel.Item>
             </Carousel>
           </div>{" "}
@@ -87,6 +92,7 @@ export const Home = () => {
             <Row>
               <div className="Students">
                 
+
 
                 <div className="StudentsText">
                   <img
@@ -108,15 +114,18 @@ export const Home = () => {
                     or skill with the rest of the world!!!!{" "}
                   </p>
                 </div>
+
               </div>
             </Row>
             <Row>
               <div className="Students">
 
+
               <div className="StudentsText">
                 <p>
                 <h5 className="StuTittle">Professor</h5>
                 
+
                   Welcome to "We Cook", with us you will be able to access to a
                   digital library with hundreds of professional cooks around the
                   world, do you want to learn how to cut like a professional
