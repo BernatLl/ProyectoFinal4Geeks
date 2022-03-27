@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../../styles/formProfile.css";
+
 import Form from "react-bootstrap/Form";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import "../../styles/student.css";
+import "../../styles/home.css";
+import HeaderImg from "../../img/HeaderImg.jpg";
 
 export const ChefProfile = () => {
   const { store, actions } = useContext(Context);
@@ -12,6 +15,7 @@ export const ChefProfile = () => {
 
   return (
     <>
+     <img id="BackHead" className="mt-m" src={HeaderImg}></img>
       {!store.token ? (
         <div className="container">
           <h1>Create Chef Profile</h1>
@@ -79,6 +83,7 @@ export const ChefProfile = () => {
               </Form.Group>
 
               <Button
+              variant="outline-primary"
                 id="submit"
                 type="button"
                 size="lg"

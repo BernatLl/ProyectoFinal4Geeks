@@ -66,24 +66,28 @@
 
 .Students {
   display: flex;
+  flex-direction: row;
+  justify-content:space-around;
   max-width: 100%;
-  align-items: center;
-  padding-left: 18%;
+  margin-top: 2%;
+  padding: 2%;
 }
 
 .StuPic {
-  max-width: 37%;
+  max-width: 40%;
 }
 
 .StudentsText {
   background-color: #3e3227;
   color: beige;
-  max-width: 40%;
+  max-width: 100%;
   height: auto;
   text-align: center;
   border-radius: 10px;
   font-size: 1.1vw;
   padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
   
 }
 
@@ -128,7 +132,9 @@ p {
 }
 
 .stuprof {
-  justify-content: center;
-  position: relative;
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 5%;
+ 
 }

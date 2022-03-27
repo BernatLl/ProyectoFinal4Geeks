@@ -33,8 +33,9 @@ export const Login =()=>{
     return(
         <>
         <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-            <h1 className="mt-5">Login</h1>
-            <div className="container p-1 my-5">
+           
+            <div className="container">
+                 <h1 className="mt-5">Login</h1>
                     {( store.token && store.token!="" && store.token != undefined) ? "You are Logged " : 
                     <Form>
                     
@@ -54,13 +55,10 @@ export const Login =()=>{
                         <Col sm="10">
                         <Form.Control type="password" placeholder="Password" required value={password} onChange={(e)=>setPassword(e.target.value)} />
                         </Col>
-                        <Form.Text id="passwordHelpBlock" muted>
-                            Your password must be 8-20 characters long, contain letters and numbers, and
-                            must not contain spaces, special characters, or emoji.
-                        </Form.Text>
+                        
                     </Form.Group>
                     {/* <Link to="/"> */}
-                     <Button variant="dark" onClick={handleClick}>Login</Button>
+                     <Button variant="outline-primary" onClick={handleClick}>Login</Button>
                      {/* </Link> */}
 
                 </Form>}

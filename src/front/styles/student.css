@@ -1,3 +1,9 @@
+
+.container {
+  background-color: rgba(0,0,0,0.7);
+}
+
+
 .contenido {
   background-color: black;
   border-radius: 0 1% 1% 0 !important;
@@ -51,5 +57,9 @@ h1 {
 .buttonsLog{
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content:space-around;
+}
+.btn-outline-primary {
+color: rgba(217, 100, 89, 1);
+border-color:rgba(217, 100, 89, 1);
 }
