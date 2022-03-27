@@ -14,6 +14,7 @@ import { ListadoCursos } from "../component/listadoCursos.js";
 import { ProgressBar } from "react-bootstrap";
 import { CreateCourse } from "./CreateCourse";
 import { CloseAccount } from "../component/CloseAccount";
+import Button from "react-bootstrap/Button";
 
 export const Chef = () => {
   const { store, actions } = useContext(Context);
@@ -27,10 +28,10 @@ export const Chef = () => {
       <img id="BackHead" className="mt-m" src={HeaderImg}></img>
       {!store.token ? (
         <>
-          <div className="container p-1 my-5">
+          <div className="container">
             <Row>
-              <h1 className="titulo mt-5">Chef Information</h1>
-              <div className="Container-fluid studentInfo ">
+              <h1 className=" mt-5">Chef Information</h1>
+              <div className="pb-5 ">
                 <h5 className="StuTittle">Chefs</h5>
                 <p>
                   Welcome to "We Cook", with us you will be able to access to a
@@ -50,38 +51,39 @@ export const Chef = () => {
                 <div className="buttonsLog">
                   {!store.token ? (
                     <Link to="/chefprofile">
-                      <button id="cartb" type="button" className="bcart ">
+                      <Button variant="outline-primary"  type="button">
                         Create a chef profile
-                      </button>
+                      </Button>
                     </Link>
                   ) : (
                     <Link to="/chef">
-                      <button
-                        id="logOut"
+                      <Button
+                        
                         type="button"
                         onClick={() => actions.editUser()}
                         className="blogout "
                       >
                         Profile
-                      </button>
+                      </Button>
                     </Link>
                   )}
                   {!store.token ? (
                     <Link to="/login">
-                      <button id="logIn" type="button" className="blogin ">
+                      <Button variant="outline-primary"  type="button">
                         Login
-                      </button>
+                      </Button>
                     </Link>
                   ) : (
                     <Link to="/">
-                      <button
-                        id="login"
+                      <Button
+                      variant="outline-primary"
+                        
                         type="button"
                         onClick={() => actions.logout()}
                         className="blogin "
                       >
                         Logout
-                      </button>
+                      </Button>
                     </Link>
                   )}
                 </div>

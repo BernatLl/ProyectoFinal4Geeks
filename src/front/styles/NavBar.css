@@ -101,3 +101,8 @@ a {
   display: flex;
   flex-direction: row;
 }
+
+.dataresults{
+  background-color: transparent;
+}
+
