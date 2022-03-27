@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import Bernat from "../../img/Bernat.jpg"
 import Leo from "../../img/leoPerfil.jpg"
 import "../../styles/meetTheCrew.css"
-
+import { Row, Col } from "react-bootstrap";
 
 export const MeetTheCrew = ()=>{
     return (
         <>
-            <h1 className="crew mb-5" >Meet the crew</h1>
-            <div className="justify-content-md-center row row-cols-1 row-cols-md-3 g-4">
-                
-                <div className="col">
+            
+            <div className="container">
+                <h1 className="crew mb-5" >Meet the crew</h1>
+               <Row>
+                <div className="col-6">
                     <div className="card p-5" >
                         <img src={Leo} className="card-img-top" alt="Photo Leo"/>
                         <div className="card-body">
@@ -22,7 +23,7 @@ export const MeetTheCrew = ()=>{
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col-6">
                     <div className="card p-5" >
                         <img src={Bernat} className="card-img-top" alt="Photo Leo"/>
                         <div className="card-body">
@@ -34,7 +35,7 @@ export const MeetTheCrew = ()=>{
                         </div>
                     </div>
                 </div>
-            
+                </Row>
             </div>
         </>
     );
