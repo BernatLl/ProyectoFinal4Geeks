@@ -39,6 +39,7 @@ export const FormContacto = () => {
           <input
             type="text"
             className="form-control"
+            placeholder="+34 xxx-xxxxxx"
             id="inputPhoneNumber"
             required
           />
