@@ -12,11 +12,11 @@ export const PublicProfile = () => {
   }, [store.token]);
 
   return (
-    <>
-      <div className="container">
-        <div className="titulo-profile">
+    <><div className="titulo-profile">
           <h1>Public profile</h1>
         </div>
+      <div className="container">
+        
         {store.user.map((select, i) => (
           <div className="container-fluid" key={i}>
             <Row>
@@ -27,10 +27,14 @@ export const PublicProfile = () => {
               </Col>
               <Col className="col-6">
                 <div>
-                  <h4>Name: {select.full_name}</h4>
-                  <p>Description: {select.student_description}</p>
-                  <p>User Name: {select.username}</p>
-                  <p>Email: {select.email}</p>
+                  <h4>Name: </h4>
+                  <p>{select.full_name}</p>
+                  <h4>Description: </h4>
+                  <p>{select.student_description}</p>
+                  <h4>User Name: </h4>
+                  <p> {select.username}</p>
+                  <h4>Email: </h4>
+                  <p> {select.email}</p>
                 </div>
               </Col>
             </Row>

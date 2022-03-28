@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       token: null,
       urlapi:
-        "https://3001-bernatll-proyectofinal4g-q77vezpyo7c.ws-eu38.gitpod.io/api/",
+        "https://3001-bernatll-proyectofinal4g-2lvjd9tvq1k.ws-eu38.gitpod.io/api/",
 
       course: [],
 
@@ -210,6 +210,21 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) =>
             console.log("Error loading message from backend", error)
           );
+      },
+
+      deleteAccount: () => {
+        const store = getStore();
+        fetch(getStore().urlapi + "userinfo", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + store.token,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.warn(data);
+          });
       },
 
       // getUserInformation: async()=>{

@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../styles/formProfile.css"
 import Form from 'react-bootstrap/Form'
+import { Link } from "react-router-dom";
 
-import { Row, Col } from "react-bootstrap"
-import FormCheck from 'react-bootstrap/FormCheck'
 import Button from 'react-bootstrap/Button'
+import { Context } from "../store/appContext";
 
 export const CloseAccount =()=>{
+    const { store, actions } = useContext(Context);
+
+
     return(
         <>
             <h1>CloseAccount</h1>
@@ -21,8 +24,14 @@ Warning: If you close your account, you will be unsubscribed from all your cours
                         label="Yes, I want to close my Account"
                         required
                     />
-                    <Button as="input" type="submit" value="Close Account" />{' '}
-                   
+                    <Link to="/user">
+                        <Button variant="outline-primary" type="submit"  onClick={()=>{
+                            actions.deleteAccount(store.user.id);
+                            actions.logout();
+                            }}>Close Account</Button>
+                        
+                    </Link>                    
+                    
     
                 </fieldset>
             </Form>
