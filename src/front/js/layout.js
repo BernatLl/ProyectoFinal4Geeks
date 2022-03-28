@@ -10,12 +10,13 @@ import { User } from "./pages/user";
 import { Footer } from "./component/footer";
 import { Login } from "./pages/login";
 import { Search } from "./component/search";
-import { Payment } from "./pages/payment";
+import { Payment } from "../js/pages/payment";
 import { ChefProfile } from "./component/chefProfile";
 import { CreateUser } from "./pages/createUser";
 import { CourseView } from "./pages/CourseView";
 import { ModalPayment } from "../js/component/ModalPayment";
 import { Chef } from "./pages/chef";
+import { CheckoutForm } from "./component/checkoutForm";
 
 //create your first component
 const Layout = () => {

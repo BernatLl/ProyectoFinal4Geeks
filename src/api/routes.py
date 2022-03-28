@@ -1,6 +1,7 @@
 import os
-
-from flask import Flask, request, jsonify, url_for, Blueprint
+import json
+import stripe
+from flask import Flask, request, jsonify, url_for, Blueprint, redirect, render_template
 from api.models import db, User, Course, Chef
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
@@ -10,7 +11,8 @@ from flask_jwt_extended import JWTManager
 from werkzeug.security import generate_password_hash, check_password_hash
 
 api = Blueprint('api', __name__)
-
+endpoint_secret = 'whsec_bce29ad5d0d7e6092f17315b7a90bd2eb7777db2f4e9582828b2a44333f15d83'
+stripe.api_key = 'pk_test_51KX5EVHALwdtQVQYbbsSTSK7IiYobtzCy60HME3fmWgTJQau9FqM0ZNzX2U0hbfyMz0lBPdeq4aQ1ufuQX07FfCN00A23eYQaI'
 
 # Create a route to authenticate your users and return JWTs. The
 # create_access_token() function is used to actually generate the JWT.
@@ -178,61 +180,29 @@ def user_delete():
     return jsonify('User deleted'), 200
 
 
-
-#@api.route('/chef', methods=['GET'])
-# def get_chef():
-#     chef = Chef.query.all()
-#     chef_serialized = []
-#     for y in chef:
-#         chef_serialized.append(y.serialize())
-#     return jsonify({'results': chef_serialized}), 200
-
-#login
-# @api.route('/login', methods=['POST'])
-# def login():
-#     username, password = request.json.get(
-#         'username', None
-#     ), request.json.get(
-#         'password', None
-#     )
-#     if not (username and password):
-#         return jsonify({'message':'Data not provided'}), 400
-
-#     #TRAER DE MI BASE DE DATOS UN USUARIO POR EMAIL
-
-#     user = Student.query.filter_by(email = username)
-
-#     if not user:
-#         return jsonify({'message': 'Username is not valid'}), 404
-
-#     #comprobar si la contraseña es correcta    
-
-#     if not check_password_hash(user.password, password):
-#         return jsonify({'message':'Your password does not match'}), 500
-
-#     token = create_access_token(identity=user.id)
-#     return jsonify({'token': token}), 200
-    
-# @api.route('/signup', methods=['POST'])
-# def sign_up():
-
-#     email, full_name, username, password = request.json.get('email', None), request.json.get('full_name', None), request.json.get('nick_name', None), request.json.get('password', None)
-
-#     if not (email and full_name and username and password):
-#         return jsonify({'message':'Data not provided'}), 400
-
-#     passe = generate_password_hash(password) 
-#     user = Student(email=email, full_name=full_name, username=username, password = passe)   
-
-#     try:
-
-#         db.session.add(user)
-#         userCreated = db.session.commit()
-#         token = create_access_token(identity=userCreated.id)
-#         return jsonify({'token': token}), 201
-
-#     except Exception as err:
-#         return jsonify({'message': str(err)}), 500
+def calculate_order_amount(items):
+    # Replace this constant with a calculation of the order's amount
+    # Calculate the order total on the server to prevent
+    # people from directly manipulating the amount on the client
+    return 1400
 
 
-
+@api.route('/create-payment-intent', methods=['POST'])
+def create_payment():
+    try:
+        data = json.loads(request.data)
+        # Create a PaymentIntent with the order amount and currency
+        intent = stripe.PaymentIntent.create(
+            amount=calculate_order_amount(data['items']),
+            currency='eur',
+            automatic_payment_methods={
+                'enabled': True,
+            },
+        )
+        return jsonify({
+            'clientSecret': intent['client_secret']
+        })
+    except Exception as e:
+        return jsonify(error=str(e)), 403
+if __name__ == '__main__':
+    app.run(port=4242)

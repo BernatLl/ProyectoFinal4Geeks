@@ -18,7 +18,8 @@ import cloudinary.api
 
 ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
-app = Flask(__name__)
+app = Flask(__name__,  static_folder='public',
+            static_url_path='', template_folder='public')
 app.url_map.strict_slashes = False
 
 app.config["JWT_SECRET_KEY"] = os.environ.get('JWT_SECRET')

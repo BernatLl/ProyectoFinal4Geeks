@@ -1,132 +1,44 @@
-import React, { useEffect, useState } from "react";
-import {
-  Elements,
-  CardElement,
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
+import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import "../../styles/payment.css";
-import HeaderImg from "../../img/HeaderImg.jpg";
-import "../../styles/home.css";
-import "../../styles/listadoCursos.css";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import { Elements } from "@stripe/react-stripe-js";
 
-const stripePromise = loadStripe(
-  "pk_test_51KX5EVHALwdtQVQYbbsSTSK7IiYobtzCy60HME3fmWgTJQau9FqM0ZNzX2U0hbfyMz0lBPdeq4aQ1ufuQX07FfCN00A23eYQaI"
-);
+import {CheckoutForm} from "../component/checkoutForm.js";
+import "../../styles/checkoutForm.css"
 
-const handleSubmit = (stripe, elements) => async () => {
-  const cardElement = elements.getElement(CardElement);
+// Make sure to call loadStripe outside of a component’s render to avoid
+// recreating the Stripe object on every render.
+// This is your test publishable API key.
+const stripePromise = loadStripe("pk_test_51KX5EVHALwdtQVQYbbsSTSK7IiYobtzCy60HME3fmWgTJQau9FqM0ZNzX2U0hbfyMz0lBPdeq4aQ1ufuQX07FfCN00A23eYQaI");
 
-  const { error, paymentMethod } = await stripe.createPaymentMethod({
-    type: "card",
-    card: cardElement,
-  });
+export const Payment=()=> {
+  const [clientSecret, setClientSecret] = useState("");
 
-  if (error) {
-    console.log("[error]", error);
-  } else {
-    console.log("[PaymentMethod]", paymentMethod);
-    // ... SEND to your API server to process payment intent
-  }
-};
-
-const PaymentForm = () => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const inputStyle = {
-    iconColor: "#c4f0ff",
-    color: "rgba(217, 100, 89, 1)",
-    fontWeight: "500",
-    fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-    fontSize: "16px",
-    fontSmoothing: "antialiased",
-    background: "black",
-    ":-webkit-autofill": {
-      color: "#fce883",
-    },
-    "::placeholder": {
-      color: "#87BBFD",
-    },
-  };
-  const [coursesItems, setCourseItems] = useState([]);
   useEffect(() => {
-    setCourseItems(JSON.parse(localStorage.getItem("cart")));
+    // Create PaymentIntent as soon as the page loads
+    fetch("https://3001-bernatll-proyectofinal4g-dntucf8bxtm.ws-eu38.gitpod.io/api/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
   }, []);
 
+  const appearance = {
+    theme: 'stripe',
+  };
+  const options = {
+    clientSecret,
+    appearance,
+  };
+
   return (
-    <>
-      <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-      <div className="container">
-        <h1>Payment Page</h1>
-        <div className="paytext">
-          <h3>This are your selected courses to buy</h3>
-        </div>
-      </div>
-      <div className="container mt-0 pt-0">
-        <Row className="g-4 mb-5">
-          {coursesItems.map((select, i) => {
-            return (
-              <Col className="m-1">
-                <Card key={i}>
-                  <Card.Img
-                    className="card-img-top p-3"
-                    variant="top"
-                    src={select.img}
-                  />
-                  <Card.Body>
-                    <Card.Title>{select.course_name}</Card.Title>
-                    <Card.Text>{select.description}</Card.Text>
-                  </Card.Body>
-                  <Button
-                    variant="outline-primary"
-                    onClick={() => {
-                      let itemInCart = JSON.parse(localStorage.getItem("cart"));
-                      console.log(itemInCart);
-                      if (itemInCart.length == 1) {
-                        localStorage.setItem("cart", JSON.stringify([]));
-                        setCourseItems([]);
-                      } else if (itemInCart.length > 1) {
-                        let newcart = itemInCart.filter(
-                          (x) => x.id != select.id
-                        );
-
-                        localStorage.setItem("cart", JSON.stringify(newcart));
-                        setCourseItems(newcart);
-                      }
-                    }}
-                  >
-                    Delete from cart
-                  </Button>
-                </Card>
-              </Col>
-            );
-          })}
-        </Row>
-      </div>
-      <Card className="paymentCard">
-        <Card.Body>
-          <Card.Title>Payment</Card.Title>
-          <CardElement options={{ style: { base: inputStyle } }} />
-          <Button
-            className="buybutton"
-            variant="dark"
-            onClick={handleSubmit(stripe, elements)}
-          >
-            Buy
-          </Button>
-        </Card.Body>
-      </Card>
-    </>
+    <div className="Payment">
+      {clientSecret && (
+        <Elements options={options} stripe={stripePromise}>
+          <CheckoutForm />
+        </Elements>
+      )}
+    </div>
   );
-};
-
-export const Payment = () => (
-  <Elements stripe={stripePromise}>
-    <PaymentForm />
-  </Elements>
-);
+}
