@@ -13,7 +13,6 @@ import { ListadoCursos } from "../component/listadoCursos.js";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 
-
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
@@ -91,19 +90,14 @@ export const Home = () => {
           <div className="stuprof container">
             <Row>
               <div className="Students">
-                
-
-
                 <div className="StudentsText">
                   <img
-                  id="foto"
-                  className="StuPic"
-                  src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F37%2F2020%2F03%2FOnline-Cooking-Classes.jpg"
-                ></img>
-                     <p>
-                  <h5 className="StuTittle">Students</h5>
-               
-
+                    id="foto"
+                    className="StuPic"
+                    src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F37%2F2020%2F03%2FOnline-Cooking-Classes.jpg"
+                  ></img>
+                  <p>
+                    <h5 className="StuTittle">Students</h5>
                     Welcome to "We Cook", with us you will be able to access to
                     a digital library with hundreds of professional cooks around
                     the world, do you want to learn how to cut like a
@@ -114,35 +108,28 @@ export const Home = () => {
                     or skill with the rest of the world!!!!{" "}
                   </p>
                 </div>
-
               </div>
             </Row>
             <Row>
               <div className="Students">
-
-
-              <div className="StudentsText">
-                <p>
-                <h5 className="StuTittle">Professor</h5>
-                
-
-                  Welcome to "We Cook", with us you will be able to access to a
-                  digital library with hundreds of professional cooks around the
-                  world, do you want to learn how to cut like a professional
-                  Click here, Do you want to learn about Venezuelan food, New
-                  Zeleand, Canada, Scotland, etc? We give the chance to
-                  professional or no professional chefs around the world that
-                  want to share for a modest price their recipe or skill with
-                  the rest of the world!!!!{" "}
-                </p>
-                <img
-                  id="foto"
-                  className="StuPic"
-                  src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F37%2F2020%2F03%2FOnline-Cooking-Classes.jpg"
-                ></img>
-              </div>
-              
-                
+                <div className="StudentsText">
+                  <p>
+                    <h5 className="StuTittle">Professor</h5>
+                    Welcome to "We Cook" chefs of the world, with us you will be
+                    able to share your culinary skills with the whole planet!.
+                    Any cook with a recipe or a skill that might help the client
+                    to cook here you can write a course, we give you the
+                    necesary tools for you to develop a course. We give the
+                    chance to professional or no professional chefs around the
+                    world that want to share for a modest price their recipe or
+                    skill with the rest of the world!!!!{" "}
+                  </p>
+                  <img
+                    id="foto"
+                    className="StuPic"
+                    src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F37%2F2020%2F03%2FOnline-Cooking-Classes.jpg"
+                  ></img>
+                </div>
               </div>
             </Row>
           </div>
