@@ -17,9 +17,7 @@ export const Login =()=>{
     const { store, actions } = useContext(Context);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
-    
-    
+   
 
     const handleClick = ()=>{
         actions.login(email, password);
@@ -27,9 +25,6 @@ export const Login =()=>{
                    
     };
 
-    
-	
-	
     return(
         <>
         <img id="BackHead" className="mt-m" src={HeaderImg}></img>
@@ -57,9 +52,9 @@ export const Login =()=>{
                         </Col>
                         
                     </Form.Group>
-                    {/* <Link to="/"> */}
+                    {/* <Link to="/user">  */}
                      <Button variant="outline-primary" onClick={handleClick}>Login</Button>
-                     {/* </Link> */}
+                    {/* </Link> */}
 
                 </Form>}
                 

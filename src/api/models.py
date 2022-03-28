@@ -16,11 +16,9 @@ class User(db.Model):
     full_name = db.Column(db.String(240), nullable=False)
     email = db.Column(db.String(240), unique=True, nullable=False)
     password = db.Column(db.String(240), unique=False, nullable=False)
-    
     student_description = db.Column(db.String(400), nullable=True)
     username = db.Column(db.String(120), unique=True, nullable=False)
-    
-    image = db.Column(db.String(240), unique=True, nullable=True)
+    image = db.Column(db.String(240), nullable=True)
     
     
     def __repr__(self):
@@ -33,7 +31,6 @@ class User(db.Model):
             'full_name': self.full_name ,
             'student_description': self.student_description ,
             'username': self.username ,
-            
             'image': self.image ,
             
             # do not serialize the password, its a security breach
@@ -90,13 +87,13 @@ class Course(db.Model):
     description = db.Column(db.String(500),  nullable=False)
     ingredient = db.Column(db.String(200),  nullable=False)
     list_ingredient = db.Column(db.String(500),  nullable=False)
-    recipe = db.Column(db.String(1000), unique=True, nullable=False)
-    history = db.Column(db.String(1000), unique=True, nullable=False)
+    recipe = db.Column(db.String(1000), nullable=False)
+    history = db.Column(db.String(1000), nullable=False)
     curiosity = db.Column(db.String(1000),  nullable=False)
     price = db.Column(db.Float, nullable=False)
     title = db.Column(db.String(200),  nullable=False)
-    video = db.Column(db.String(240), unique=True, nullable=False)
-    img = db.Column(db.String(240), unique=True, nullable=False)
+    video = db.Column(db.String(500), unique=True, nullable=False)
+    img = db.Column(db.String(500), unique=True, nullable=False)
     # tags = db.relationship('User', secondary=tags, lazy='subquery', backref=db.backref('user', lazy=True))
    
 

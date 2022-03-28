@@ -12,32 +12,32 @@ export const PublicProfile = () => {
   }, [store.token]);
 
   return (
-    <>
-      <div className="titulo-profile">
-        <h1>Public profile</h1>
-      </div>
-      
-
+    <><div className="titulo-profile">
+          <h1>Public profile</h1>
+        </div>
       <div className="container">
-      
-        {store.user.map((select, i)=>(
+        
+        {store.user.map((select, i) => (
           <div className="container-fluid" key={i}>
             <Row>
               <Col className="col-6">
-                  <div   >
-                  <img src={select.image} className="fotoperfil"  />
-                  </div>
-              </Col> 
-              <Col className="col-6">   
-                  <div>
-                    <h4>{select.full_name}</h4>
-                    <p>{select.student_description}</p>
-                    <p>{select.username}</p>
-                    <p>{select.email}</p>
-                  </div>
-              </Col>    
+                <div>
+                  <img src={select.image} className="fotoperfil" />
+                </div>
+              </Col>
+              <Col className="col-6">
+                <div>
+                  <h4>Name: </h4>
+                  <p>{select.full_name}</p>
+                  <h4>Description: </h4>
+                  <p>{select.student_description}</p>
+                  <h4>User Name: </h4>
+                  <p> {select.username}</p>
+                  <h4>Email: </h4>
+                  <p> {select.email}</p>
+                </div>
+              </Col>
             </Row>
-            
           </div>
         ))}
       </div>

@@ -111,7 +111,7 @@ def get_chef_by_id():
 #     db.session.commit()
 #     return jsonify({'response':user.serialize()}), 200
 
-@api.route('/edituser/', methods=['PUT'])
+@api.route('/editstudent/', methods=['PUT'])
 def user():
     body = request.get_json()
     user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
@@ -161,6 +161,23 @@ def get_my_information():
     }
    
     return jsonify(dictionary)
+
+@api.route('/deleteaccount', methods=['DELETE'])
+@jwt_required()
+def user_delete():
+    
+    userId = get_jwt_identity()
+    if not userId:
+        return jsonify({'Error':'User not found'}), 404
+    user = User.query.filter_by(id=userId).one_or_none()
+    print("user deleted", user)
+    # user.delete()
+    
+    db.session.delete(user)
+    db.session.commit()
+    return jsonify('User deleted'), 200
+
+
 
 #@api.route('/chef', methods=['GET'])
 # def get_chef():
