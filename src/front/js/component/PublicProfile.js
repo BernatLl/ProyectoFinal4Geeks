@@ -13,13 +13,13 @@ export const PublicProfile = () => {
 
   return (
     <>
-      <div className="titulo-profile">
-        <h1>Public profile</h1>
-      </div>
+      
       
 
       <div className="container">
-      
+      <div className="titulo-profile">
+        <h1>Public profile</h1>
+      </div>
         {store.user.map((select, i)=>(
           <div className="container-fluid" key={i}>
             <Row>
@@ -30,10 +30,10 @@ export const PublicProfile = () => {
               </Col> 
               <Col className="col-6">   
                   <div>
-                    <h4>{select.full_name}</h4>
-                    <p>{select.student_description}</p>
-                    <p>{select.username}</p>
-                    <p>{select.email}</p>
+                    <h4>Name: {select.full_name}</h4>
+                    <p>Description: {select.student_description}</p>
+                    <p>User Name: {select.username}</p>
+                    <p>Email: {select.email}</p>
                   </div>
               </Col>    
             </Row>

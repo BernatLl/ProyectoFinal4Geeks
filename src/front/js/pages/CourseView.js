@@ -8,6 +8,8 @@ import HeaderImg from "../../img/HeaderImg.jpg";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import "../../../../node_modules/video-react/dist/video-react.css";
+import {Image, Video, Transformation} from "cloudinary-react";
 
 export const CourseView = () => {
   const { store, actions } = useContext(Context);
@@ -54,7 +56,12 @@ export const CourseView = () => {
                 <h4>{courseDetail.course_name}</h4>
               </div>
               <div>
-                <img className="videowrapper" src={courseDetail.img} />
+              <iframe src={courseDetail.video}
+        frameborder="0"
+        allow='autoplay; encrypted-media'
+        allowfullscreen
+        title="video"
+/>
               </div>
             </div>
 

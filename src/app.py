@@ -11,6 +11,9 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from flask_jwt_extended import JWTManager
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 #from models import Person
 
 ENV = os.getenv("FLASK_ENV")
@@ -20,6 +23,12 @@ app.url_map.strict_slashes = False
 
 app.config["JWT_SECRET_KEY"] = os.environ.get('JWT_SECRET')
 jwt = JWTManager(app)
+
+cloudinary.config( 
+  cloud_name = "bernardo-lloret", 
+  api_key = "245136633634327", 
+  api_secret = "6WcOfhu8tjIf3gs85gg0sgObZuU" 
+)
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")
