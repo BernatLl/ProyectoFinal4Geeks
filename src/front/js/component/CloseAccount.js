@@ -26,7 +26,7 @@ Warning: If you close your account, you will be unsubscribed from all your cours
                     />
                     <Link to="/user">
                         <Button variant="outline-primary" type="submit"  onClick={()=>{
-                            actions.deleteAccount(store.user.id);
+                            actions.deleteAccount();
                             actions.logout();
                             }}>Close Account</Button>
                         

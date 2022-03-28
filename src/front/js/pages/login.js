@@ -52,9 +52,9 @@ export const Login =()=>{
                         </Col>
                         
                     </Form.Group>
-                    <Link to="/user"> 
+                    {/* <Link to="/user">  */}
                      <Button variant="outline-primary" onClick={handleClick}>Login</Button>
-                    </Link>
+                    {/* </Link> */}
 
                 </Form>}
                 

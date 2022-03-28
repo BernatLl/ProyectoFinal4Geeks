@@ -162,15 +162,20 @@ def get_my_information():
    
     return jsonify(dictionary)
 
-@api.route('/userinfo', methods=['DELETE'])
+@api.route('/deleteaccount', methods=['DELETE'])
 @jwt_required()
 def user_delete():
     
     userId = get_jwt_identity()
-    user = User.query.filter_by(id=userId)
+    if not userId:
+        return jsonify({'Error':'User not found'}), 404
+    user = User.query.filter_by(id=userId).one_or_none()
+    print("user deleted", user)
+    # user.delete()
+    
     db.session.delete(user)
     db.session.commit()
-    
+    return jsonify('User deleted'), 200
 
 
 

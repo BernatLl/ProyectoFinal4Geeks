@@ -49,34 +49,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("this came from the backend", data);
           localStorage.setItem("token", data.token);
           setStore({ token: data.token });
+          getActions().loadUser();
           return true;
         } catch (error) {
           console.error("Error!!!!!", error);
         }
       },
-      // .catch(error =>{
-      //   console.error("Error!!!!!", error);
-      // })
-      // const data = await response.json();
-      // localStorage.setItem("token", data.token);
-      // setStore({ token: data.token });
-      // setStore({ token: data });
 
-      // loadStudents: () => {
-      //   const store = getStore();
-      //   fetch(getStore().urlapi + "user", {
-      //     method: "GET",
-      //     headers: {
-      //       Authorization: "Bearer " + store.token,
-      //     },
-      //   })
-      //     .then((response) => response.json())
-      //     .then((data) => {
-      //       setStore({ student: data.results });
-      //       console.log(data.results);
-      //     })
-      //     .catch((error) => console.error(error));
-      // },
       loadUser: () => {
         const store = getStore();
         fetch(getStore().urlapi + "userinfo", {
@@ -214,7 +193,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       deleteAccount: () => {
         const store = getStore();
-        fetch(getStore().urlapi + "userinfo", {
+        fetch(getStore().urlapi + "deleteaccount", {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
