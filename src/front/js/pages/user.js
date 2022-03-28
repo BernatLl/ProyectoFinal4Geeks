@@ -93,7 +93,7 @@ export const User = () => {
         </>
       ) : (
         <>
-          <div className="container pt-5 my-5">
+          <div className="container pt-6 my-4">
             <Tab.Container
               id="left-tabs-example"
               defaultActiveKey="first"

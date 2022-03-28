@@ -1,7 +1,7 @@
 .container-footer {
   width: 100%;
-  margin: 0%;
-  margin-top: 50px;
+  
+  margin-top: 10%;
   color: rgba(217, 100, 89, 1);
   padding: 0.4%;
   text-align: left;
@@ -16,7 +16,7 @@
 .footer {
   background-color: #262626;
   opacity: 0.8;
-  max-height: 30vw;
+  max-height: 20vw;
   justify-content: space-evenly;
 }
 

@@ -12,10 +12,12 @@ export const PublicProfile = () => {
   }, [store.token]);
 
   return (
-    <><div className="titulo-profile">
+    <>
+    <div className="container pt-10">
+      <div className="titulo-profile">
           <h1>Public profile</h1>
         </div>
-      <div className="container">
+      
         
         {store.user.map((select, i) => (
           <div className="container-fluid" key={i}>
