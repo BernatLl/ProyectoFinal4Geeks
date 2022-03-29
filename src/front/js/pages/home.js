@@ -24,9 +24,7 @@ export const Home = () => {
 
   return (
     <>
-      <div>
-        {store.token && <div className="alert alert-info">{store.message}</div>}
-      </div>
+      
 
       <div className="BackHome">
         <img id="BackHead" className="mt-m" src={HeaderImg}></img>
