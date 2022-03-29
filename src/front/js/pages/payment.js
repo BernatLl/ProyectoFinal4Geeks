@@ -111,6 +111,7 @@ const PaymentForm = () => {
       <Card className="paymentCard">
         <Card.Body>
           <Card.Title>Payment</Card.Title>
+          <div></div>
           <CardElement options={{ style: { base: inputStyle } }} />
           <Button
             className="buybutton"
