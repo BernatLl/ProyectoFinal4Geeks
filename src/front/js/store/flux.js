@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       message: null,
       token: null,
+      tokenchef: null,
       urlapi:
         "https://3001-bernatll-proyectofinal4g-0hg8qcy39bg.ws-eu38.gitpod.io/api/",
 
@@ -28,9 +29,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ chef: data.results }))
           .catch((error) => console.error(error));
       },
-      login: async (username, password) => {
+      loginUser: async (username, password) => {
         try {
-          const resp = await fetch(getStore().urlapi + "login", {
+          const resp = await fetch(getStore().urlapi + "loginuser", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -55,13 +56,40 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error("Error!!!!!", error);
         }
       },
+      loginChef: async (email, password) => {
+        try {
+          const resp = await fetch(getStore().urlapi + "loginchef", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              username: email,
+              password: password,
+            }),
+          });
+          if (resp.status !== 200) {
+            alert("Error!!!");
+            return false;
+          }
+          const data = await resp.json();
+          console.log("this came from the backend", data);
+          localStorage.setItem("tokenchef", data.token);
+          setStore({ tokenchef: data.token });
+          getActions().loadUser();
+          return true;
+        } catch (error) {
+          console.error("Error!!!!!", error);
+        }
+      },
 
       loadUser: () => {
         const store = getStore();
         fetch(getStore().urlapi + "userinfo", {
           method: "GET",
           headers: {
-            Authorization: "Bearer " + store.token,
+            Authorization: "Bearer " + store.tokenuser,
           },
         })
           .then((response) => response.json())
@@ -73,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       createUser: (newStudent) => {
-        fetch(getStore().urlapi + "signup", {
+        fetch(getStore().urlapi + "signupuser", {
           method: "POST",
           body: JSON.stringify(newStudent),
           headers: {
@@ -89,7 +117,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((err) => console.log(err));
       },
       createChef: (newChef) => {
-        fetch(getStore().urlapi + "newchef", {
+        fetch(getStore().urlapi + "signupchef", {
           method: "POST",
           body: JSON.stringify(newChef),
           headers: {
@@ -99,7 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((res) => res.json())
           .then((responseAsJason) => {
             setStore({
-              chef: [...getStore().newChef, responseAsJason],
+              user: [...getStore().newChef, responseAsJason],
             });
           })
           .catch((err) => console.log(err));
@@ -190,8 +218,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.warn(data);
           });
       },
-    }
-  }
-}
+    },
+  };
+};
 
 export default getState;

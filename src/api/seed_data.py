@@ -1,33 +1,6 @@
 data = {
-    
-    'Chef' : [
-        {
-            'id': 1,
-            'email': 'Chef1@4geeks.com',
-            'full_name' : 'Chef Primero',
-            'chef_description' : 'I am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
-            'bank_info' : 'ES52 2356 2541 1254 1258',
-            'address': 'Calle Edison, 3 Madrid',
-        }  , 
-        {
-            'id': 2,
-            'email': 'Chef2@4geeks.com',
-            'full_name' : 'Chef Segundo',
-            'chef_description' : 'xxI am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
-            'bank_info' : 'ES49 1254 25987 9874 6578',
-            'address': 'Calle Velazquez, 57 Madrid',
-        } ,  
-        {
-            'id': 3,
-            'email': 'Chef3@4geeks.com',
-            'full_name' : 'Chef Tercero',
-            'chef_description' : 'xI am a professional Cook with more than 14 years of experiencie in 9 cities of 4 countries. In my experieence most of people have big curiosity about the professional cooking world. So today i Bring you my idea, to share knowledge and connect cultures from all around the world in your screen.',
-            'bank_info' : 'ES96 6589 5478 2541 6523',
-            'address': 'Calle Colon, 25 Valencia',
-        }   
-        
-    ],
-    "Course" : [
+       
+       "Course" : [
         {
             'id': 1,
             'course_name': 'Course Pasta',  

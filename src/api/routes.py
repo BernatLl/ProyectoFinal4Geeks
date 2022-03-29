@@ -14,8 +14,8 @@ api = Blueprint('api', __name__)
 
 # Create a route to authenticate your users and return JWTs. The
 # create_access_token() function is used to actually generate the JWT.
-@api.route('/login', methods=['POST'])
-def login():
+@api.route('/loginuser', methods=['POST'])
+def loginuser():
     
     username, password = request.json.get('username', None), request.json.get('password', None)
     if not (username and password):
@@ -31,10 +31,29 @@ def login():
         return jsonify({'message': 'Your pass doesn"t match'}), 500
 
     token = create_access_token(identity=user.id)
-    return jsonify({'token': token}), 200
+    return jsonify({'tokenuser': token}), 200
 
-@api.route('/signup', methods=["POST"])
-def signUp():
+@api.route('/loginchef', methods=['POST'])
+def loginchef():
+    
+    email, password = request.json.get('username', None), request.json.get('password', None)
+    if not (email and password):
+        return jsonify({'message': 'Data not provided'}), 400
+    
+    # traer de mi base de datos un usuario por su email
+    chef = Chef.query.filter_by(email=email).one_or_none()
+    if not chef:
+        return jsonify({'message': 'Email is not valid'}), 404
+
+    #comprobar si la contraseña es correcta
+    if not check_password_hash(chef.password, password):
+        return jsonify({'message': 'Your pass doesn"t match'}), 500
+
+    token = create_access_token(identity=chef.id)
+    return jsonify({'tokenchef': token}), 200
+
+@api.route('/signupuser', methods=["POST"])
+def signUpUser():
 
     username, full_name, email, password, student_description, image  = request.json.get('username', None), request.json.get('full_name', None), request.json.get('email', None), request.json.get('password', None), request.json.get('student_description', None), request.json.get('image', None)
 
@@ -50,6 +69,29 @@ def signUp():
         userCreated = db.session.commit()
         token = create_access_token(identity=userCreated.id)
         return jsonify({'token': token}), 201
+
+    except Exception as err:
+        return jsonify({'message': str(err)}), 500
+
+ # Authorization: Bearer <token> => si no viene 401
+
+@api.route('/signupchef', methods=["POST"])
+def signUpChef():
+
+    full_name, email, password, chef_description, image  =  request.json.get('full_name', None), request.json.get('email', None), request.json.get('password', None), request.json.get('chef_description', None), request.json.get('imagechef', None)
+
+    if not (email and password):
+        return jsonify({'message': 'Data not provided'}), 400
+
+    passe = generate_password_hash(password)
+    
+    chef = Chef(email=email, password=passe, full_name=fullname, chef_description=student_description, imagechef=imagechef)
+    try:
+
+        db.session.add(chef)
+        chefCreated = db.session.commit()
+        token = create_access_token(identity=chefCreated.id)
+        return jsonify({'tokenchef': token}), 201
 
     except Exception as err:
         return jsonify({'message': str(err)}), 500
@@ -122,7 +164,7 @@ def user():
 @api.route('/newchef', methods=['POST'])
 def create_chef():
     body = request.get_json()
-    chef = Chef(address=body['address'], email=body['email'], full_name=body['full_name'], chef_description=body['chef_description'], bank_info=body['bank_info'])
+    chef = Chef(password=body['password'], email=body['email'], full_name=body['full_name'], chef_description=body['chef_description'], imagechef=body['imagechef'])
     db.session.add(chef)
     db.session.commit()
     return jsonify({'response':chef.serialize()}), 200

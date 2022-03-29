@@ -121,7 +121,7 @@ export const Profile = () => {
               />
             </Form.Group>
 
-            {!store.token ? (
+            {!store.tokenuser ? (
               <Link to="/login">
                 <button
                   id="TextInput"

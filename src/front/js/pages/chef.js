@@ -19,14 +19,14 @@ import Button from "react-bootstrap/Button";
 export const Chef = () => {
   const { store, actions } = useContext(Context);
   useEffect(() => {
-    if (store.token && store.token != "" && store.token != undefined)
+    if (store.tokenchef && store.tokenchef != "" && store.tokenchef != undefined)
       actions.loadChefs();
-  }, [store.token]);
+  }, [store.tokenchef]);
 
   return (
     <>
       <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-      {!store.token ? (
+      {!store.tokenchef ? (
         <>
           <div className="container">
             <Row>
@@ -49,7 +49,7 @@ export const Chef = () => {
                 </p>
 
                 <div className="buttonsLog">
-                  {!store.token ? (
+                  {!store.tokenchef ? (
                     <Link to="/chefprofile">
                       <Button variant="outline-primary"  type="button">
                         Create a chef profile
@@ -67,7 +67,7 @@ export const Chef = () => {
                       </Button>
                     </Link>
                   )}
-                  {!store.token ? (
+                  {!store.tokenchef ? (
                     <Link to="/login">
                       <Button variant="outline-primary"  type="button">
                         Login

@@ -106,7 +106,7 @@ export const User = () => {
                     <Nav.Item>
                       <Nav.Link eventKey="first">Public Profile</Nav.Link>
                     </Nav.Item>
-                    
+
                     <Nav.Item>
                       <Nav.Link eventKey="5">Close account</Nav.Link>
                     </Nav.Item>
@@ -127,8 +127,7 @@ export const User = () => {
           </div>
           <h1 className="titulo">My Courses</h1>
           <div className="container">
-          <CourseUser/>
-
+            <CourseUser />
           </div>
         </>
       )}

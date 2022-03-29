@@ -10,13 +10,39 @@ import HeaderImg from "../../img/HeaderImg.jpg";
 
 export const ChefProfile = () => {
   const { store, actions } = useContext(Context);
-  const id = useParams().id;
+  
   const [newChef, setNewChef] = useState({});
 
+
+  const [picture, setPicture] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const uploadImage = async (e) => {
+   
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'ml_default')
+    setLoading(true)
+    const res = await fetch(
+      '	https://api.cloudinary.com/v1_1/bernardo-lloret/image/upload',
+      {
+        method: "POST",
+        body: data,
+        
+      }
+    )
+    const file = await res.json();
+
+    setPicture(file.secure_url);
+    setNewChef({ ...newChef, imagechef: file.secure_url })
+    setLoading(false)
+    
+  }
   return (
     <>
      <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-      {!store.token ? (
+      {!store.tokenchef ? (
         <div className="container">
           <h1>Create Chef Profile</h1>
           <Form>
@@ -43,24 +69,18 @@ export const ChefProfile = () => {
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Control
+                  type="password"
                   id="TextInput"
-                  placeholder="Add an address"
+                  placeholder="Password"
                   onChange={(e) => {
                     e.preventDefault();
-                    setNewChef({ ...newChef, address: e.target.value });
+                    setNewChef({ ...newChef, password: e.target.value });
                   }}
                 />
               </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Control
-                  id="TextInput"
-                  placeholder="Add a Bank Account"
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setNewChef({ ...newChef, bank_info: e.target.value });
-                  }}
-                />
-              </Form.Group>
+              <input type="file"  placeholder="Select an image"
+                onChange={uploadImage} />
+                {loading ? (<h3>Loading...</h3>): (<img src={picture} style={{width: "200px"}} />)}
 
               <Form.Group
                 className="mb-3"
