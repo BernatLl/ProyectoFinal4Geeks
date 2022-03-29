@@ -37,7 +37,7 @@ export const NavTop = () => {
         </Col>
         <Col className="buttons">
           <div className="endbuttons col-xl">
-            {!store.token ? (
+            {/* {!store.token ? (
               <Link to="/login">
                 <button id="logIn" type="button" className="blogin ">
                   Cart
@@ -47,7 +47,7 @@ export const NavTop = () => {
               <Link to="/payment">
                 <button className="bcart ">Cart</button>
               </Link>
-            )}
+            )} */}
 
             {!store.token ? (
               <Link to="/createuser">

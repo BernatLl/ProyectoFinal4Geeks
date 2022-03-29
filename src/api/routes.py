@@ -190,3 +190,31 @@ def course_user():
         return jsonify(allcourses), 200
     return ({'error':'No ha funcionado'}), 404
 
+@api.route('/savecourseuser/<int:course_id>', methods=['POST'])
+@jwt_required()
+def save_course_user(course_id):
+
+    id = get_jwt_identity()
+    student = User.query.get(id)
+    
+    course = Course.query.get(course_id)
+    if course not in student.tags:
+        student.tags.append(course)
+        db.session.add(course)
+        db.session.commit()
+        return jsonify({'response': True}),200
+
+@api.route('/deletecourseuser/<int:course_id>', methods=['DELETE'])
+@jwt_required()
+def delete_course_user(course_id):
+
+    id = get_jwt_identity()
+    student = User.query.get(id)
+    
+    course = Course.query.get(course_id)
+    
+    student.tags.remove(course)
+    
+    db.session.commit()
+    return jsonify({'response': True}),200
+    

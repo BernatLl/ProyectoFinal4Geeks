@@ -6,7 +6,7 @@ import Gordom from "../../img/GordomRamsay.jpg";
 import Jiro from "../../img/JirosDream.png";
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { MeetTheCrew } from "../component/meetTheCrew.js";
+
 import { FormContacto } from "../component/formContacto.js";
 import { ListadoCursos } from "../component/listadoCursos.js";
 
@@ -148,7 +148,7 @@ export const Home = () => {
           </div>
           <div className="text-center mt-5">
             <ListadoCursos />
-            <MeetTheCrew />
+            
             <FormContacto />
           </div>
         </div>

@@ -16,6 +16,7 @@ export const CourseUser = () => {
     actions.getCourseOfUser();
   }, []);
 
+  
   return (
     <>
       <div className="container">
@@ -36,6 +37,14 @@ export const CourseUser = () => {
                   <Link to={"/courseview/" + select.id}>
                     <Button variant="outline-primary">View Course</Button>
                   </Link>
+                  <Button
+                    onClick={() => {
+                      actions.DeleteCourseUser(select.id);
+                    }}
+                    variant="outline-primary"
+                  >
+                    Delete from my Courses
+                  </Button>
                 </div>
               </Card>
             </Col>

@@ -16,7 +16,9 @@ export const ListadoCursos = () => {
 
   useEffect(() => {
     actions.loadCourses();
+    
   }, []);
+  
 
   return (
     <>
@@ -40,8 +42,16 @@ export const ListadoCursos = () => {
                   <Link to={"/courseview/" + select.id}>
                     <Button variant="outline-primary">Read More</Button>
                   </Link>
+                  <Button variant="outline-primary"
+                  onClick={()=>{
+                    actions.SaveCourseUser(select.id);
+                  }}
+                  
+                  >Add to my Courses</Button>
 
-                  <Button
+
+
+                  {/* <Button
                     variant="outline-primary"
                     onClick={() => {
                       let itemInCart = JSON.parse(localStorage.getItem("cart"));
@@ -60,7 +70,7 @@ export const ListadoCursos = () => {
                     }}
                   >
                     Add to cart
-                  </Button>
+                  </Button> */}
                 </div>
               </Card>
             </Col>

@@ -53,9 +53,7 @@ const Layout = () => {
                 <Route exact path="/search">
                   <Search />
                 </Route>
-                <Route exact path="/payment">
-                  <Payment />
-                </Route>
+                
                 <Route exact path="/courseview/:id">
                   <CourseView />
                 </Route>

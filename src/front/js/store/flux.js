@@ -193,8 +193,44 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.warn(data);
           });
       },
-    },
-  };
+      SaveCourseUser: async (courseId) => {
+        const response = await fetch(
+          getStore().urlapi + "savecourseuser/" + courseId,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+
+        if (response.status == 200) {
+          getActions().getCourseOfUser();
+          const blabla = await response.json();
+          return blabla.response;
+        }
+      },
+
+      DeleteCourseUser: async (courseId) => {
+        const response = await fetch(
+          getStore().urlapi + "deletecourseuser/" + courseId,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        )
+        if (response.status == 200) {
+          getActions().getCourseOfUser();
+          const blabla = await response.json();
+          return blabla.response;
+        }
+      }
+  }}
 };
 
 export default getState;
