@@ -4,10 +4,10 @@ from sqlalchemy.orm import relationship, backref
 
 db = SQLAlchemy()
 
-tags = db.Table('tags',
-  db.Column('user_id', db.Integer, db.ForeignKey('user.id'),primary_key=True),
-  db.Column('course_id', db.Integer, db.ForeignKey('course.id'),primary_key=True),
- )
+# tags = db.Table('tags',
+#   db.Column('user_id', db.Integer, db.ForeignKey('user.id'),primary_key=True),
+#   db.Column('course_id', db.Integer, db.ForeignKey('course.id'),primary_key=True),
+#  )
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -19,8 +19,9 @@ class User(db.Model):
     student_description = db.Column(db.String(400), nullable=True)
     username = db.Column(db.String(120), unique=True, nullable=False)
     image = db.Column(db.String(240), nullable=True)
-    tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('course', lazy=True))
-    
+    #tags = db.relationship('Course', secondary=tags, lazy='subquery', backref=db.backref('course', lazy=True))
+    #courses = db.relationship('Course', backref='course', lazy=True)
+
     def __repr__(self):
         return f'User {self.id} {self.full_name}'
 
@@ -32,7 +33,7 @@ class User(db.Model):
             'student_description': self.student_description ,
             'username': self.username ,
             'image': self.image ,
-            'tags': [user_course.serialize() for user_course in self.tags]
+            #'tags': [user_course.serialize() for user_course in self.tags]
             # do not serialize the password, its a security breach
         }
 
@@ -95,6 +96,7 @@ class Course(db.Model):
     video = db.Column(db.String(500), unique=True, nullable=False)
     img = db.Column(db.String(500), unique=True, nullable=False)
     
+   #user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
    
 
     def __repr__(self):
@@ -113,7 +115,8 @@ class Course(db.Model):
             'price': self.price,
             'title': self.title,
             'video': self.video,
-            'img' : self.img
+            'img' : self.img,
+            #'user':User.query.get(self.user_id).serialize()
         }
     
 

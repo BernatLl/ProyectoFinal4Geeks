@@ -177,7 +177,14 @@ def user_delete():
     db.session.commit()
     return jsonify('User deleted'), 200
 
-
+@api.route('/user/course', methods=['GET'])
+@jwt_required()
+def course_user():
+    
+    id = get_jwt_identity()
+    courses = Course.query.filter(Course.user_id == id)
+    
+    return ({'results':[course.serialize() for course in courses]})
 
 #@api.route('/chef', methods=['GET'])
 # def get_chef():

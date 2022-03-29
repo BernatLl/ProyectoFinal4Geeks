@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 import { Row, Col } from "react-bootstrap";
 import { PublicProfile } from "../component/PublicProfile";
 import { Profile } from "../component/Profile";
-
+import Card from "react-bootstrap/Card";
 import { CloseAccount } from "../component/CloseAccount.js";
 import "../../styles/student.css";
 import { ListadoCursos } from "../component/listadoCursos.js";
@@ -16,6 +16,7 @@ import HeaderImg from "../../img/HeaderImg.jpg";
 import { ChefProfile } from "../component/chefProfile";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { CourseUser } from "../component/courseUser";
 
 export const User = () => {
   const { store, actions } = useContext(Context);
@@ -125,7 +126,10 @@ export const User = () => {
             </Tab.Container>
           </div>
           <h1 className="titulo">My Courses</h1>
-          <div className="container"></div>
+          <div className="container">
+          <CourseUser/>
+
+          </div>
         </>
       )}
 

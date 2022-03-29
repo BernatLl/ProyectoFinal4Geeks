@@ -30,9 +30,9 @@ export const Profile = () => {
         
       }
     )
-    const file = await res.json()
+    const file = await res.json();
 
-    
+    setPicture(file.secure_url);
     setNewStudent({ ...newStudent, image: file.secure_url })
     setLoading(false)
     

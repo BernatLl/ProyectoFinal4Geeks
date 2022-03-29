@@ -12,6 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       newCourse: [],
       newChef: [],
       user: [],
+      courseUser: [],
     },
     actions: {
       loadCourses: () => {
@@ -144,34 +145,19 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.removeItem("token");
         setStore({ token: null });
       },
+      getCourseOfUser: async () => {
+        const response = await fetch(getStore().URLAPIDOGS + "user/course/", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        const data = await response.json();
 
-      // login: async (email, password) => {
-      //   const opts = {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       email: email,
-      //       password: password,
-      //     }),
-      //   };
-      //   try {
-      //     const resp = await fetch(getStore().urlapi + "token", opts);
-      //     if (resp.status !== 200) {
-      //       alert("There has been an error!!!");
-      //       return false;
-      //     }
-
-      //     const data = await resp.json();
-      //     sessionStorage.getItem("token", data);
-      //     setStore({ token: data });
-      //     console.log("token", getStore().token);
-      //     return true;
-      //   } catch (error) {
-      //     console.error("There was been an error login in");
-      //   }
-      // },
+        setStore({ courseUser: data.results });
+      },
 
       getMessage: () => {
         const store = getStore();
@@ -204,21 +190,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.warn(data);
           });
       },
-
-      // getUserInformation: async()=>{
-      // 	const response = await fetch(
-      // 		"https://3001-bernatll-proyectofinal4g-uson41704j4.ws-eu34xl.gitpod.io/api/" + "user", {
-      // 			headers: {
-      // 				'Accept':'application/json',
-      // 				'Authorization': `Bearer ${localStorage.getItem('token')}`
-      // 			}
-      // 		}
-      // 	);
-      // 	const data = await response.json();
-      // 	console.log(data); //Informacion del usuario que inicia sesion
-      // },
-    },
-  };
-};
+    }
+  }
+}
 
 export default getState;
