@@ -29,23 +29,24 @@ export const Home = () => {
       </div>
 
       <div className="BackHome">
+        <img id="BackHead" className="mt-m" src={HeaderImg}></img>
         <div className="Home">
-          <img id="BackHead" className="mt-m" src={HeaderImg}></img>
-          <Row>
-            <Col>
+          
+          <Row className="justify-content-md-center">
+            <Col lg="6">
           <div className="mt-m" id="Bourdain">
-            <h3>If I'm an advocate for anything,</h3>
-            <h3>it's to move. As far as you can, </h3>
-            <h3>as much as you can. Across the</h3>
-            <h3>ocean, or simply across the river.</h3>
-            <h3>Walk in someone else's shoes or</h3>
-            <h3>at least eat their food. It's a plus</h3>
-            <h3>for everybody.</h3>
+            <h3>If I'm an advocate for anything,
+            it's to move. As far as you can, 
+            as much as you can. Across the
+            ocean, or simply across the river.
+            Walk in someone else's shoes or
+            at least eat their food. It's a plus
+            for everybody.</h3>
             <h3 className="Anthony">-Anthony Bourdain</h3>
           </div>
           </Col>
-          <Col>
-          <div className="carousel row">
+          <Col lg="6">
+          <div className="carousel row"> 
             <Carousel className="TopFive">
               <Carousel.Item>
                 <img className="d-block w-100" src={Antho} alt="First slide" />
