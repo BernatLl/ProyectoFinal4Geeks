@@ -25,8 +25,8 @@ export const ListadoCursos = () => {
         <h1 className="title">Courses List</h1>
         <Row className="g-4 mb-5">
           {store.course.map((select, i) => (
-            <Col className="m-5">
-              <Card key={i}>
+            <Col className="m-5"key={i}>
+              <Card >
                 <Card.Img
                   className="card-img-top p-3"
                   variant="top"

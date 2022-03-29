@@ -146,17 +146,20 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ token: null });
       },
       getCourseOfUser: async () => {
-        const response = await fetch(getStore().URLAPIDOGS + "user/course/", {
+        const store = getStore();
+        const response = await fetch(getStore().urlapi + "user/course", {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: "Bearer " + store.token,
           },
         });
-        const data = await response.json();
-
-        setStore({ courseUser: data.results });
+        if (response.ok) {
+          const data = await response.json();
+          console.log("AAAAAAAAAAAAAA"+data);
+          setStore({courseUser:data });
+          
+        }
+        console.log("esto es lo que tengo"+getStore(store.courseUser));
       },
 
       getMessage: () => {
@@ -190,8 +193,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.warn(data);
           });
       },
-    }
-  }
-}
+    },
+  };
+};
 
 export default getState;

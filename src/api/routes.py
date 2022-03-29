@@ -182,7 +182,11 @@ def user_delete():
 def course_user():
     
     id = get_jwt_identity()
-    courses = Course.query.filter(Course.user_id == id)
-    
-    return ({'results':[course.serialize() for course in courses]})
+    courses = User.query.filter_by(id=id).one_or_none()
+    if courses:
+        user_courses=courses.tags
+        allcourses=[user_course.serialize() for user_course in  user_courses]
+        print("respuesta backend", allcourses)
+        return jsonify(allcourses), 200
+    return ({'error':'No ha funcionado'}), 404
 

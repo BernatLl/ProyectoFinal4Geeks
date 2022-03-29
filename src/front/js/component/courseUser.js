@@ -2,9 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/listadoCursos.css";
 import { Link } from "react-router-dom";
-import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
-import Clase from "../../img/claseRemote.jpg";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
@@ -20,13 +18,11 @@ export const CourseUser = () => {
 
   return (
     <>
-      
       <div className="container">
-        
         <Row className="g-4 mb-5">
           {store.courseUser.map((select, i) => (
-            <Col className="m-5">
-              <Card key={i}>
+            <Col className="m-5" key={i}>
+              <Card>
                 <Card.Img
                   className="card-img-top p-3"
                   variant="top"
@@ -40,7 +36,6 @@ export const CourseUser = () => {
                   <Link to={"/courseview/" + select.id}>
                     <Button variant="outline-primary">View Course</Button>
                   </Link>
-
                 </div>
               </Card>
             </Col>

@@ -127,7 +127,7 @@ export const User = () => {
           </div>
           <h1 className="titulo">My Courses</h1>
           <div className="container">
-          <CourseUser/>
+         <CourseUser/>
 
           </div>
         </>
