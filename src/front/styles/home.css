@@ -44,10 +44,10 @@
 
 .TopFive {
   height: auto;
-  width: 30%;
+  width: 100%;
   position: relative;
-  margin: 0%;
-  padding: 0%;
+  margin: 2%;
+  padding: 2%;
   font-size: 1vw;
   box-sizing: none;
 }

@@ -17,6 +17,7 @@
 .card{
     height: 100%;
     padding-bottom: 5%;
+    background-color: black;
 }
 .card-img-top {
     height: 100%;

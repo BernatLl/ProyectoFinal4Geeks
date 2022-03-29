@@ -31,6 +31,8 @@ export const Home = () => {
       <div className="BackHome">
         <div className="Home">
           <img id="BackHead" className="mt-m" src={HeaderImg}></img>
+          <Row>
+            <Col>
           <div className="mt-m" id="Bourdain">
             <h3>If I'm an advocate for anything,</h3>
             <h3>it's to move. As far as you can, </h3>
@@ -41,6 +43,8 @@ export const Home = () => {
             <h3>for everybody.</h3>
             <h3 className="Anthony">-Anthony Bourdain</h3>
           </div>
+          </Col>
+          <Col>
           <div className="carousel row">
             <Carousel className="TopFive">
               <Carousel.Item>
@@ -88,6 +92,8 @@ export const Home = () => {
               </Carousel.Item>
             </Carousel>
           </div>{" "}
+          </Col>
+          </Row>
           <div className="stuprof container">
             <Row>
               <div className="Students">
