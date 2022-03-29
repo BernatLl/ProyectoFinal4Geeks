@@ -1,29 +1,15 @@
-.navbody {
-  display: block;
-  background-color: black;
-  overflow: visible;
-  position: fixed;
-  top: 0;
-  margin: 0;
-  width: 100%;
-  height: auto;
-  z-index: 9999;
-  justify-content: center;
-}
-
-.homebutton {
-  padding: 1rem;
-  width: 14vw;
-  height: auto;
-}
-
 .student:hover,
 .professor:hover {
   background-color: #5a5858;
   color: #d96459;
   border-radius: 5px;
+  padding: 15%;
 }
-
+.navbarwidth {
+  width: 100%;
+  padding: 0%;
+  background-color: black;
+}
 .logo {
   width: 50%;
   height: auto;
@@ -47,10 +33,6 @@ a {
   text-decoration: none;
 }
 
-.search {
-  width: 100%;
-  height: auto;
-}
 
 .endbuttons {
   position: relative;
@@ -83,12 +65,12 @@ a {
 }
 
 .search-button,
-.stu-prof-cat,
-.logo,
-.endbuttons {
+.logo {
   margin: auto;
 }
-
+.me-auto{
+  width: 100%;
+}
 .blogout {
   max-width: 4rem;
   min-width: 3rem;
@@ -102,7 +84,6 @@ a {
   flex-direction: row;
 }
 
-.dataresults{
-  background-color: transparent;
+.dataresults {
+  background-color: black;
 }
-
