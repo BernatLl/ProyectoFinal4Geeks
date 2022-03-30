@@ -98,7 +98,7 @@ export const Profile = () => {
                 </Form.Group>
               </Col>
             </Row>
-
+            
             <input type="file"  placeholder="Select an image"
                 onChange={uploadImage} />
                 {loading ? (<h3>Loading...</h3>): (<img src={picture} style={{width: "200px"}} />)}

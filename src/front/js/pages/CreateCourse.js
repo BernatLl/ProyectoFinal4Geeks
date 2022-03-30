@@ -15,6 +15,32 @@ export const CreateCourse = () => {
   const [newCourse, setNewCourse] = useState({});
   const id = useParams().id;
 
+  const [picture, setPicture] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const uploadImage = async (e) => {
+   
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'ml_default')
+    setLoading(true)
+    const res = await fetch(
+      '	https://api.cloudinary.com/v1_1/bernardo-lloret/image/upload',
+      {
+        method: "POST",
+        body: data,
+        
+      }
+    )
+    const file = await res.json();
+
+    setPicture(file.secure_url);
+    setNewCourse({ ...newCourse, image: file.secure_url })
+    setLoading(false)
+    
+  }
+
   return (
     <>
       <img id="BackHead" className="mt-m" src={HeaderImg}></img>
@@ -195,13 +221,7 @@ export const CreateCourse = () => {
                     }}
                   />
                 </Form.Group>
-                {/* const { TextArea } = Input;
-
-                const onChange = e => {
-                  console.log('Change:', e.target.value);
-                ReactDOM.render(
-                  <TextArea showCount maxLength={100} style={{ height: 120 }} onChange={onChange} />,
-                  mountNode, */}
+                
                 
               </Row>
               <Row>
@@ -218,7 +238,7 @@ export const CreateCourse = () => {
                       });
                     }}
                   />
-                  <span>Click here to add ingredients +</span>
+                  
                 </Form.Group>
               </Row>
               <Row>
@@ -262,22 +282,18 @@ export const CreateCourse = () => {
                       setNewCourse({ ...newCourse, video: e.target.value });
                     }}
                   />
-                  <span>Click here to add another step +</span>
+                  
                 </Form.Group>
               </Row>
-              <Form.Group as={Col}>
+              <Row>
+              <Form.Group className="mt-3 mb-3" as={Col}>
                 <Form.Label>Please add Image URL</Form.Label>
-                <Form.Control
-                  id="TextInput"
-                  placeholder="Image URL"
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setNewCourse({ ...newCourse, img: e.target.value });
-                  }}
-                />
-                <span>Click here to add another step +</span>
+                <input type="file"  placeholder="Select an image"
+                onChange={uploadImage} />
+                {loading ? (<h3>Loading...</h3>): (<img src={picture} style={{width: "200px"}} />)}
+                
               </Form.Group>
-
+              </Row>
               <Link to={"/courseview/" + store.course.id}>
                 <Button
                   variant="primary"
