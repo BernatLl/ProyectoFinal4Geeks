@@ -28,7 +28,7 @@ export const FormContacto = () => {
             className="form-control"
             id="inputEmail4"
             required
-            placeholder="leon@gmail.com"
+            placeholder="email@email.com"
           />
         </div>
 
