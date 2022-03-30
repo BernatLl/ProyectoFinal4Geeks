@@ -1,7 +1,9 @@
 .search2 {
     width: 100%;
 }
-
+.search-button {
+  height: 40%;
+}
 
 .searchInputs2 {
     width: 100%;
@@ -17,8 +19,7 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     font-size: 18px;
-    padding: 15px;
-    height: 100%;
+    padding: 1%;
     width: 100%;
    
   }

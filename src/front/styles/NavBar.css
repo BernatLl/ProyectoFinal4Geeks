@@ -72,11 +72,9 @@ a {
   width: 100%;
 }
 .blogout {
-  max-width: 4rem;
-  min-width: 3rem;
+ 
   background-color: #5a5858;
-  font-size: smaller;
-  color: #d96459;
+  color: BEIGE;
   border-radius: 5px;
 }
 .buttons {

@@ -21,7 +21,7 @@ export const Login =()=>{
 
     const handleClick = ()=>{
         actions.login(email, password);
-        actions.loadUser();
+       
                    
     };
 
@@ -52,9 +52,9 @@ export const Login =()=>{
                         </Col>
                         
                     </Form.Group>
-                    {/* <Link to="/user">  */}
+                    <Link to="/"> 
                      <Button variant="outline-primary" onClick={handleClick}>Login</Button>
-                    {/* </Link> */}
+                    </Link>
 
                 </Form>}
                 

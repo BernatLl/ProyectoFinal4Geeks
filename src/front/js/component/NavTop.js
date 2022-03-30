@@ -25,9 +25,19 @@ export const NavTop = () => {
       </Navbar.Brand>
 
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav >
-          <Nav.Link href="/user">Student</Nav.Link>
-          <Nav.Link href="/chef">Professor</Nav.Link>
+        <Nav>
+        {!store.token ? (
+            <Nav.Link href="/user">Student</Nav.Link>
+          ) : (
+            <Nav.Link href="/user">Student Profile</Nav.Link>
+          )}
+          
+
+          {!store.token ? (
+            <Nav.Link href="/chef">Professor</Nav.Link>
+          ) : (
+            <Nav.Link href="/chef/1">Professor Profile</Nav.Link>
+          )}
         </Nav>
         <Nav className="me-auto mr-0">
           <div className="search-button col-xl">

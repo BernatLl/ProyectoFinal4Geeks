@@ -95,9 +95,9 @@ def get_course_by_id(course_id):
     return jsonify({'results': course.serialize()}), 200
 
 
-@api.route('/chef', methods=['GET'])
-def get_chef_by_id():
-    chef = Chef.query.get()
+@api.route('/chefbyid/<int:chef_id>', methods=['GET'])
+def get_chef_by_id(chef_id):
+    chef = Chef.query.get(chef_id)
     
     return jsonify({'results': chef.serialize()}), 200
 
