@@ -16,15 +16,15 @@
 }
 
 .describe {
-  display: none;
-  min-width: 100%;
+ 
   height: auto;
   margin-bottom: 10px;
 }
 
 .coursetittle {
-  display: none;
+  
   max-width: 50%;
+
 }
 
 .styleclass {

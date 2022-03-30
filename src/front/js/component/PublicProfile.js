@@ -21,23 +21,23 @@ export const PublicProfile = () => {
         
         {store.user.map((select, i) => (
           <div className="container-fluid" key={i}>
-            <Row>
-              <Col className="col-6">
+            <Row >
+              <Col className="col-6 pb-2">
                 <div>
                   <img src={select.image} className="fotoperfil" />
                 </div>
               </Col>
-              <Col className="col-6">
-                <div>
-                  <h4>Name: </h4>
-                  <p>{select.full_name}</p>
-                  <h4>Description: </h4>
-                  <p>{select.student_description}</p>
-                  <h4>User Name: </h4>
-                  <p> {select.username}</p>
-                  <h4>Email: </h4>
-                  <p> {select.email}</p>
-                </div>
+              <Col>
+                
+                  <h4>Name: {select.full_name}</h4>
+                  
+                  <h4>Description: {select.student_description}</h4>
+                  
+                  <h4>User Name: {select.username}</h4>
+                  
+                  <h4>Email: {select.email}</h4>
+                  
+                
               </Col>
             </Row>
           </div>

@@ -35,7 +35,7 @@ export const CourseView = () => {
             <h4>{courseDetail.description}</h4>
             <h4>{courseDetail.ingredient}</h4>
             <h4>{courseDetail.list_ingredients}</h4>
-            <h4>{courseDetail.price}€</h4>
+            
             <div className="imageCourse">
               <img src={courseDetail.img} />
             </div>

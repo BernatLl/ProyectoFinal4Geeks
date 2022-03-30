@@ -84,7 +84,7 @@ export const CreateCourse = () => {
 
           <div>
             <Form>
-              <Row className="mb-3">
+              <Row className="mb-5">
                 <Form.Group as={Col}>
                   <Form.Label className="coursetittle">
                     Name The Course
@@ -101,8 +101,9 @@ export const CreateCourse = () => {
                     }}
                   />
                 </Form.Group>
-
-                <div className="describe row">
+              </Row>
+              <Row>        
+                <div className="describe">
                   <Form.Group
                     className="context mb-3"
                     controlId="exampleForm.ControlTextarea1"
@@ -122,7 +123,10 @@ export const CreateCourse = () => {
                     />
                   </Form.Group>
                 </div>
-                <div className="styleclass row">
+                </Row>
+                <Row>
+                <div className="styleclass">
+                <Form.Label>Your main ingredient</Form.Label>
                   <Form.Select
                     aria-label="Default select example"
                     onChange={(e) => {
@@ -142,19 +146,7 @@ export const CreateCourse = () => {
                   </Form.Select>
                 </div>
               </Row>
-              <Row className="mb-3">
-                <Form.Group as={Col}>
-                  <Form.Label>Price</Form.Label>
-                  <Form.Control
-                    id="TextInput"
-                    placeholder="Type the Price in €"
-                    onChange={(e) => {
-                      e.preventDefault();
-                      setNewCourse({ ...newCourse, price: e.target.value });
-                    }}
-                  />
-                </Form.Group>
-              </Row>
+              
               <h4>Section one</h4>
               <h5>The course</h5>
               <span>
@@ -182,13 +174,13 @@ export const CreateCourse = () => {
                     placeholder="For example: Vegetables Stock"
                     onChange={(e) => {
                       e.preventDefault();
-                      setNewCourse({ ...newCourse, title: e.target.value });
+                      setNewCourse({ ...newCourse, title: e.target.value })
                     }}
                   />
                 </Form.Group>
               </Row>
               <Row>
-                <Form.Group
+                <Form.Group as={Col}
                   className="mb-3"
                   controlId="exampleForm.ControlTextarea1"
                 >
@@ -199,7 +191,7 @@ export const CreateCourse = () => {
                     placeholder="I learned this recipe from one of the best chef I know personally and i want to share this recipe to the world"
                     onChange={(e) => {
                       e.preventDefault();
-                      setNewCourse({ ...newCourse, history: e.target.value });
+                      setNewCourse({ ...newCourse, history: e.target.value })
                     }}
                   />
                 </Form.Group>
@@ -210,7 +202,7 @@ export const CreateCourse = () => {
                 ReactDOM.render(
                   <TextArea showCount maxLength={100} style={{ height: 120 }} onChange={onChange} />,
                   mountNode, */}
-                );
+                
               </Row>
               <Row>
                 <Form.Group as={Col}>
@@ -243,7 +235,7 @@ export const CreateCourse = () => {
                 </Form.Group>
               </Row>
               <Row>
-                <Form.Group
+                <Form.Group as={Col}
                   className="mb-3"
                   controlId="exampleForm.ControlTextarea1"
                 >
