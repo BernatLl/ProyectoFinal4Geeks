@@ -34,27 +34,25 @@ export const CourseView = () => {
         <div className="container p-1 my-5">
           <Row>
             <Col>
-            <div className="container">
-              <h1>Course name: {courseDetail.course_name}</h1>
-              <h4>Description: {courseDetail.description}</h4>
-              <h4>Main ingredient: {courseDetail.ingredient}</h4>
-              <h4>Ingredients list: {courseDetail.list_ingredients}</h4>
+              <div className="container">
+                <h1>Course name: {courseDetail.course_name}</h1>
+                <h4>Description: {courseDetail.description}</h4>
+                <h4>Main ingredient: {courseDetail.ingredient}</h4>
+                <h4>Ingredients list: {courseDetail.list_ingredients}</h4>
 
-               <h1>To enjoy the recipe login and buy the course</h1>
-            </div>
+                <h1>To enjoy the recipe login</h1>
+              </div>
             </Col>
             <Col>
-            <div className="imageCourse">
+              <div className="imageCourse">
                 <img src={courseDetail.img} />
               </div>
-              </Col>
+            </Col>
           </Row>
-          <Row className="justify-content-md-center mt-5 mb-5"> 
-          
-              <Link to={"/login"}>
-                <Button variant="outline-primary">Login</Button>
-              </Link>
-            
+          <Row className="justify-content-md-center mt-5 mb-5">
+            <Link to={"/login"}>
+              <Button variant="outline-primary">Login</Button>
+            </Link>
           </Row>
         </div>
       ) : (
