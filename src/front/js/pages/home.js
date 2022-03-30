@@ -51,9 +51,7 @@ export const Home = () => {
                 <div className="carutext">
                   <Carousel.Caption>
                     
-                    <p className="textcolor">
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
+                    
                   </Carousel.Caption>
                 </div>
               </Carousel.Item>
@@ -66,9 +64,7 @@ export const Home = () => {
                 <div className="carutext">
                   <Carousel.Caption>
                     
-                    <p className="textcolor">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
+                   
                   </Carousel.Caption>
                 </div>
               </Carousel.Item>
@@ -82,10 +78,7 @@ export const Home = () => {
                 <div className="carutext">
                   <Carousel.Caption>
                     
-                    <p className="textcolor">
-                      Praesent commodo cursus magna, vel scelerisque nisl
-                      consectetur.
-                    </p>
+                    
                   </Carousel.Caption>
                 </div>
               </Carousel.Item>
