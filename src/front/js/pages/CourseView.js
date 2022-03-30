@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import "../../../../node_modules/video-react/dist/video-react.css";
 import { Video } from "react-router-dom";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 export const CourseView = () => {
   const { store, actions } = useContext(Context);
@@ -30,23 +32,30 @@ export const CourseView = () => {
       <img id="BackHead" className="mt-m" src={HeaderImg}></img>
       {!store.token ? (
         <div className="container p-1 my-5">
-          <div className="container Content">
-            <h1>{courseDetail.course_name}</h1>
-            <h4>{courseDetail.description}</h4>
-            <h4>{courseDetail.ingredient}</h4>
-            <h4>{courseDetail.list_ingredients}</h4>
+          <Row>
+            <Col>
+            <div className="container">
+              <h1>Course name: {courseDetail.course_name}</h1>
+              <h4>Description: {courseDetail.description}</h4>
+              <h4>Main ingredient: {courseDetail.ingredient}</h4>
+              <h4>Ingredients list: {courseDetail.list_ingredients}</h4>
 
+               <h1>To enjoy the recipe login and buy the course</h1>
+            </div>
+            </Col>
+            <Col>
             <div className="imageCourse">
-              <img src={courseDetail.img} />
-            </div>
-
-            <h1>To enjoy the recipe login and buy the course</h1>
-            <div className="buybutton">
+                <img src={courseDetail.img} />
+              </div>
+              </Col>
+          </Row>
+          <Row className="justify-content-md-center mt-5 mb-5"> 
+          
               <Link to={"/login"}>
-                <Button>Login</Button>
+                <Button variant="outline-primary">Login</Button>
               </Link>
-            </div>
-          </div>
+            
+          </Row>
         </div>
       ) : (
         <div className="container">
@@ -56,7 +65,9 @@ export const CourseView = () => {
                 <h4>{courseDetail.course_name}</h4>
               </div>
               <div className="container">
-                <video className="videodiv" controls
+                <video
+                  className="videodiv"
+                  controls
                   src={courseDetail.video}
                   frameborder="0"
                   allow="autoplay; encrypted-media"
