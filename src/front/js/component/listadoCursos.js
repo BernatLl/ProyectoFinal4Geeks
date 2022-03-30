@@ -42,12 +42,27 @@ export const ListadoCursos = () => {
                   <Link to={"/courseview/" + select.id}>
                     <Button variant="outline-primary">Read More</Button>
                   </Link>
+                  
+                  {!store.token ? (
+                    
+                    <Link to={"/login"}>
+                    <Button variant="outline-primary"
+                  onClick={()=>{
+                    actions.SaveCourseUser(select.id);
+                  }}
+                  
+                  >Login to add course</Button>
+                  </Link>
+                  
+                  ): (
                   <Button variant="outline-primary"
                   onClick={()=>{
                     actions.SaveCourseUser(select.id);
                   }}
                   
-                  >Add to my Courses</Button>
+                  >Add to my Courses</Button>)}
+                  
+                  
 
 
 

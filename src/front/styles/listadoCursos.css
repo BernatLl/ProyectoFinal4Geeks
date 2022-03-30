@@ -40,3 +40,6 @@ a {
     justify-content: space-between;
     padding: 2%;
 }
+.m-5{
+    margin: .5rem !important;
+}
