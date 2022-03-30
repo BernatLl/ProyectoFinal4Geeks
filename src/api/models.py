@@ -91,7 +91,7 @@ class Course(db.Model):
     recipe = db.Column(db.String(1000), nullable=False)
     history = db.Column(db.String(1000), nullable=False)
     curiosity = db.Column(db.String(1000),  nullable=False)
-    price = db.Column(db.Float, nullable=False)
+    # price = db.Column(db.Float, nullable=False)
     title = db.Column(db.String(200),  nullable=False)
     video = db.Column(db.String(500), unique=True, nullable=False)
     img = db.Column(db.String(500), unique=True, nullable=False)
@@ -112,7 +112,7 @@ class Course(db.Model):
             'description':  self.description,
             'ingredient': self.ingredient,
             'list_ingredient':  self.list_ingredient,
-            'price': self.price,
+            # 'price': self.price,
             'title': self.title,
             'video': self.video,
             'img' : self.img,

@@ -9,7 +9,7 @@ import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import "../../../../node_modules/video-react/dist/video-react.css";
-
+import { Video } from "react-router-dom";
 
 export const CourseView = () => {
   const { store, actions } = useContext(Context);
@@ -35,7 +35,7 @@ export const CourseView = () => {
             <h4>{courseDetail.description}</h4>
             <h4>{courseDetail.ingredient}</h4>
             <h4>{courseDetail.list_ingredients}</h4>
-            
+
             <div className="imageCourse">
               <img src={courseDetail.img} />
             </div>
@@ -51,17 +51,18 @@ export const CourseView = () => {
       ) : (
         <div className="container">
           <div className=" wrapper">
-            <div className="Content">
+            <div className="container">
               <div className="Title">
                 <h4>{courseDetail.course_name}</h4>
               </div>
-              <div>
-              <iframe src={courseDetail.video}
-        frameborder="0"
-        allow='autoplay; encrypted-media'
-        allowfullscreen
-        title="video"
-/>
+              <div className="container">
+                <video className="videodiv" controls
+                  src={courseDetail.video}
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="video"
+                />
               </div>
             </div>
 
@@ -122,23 +123,24 @@ export const CourseView = () => {
                 </ol>{" "}
               </Tab>
             </Tabs>
-            <Link to="/payment">
+            <Link to="/">
               <Button
                 variant="outline-primary"
-                onClick={() => {
-                  let itemInCart = JSON.parse(localStorage.getItem("cart"));
-                  console.log(itemInCart);
-                  if (itemInCart == null) {
-                    localStorage.setItem("cart", JSON.stringify([select]));
-                  } else {
-                    if (!itemInCart.map((x) => x.id).includes(select.id)) {
-                      itemInCart.push(select);
-                      localStorage.setItem("cart", JSON.stringify(itemInCart));
-                    }
-                  }
-                }}
+
+                // onClick={() => {
+                //   let itemInCart = JSON.parse(localStorage.getItem("cart"));
+                //   console.log(itemInCart);
+                //   if (itemInCart == null) {
+                //     localStorage.setItem("cart", JSON.stringify([select]));
+                //   } else {
+                //     if (!itemInCart.map((x) => x.id).includes(select.id)) {
+                //       itemInCart.push(select);
+                //       localStorage.setItem("cart", JSON.stringify(itemInCart));
+                //     }
+                //   }
+                // }}
               >
-                Buy Course
+                Return Home
               </Button>
             </Link>
           </div>

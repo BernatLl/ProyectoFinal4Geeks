@@ -139,7 +139,7 @@ def create_course():
         description=body['description'], 
         ingredient=body['ingredient'], 
         list_ingredient=body['list_ingredient'], 
-        price=body['price'], 
+       
         title=body['title'], 
         video=body['video'], 
         img=body['img'] 

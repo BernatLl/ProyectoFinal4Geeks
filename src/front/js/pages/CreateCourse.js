@@ -16,6 +16,8 @@ export const CreateCourse = () => {
   const id = useParams().id;
 
   const [picture, setPicture] = useState('')
+  const [vid, setVid] = useState('')
+
   const [loading, setLoading] = useState(false)
 
   const uploadImage = async (e) => {
@@ -36,7 +38,29 @@ export const CreateCourse = () => {
     const file = await res.json();
 
     setPicture(file.secure_url);
-    setNewCourse({ ...newCourse, image: file.secure_url })
+    setNewCourse({ ...newCourse, img: file.secure_url })
+    setLoading(false)
+    
+  }
+  const uploadVideo = async (e) => {
+   
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'videoupload')
+    setLoading(true)
+    const res = await fetch(
+      '	https://api.cloudinary.com/v1_1/bernardo-lloret/video/upload',
+      {
+        method: "POST",
+        body: data,
+        
+      }
+    )
+    const file = await res.json();
+
+    setVid(file.secure_url);
+    setNewCourse({ ...newCourse, video: file.secure_url })
     setLoading(false)
     
   }
@@ -272,29 +296,24 @@ export const CreateCourse = () => {
                 </Form.Group>
               </Row>
               <Row>
-                <Form.Group as={Col}>
-                  <Form.Label>Please add Video URL</Form.Label>
-                  <Form.Control
-                    id="TextInput"
-                    placeholder="https://www.youtube.com/watch?v=MUxtbsAUfp8"
-                    onChange={(e) => {
-                      e.preventDefault();
-                      setNewCourse({ ...newCourse, video: e.target.value });
-                    }}
-                  />
-                  
-                </Form.Group>
+              <Form.Group className="mt-3 mb-3" as={Col}>
+                <Form.Label>Please add a Video file</Form.Label>
+                <input type="file"  placeholder="Select a video"
+                onChange={uploadVideo} />
+                {loading ? (<h3>Loading...</h3>): (<img src={vid} style={{width: "200px"}} />)}
+                
+              </Form.Group>
               </Row>
               <Row>
               <Form.Group className="mt-3 mb-3" as={Col}>
-                <Form.Label>Please add Image URL</Form.Label>
+                <Form.Label>Please add an Image file</Form.Label>
                 <input type="file"  placeholder="Select an image"
                 onChange={uploadImage} />
                 {loading ? (<h3>Loading...</h3>): (<img src={picture} style={{width: "200px"}} />)}
                 
               </Form.Group>
               </Row>
-              <Link to={"/courseview/" + store.course.id}>
+              <Link to={"/"} >
                 <Button
                   variant="primary"
                   type="submit"
