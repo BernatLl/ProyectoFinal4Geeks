@@ -11,7 +11,7 @@ import {
 
 export const Footer = () => (
   <footer className="footer mt-auto py-3 text-center">
-    <div className="container-footer">
+    <div className="container">
       <div className="row">
         <div className="col">
           <img src={logo} />

@@ -105,8 +105,7 @@ export const ChefProfile = () => {
                 <h4>{store.chef.full_name}</h4>
                 <p>{store.chef.email}</p>
                 <p>{store.chef.description}</p>
-                <p>{store.chef.bank_info}</p>
-                <p>{store.chef.address}</p>
+                
               </div>
             }
           </div>
