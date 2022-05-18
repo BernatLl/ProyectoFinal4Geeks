@@ -15,7 +15,9 @@ import "../../styles/listadoCursos.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-const stripePromise = loadStripe("pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG");
+const stripePromise = loadStripe(
+  "pk_test_51KX5EVHALwdtQVQYbbsSTSK7IiYobtzCy60HME3fmWgTJQau9FqM0ZNzX2U0hbfyMz0lBPdeq4aQ1ufuQX07FfCN00A23eYQaI"
+);
 
 const handleSubmit = (stripe, elements) => async () => {
   const cardElement = elements.getElement(CardElement);
@@ -66,57 +68,58 @@ const PaymentForm = () => {
         </div>
       </div>
       <div className="container mt-0 pt-0">
-        
-          <Row className="g-4 mb-5">
-            {coursesItems.map((select, i) => {
-              return (
-                <Col className="m-1">
-                  <Card key={i}>
-                    <Card.Img
-                      className="card-img-top p-3"
-                      variant="top"
-                      src={select.img}
-                    />
-                    <Card.Body>
-                      <Card.Title>{select.course_name}</Card.Title>
-                      <Card.Text>{select.description}</Card.Text>
-                    </Card.Body>
-                    <Button
-                      variant="outline-primary"
-                      onClick={() => {
-                        let itemInCart = JSON.parse(
-                          localStorage.getItem("cart")
+        <Row className="g-4 mb-5">
+          {coursesItems.map((select, i) => {
+            return (
+              <Col className="m-1">
+                <Card key={i}>
+                  <Card.Img
+                    className="card-img-top p-3"
+                    variant="top"
+                    src={select.img}
+                  />
+                  <Card.Body>
+                    <Card.Title>{select.course_name}</Card.Title>
+                    <Card.Text>{select.description}</Card.Text>
+                  </Card.Body>
+                  <Button
+                    variant="outline-primary"
+                    onClick={() => {
+                      let itemInCart = JSON.parse(localStorage.getItem("cart"));
+                      console.log(itemInCart);
+                      if (itemInCart.length == 1) {
+                        localStorage.setItem("cart", JSON.stringify([]));
+                        setCourseItems([]);
+                      } else if (itemInCart.length > 1) {
+                        let newcart = itemInCart.filter(
+                          (x) => x.id != select.id
                         );
-                        console.log(itemInCart);
-                        if (itemInCart.length == 1) {
-                          localStorage.setItem("cart", JSON.stringify([]));
-                          setCourseItems([]);
-                        } else if (itemInCart.length > 1) {
-                          let newcart = itemInCart.filter(
-                            (x) => x.id != select.id
-                          );
 
-                          localStorage.setItem("cart", JSON.stringify(newcart));
-                          setCourseItems(newcart);
-                        }
-                      }}
-                    >
-                      Delete from cart
-                    </Button>
-                  </Card>
-                </Col>
-              );
-            })}
-          </Row>
-        
+                        localStorage.setItem("cart", JSON.stringify(newcart));
+                        setCourseItems(newcart);
+                      }
+                    }}
+                  >
+                    Delete from cart
+                  </Button>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
       </div>
       <Card className="paymentCard">
         <Card.Body>
           <Card.Title>Payment</Card.Title>
+          <div></div>
           <CardElement options={{ style: { base: inputStyle } }} />
-          <Button className="buybutton" variant="dark" onClick={handleSubmit(stripe, elements)}>
+          <Button
+            className="buybutton"
+            variant="dark"
+            onClick={handleSubmit(stripe, elements)}
+          >
             Buy
-          </Button>{" "}
+          </Button>
         </Card.Body>
       </Card>
     </>

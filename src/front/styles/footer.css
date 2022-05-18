@@ -1,25 +1,15 @@
-.container-footer {
-  width: 100%;
-  margin: 0%;
-  margin-top: 50px;
-  color: rgba(217, 100, 89, 1);
-  padding: 0.4%;
-  text-align: left;
-  font-size: x-large;
-  position: relative;
-}
 .socialmedia {
   font-size: 50pt;
-  color: blue;
+  color: rgb(93, 93, 145);
   margin-right: 5%;
 }
 .footer {
-  background-color: #262626;
   opacity: 0.8;
-  max-height: 30vw;
+  max-height: 20vw;
   justify-content: space-evenly;
 }
 
 .lili {
   margin-top: 2rem;
+  color: rgb(223, 157, 157);
 }

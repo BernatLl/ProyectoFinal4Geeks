@@ -95,9 +95,9 @@ def get_course_by_id(course_id):
     return jsonify({'results': course.serialize()}), 200
 
 
-@api.route('/chef', methods=['GET'])
-def get_chef_by_id():
-    chef = Chef.query.get()
+@api.route('/chefbyid/<int:chef_id>', methods=['GET'])
+def get_chef_by_id(chef_id):
+    chef = Chef.query.get(chef_id)
     
     return jsonify({'results': chef.serialize()}), 200
 
@@ -111,7 +111,7 @@ def get_chef_by_id():
 #     db.session.commit()
 #     return jsonify({'response':user.serialize()}), 200
 
-@api.route('/edituser/', methods=['PUT'])
+@api.route('/editstudent/', methods=['PUT'])
 def user():
     body = request.get_json()
     user = User(username=body['username'], email=body['email'], full_name=body['full_name'], password=body['password'], student_description=body['student_description'], facebook_url=body['facebook_url'], twitter_url=body['twitter_url'], linkedin_url=body['linkedin_url'], instagram_url=body['instagram_url'], image=body['image'])
@@ -139,7 +139,7 @@ def create_course():
         description=body['description'], 
         ingredient=body['ingredient'], 
         list_ingredient=body['list_ingredient'], 
-        price=body['price'], 
+       
         title=body['title'], 
         video=body['video'], 
         img=body['img'] 
@@ -162,60 +162,59 @@ def get_my_information():
    
     return jsonify(dictionary)
 
-#@api.route('/chef', methods=['GET'])
-# def get_chef():
-#     chef = Chef.query.all()
-#     chef_serialized = []
-#     for y in chef:
-#         chef_serialized.append(y.serialize())
-#     return jsonify({'results': chef_serialized}), 200
-
-#login
-# @api.route('/login', methods=['POST'])
-# def login():
-#     username, password = request.json.get(
-#         'username', None
-#     ), request.json.get(
-#         'password', None
-#     )
-#     if not (username and password):
-#         return jsonify({'message':'Data not provided'}), 400
-
-#     #TRAER DE MI BASE DE DATOS UN USUARIO POR EMAIL
-
-#     user = Student.query.filter_by(email = username)
-
-#     if not user:
-#         return jsonify({'message': 'Username is not valid'}), 404
-
-#     #comprobar si la contraseña es correcta    
-
-#     if not check_password_hash(user.password, password):
-#         return jsonify({'message':'Your password does not match'}), 500
-
-#     token = create_access_token(identity=user.id)
-#     return jsonify({'token': token}), 200
+@api.route('/deleteaccount', methods=['DELETE'])
+@jwt_required()
+def user_delete():
     
-# @api.route('/signup', methods=['POST'])
-# def sign_up():
+    userId = get_jwt_identity()
+    if not userId:
+        return jsonify({'Error':'User not found'}), 404
+    user = User.query.filter_by(id=userId).one_or_none()
+    print("user deleted", user)
+    # user.delete()
+    
+    db.session.delete(user)
+    db.session.commit()
+    return jsonify('User deleted'), 200
 
-#     email, full_name, username, password = request.json.get('email', None), request.json.get('full_name', None), request.json.get('nick_name', None), request.json.get('password', None)
+@api.route('/user/course', methods=['GET'])
+@jwt_required()
+def course_user():
+    
+    id = get_jwt_identity()
+    courses = User.query.filter_by(id=id).one_or_none()
+    if courses:
+        user_courses=courses.tags
+        allcourses=[user_course.serialize() for user_course in  user_courses]
+        print("respuesta backend", allcourses)
+        return jsonify(allcourses), 200
+    return ({'error':'No ha funcionado'}), 404
 
-#     if not (email and full_name and username and password):
-#         return jsonify({'message':'Data not provided'}), 400
+@api.route('/savecourseuser/<int:course_id>', methods=['POST'])
+@jwt_required()
+def save_course_user(course_id):
 
-#     passe = generate_password_hash(password) 
-#     user = Student(email=email, full_name=full_name, username=username, password = passe)   
+    id = get_jwt_identity()
+    student = User.query.get(id)
+    
+    course = Course.query.get(course_id)
+    if course not in student.tags:
+        student.tags.append(course)
+        db.session.add(course)
+        db.session.commit()
+        return jsonify({'response': True}),200
 
-#     try:
+@api.route('/deletecourseuser/<int:course_id>', methods=['DELETE'])
+@jwt_required()
+def delete_course_user(course_id):
 
-#         db.session.add(user)
-#         userCreated = db.session.commit()
-#         token = create_access_token(identity=userCreated.id)
-#         return jsonify({'token': token}), 201
-
-#     except Exception as err:
-#         return jsonify({'message': str(err)}), 500
-
-
-
+    id = get_jwt_identity()
+    student = User.query.get(id)
+    
+    course = Course.query.get(course_id)
+    
+    student.tags.remove(course)
+    
+    db.session.commit()
+    return jsonify({'response': True}),200
+    

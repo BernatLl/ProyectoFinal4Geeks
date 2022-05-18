@@ -16,16 +16,19 @@ export const ListadoCursos = () => {
 
   useEffect(() => {
     actions.loadCourses();
+    
   }, []);
+  
 
   return (
     <>
-      <h1 className="title">Courses List</h1>
+      
       <div className="container">
+        <h1 className="title">Courses List</h1>
         <Row className="g-4 mb-5">
           {store.course.map((select, i) => (
-            <Col className="m-1">
-              <Card key={i}>
+            <Col className="m-5"key={i}>
+              <Card >
                 <Card.Img
                   className="card-img-top p-3"
                   variant="top"
@@ -35,28 +38,55 @@ export const ListadoCursos = () => {
                   <Card.Title>{select.title}</Card.Title>
                   <Card.Text>{select.description}</Card.Text>
                 </Card.Body>
-                <Link to={"/courseview/" + select.id}>
-                  <Button variant="outline-primary">Read More</Button>
-                </Link>
-
-                <Button
-                  variant="outline-primary"
-                  onClick={() => {
-                    let itemInCart = JSON.parse(localStorage.getItem("cart"));
-                    console.log(itemInCart);
-                    if (itemInCart == null) {
-                      localStorage.setItem("cart", JSON.stringify([select]));
-                    }else{
-						if(!itemInCart.map(x => x.id).includes(select.id)){
-							itemInCart.push(select)
-						localStorage.setItem("cart", JSON.stringify(itemInCart))
-						}
-						
-					}
+                <div className="buttoncourselist">
+                  <Link to={"/courseview/" + select.id}>
+                    <Button variant="outline-primary">Read More</Button>
+                  </Link>
+                  
+                  {!store.token ? (
+                    
+                    <Link to={"/login"}>
+                    <Button variant="outline-primary"
+                  onClick={()=>{
+                    actions.SaveCourseUser(select.id);
                   }}
-                >
-                  Add to cart
-                </Button>
+                  
+                  >Login to add course</Button>
+                  </Link>
+                  
+                  ): (
+                  <Button variant="outline-primary"
+                  onClick={()=>{
+                    actions.SaveCourseUser(select.id);
+                  }}
+                  
+                  >Add to my Courses</Button>)}
+                  
+                  
+
+
+
+                  {/* <Button
+                    variant="outline-primary"
+                    onClick={() => {
+                      let itemInCart = JSON.parse(localStorage.getItem("cart"));
+                      console.log(itemInCart);
+                      if (itemInCart == null) {
+                        localStorage.setItem("cart", JSON.stringify([select]));
+                      } else {
+                        if (!itemInCart.map((x) => x.id).includes(select.id)) {
+                          itemInCart.push(select);
+                          localStorage.setItem(
+                            "cart",
+                            JSON.stringify(itemInCart)
+                          );
+                        }
+                      }
+                    }}
+                  >
+                    Add to cart
+                  </Button> */}
+                </div>
               </Card>
             </Col>
           ))}

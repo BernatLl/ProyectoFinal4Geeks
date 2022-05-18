@@ -13,31 +13,33 @@ export const PublicProfile = () => {
 
   return (
     <>
+    <div className="container pt-10">
       <div className="titulo-profile">
-        <h1>Public profile</h1>
-      </div>
+          <h1>Public profile</h1>
+        </div>
       
-
-      <div className="container">
-      
-        {store.user.map((select, i)=>(
+        
+        {store.user.map((select, i) => (
           <div className="container-fluid" key={i}>
-            <Row>
-              <Col className="col-6">
-                  <div   >
-                  <img src={select.image} className="fotoperfil"  />
-                  </div>
-              </Col> 
-              <Col className="col-6">   
-                  <div>
-                    <h4>{select.full_name}</h4>
-                    <p>{select.student_description}</p>
-                    <p>{select.username}</p>
-                    <p>{select.email}</p>
-                  </div>
-              </Col>    
+            <Row >
+              <Col className="col-6 pb-2">
+                <div>
+                  <img src={select.image} className="fotoperfil" />
+                </div>
+              </Col>
+              <Col>
+                
+                  <h4>Name: {select.full_name}</h4>
+                  
+                  <h4>Description: {select.student_description}</h4>
+                  
+                  <h4>User Name: {select.username}</h4>
+                  
+                  <h4>Email: {select.email}</h4>
+                  
+                
+              </Col>
             </Row>
-            
           </div>
         ))}
       </div>

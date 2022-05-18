@@ -1,54 +1,36 @@
-.navbody {
-  display: block;
-  background-color: black;
-  overflow:visible;
-  position: fixed;
-  top:0;
-  margin: 0;
-  width: 100%;
-  height: auto;
-  z-index: 9999;
-  justify-content: center;
-}
-
-.homebutton {
-  padding: 1rem;
-  width: 14vw;
-  height: auto;
-}
-
 .student:hover,
 .professor:hover {
   background-color: #5a5858;
   color: #d96459;
   border-radius: 5px;
+  padding: 15%;
 }
-
+.navbarwidth {
+  width: 100%;
+  padding: 0%;
+  background-color: black;
+}
 .logo {
   width: 50%;
   height: auto;
 }
 
 .stu-prof-cat {
-  
   display: flex;
-  font-size: 1vw;
-  justify-content:flex-start;
+  font-size: 1.2vw;
+  justify-content: flex-start;
   padding: 5px;
+  gap: 2rem;
 }
 
-.search .student,
+.student,
 .professor {
   color: beige;
+  text-decoration: none !important;
 }
 
 a {
   text-decoration: none;
-}
-
-.search {
-  /* margin-right: 1rem; */
-  width: 100%;
 }
 
 
@@ -57,11 +39,10 @@ a {
   max-width: 30%;
   margin: auto;
   padding: 0%;
-  align-items: flex-end;
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
+
 .blogin {
   margin-right: 0.5rem;
 }
@@ -75,29 +56,32 @@ a {
   min-height: 2rem;
   background-color: #5a5858;
   font-size: small;
-  display: inline-flex;
+  justify-content: center;
+  text-align: center;
   color: BEIGE;
   border-radius: 5px;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .search-button,
-.stu-prof-cat,
-.logo,
-.endbuttons {
+.logo {
   margin: auto;
 }
-
+.me-auto{
+  width: 100%;
+}
 .blogout {
-  max-width: 4rem;
-  min-width: 3rem;
+ 
   background-color: #5a5858;
-  font-size: smaller;
-  color: #d96459;
+  color: BEIGE;
   border-radius: 5px;
 }
 .buttons {
   display: flex;
   flex-direction: row;
+}
+
+.dataresults {
+  background-color: black;
 }

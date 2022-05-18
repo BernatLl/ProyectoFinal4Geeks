@@ -2,13 +2,14 @@
   display: block;
   margin: auto;
   height: 100%;
-  padding-top: 10%;
-  margin-bottom: 5rem;
+ width: 100%;
 }
 .fotoperfil {
-  border-radius: 30%;
-  margin-bottom: 2%;
-  width: 100%;
+  object-fit: cover;
+  border-radius: 10%;
+  margin-bottom: 7%;
+  width: 50%;
+  
 }
 .titulo-profile {
   margin-bottom: auto;

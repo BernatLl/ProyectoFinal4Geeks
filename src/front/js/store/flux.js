@@ -4,15 +4,15 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       token: null,
       urlapi:
-        "https://3001-bernatll-proyectofinal4g-42z5g7mlyoh.ws-eu38.gitpod.io/api/",
+        "https://3001-bernatll-proyectofinal4g-0hg8qcy39bg.ws-eu38.gitpod.io/api/",
 
       course: [],
-
       chef: [],
       newUser: [],
       newCourse: [],
       newChef: [],
       user: [],
+      courseUser: [],
     },
     actions: {
       loadCourses: () => {
@@ -22,8 +22,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => console.error(error));
       },
 
-      loadChefs: () => {
-        fetch(getStore().urlapi + "chef")
+      loadChefs: (id) => {
+        fetch(getStore().urlapi + "chef" + id)
           .then((response) => response.json())
           .then((data) => setStore({ chef: data.results }))
           .catch((error) => console.error(error));
@@ -49,34 +49,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("this came from the backend", data);
           localStorage.setItem("token", data.token);
           setStore({ token: data.token });
+          getActions().loadUser();
           return true;
         } catch (error) {
           console.error("Error!!!!!", error);
         }
       },
-      // .catch(error =>{
-      //   console.error("Error!!!!!", error);
-      // })
-      // const data = await response.json();
-      // localStorage.setItem("token", data.token);
-      // setStore({ token: data.token });
-      // setStore({ token: data });
 
-      // loadStudents: () => {
-      //   const store = getStore();
-      //   fetch(getStore().urlapi + "user", {
-      //     method: "GET",
-      //     headers: {
-      //       Authorization: "Bearer " + store.token,
-      //     },
-      //   })
-      //     .then((response) => response.json())
-      //     .then((data) => {
-      //       setStore({ student: data.results });
-      //       console.log(data.results);
-      //     })
-      //     .catch((error) => console.error(error));
-      // },
       loadUser: () => {
         const store = getStore();
         fetch(getStore().urlapi + "userinfo", {
@@ -166,34 +145,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.removeItem("token");
         setStore({ token: null });
       },
-
-      // login: async (email, password) => {
-      //   const opts = {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       email: email,
-      //       password: password,
-      //     }),
-      //   };
-      //   try {
-      //     const resp = await fetch(getStore().urlapi + "token", opts);
-      //     if (resp.status !== 200) {
-      //       alert("There has been an error!!!");
-      //       return false;
-      //     }
-
-      //     const data = await resp.json();
-      //     sessionStorage.getItem("token", data);
-      //     setStore({ token: data });
-      //     console.log("token", getStore().token);
-      //     return true;
-      //   } catch (error) {
-      //     console.error("There was been an error login in");
-      //   }
-      // },
+      getCourseOfUser: async () => {
+        const store = getStore();
+        const response = await fetch(getStore().urlapi + "user/course", {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + store.token,
+          },
+        });
+        if (response.ok) {
+          const data = await response.json();
+          console.log("AAAAAAAAAAAAAA"+data);
+          setStore({courseUser:data });
+          
+        }
+        console.log("esto es lo que tengo"+getStore(store.courseUser));
+      },
 
       getMessage: () => {
         const store = getStore();
@@ -212,20 +179,58 @@ const getState = ({ getStore, getActions, setStore }) => {
           );
       },
 
-      // getUserInformation: async()=>{
-      // 	const response = await fetch(
-      // 		"https://3001-bernatll-proyectofinal4g-uson41704j4.ws-eu34xl.gitpod.io/api/" + "user", {
-      // 			headers: {
-      // 				'Accept':'application/json',
-      // 				'Authorization': `Bearer ${localStorage.getItem('token')}`
-      // 			}
-      // 		}
-      // 	);
-      // 	const data = await response.json();
-      // 	console.log(data); //Informacion del usuario que inicia sesion
-      // },
-    },
-  };
+      deleteAccount: () => {
+        const store = getStore();
+        fetch(getStore().urlapi + "deleteaccount", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + store.token,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.warn(data);
+          });
+      },
+      SaveCourseUser: async (courseId) => {
+        const response = await fetch(
+          getStore().urlapi + "savecourseuser/" + courseId,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+
+        if (response.status == 200) {
+          getActions().getCourseOfUser();
+          const blabla = await response.json();
+          return blabla.response;
+        }
+      },
+
+      DeleteCourseUser: async (courseId) => {
+        const response = await fetch(
+          getStore().urlapi + "deletecourseuser/" + courseId,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        )
+        if (response.status == 200) {
+          getActions().getCourseOfUser();
+          const blabla = await response.json();
+          return blabla.response;
+        }
+      }
+  }}
 };
 
 export default getState;

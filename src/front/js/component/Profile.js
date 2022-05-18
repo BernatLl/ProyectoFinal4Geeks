@@ -4,11 +4,39 @@ import Form from "react-bootstrap/Form";
 import { Context } from "../store/appContext";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Input } from "antd";
+
 
 export const Profile = () => {
   const { store, actions } = useContext(Context);
 
   const [newStudent, setNewStudent] = useState({});
+
+  const [picture, setPicture] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const uploadImage = async (e) => {
+   
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'ml_default')
+    setLoading(true)
+    const res = await fetch(
+      '	https://api.cloudinary.com/v1_1/bernardo-lloret/image/upload',
+      {
+        method: "POST",
+        body: data,
+        
+      }
+    )
+    const file = await res.json();
+
+    setPicture(file.secure_url);
+    setNewStudent({ ...newStudent, image: file.secure_url })
+    setLoading(false)
+    
+  }
 
   return (
     <>
@@ -18,6 +46,7 @@ export const Profile = () => {
           <fieldset>
             <Form.Group className="mb-3">
               <Form.Control
+              
                 id="TextInput"
                 placeholder="Add a Username"
                 onChange={(e) => {
@@ -69,18 +98,11 @@ export const Profile = () => {
                 </Form.Group>
               </Col>
             </Row>
-
-            <Form.Group className="mb-3">
-              <Form.Control
-                id="TextInput"
-                placeholder="Add a image url"
-                onChange={(e) => {
-                  e.preventDefault();
-                  setNewStudent({ ...newStudent, image: e.target.value });
-                }}
-              />
-            </Form.Group>
-
+            
+            <input type="file"  placeholder="Select an image"
+                onChange={uploadImage} />
+                {loading ? (<h3>Loading...</h3>): (<img src={picture} style={{width: "200px"}} />)}
+              
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"

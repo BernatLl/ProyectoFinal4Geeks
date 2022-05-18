@@ -15,6 +15,56 @@ export const CreateCourse = () => {
   const [newCourse, setNewCourse] = useState({});
   const id = useParams().id;
 
+  const [picture, setPicture] = useState('')
+  const [vid, setVid] = useState('')
+
+  const [loading, setLoading] = useState(false)
+
+  const uploadImage = async (e) => {
+   
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'ml_default')
+    setLoading(true)
+    const res = await fetch(
+      '	https://api.cloudinary.com/v1_1/bernardo-lloret/image/upload',
+      {
+        method: "POST",
+        body: data,
+        
+      }
+    )
+    const file = await res.json();
+
+    setPicture(file.secure_url);
+    setNewCourse({ ...newCourse, img: file.secure_url })
+    setLoading(false)
+    
+  }
+  const uploadVideo = async (e) => {
+   
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'videoupload')
+    setLoading(true)
+    const res = await fetch(
+      '	https://api.cloudinary.com/v1_1/bernardo-lloret/video/upload',
+      {
+        method: "POST",
+        body: data,
+        
+      }
+    )
+    const file = await res.json();
+
+    setVid(file.secure_url);
+    setNewCourse({ ...newCourse, video: file.secure_url })
+    setLoading(false)
+    
+  }
+
   return (
     <>
       <img id="BackHead" className="mt-m" src={HeaderImg}></img>
@@ -84,7 +134,7 @@ export const CreateCourse = () => {
 
           <div>
             <Form>
-              <Row className="mb-3">
+              <Row className="mb-5">
                 <Form.Group as={Col}>
                   <Form.Label className="coursetittle">
                     Name The Course
@@ -101,8 +151,9 @@ export const CreateCourse = () => {
                     }}
                   />
                 </Form.Group>
-
-                <div className="describe row">
+              </Row>
+              <Row>        
+                <div className="describe">
                   <Form.Group
                     className="context mb-3"
                     controlId="exampleForm.ControlTextarea1"
@@ -122,7 +173,10 @@ export const CreateCourse = () => {
                     />
                   </Form.Group>
                 </div>
-                <div className="styleclass row">
+                </Row>
+                <Row>
+                <div className="styleclass">
+                <Form.Label>Your main ingredient</Form.Label>
                   <Form.Select
                     aria-label="Default select example"
                     onChange={(e) => {
@@ -142,19 +196,7 @@ export const CreateCourse = () => {
                   </Form.Select>
                 </div>
               </Row>
-              <Row className="mb-3">
-                <Form.Group as={Col}>
-                  <Form.Label>Price</Form.Label>
-                  <Form.Control
-                    id="TextInput"
-                    placeholder="Type the Price in €"
-                    onChange={(e) => {
-                      e.preventDefault();
-                      setNewCourse({ ...newCourse, price: e.target.value });
-                    }}
-                  />
-                </Form.Group>
-              </Row>
+              
               <h4>Section one</h4>
               <h5>The course</h5>
               <span>
@@ -182,13 +224,13 @@ export const CreateCourse = () => {
                     placeholder="For example: Vegetables Stock"
                     onChange={(e) => {
                       e.preventDefault();
-                      setNewCourse({ ...newCourse, title: e.target.value });
+                      setNewCourse({ ...newCourse, title: e.target.value })
                     }}
                   />
                 </Form.Group>
               </Row>
               <Row>
-                <Form.Group
+                <Form.Group as={Col}
                   className="mb-3"
                   controlId="exampleForm.ControlTextarea1"
                 >
@@ -199,18 +241,12 @@ export const CreateCourse = () => {
                     placeholder="I learned this recipe from one of the best chef I know personally and i want to share this recipe to the world"
                     onChange={(e) => {
                       e.preventDefault();
-                      setNewCourse({ ...newCourse, history: e.target.value });
+                      setNewCourse({ ...newCourse, history: e.target.value })
                     }}
                   />
                 </Form.Group>
-                const { TextArea } = Input;
-
-                const onChange = e => {
-                  console.log('Change:', e.target.value);
-                ReactDOM.render(
-                  <TextArea showCount maxLength={100} style={{ height: 120 }} onChange={onChange} />,
-                  mountNode,
-                );
+                
+                
               </Row>
               <Row>
                 <Form.Group as={Col}>
@@ -226,7 +262,7 @@ export const CreateCourse = () => {
                       });
                     }}
                   />
-                  <span>Click here to add ingredients +</span>
+                  
                 </Form.Group>
               </Row>
               <Row>
@@ -243,7 +279,7 @@ export const CreateCourse = () => {
                 </Form.Group>
               </Row>
               <Row>
-                <Form.Group
+                <Form.Group as={Col}
                   className="mb-3"
                   controlId="exampleForm.ControlTextarea1"
                 >
@@ -260,33 +296,24 @@ export const CreateCourse = () => {
                 </Form.Group>
               </Row>
               <Row>
-                <Form.Group as={Col}>
-                  <Form.Label>Please add Video URL</Form.Label>
-                  <Form.Control
-                    id="TextInput"
-                    placeholder="https://www.youtube.com/watch?v=MUxtbsAUfp8"
-                    onChange={(e) => {
-                      e.preventDefault();
-                      setNewCourse({ ...newCourse, video: e.target.value });
-                    }}
-                  />
-                  <span>Click here to add another step +</span>
-                </Form.Group>
-              </Row>
-              <Form.Group as={Col}>
-                <Form.Label>Please add Image URL</Form.Label>
-                <Form.Control
-                  id="TextInput"
-                  placeholder="Image URL"
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setNewCourse({ ...newCourse, img: e.target.value });
-                  }}
-                />
-                <span>Click here to add another step +</span>
+              <Form.Group className="mt-3 mb-3" as={Col}>
+                <Form.Label>Please add a Video file</Form.Label>
+                <input type="file"  placeholder="Select a video"
+                onChange={uploadVideo} />
+                {loading ? (<h3>Loading...</h3>): (<img src={vid} style={{width: "200px"}} />)}
+                
               </Form.Group>
-
-              <Link to={"/courseview/" + store.course.id}>
+              </Row>
+              <Row>
+              <Form.Group className="mt-3 mb-3" as={Col}>
+                <Form.Label>Please add an Image file</Form.Label>
+                <input type="file"  placeholder="Select an image"
+                onChange={uploadImage} />
+                {loading ? (<h3>Loading...</h3>): (<img src={picture} style={{width: "200px"}} />)}
+                
+              </Form.Group>
+              </Row>
+              <Link to={"/"} >
                 <Button
                   variant="primary"
                   type="submit"

@@ -3,8 +3,8 @@
   width: auto;
   background-color: rgba(73, 71, 69, 0.9);
 }
-.videowrapper {
-  max-width: 100%;
+.videodiv {
+  width: 100%;
 }
 
 .PillsWrapper {
@@ -47,4 +47,12 @@
 .TabTittle {
   padding: 1%;
   margin-left: 2%;
+}
+.imageCourse img{
+  width: 70%;
+  height: auto;
+}
+.imageCourse{
+  text-align: center;
+  padding-bottom: 2%;
 }

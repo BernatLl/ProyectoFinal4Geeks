@@ -16,6 +16,7 @@ import { CreateUser } from "./pages/createUser";
 import { CourseView } from "./pages/CourseView";
 import { ModalPayment } from "../js/component/ModalPayment";
 import { Chef } from "./pages/chef";
+import { ChefInfo } from "./pages/chefInfo";
 
 //create your first component
 const Layout = () => {
@@ -38,6 +39,9 @@ const Layout = () => {
                 <Route exact path="/user">
                   <User />
                 </Route>
+                <Route exact path="/chef/:id">
+                  <ChefInfo />
+                </Route>
                 <Route exact path="/chef">
                   <Chef />
                 </Route>
@@ -50,9 +54,7 @@ const Layout = () => {
                 <Route exact path="/search">
                   <Search />
                 </Route>
-                <Route exact path="/payment">
-                  <Payment />
-                </Route>
+                
                 <Route exact path="/courseview/:id">
                   <CourseView />
                 </Route>
